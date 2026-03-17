@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c0d1rj5ct5dp7"]
+
+[ext_resource type="Texture2D" uid="uid://bjeuha2beepjr" path="res://assest/background.png" id="1_ots34"]
+
+[node name="Node2D" type="Node2D" unique_id=1691228303]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1653150265]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=834364445]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/Control" unique_id=708983895]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ots34")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1580144290]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=2055233949]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=62633084]
+layout_mode = 2
+text = "123"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1719152310]
+layout_mode = 2
