@@ -1,0 +1,56 @@
+[
+  {
+    "id": "plan_pillow_notes", "name_key": "PLAN_PILLOW_NAME", "description_key": "PLAN_PILLOW_DESC", "min_level": 2,
+    "animation": "pillow_flop", "behavior_tags": ["sleep"], "inspiration_furniture": ["furn_pillow_cloud", "furn_nightlight_moon", "furn_blanket_roll"],
+    "entries": [
+      {"id": "note_pillow_1", "seconds": 600, "title_key": "NOTE_PILLOW_1_TITLE", "text_key": "NOTE_PILLOW_1_TEXT"},
+      {"id": "note_pillow_2", "seconds": 2400, "title_key": "NOTE_PILLOW_2_TITLE", "text_key": "NOTE_PILLOW_2_TEXT"},
+      {"id": "note_pillow_3", "seconds": 5400, "title_key": "NOTE_PILLOW_3_TITLE", "text_key": "NOTE_PILLOW_3_TEXT"}
+    ]
+  },
+  {
+    "id": "plan_snack_reviews", "name_key": "PLAN_SNACK_NAME", "description_key": "PLAN_SNACK_DESC", "min_level": 3,
+    "animation": "tea", "behavior_tags": ["food"], "inspiration_furniture": ["furn_table_snack", "furn_cookie_jar", "furn_kettle_round"],
+    "entries": [
+      {"id": "note_snack_1", "seconds": 600, "title_key": "NOTE_SNACK_1_TITLE", "text_key": "NOTE_SNACK_1_TEXT"},
+      {"id": "note_snack_2", "seconds": 2400, "title_key": "NOTE_SNACK_2_TITLE", "text_key": "NOTE_SNACK_2_TEXT"},
+      {"id": "note_snack_3", "seconds": 5400, "title_key": "NOTE_SNACK_3_TITLE", "text_key": "NOTE_SNACK_3_TEXT"}
+    ]
+  },
+  {
+    "id": "plan_gentle_exercise", "name_key": "PLAN_EXERCISE_NAME", "description_key": "PLAN_EXERCISE_DESC", "min_level": 4,
+    "animation": "yoga", "behavior_tags": ["active"], "inspiration_furniture": ["furn_yoga_mat", "furn_soft_ball", "furn_treadmill"],
+    "entries": [
+      {"id": "note_exercise_1", "seconds": 600, "title_key": "NOTE_EXERCISE_1_TITLE", "text_key": "NOTE_EXERCISE_1_TEXT"},
+      {"id": "note_exercise_2", "seconds": 2400, "title_key": "NOTE_EXERCISE_2_TITLE", "text_key": "NOTE_EXERCISE_2_TEXT"},
+      {"id": "note_exercise_3", "seconds": 5400, "title_key": "NOTE_EXERCISE_3_TITLE", "text_key": "NOTE_EXERCISE_3_TEXT"}
+    ]
+  },
+  {
+    "id": "plan_afternoon_reading", "name_key": "PLAN_READING_NAME", "description_key": "PLAN_READING_DESC", "min_level": 5,
+    "animation": "read", "behavior_tags": ["curious"], "inspiration_furniture": ["furn_bookshelf_low", "furn_mirror_round", "furn_easel"],
+    "entries": [
+      {"id": "note_reading_1", "seconds": 600, "title_key": "NOTE_READING_1_TITLE", "text_key": "NOTE_READING_1_TEXT"},
+      {"id": "note_reading_2", "seconds": 2400, "title_key": "NOTE_READING_2_TITLE", "text_key": "NOTE_READING_2_TEXT"},
+      {"id": "note_reading_3", "seconds": 5400, "title_key": "NOTE_READING_3_TITLE", "text_key": "NOTE_READING_3_TEXT"}
+    ]
+  },
+  {
+    "id": "plan_window_observations", "name_key": "PLAN_WINDOW_NAME", "description_key": "PLAN_WINDOW_DESC", "min_level": 6,
+    "animation": "weather", "behavior_tags": ["quiet"], "inspiration_furniture": ["furn_plant_sprout", "furn_weather_charm", "furn_wind_chime"],
+    "entries": [
+      {"id": "note_window_1", "seconds": 600, "title_key": "NOTE_WINDOW_1_TITLE", "text_key": "NOTE_WINDOW_1_TEXT"},
+      {"id": "note_window_2", "seconds": 2400, "title_key": "NOTE_WINDOW_2_TITLE", "text_key": "NOTE_WINDOW_2_TEXT"},
+      {"id": "note_window_3", "seconds": 5400, "title_key": "NOTE_WINDOW_3_TITLE", "text_key": "NOTE_WINDOW_3_TEXT"}
+    ]
+  },
+  {
+    "id": "plan_household_expedition", "name_key": "PLAN_EXPEDITION_NAME", "description_key": "PLAN_EXPEDITION_DESC", "min_level": 8,
+    "animation": "robot_ride", "behavior_tags": ["active", "curious"], "inspiration_furniture": ["furn_cleaning_robot", "furn_cardboard_castle", "furn_telescope"],
+    "entries": [
+      {"id": "note_expedition_1", "seconds": 600, "title_key": "NOTE_EXPEDITION_1_TITLE", "text_key": "NOTE_EXPEDITION_1_TEXT"},
+      {"id": "note_expedition_2", "seconds": 2400, "title_key": "NOTE_EXPEDITION_2_TITLE", "text_key": "NOTE_EXPEDITION_2_TEXT"},
+      {"id": "note_expedition_3", "seconds": 5400, "title_key": "NOTE_EXPEDITION_3_TITLE", "text_key": "NOTE_EXPEDITION_3_TEXT"}
+    ]
+  }
+]

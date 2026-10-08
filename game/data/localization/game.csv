@@ -1,0 +1,843 @@
+keys,en,zh_CN,zh_TW
+ACH_EVENTS_12_DESC,Watch 12 memories.,看完 12 个小剧场。,看完 12 個小劇場。
+ACH_EVENTS_12_NAME,Half an Album,半本生活相册,半本生活相簿
+ACH_EVENTS_18_DESC,Watch 18 memories.,看完 18 个小剧场。,看完 18 個小劇場。
+ACH_EVENTS_18_NAME,A Little of Everything,什么都发生了一点,什麼都發生了一點
+ACH_EVENTS_24_DESC,Watch all 24 core memories.,看完全部 24 个核心小剧场。,看完全部 24 個核心小劇場。
+ACH_EVENTS_24_NAME,An Ordinary Day,普通的一天,普通的一天
+ACH_EVENTS_4_DESC,Watch 4 memories.,看完 4 个小剧场。,看完 4 個小劇場。
+ACH_EVENTS_4_NAME,Four Daily Moments,四段日常,四段日常
+ACH_EVENTS_8_DESC,Watch 8 memories.,看完 8 个小剧场。,看完 8 個小劇場。
+ACH_EVENTS_8_NAME,Quite a Few Days,日子有点多,日子有點多
+ACH_EXPRESSIONS_16_DESC,Unlock 16 expressions.,解锁 16 个表情。,解鎖 16 個表情。
+ACH_EXPRESSIONS_16_NAME,Quite Expressive,很有表情,很有表情
+ACH_EXPRESSIONS_24_DESC,Unlock 24 expressions.,解锁 24 个表情。,解鎖 24 個表情。
+ACH_EXPRESSIONS_24_NAME,Half the Faces,半册表情,半冊表情
+ACH_EXPRESSIONS_36_DESC,Unlock 36 expressions.,解锁 36 个表情。,解鎖 36 個表情。
+ACH_EXPRESSIONS_36_NAME,No Hiding That Mood,藏不住心情,藏不住心情
+ACH_EXPRESSIONS_48_DESC,Unlock all 48 expressions.,解锁全部 48 个表情。,解鎖全部 48 個表情。
+ACH_EXPRESSIONS_48_NAME,Every Face,每一张脸,每一張臉
+ACH_EXPRESSIONS_8_DESC,Unlock 8 expressions.,解锁 8 个表情。,解鎖 8 個表情。
+ACH_EXPRESSIONS_8_NAME,More Faces,表情渐多,表情漸多
+ACH_FAMILIAR_10_DESC,Reach Familiarity 10.,熟悉度达到 10 级。,熟悉度達到 10 級。
+ACH_FAMILIAR_10_NAME,This Is Home,已经是家,已經是家
+ACH_FAMILIAR_2_DESC,Reach Familiarity 2.,熟悉度达到 2 级。,熟悉度達到 2 級。
+ACH_FAMILIAR_2_NAME,Getting Familiar,开始熟悉,開始熟悉
+ACH_FAMILIAR_3_DESC,Reach Familiarity 3.,熟悉度达到 3 级。,熟悉度達到 3 級。
+ACH_FAMILIAR_3_NAME,Snack Nook Open,零食角开放,零食角開放
+ACH_FAMILIAR_4_DESC,Reach Familiarity 4.,熟悉度达到 4 级。,熟悉度達到 4 級。
+ACH_FAMILIAR_4_NAME,A Little Activity,稍微活动,稍微活動
+ACH_FAMILIAR_6_DESC,Reach Familiarity 6.,熟悉度达到 6 级。,熟悉度達到 6 級。
+ACH_FAMILIAR_6_NAME,A Place by the Window,窗边的位置,窗邊的位置
+ACH_FAMILIAR_8_DESC,Reach Familiarity 8.,熟悉度达到 8 级。,熟悉度達到 8 級。
+ACH_FAMILIAR_8_NAME,Living Quite Well,很会生活,很會生活
+ACH_FIRST_EXPRESSION_DESC,Unlock your first expression.,解锁第一个表情。,解鎖第一個表情。
+ACH_FIRST_EXPRESSION_NAME,First Expression,第一张表情,第一張表情
+ACH_FIRST_FURNITURE_DESC,Buy your first piece of furniture.,买下第一件家具。,買下第一件傢俱。
+ACH_FIRST_FURNITURE_NAME,One More Thing at Home,家里多了一件事,家裡多了一件事
+ACH_FURNITURE_16_DESC,Own 16 pieces of furniture.,拥有 16 件家具。,擁有 16 件傢俱。
+ACH_FURNITURE_16_NAME,Half a Room of Possibilities,半屋办法,半屋辦法
+ACH_FURNITURE_32_DESC,Own all 32 furniture pieces.,拥有全部 32 件家具。,擁有全部 32 件傢俱。
+ACH_FURNITURE_32_NAME,A Complete Little Home,小屋齐全,小屋齊全
+ACH_FURNITURE_8_DESC,Own 8 pieces of furniture.,拥有 8 件家具。,擁有 8 件傢俱。
+ACH_FURNITURE_8_NAME,Furnishing Slowly,慢慢添置,慢慢添置
+ACH_OUTFITS_6_DESC,Own 6 outfits.,拥有 6 套装扮。,擁有 6 套裝扮。
+ACH_OUTFITS_6_NAME,A Different Look,换个样子,換個樣子
+ACH_ROBOT_KNIGHT_DESC,Watch Knight of the Cleaning Robot.,看完“扫地机器人骑士”。,看完“掃地機器人騎士”。
+ACH_ROBOT_KNIGHT_NAME,Planned Stop,计划内停车,計劃內停車
+ACH_WELCOME_HOME_DESC,Watch Moving In.,看完“搬进来”。,看完“搬進來”。
+ACH_WELCOME_HOME_NAME,Moved In,住下了,住下了
+ALBUM_ASSOCIATED_EVENT,Related: {event},关联：{event},關聯：{event}
+ALBUM_DATE_UNKNOWN,Not Recorded in This Older Save,旧存档未记录,舊存檔未記錄
+ALBUM_DESKTOP_FAVORITE,Desktop Idle Favorite,桌面待机偏好,桌面待機偏好
+ALBUM_DIARY,Chapter Diary,章节日记,章節日記
+ALBUM_EXPORT,Export Photo,导出照片,匯出照片
+ALBUM_EXPRESSIONS,Expressions,表情册,表情冊
+ALBUM_EXPRESSION_DATE,First seen: {date},第一次出现：{date},第一次出現：{date}
+ALBUM_HIDDEN_HINT,"At Familiarity 9, your pig may reveal this hidden hint.",熟悉度 9 级后，猪咪也许愿意透露这条隐藏线索。,熟悉度 9 級後，豬咪也許願意透露這條隱藏線索。
+ALBUM_LIFE_PLANS,Little Plans,小计划,小計劃
+ALBUM_MEMORIES,Memories,生活照片,生活照片
+ALBUM_MEMORY_HINT,"Once its conditions are met, it enters the watch-later queue and is never permanently missed.",满足条件后会进入待看队列，不会永久错过。,滿足條件後會進入待看佇列，不會永久錯過。
+ALBUM_PHOTO_DATE,Captured: {date},拍摄日期：{date},拍攝日期：{date}
+ALBUM_REPLAY,Replay,重看,重看
+ALBUM_UNKNOWN_EXPRESSION,An Expression Not Yet Seen,还没见过的表情,還沒見過的表情
+ALBUM_UNKNOWN_MEMORY,A daily moment yet to happen,一段还没发生的日常,一段還沒發生的日常
+ALBUM_VIEW_PHOTO,View Without UI,隐藏界面查看,隱藏介面檢視
+ALBUM_WATCH,Watch,观看,觀看
+AREA_ACTIVITY,Activity Nook,活动角,活動角
+AREA_SLEEP,Sleep Nook,睡眠角,睡眠角
+AREA_SNACK,Snack Nook,零食角,零食角
+AREA_WINDOW,Window Nook,窗边角,窗邊角
+BEHAVIOR_ALARM_ARGUE,Arguing with the Alarm,和闹钟讲道理,和鬧鐘講道理
+BEHAVIOR_BALL_PLAY,Coaching the Soft Ball,指导软球,指導軟球
+BEHAVIOR_BED_NAP,Bed Nap,床上小睡,床上小睡
+BEHAVIOR_BLANKET_ROLL,Rolling the Blanket,把毯子卷好,把毯子卷好
+BEHAVIOR_CASTLE_HIDE,Inspecting the Cardboard Castle,巡视纸箱城堡,巡視紙箱城堡
+BEHAVIOR_COOKIE_GUARD,Guarding the Cookie Jar,看守饼干罐,看守餅乾罐
+BEHAVIOR_DRINK_SIP,Taking a Small Sip,小口喝饮料,小口喝飲料
+BEHAVIOR_DRUM,Two Tiny Drum Beats,敲两下小鼓,敲兩下小鼓
+BEHAVIOR_FRIDGE_CHECK,Checking the Fridge,检查冰箱,檢查冰箱
+BEHAVIOR_IDLE_STAND,Standing and Thinking,站着想事情,站著想事情
+BEHAVIOR_LIE_DOWN,Flopping Down,原地趴好,原地趴好
+BEHAVIOR_LOOK_MOUSE,Studying the Cursor,研究鼠标,研究滑鼠
+BEHAVIOR_MIRROR_POSE,Mirror Inspection,镜前确认状态,鏡前確認狀態
+BEHAVIOR_NIGHTLIGHT_GAZE,Night-Light Gazing,研究夜灯,研究夜燈
+BEHAVIOR_PAINT,Painting Seriously,认真画画,認真畫畫
+BEHAVIOR_PILLOW_FLOP,Pillow Flop,扑向抱枕,撲向抱枕
+BEHAVIOR_RADIO_LISTEN,Listening to the Radio,听收音机,聽收音機
+BEHAVIOR_READ_BOOK,Choosing a Book,从书架挑一本,從書架挑一本
+BEHAVIOR_ROBOT_RIDE,Riding the Cleaning Robot,乘坐扫地机器人,乘坐掃地機器人
+BEHAVIOR_SCRATCH,A Quick Scratch,挠挠痒,撓撓癢
+BEHAVIOR_SEEK_FOOD,Seeking a Reasonable Snack,寻找合理零食,尋找合理零食
+BEHAVIOR_SIT,Sitting Very Formally,坐得很正式,坐得很正式
+BEHAVIOR_SLEEP,Serious Sleeping,认真睡觉,認真睡覺
+BEHAVIOR_SOLVE_PUZZLE,Studying the Puzzle Box,研究谜题盒,研究謎題盒
+BEHAVIOR_STARE,Watching the Air,看着空气,看著空氣
+BEHAVIOR_TABLE_SNACK,Table-Side Snack,桌边加餐,桌邊加餐
+BEHAVIOR_TAKE_PHOTO,Finding a Composition,寻找构图,尋找構圖
+BEHAVIOR_TEA_BREW,Brewing Something Warm,慢慢泡热饮,慢慢泡熱飲
+BEHAVIOR_TELESCOPE,Looking Far Away,看看远处,看看遠處
+BEHAVIOR_TREADMILL_RUN,Running a Little,稍微跑一下,稍微跑一下
+BEHAVIOR_WALK,A Slow Little Walk,慢慢走两步,慢慢走兩步
+BEHAVIOR_WATER_PLANT,Watering the Plant,给植物浇水,給植物澆水
+BEHAVIOR_WEATHER_WATCH,Watching the Weather,观察天气,觀察天氣
+BEHAVIOR_WINDOW_NAP,Window-Side Nap,窗边打盹,窗邊打盹
+BEHAVIOR_WIND_CHIME,Waiting for the Chime,等风铃响,等風鈴響
+BEHAVIOR_YOGA_POSE,Holding a Yoga Pose,摆好瑜伽姿势,擺好瑜伽姿勢
+CATALOG_FURNITURE_INTRO,Furniture uses fixed slots. Functional pieces add new actions and memories to your pig's life.,家具使用固定插槽。功能家具会把新动作和小剧场加入猪咪的生活。,傢俱使用固定插槽。功能傢俱會把新動作和小劇場加入豬咪的生活。
+CATALOG_OUTFITS_INTRO,"Outfits are cosmetic only. Once bought, they can be changed at any time.",装扮只改变外观，不提供数值优势。买下后可以随时更换。,裝扮只改變外觀，不提供數值優勢。買下後可以隨時更換。
+CATALOG_SNACKS_INTRO,"Each snack costs Daily Points. Repeated feeding still gets a reaction, but only the first feed of the day grants extra points.",零食每次消耗日常点数。连续投喂仍有表情反馈，但当天只有第一次会额外产出点数。,零食每次消耗日常點數。連續投餵仍有表情反饋，但當天只有第一次會額外產出點數。
+DEMO_COMPLETE_BODY,"You have seen all four demo memories. Your pig can keep living, decorating, and staying on the desktop; this save uses the full game's structure and can continue there.",你已经看完试玩版的 4 段小剧场。猪咪仍可继续生活、布置和待在桌面；试玩存档采用正式版结构，可在正式版中继续。,你已經看完試玩版的 4 段小劇場。豬咪仍可繼續生活、佈置和待在桌面；試玩存檔採用正式版結構，可在正式版中繼續。
+DEMO_COMPLETE_SILHOUETTES,Full-game scope: 32 furniture · 48 expressions · 24 memories · 12 outfits,正式版范围：32 件家具 · 48 个表情 · 24 段小剧场 · 12 套装扮,正式版範圍：32 件傢俱 · 48 個表情 · 24 段小劇場 · 12 套裝扮
+DEMO_COMPLETE_TITLE,The Demo Days Are Full,试玩日常已经装满,試玩日常已經裝滿
+DEMO_CONTINUE,Keep Playing the Demo,继续试玩陪伴,繼續試玩陪伴
+DESKTOP_ALWAYS_ON_TOP,Always on Top,始终置顶,始終置頂
+DESKTOP_BACKGROUND_SHIELD,"When you switch to another game or app, your pig hides proactive messages, stops roaming and frame animation, and drops always-on-top. Progress continues. Only deliberate clicks, touch, or menu actions get feedback; hovering does not count. Missed reminders are never replayed.",切换到其他游戏或应用后，猪咪自动收起主动提示、停止漫步和帧动画，并撤销置顶；养成仍继续。只有主动点击、触控或操作菜单才会得到反馈，鼠标经过不算互动。回来后不会补发过期提醒。,切換到其他遊戲或應用後，豬咪自動收起主動提示、停止漫步和幀動畫，並撤銷置頂；養成仍繼續。只有主動點選、觸控或操作選單才會得到反饋，滑鼠經過不算互動。回來後不會補發過期提醒。
+DESKTOP_BEHAVIOR_FREQUENCY,"Proactive behavior frequency · Foreground only; quiet, do not disturb, and pause take priority.",主动行为频率 · 仅在本应用前台生效；安静、勿扰和暂停设置优先。,主動行為頻率 · 僅在本應用前臺生效；安靜、勿擾和暫停設定優先。
+DESKTOP_COMPANION_SETTINGS,Companion & Interruption Protection,陪伴与防打扰,陪伴與防打擾
+DESKTOP_COMPATIBILITY_FALLBACK,Normal Window in This Environment · Controls and System Title Bar Kept,当前环境采用普通小窗 · 保留控制条与系统标题栏,當前環境採用普通小窗 · 保留控制條與系統標題欄
+DESKTOP_DOCK_BOTTOM,Dock Bottom,停靠底部,停靠底部
+DESKTOP_DOCK_LEFT,Dock Left,停靠左侧,停靠左側
+DESKTOP_DOCK_RIGHT,Dock Right,停靠右侧,停靠右側
+DESKTOP_DO_NOT_DISTURB,Do Not Disturb · Also Disable Always-on-Top,勿扰模式 · 同时撤销置顶,勿擾模式 · 同時撤銷置頂
+DESKTOP_EXIT,Exit Completely,完全退出,完全退出
+DESKTOP_FOCUS,Focus Mode,专注模式,專注模式
+DESKTOP_FREQUENCY_FREQUENT,Natural Transitions,自然切换,自然切換
+DESKTOP_FREQUENCY_NORMAL,Normal · At Least 45 Seconds Apart,适中 · 至少间隔 45 秒,適中 · 至少間隔 45 秒
+DESKTOP_FREQUENCY_OFF,No Proactive Behavior or Messages,关闭主动行为与提示,關閉主動行為與提示
+DESKTOP_FREQUENCY_RARE,Occasional · At Least 2 Minutes Apart,偶尔 · 至少间隔 2 分钟,偶爾 · 至少間隔 2 分鐘
+DESKTOP_MEMORY_BUBBLE,● {count} New Memories,● {count} 段新回忆,● {count} 段新回憶
+DESKTOP_MINIMIZE,Hide to Taskbar,隐藏到任务栏,隱藏到工作列
+DESKTOP_PAUSE,Pause/Resume Animation,暂停/继续动画,暫停/繼續動畫
+DESKTOP_PIG_ONLY,"Pig Only · Right-click for Menu, Esc for Controls",只显示猪咪 · 右键打开菜单，Esc 恢复控制条,只顯示豬咪 · 右鍵開啟選單，Esc 恢復控制條
+DESKTOP_PRIVACY_BOUNDARY,"Protection only checks this game's window focus. It does not scan processes, read other windows, track the global cursor, record system music, or capture your desktop. The timer is memory-only, ends on exit, and keeps no work history. Quiet, do not disturb, and frequency settings stay on this machine.",防打扰只判断本游戏窗口的焦点，不扫描进程、读取其他窗口、追踪全局鼠标、录制系统音乐或抓取桌面。计时只保留在内存中，退出即结束，不记录工作历史。安静、勿扰和频率仅保存在这台机器上。,防打擾只判斷本遊戲視窗的焦點，不掃描程序、讀取其他視窗、追蹤全域性滑鼠、錄製系統音樂或抓取桌面。計時只保留在記憶體中，退出即結束，不記錄工作歷史。安靜、勿擾和頻率僅儲存在這臺機器上。
+DESKTOP_QUIET,Quiet Mode · No Proactive Motion or Messages,安静模式 · 不主动动作或提示,安靜模式 · 不主動動作或提示
+DESKTOP_RESUME,Resume Animation,继续动画,繼續動畫
+DESKTOP_ROOM,Room,小屋,小屋
+DESKTOP_ROOM_HINT,Return to the full room.,返回完整小屋。,返回完整小屋。
+DESKTOP_SCALE_100,Scale 100%,缩放 100%,縮放 100%
+DESKTOP_SCALE_125,Scale 125%,缩放 125%,縮放 125%
+DESKTOP_SCALE_150,Scale 150%,缩放 150%,縮放 150%
+DESKTOP_SCALE_50,Scale 50%,缩放 50%,縮放 50%
+DESKTOP_SCALE_75,Scale 75%,缩放 75%,縮放 75%
+DESKTOP_TRANSPARENT_MODE,Transparent Desktop Mode (Off for Normal Window),透明桌面模式（关闭即普通小窗）,透明桌面模式（關閉即普通小窗）
+DIARY_CHAPTER_1,Moving In: We did not discuss it. The bed is already theirs.,搬进来：我们没有商量，它已经把床当成自己的了。,搬進來：我們沒有商量，它已經把床當成自己的了。
+DIARY_CHAPTER_2,"Finding a Rhythm: Eating, sleeping, and staring into space—each done with principles.",找到节奏：吃饭、睡觉、发呆，每一件都做得很有原则。,找到節奏：吃飯、睡覺、發呆，每一件都做得很有原則。
+DIARY_CHAPTER_3,"Many Interests: It will try anything, with no promise to continue.",兴趣很多：它愿意尝试，只是不保证坚持。,興趣很多：它願意嘗試，只是不保證堅持。
+DIARY_CHAPTER_4,Days by the Window: Weather passes outside as we slowly get to know each other.,窗边的日子：天气经过窗外，我们慢慢熟悉彼此。,窗邊的日子：天氣經過窗外，我們慢慢熟悉彼此。
+DIARY_CHAPTER_5,"An Ordinary Day: Nothing big happened, and the day was already enough.",普通的一天：什么大事也没发生，但这一天已经很好。,普通的一天：什麼大事也沒發生，但這一天已經很好。
+DIARY_LOCKED,This page will be written at Familiarity {level}.,熟悉度 {level} 级后再写这一页。,熟悉度 {level} 級後再寫這一頁。
+ENDING_CONTINUE,Continue in Free Companion Mode,继续自由陪伴,繼續自由陪伴
+ENDING_CREDITS,"Piggy Did Nothing Today
+Design, code, and writing: the project team
+Current visuals: image_gen, commissioned by the user
+Audio: silent development placeholders
+Archived upstream pig graphic master: Google Noto Emoji (Apache 2.0, pinned historical commit)
+Thank you to everyone willing to live an ordinary day slowly.","《猪咪今天也没干嘛》
+设计、程序与文字：本项目团队
+当前视觉：image_gen（用户委托生成）
+音频：开发占位，全程静音
+归档上游猪图形母版：Google Noto Emoji（Apache 2.0，固定历史提交）
+感谢每一个愿意把普通日子慢慢过完的人。","《豬咪今天也沒幹嘛》
+設計、程式與文字：本專案團隊
+當前視覺：image_gen（使用者委託生成）
+音訊：開發佔位，全程靜音
+歸檔上游豬圖形母版：Google Noto Emoji（Apache 2.0，固定歷史提交）
+感謝每一個願意把普通日子慢慢過完的人。"
+ENDING_FREE_COMPANION,"The ending was not the end. Free Companion Mode continues every collection, room, and desktop activity.",结局之后没有结束：现在是自由陪伴模式，所有养成、收集和桌面陪伴都会继续。,結局之後沒有結束：現在是自由陪伴模式，所有養成、收集和桌面陪伴都會繼續。
+ENDING_READY,All 24 core daily moments fill the album. The thematic ending is waiting.,24 段核心日常已经装满相册，主题结局正在等你。,24 段核心日常已經裝滿相簿，主題結局正在等你。
+ENDING_REPLAY,Replay Thanks & Credits,重看感谢照片与制作名单,重看感謝照片與製作名單
+ENDING_THANKS,"{name}: Thank you for doing nothing with me.
+We finished one big thing today: getting through today together.","{name}：谢谢你陪我什么也没做。
+今天完成了一件大事：一起过完今天。","{name}：謝謝你陪我什麼也沒做。
+今天完成了一件大事：一起過完今天。"
+ENDING_TITLE,An Ordinary Day,普通的一天,普通的一天
+EVENT_ALARM_VICTORY_LINE_1,I am up. Today is already a success.,我起来了。今天已经很成功。,我起來了。今天已經很成功。
+EVENT_ALARM_VICTORY_LINE_2,The third ring was the official notice.,第三次才是正式通知。,第三次才是正式通知。
+EVENT_ALARM_VICTORY_LINE_3,"Early rising is an attitude, not a time.",早起不是时间，是一种态度。,早起不是時間，是一種態度。
+EVENT_ALARM_VICTORY_SUMMARY,"After three alarms, the hardest task of the day was finally complete.",闹钟响了三次，今天最难的事情终于完成。,鬧鐘響了三次，今天最難的事情終於完成。
+EVENT_ALARM_VICTORY_TITLE,Successful Early Rising,早起成功,早起成功
+EVENT_BALANCED_TREAT_LINE_1,A snack after exercise does not count as a snack.,运动后的零食，不算零食。,運動後的零食，不算零食。
+EVENT_BALANCED_TREAT_LINE_2,Spending and replenishing must balance. It is scientific.,消耗和补充要平衡。这个很科学。,消耗和補充要平衡。這個很科學。
+EVENT_BALANCED_TREAT_LINE_3,I am not tired. I have entered the replenishment phase.,我不是跑累了，我只是进入补充阶段。,我不是跑累了，我只是進入補充階段。
+EVENT_BALANCED_TREAT_SUMMARY,"After ten seconds of running, an enormous original ice pop appears right on time.",跑步十秒后，一根巨大的原创冰棒及时出现。,跑步十秒後，一根巨大的原創冰棒及時出現。
+EVENT_BALANCED_TREAT_TITLE,Spend and Replenish,消耗与补充,消耗與補充
+EVENT_BALL_COACH_LINE_1,It needs to build confidence first.,它需要先建立自信。,它需要先建立自信。
+EVENT_BALL_COACH_LINE_2,I handle tactics. The ball handles movement.,我负责战术，球负责运动。,我負責戰術，球負責運動。
+EVENT_BALL_COACH_SUMMARY,Your pig patiently coached the soft ball. The ball did not understand.,猪咪对软球进行了耐心指导，球没有听懂。,豬咪對軟球進行了耐心指導，球沒有聽懂。
+EVENT_BALL_COACH_TITLE,Coach of the Soft Ball,软球教练,軟球教練
+EVENT_COCOA_MOUSTACHE_LINE_1,Mature pigs all drink like this.,成熟的猪咪都这样喝。,成熟的豬咪都這樣喝。
+EVENT_COCOA_MOUSTACHE_LINE_2,It is not a stain. It is a style.,这不是沾到，是一种造型。,這不是沾到，是一種造型。
+EVENT_COCOA_MOUSTACHE_LINE_3,Please wait until after my official photo to wipe it.,请等我拍完证件照再擦。,請等我拍完證件照再擦。
+EVENT_COCOA_MOUSTACHE_SUMMARY,A cup of cocoa created a very formal moustache.,一杯热可可带来了一圈很正式的胡子。,一杯熱可可帶來了一圈很正式的鬍子。
+EVENT_COCOA_MOUSTACHE_TITLE,Cocoa Moustache,可可胡子,可可鬍子
+EVENT_COOKIE_DETECTIVE_LINE_1,I am protecting the evidence.,我在保护证据。,我在保護證據。
+EVENT_COOKIE_DETECTIVE_LINE_2,One is missing. The suspect is careful.,少了一块，说明嫌疑人很谨慎。,少了一塊，說明嫌疑人很謹慎。
+EVENT_COOKIE_DETECTIVE_LINE_3,The crumbs are for investigative purposes.,嘴边的是侦查用碎屑。,嘴邊的是偵查用碎屑。
+EVENT_COOKIE_DETECTIVE_SUMMARY,The trail led from the jar directly to the pig's mouth.,线索从罐子一路延伸到了猪咪嘴边。,線索從罐子一路延伸到了豬咪嘴邊。
+EVENT_COOKIE_DETECTIVE_TITLE,Cookie Detective,饼干侦探,餅乾偵探
+EVENT_DREAM_MEETING_LINE_1,That meeting was important and confidential.,刚才的会议很重要，不能公开。,剛才的會議很重要，不能公開。
+EVENT_DREAM_MEETING_LINE_2,I was not talking in my sleep. I was taking minutes.,我没有说梦话，我在做会议记录。,我沒有說夢話，我在做會議記錄。
+EVENT_DREAM_MEETING_LINE_3,The conclusion was to keep sleeping. No objections.,结论是继续睡，没人反对。,結論是繼續睡，沒人反對。
+EVENT_DREAM_MEETING_SUMMARY,Your pig slept very seriously and occasionally nodded in agreement.,猪咪睡得很认真，偶尔还点头表示同意。,豬咪睡得很認真，偶爾還點頭表示同意。
+EVENT_DREAM_MEETING_TITLE,A Meeting in a Dream,梦里开会,夢裡開會
+EVENT_FRIDGE_MEETING_LINE_1,I am waiting for something new to grow inside.,我在等里面长出新东西。,我在等裡面長出新東西。
+EVENT_FRIDGE_MEETING_LINE_2,"The second check is verification, not greed.",第二次检查属于复核，不是贪吃。,第二次檢查屬於複核，不是貪吃。
+EVENT_FRIDGE_MEETING_LINE_3,Meeting conclusion: the fridge needs more time.,会议结论：冰箱需要一点时间。,會議結論：冰箱需要一點時間。
+EVENT_FRIDGE_MEETING_SUMMARY,"Open, think, close, then return to confirm once more.",开门、思考、关门，再回来确认一次。,開門、思考、關門，再回來確認一次。
+EVENT_FRIDGE_MEETING_TITLE,The Fridge Meeting,冰箱会议,冰箱會議
+EVENT_HEROIC_LAP_LINE_1,Heroism is not measured in laps.,英雄主义不看圈数。,英雄主義不看圈數。
+EVENT_HEROIC_LAP_LINE_2,I am saving energy for the next heroic moment.,我保留体力，应对下一次英雄时刻。,我保留體力，應對下一次英雄時刻。
+EVENT_HEROIC_LAP_SUMMARY,Your pig completed one lap and wore a paper medal for it.,猪咪完成了一圈，并为这件事戴上纸片奖牌。,豬咪完成了一圈，併為這件事戴上紙片獎牌。
+EVENT_HEROIC_LAP_TITLE,One Heroic Lap,英雄的一圈,英雄的一圈
+EVENT_LAST_PEA_LINE_1,I am not picky. I am respecting the final bite.,我不是挑食，我在尊重最后一口。,我不是挑食，我在尊重最後一口。
+EVENT_LAST_PEA_LINE_2,Whoever moves first loses.,谁先动，谁就输了。,誰先動，誰就輸了。
+EVENT_LAST_PEA_LINE_3,It does not look ready to be eaten.,它看起来还没准备好被吃。,它看起來還沒準備好被吃。
+EVENT_LAST_PEA_SUMMARY,Your pig held a long negotiation with the final pea.,猪咪与最后一颗青豆进行了漫长谈判。,豬咪與最後一顆青豆進行了漫長談判。
+EVENT_LAST_PEA_TITLE,The Last Pea,最后一颗青豆,最後一顆青豆
+EVENT_MIDNIGHT_SNACK_LINE_1,I am not sneaking food. I am reducing inventory pressure.,我没有偷吃，我在降低库存压力。,我沒有偷吃，我在降低庫存壓力。
+EVENT_MIDNIGHT_SNACK_LINE_2,Food is lighter at night and harder to notice.,夜里吃的东西比较轻，不容易被发现。,夜裡吃的東西比較輕，不容易被發現。
+EVENT_MIDNIGHT_SNACK_LINE_3,"If I move slowly, it counts as quiet.",只要动作慢一点，就算安静。,只要動作慢一點，就算安靜。
+EVENT_MIDNIGHT_SNACK_SUMMARY,The snack bag sounded slightly louder than planned.,包装袋发出的声音比计划响了一点。,包裝袋發出的聲音比計劃響了一點。
+EVENT_MIDNIGHT_SNACK_TITLE,A Small Midnight Sound,午夜的小声音,午夜的小聲音
+EVENT_MOVE_IN_LINE_1,I am only sitting here temporarily. Temporarily can last a long time.,我只是暂时坐在这里。暂时可以很久。,我只是暫時坐在這裡。暫時可以很久。
+EVENT_MOVE_IN_LINE_2,The bed is in a good spot. I tested it for you.,床的位置不错。我替你试过了。,床的位置不錯。我替你試過了。
+EVENT_MOVE_IN_LINE_3,We can stay first and decide everything else tomorrow.,我们可以先住下，其他事情明天再决定。,我們可以先住下，其他事情明天再決定。
+EVENT_MOVE_IN_SUMMARY,Your pig inspected the new home and quickly concluded it was livable.,猪咪检查了新家，并迅速得出这里可以住的结论。,豬咪檢查了新家，並迅速得出這裡可以住的結論。
+EVENT_MOVE_IN_TITLE,Moving In,搬进来,搬進來
+EVENT_ONE_STRETCH_LINE_1,"The point is completeness, not quantity.",重点不是数量，是动作完整。,重點不是數量，是動作完整。
+EVENT_ONE_STRETCH_LINE_2,I have stretched all the way into today.,我已经拉伸到今天。,我已經拉伸到今天。
+EVENT_ONE_STRETCH_SUMMARY,"After one stretch, your pig struck a finishing pose.",一个拉伸动作完成后，猪咪摆出了结束姿势。,一個拉伸動作完成後，豬咪擺出了結束姿勢。
+EVENT_ONE_STRETCH_TITLE,Just One Stretch,只拉伸一下,只拉伸一下
+EVENT_ORDINARY_DAY_LINE_1,Thank you for doing nothing with me.,谢谢你陪我什么也没做。,謝謝你陪我什麼也沒做。
+EVENT_ORDINARY_DAY_LINE_2,We finished one big thing today: getting through today together.,今天完成了一件大事：一起过完今天。,今天完成了一件大事：一起過完今天。
+EVENT_ORDINARY_DAY_SUMMARY,"Nothing big happened, but the album is full of evidence that you lived together.",什么大事也没发生，但相册里已经装满一起生活的证据。,什麼大事也沒發生，但相簿裡已經裝滿一起生活的證據。
+EVENT_ORDINARY_DAY_TITLE,An Ordinary Day,普通的一天,普通的一天
+EVENT_PAINTING_MASTER_LINE_1,It shows what strength looks like before it returns.,这画的是力气回来之前的样子。,這畫的是力氣回來之前的樣子。
+EVENT_PAINTING_MASTER_LINE_2,The empty space shows great restraint.,留白很多，说明我很克制。,留白很多，說明我很剋制。
+EVENT_PAINTING_MASTER_SUMMARY,"A paint blob appeared on the canvas, together with a complete explanation.",画布上出现了一团颜料，以及一份完整解释。,畫布上出現了一團顏料，以及一份完整解釋。
+EVENT_PAINTING_MASTER_TITLE,Master of Abstract Art,抽象画大师,抽象畫大師
+EVENT_PILLOW_MIGRATION_LINE_1,I am not attached to it. It needs company.,不是我离不开它，是它需要陪伴。,不是我離不開它，是它需要陪伴。
+EVENT_PILLOW_MIGRATION_LINE_2,I am testing every corner for softness.,我在测试每个角落的柔软度。,我在測試每個角落的柔軟度。
+EVENT_PILLOW_MIGRATION_LINE_3,The last spot is best for not moving yet.,最后一个位置最适合先不动。,最後一個位置最適合先不動。
+EVENT_PILLOW_MIGRATION_SUMMARY,The cloud pillow slowly migrated through three spots with the pig.,云朵抱枕跟着猪咪慢慢换了三个位置。,雲朵抱枕跟著豬咪慢慢換了三個位置。
+EVENT_PILLOW_MIGRATION_TITLE,Pillow Migration,抱枕迁徙,抱枕遷徙
+EVENT_PLANT_APOLOGY_LINE_1,A little more today means a little less tomorrow.,多一点是为了明天少一点。,多一點是為了明天少一點。
+EVENT_PLANT_APOLOGY_LINE_2,It nodded. Or that was the wind.,它点头了。或者是风。,它點頭了。或者是風。
+EVENT_PLANT_APOLOGY_SUMMARY,"There was a little too much water, so your pig explained itself to the plant.",水浇多了一点，猪咪认真向植物解释。,水澆多了一點，豬咪認真向植物解釋。
+EVENT_PLANT_APOLOGY_TITLE,An Apology to the Plant,给植物道歉,給植物道歉
+EVENT_RADIO_DANCE_LINE_1,I was calibrating my balance.,我在校准重心。,我在校準重心。
+EVENT_RADIO_DANCE_LINE_2,The second move was an echo of the first.,第二下是第一下的回声。,第二下是第一下的回聲。
+EVENT_RADIO_DANCE_SUMMARY,A song passed by and your pig pretended not to sway along.,一段音乐路过，猪咪假装没有跟着晃。,一段音樂路過，豬咪假裝沒有跟著晃。
+EVENT_RADIO_DANCE_TITLE,Only Two Moves,只动了两下,只動了兩下
+EVENT_RAINY_WINDOW_LINE_1,The rain is not in a hurry today either.,雨今天也没急着去哪。,雨今天也沒急著去哪。
+EVENT_RAINY_WINDOW_LINE_2,We can wait until the clouds finish being busy.,我们可以等云先忙完。,我們可以等雲先忙完。
+EVENT_RAINY_WINDOW_SUMMARY,Rain fell outside while the pig and its warm drink stayed quiet together.,雨落在窗外，猪咪和热饮都安静了一会儿。,雨落在窗外，豬咪和熱飲都安靜了一會兒。
+EVENT_RAINY_WINDOW_TITLE,When It Rains,下雨的时候,下雨的時候
+EVENT_ROBOT_KNIGHT_LINE_1,That was a planned stop.,这是计划内停车。,這是計劃內停車。
+EVENT_ROBOT_KNIGHT_LINE_2,Even knights need a soft landing sometimes.,骑士偶尔也需要软着陆。,騎士偶爾也需要軟著陸。
+EVENT_ROBOT_KNIGHT_SUMMARY,The patrol ended with a fully planned stop against a soft cushion.,巡视以一次撞向软垫的计划内停车结束。,巡視以一次撞向軟墊的計劃內停車結束。
+EVENT_ROBOT_KNIGHT_TITLE,Knight of the Cleaning Robot,扫地机器人骑士,掃地機器人騎士
+EVENT_SKIP,Save to Album,先记进相册,先記進相簿
+EVENT_SUNRISE_WATCH_LINE_1,I did not wake early. I simply had not fully gone back to sleep.,我不是早起，我是还没完全睡回去。,我不是早起，我是還沒完全睡回去。
+EVENT_SUNRISE_WATCH_LINE_2,The sun started first.,太阳先开始的。,太陽先開始的。
+EVENT_SUNRISE_WATCH_SUMMARY,"As the sun rose, your pig happened to open one eye.",太阳升起来时，猪咪刚好睁开一只眼。,太陽昇起來時，豬咪剛好睜開一隻眼。
+EVENT_SUNRISE_WATCH_TITLE,Morning by the Window,早晨经过窗边,早晨經過窗邊
+EVENT_TREADMILL_REWARD_LINE_1,Rewards must be timely or they lose meaning.,奖励要及时，不然会失去意义。,獎勵要及時，不然會失去意義。
+EVENT_TREADMILL_REWARD_LINE_2,I have not stopped. I am moving horizontally.,我没有停，我在横向运动。,我沒有停，我在橫向運動。
+EVENT_TREADMILL_REWARD_SUMMARY,Your pig finished a short run and immediately awarded itself a rest.,猪咪跑完一小段，立刻为自己颁发了休息。,豬咪跑完一小段，立刻為自己頒發了休息。
+EVENT_TREADMILL_REWARD_TITLE,Post-Run Reward,跑步后的奖励,跑步後的獎勵
+EVENT_WINDOW_NAP_LINE_1,I am storing warmth for the floor.,我在替地板保存温度。,我在替地板儲存溫度。
+EVENT_WINDOW_NAP_LINE_2,The sun found me. This is not laziness.,太阳找到我，不是我偷懒。,太陽找到我，不是我偷懶。
+EVENT_WINDOW_NAP_LINE_3,The light here is ideal for closing one's eyes.,这里的光很适合把眼睛闭上。,這裡的光很適合把眼睛閉上。
+EVENT_WINDOW_NAP_SUMMARY,The patch of sun was exactly large enough for one sleeping pig.,窗边的阳光刚好够放下一只睡着的猪咪。,窗邊的陽光剛好夠放下一隻睡著的豬咪。
+EVENT_WINDOW_NAP_TITLE,A Patch of Sunlight,一小块阳光,一小塊陽光
+EVENT_WINDY_CHIME_LINE_1,It only said half of it.,它只说了一半。,它只說了一半。
+EVENT_WINDY_CHIME_LINE_2,I am waiting for the wind to organize its thoughts.,我在等风组织好语言。,我在等風組織好語言。
+EVENT_WINDY_CHIME_SUMMARY,"The chime rang once, and your pig waited a long time for another.",风铃响了一声，猪咪又等了很久。,風鈴響了一聲，豬咪又等了很久。
+EVENT_WINDY_CHIME_TITLE,The Chime Spoke First,风铃先说话,風鈴先說話
+EVENT_YOGA_BLANKET_LINE_1,This pose is called resting with the flow.,这个姿势叫做顺势休息。,這個姿勢叫做順勢休息。
+EVENT_YOGA_BLANKET_LINE_2,Yoga means listening to the body. The body said sleep.,瑜伽讲究倾听身体。身体说睡觉。,瑜伽講究傾聽身體。身體說睡覺。
+EVENT_YOGA_BLANKET_LINE_3,I finished the hardest part: unrolling the mat.,我已经完成最难的部分：把垫子铺开。,我已經完成最難的部分：把墊子鋪開。
+EVENT_YOGA_BLANKET_SUMMARY,The yoga mat was ultimately proven to be a decent blanket.,瑜伽垫最后被证明是一条不错的被子。,瑜伽墊最後被證明是一條不錯的被子。
+EVENT_YOGA_BLANKET_TITLE,The True Use of Yoga,瑜伽的真正用途,瑜伽的真正用途
+EXIT_ALL,Exit Everything,全部退出,全部退出
+EXIT_CANCEL,Not Yet,先不关,先不關
+EXIT_KEEP_DESKTOP,Keep Pig on Desktop,让猪咪留在桌面,讓豬咪留在桌面
+EXIT_MESSAGE,"When closing the room, your pig can stay on the desktop or rest together with the game.",关闭小屋时，可以让猪咪继续待在桌面，也可以和游戏一起休息。,關閉小屋時，可以讓豬咪繼續待在桌面，也可以和遊戲一起休息。
+EXIT_RETRY,Retry,重试,重試
+EXIT_SAVE_FAILED_MESSAGE,"The exit checkpoint did not finish. Retry, return to check storage, or explicitly exit without saving.",退出检查点没有完成。你可以重试、返回检查存储空间，或明确选择不保存并退出。,退出檢查點沒有完成。你可以重試、返回檢查儲存空間，或明確選擇不儲存並退出。
+EXIT_SAVE_FAILED_TITLE,Save Before Exiting?,退出前要先保存吗？,退出前要先儲存嗎？
+EXIT_TITLE,Where Should Your Pig Stay?,猪咪要留在哪里？,豬咪要留在哪裡？
+EXIT_WITHOUT_SAVING,Exit Without Saving,不保存并退出,不儲存並退出
+EXPR_HAPPY_BIG_HINT,It may have something to do with “Cocoa Moustache”.,好像和「可可胡子」有关。,好像和「可可鬍子」有關。
+EXPR_HAPPY_BIG_LINE,The corners of my mouth rose temporarily.,嘴角只是临时抬高。,嘴角只是臨時抬高。
+EXPR_HAPPY_BIG_NAME,Big Happy,大大开心,大大開心
+EXPR_HAPPY_ENDING_HINT,It may have something to do with “An Ordinary Day”.,好像和「普通的一天」有关。,好像和「普通的一天」有關。
+EXPR_HAPPY_ENDING_LINE,We did nothing and still spent so long together.,什么也没做，也一起过了很久。,什麼也沒做，也一起過了很久。
+EXPR_HAPPY_ENDING_NAME,Thanks for Staying,谢谢陪伴,謝謝陪伴
+EXPR_HAPPY_GIGGLE_HINT,It may have something to do with “Only Two Moves”.,好像和「只动了两下」有关。,好像和「只動了兩下」有關。
+EXPR_HAPPY_GIGGLE_LINE,I was only breathing rhythmically.,我只是呼吸得比较有节奏。,我只是呼吸得比較有節奏。
+EXPR_HAPPY_GIGGLE_NAME,Almost Not Laughing,忍住没笑,忍住沒笑
+EXPR_HAPPY_RELAXED_HINT,It may have something to do with “A Meeting in a Dream”.,好像和「梦里开会」有关。,好像和「夢裡開會」有關。
+EXPR_HAPPY_RELAXED_LINE,Everything in the dream is scheduled for tomorrow.,梦里的事情都按明天处理。,夢裡的事情都按明天處理。
+EXPR_HAPPY_RELAXED_NAME,Peaceful Dream,安心做梦,安心做夢
+EXPR_HAPPY_SNACK_HINT,It may have something to do with “Cookie Detective”.,好像和「饼干侦探」有关。,好像和「餅乾偵探」有關。
+EXPR_HAPPY_SNACK_LINE,This is not greed. It is careful tasting.,这不是贪吃，是认真品尝。,這不是貪吃，是認真品嚐。
+EXPR_HAPPY_SNACK_NAME,Snack Satisfaction,零食满足,零食滿足
+EXPR_HAPPY_SOFT_HINT,It may have something to do with “Moving In”.,好像和「搬进来」有关。,好像和「搬進來」有關。
+EXPR_HAPPY_SOFT_LINE,Today turned out rather nice.,今天也算过得很不错。,今天也算過得很不錯。
+EXPR_HAPPY_SOFT_NAME,Softly Happy,软软开心,軟軟開心
+EXPR_HAPPY_SPARKLE_HINT,It may have something to do with “When It Rains”.,好像和「下雨的时候」有关。,好像和「下雨的時候」有關。
+EXPR_HAPPY_SPARKLE_LINE,The rain polished the window into a mood.,雨把窗户擦得很有气氛。,雨把窗戶擦得很有氣氛。
+EXPR_HAPPY_SPARKLE_NAME,Quiet Sparkle,安静发亮,安靜發亮
+EXPR_HAPPY_WARM_HINT,It may have something to do with “A Patch of Sunlight”.,好像和「一小块阳光」有关。,好像和「一小塊陽光」有關。
+EXPR_HAPPY_WARM_LINE,I will look after this patch of sun.,这一小块阳光归我保管。,這一小塊陽光歸我保管。
+EXPR_HAPPY_WARM_NAME,Sun-Warmed,晒得暖暖,曬得暖暖
+EXPR_HUNGRY_COCOA_HINT,It may have something to do with “Cocoa Moustache”.,好像和「可可胡子」有关。,好像和「可可鬍子」有關。
+EXPR_HUNGRY_COCOA_LINE,I look a little more mature today.,今天显得成熟了一点。,今天顯得成熟了一點。
+EXPR_HUNGRY_COCOA_NAME,Cocoa Moustache,可可胡子,可可鬍子
+EXPR_HUNGRY_COOKIE_HINT,It may have something to do with “Cookie Detective”.,好像和「饼干侦探」有关。,好像和「餅乾偵探」有關。
+EXPR_HUNGRY_COOKIE_LINE,I am protecting the remaining pieces.,我正在保护最后几块。,我正在保護最後幾塊。
+EXPR_HUNGRY_COOKIE_NAME,Cookie Evidence,饼干证据,餅乾證據
+EXPR_HUNGRY_DROOL_HINT,It may have something to do with “Pillow Migration”.,好像和「抱枕迁徙」有关。,好像和「抱枕遷徙」有關。
+EXPR_HUNGRY_DROOL_LINE,Only the dream got hungry first.,只是梦先饿了。,只是夢先餓了。
+EXPR_HUNGRY_DROOL_NAME,Snack Dream,梦见零食,夢見零食
+EXPR_HUNGRY_FRIDGE_HINT,It may have something to do with “The Fridge Meeting”.,好像和「冰箱会议」有关。,好像和「冰箱會議」有關。
+EXPR_HUNGRY_FRIDGE_LINE,One more opening might change things.,再开一次也许会不一样。,再開一次也許會不一樣。
+EXPR_HUNGRY_FRIDGE_NAME,Fridge Expectation,冰箱期待,冰箱期待
+EXPR_HUNGRY_MIDNIGHT_HINT,It may have something to do with “A Small Midnight Sound”.,好像和「午夜的小声音」有关。,好像和「午夜的小聲音」有關。
+EXPR_HUNGRY_MIDNIGHT_LINE,Night inventory needs management too.,夜里的库存也需要管理。,夜裡的庫存也需要管理。
+EXPR_HUNGRY_MIDNIGHT_NAME,Midnight Bite,午夜小口,午夜小口
+EXPR_HUNGRY_PEA_HINT,It may have something to do with “The Last Pea”.,好像和「最后一颗青豆」有关。,好像和「最後一顆青豆」有關。
+EXPR_HUNGRY_PEA_LINE,Neither side has reached an agreement.,双方仍未达成一致。,雙方仍未達成一致。
+EXPR_HUNGRY_PEA_NAME,Pea Negotiation,青豆谈判,青豆談判
+EXPR_HUNGRY_SECRET_HINT,It may have something to do with “Spend and Replenish”.,好像和「消耗与补充」有关。,好像和「消耗與補充」有關。
+EXPR_HUNGRY_SECRET_LINE,Exercise and snacks must stay balanced.,运动和零食必须保持平衡。,運動和零食必須保持平衡。
+EXPR_HUNGRY_SECRET_NAME,Replenishment Phase,补充阶段,補充階段
+EXPR_HUNGRY_SNIFF_HINT,It may have something to do with “Morning by the Window”.,好像和「早晨经过窗边」有关。,好像和「早晨經過窗邊」有關。
+EXPR_HUNGRY_SNIFF_LINE,Sunrise usually comes with a few smells.,太阳升起通常伴随一些味道。,太陽昇起通常伴隨一些味道。
+EXPR_HUNGRY_SNIFF_NAME,Breakfast Sniff,闻到早饭,聞到早飯
+EXPR_PROUD_BALL_HINT,It may have something to do with “Coach of the Soft Ball”.,好像和「软球教练」有关。,好像和「軟球教練」有關。
+EXPR_PROUD_BALL_LINE,The tactics were explained clearly.,战术已经讲得很清楚。,戰術已經講得很清楚。
+EXPR_PROUD_BALL_NAME,Ball Coach,球的教练,球的教練
+EXPR_PROUD_ENDING_HINT,It may have something to do with “An Ordinary Day”.,好像和「普通的一天」有关。,好像和「普通的一天」有關。
+EXPR_PROUD_ENDING_LINE,Today was properly lived through too.,今天也被好好过完了。,今天也被好好過完了。
+EXPR_PROUD_ENDING_NAME,Ordinary-Day Expert,普通日子专家,普通日子專家
+EXPR_PROUD_GARDENER_HINT,It may have something to do with “An Apology to the Plant”.,好像和「给植物道歉」有关。,好像和「給植物道歉」有關。
+EXPR_PROUD_GARDENER_LINE,This is long-term planning.,这是很长远的安排。,這是很長遠的安排。
+EXPR_PROUD_GARDENER_NAME,Advanced Watering,提前浇水,提前澆水
+EXPR_PROUD_HERO_HINT,It may have something to do with “One Heroic Lap”.,好像和「英雄的一圈」有关。,好像和「英雄的一圈」有關。
+EXPR_PROUD_HERO_LINE,Heroism is not measured in laps.,英雄主义不看圈数。,英雄主義不看圈數。
+EXPR_PROUD_HERO_NAME,One-Lap Hero,一圈英雄,一圈英雄
+EXPR_PROUD_PAINTER_HINT,It may have something to do with “Master of Abstract Art”.,好像和「抽象画大师」有关。,好像和「抽象畫大師」有關。
+EXPR_PROUD_PAINTER_LINE,The explanation is more complete than the painting.,解释比画更完整。,解釋比畫更完整。
+EXPR_PROUD_PAINTER_NAME,Abstract Master,抽象大师,抽象大師
+EXPR_PROUD_POSE_HINT,It may have something to do with “Just One Stretch”.,好像和「只拉伸一下」有关。,好像和「只拉伸一下」有關。
+EXPR_PROUD_POSE_LINE,A complete finish matters.,完整收尾很重要。,完整收尾很重要。
+EXPR_PROUD_POSE_NAME,Finishing Pose,结束姿势,結束姿勢
+EXPR_PROUD_TREADMILL_HINT,It may have something to do with “Post-Run Reward”.,好像和「跑步后的奖励」有关。,好像和「跑步後的獎勵」有關。
+EXPR_PROUD_TREADMILL_LINE,A little can still be a complete little.,一点也是完整的一点。,一點也是完整的一點。
+EXPR_PROUD_TREADMILL_NAME,Ran a Bit,跑完一点,跑完一點
+EXPR_PROUD_YOGA_HINT,It may have something to do with “The True Use of Yoga”.,好像和「瑜伽的真正用途」有关。,好像和「瑜伽的真正用途」有關。
+EXPR_PROUD_YOGA_LINE,The mat has fulfilled its purpose.,垫子已经充分发挥作用。,墊子已經充分發揮作用。
+EXPR_PROUD_YOGA_NAME,Resting with the Flow,顺势休息,順勢休息
+EXPR_SHOCKED_BALL_HINT,It may have something to do with “Coach of the Soft Ball”.,好像和「软球教练」有关。,好像和「軟球教練」有關。
+EXPR_SHOCKED_BALL_LINE,The tactics somehow worked.,战术居然生效了。,戰術居然生效了。
+EXPR_SHOCKED_BALL_NAME,The Ball Moved,球自己动了,球自己動了
+EXPR_SHOCKED_BUMP_HINT,It may have something to do with “Knight of the Cleaning Robot”.,好像和「扫地机器人骑士」有关。,好像和「掃地機器人騎士」有關。
+EXPR_SHOCKED_BUMP_LINE,The plan updated exactly at impact.,计划刚好在撞到时更新。,計劃剛好在撞到時更新。
+EXPR_SHOCKED_BUMP_NAME,Cushion Ambush,软垫突袭,軟墊突襲
+EXPR_SHOCKED_FRIDGE_HINT,It may have something to do with “A Small Midnight Sound”.,好像和「午夜的小声音」有关。,好像和「午夜的小聲音」有關。
+EXPR_SHOCKED_FRIDGE_LINE,The snack bag did not cooperate with stealth.,包装袋没有配合潜行。,包裝袋沒有配合潛行。
+EXPR_SHOCKED_FRIDGE_NAME,Too Loud,声音太响,聲音太響
+EXPR_SHOCKED_ICECREAM_HINT,It may have something to do with “Spend and Replenish”.,好像和「消耗与补充」有关。,好像和「消耗與補充」有關。
+EXPR_SHOCKED_ICECREAM_LINE,Balance sometimes needs a very large other side.,平衡偶尔需要很大的另一边。,平衡偶爾需要很大的另一邊。
+EXPR_SHOCKED_ICECREAM_NAME,That Much Replenishment,补充这么大,補充這麼大
+EXPR_SHOCKED_MUSIC_HINT,It may have something to do with “Only Two Moves”.,好像和「只动了两下」有关。,好像和「只動了兩下」有關。
+EXPR_SHOCKED_MUSIC_LINE,My balance swayed without permission.,重心未经同意就晃了一下。,重心未經同意就晃了一下。
+EXPR_SHOCKED_MUSIC_NAME,Body Heard First,身体先听见,身體先聽見
+EXPR_SHOCKED_NEW_HOME_HINT,It may have something to do with “Moving In”.,好像和「搬进来」有关。,好像和「搬進來」有關。
+EXPR_SHOCKED_NEW_HOME_LINE,The decision arrived before the luggage.,决定比行李先到。,決定比行李先到。
+EXPR_SHOCKED_NEW_HOME_NAME,Already Moved In,这就住下了,這就住下了
+EXPR_SHOCKED_ROBOT_HINT,It may have something to do with “One Heroic Lap”.,好像和「英雄的一圈」有关。,好像和「英雄的一圈」有關。
+EXPR_SHOCKED_ROBOT_LINE,The paper medal has not rested yet.,纸片奖牌还没来得及休息。,紙片獎牌還沒來得及休息。
+EXPR_SHOCKED_ROBOT_NAME,Another Lap?,还能再跑一圈,還能再跑一圈
+EXPR_SHOCKED_WEATHER_HINT,It may have something to do with “The Chime Spoke First”.,好像和「风铃先说话」有关。,好像和「風鈴先說話」有關。
+EXPR_SHOCKED_WEATHER_LINE,It sounded like only half a sentence.,它好像只说了一半。,它好像只說了一半。
+EXPR_SHOCKED_WEATHER_NAME,The Chime Spoke,风铃说话,風鈴說話
+EXPR_SLEEPY_ALARM_HINT,It may have something to do with “Successful Early Rising”.,好像和「早起成功」有关。,好像和「早起成功」有關。
+EXPR_SLEEPY_ALARM_LINE,Waking up is a phased project.,醒来是一项分阶段工程。,醒來是一項分階段工程。
+EXPR_SLEEPY_ALARM_NAME,After the Alarm,闹钟以后,鬧鐘以後
+EXPR_SLEEPY_BLANKET_HINT,It may have something to do with “The True Use of Yoga”.,好像和「瑜伽的真正用途」有关。,好像和「瑜伽的真正用途」有關。
+EXPR_SLEEPY_BLANKET_LINE,The user decides the purpose.,用途是由使用者决定的。,用途是由使用者決定的。
+EXPR_SLEEPY_BLANKET_NAME,Mat Blanket,垫子被子,墊子被子
+EXPR_SLEEPY_BLINK_HINT,It may have something to do with “Morning by the Window”.,好像和「早晨经过窗边」有关。,好像和「早晨經過窗邊」有關。
+EXPR_SLEEPY_BLINK_LINE,The other one is still in yesterday.,另一只还在昨天。,另一隻還在昨天。
+EXPR_SLEEPY_BLINK_NAME,One Eye Open,只睁一只眼,只睜一隻眼
+EXPR_SLEEPY_DEEP_HINT,It may have something to do with “The Chime Spoke First”.,好像和「风铃先说话」有关。,好像和「風鈴先說話」有關。
+EXPR_SLEEPY_DEEP_LINE,The wind will return. I will close my eyes briefly.,风会再来的，我先闭一下眼。,風會再來的，我先閉一下眼。
+EXPR_SLEEPY_DEEP_NAME,Waited into Sleep,等风等睡着,等風等睡著
+EXPR_SLEEPY_DREAM_HINT,It may have something to do with “A Meeting in a Dream”.,好像和「梦里开会」有关。,好像和「夢裡開會」有關。
+EXPR_SLEEPY_DREAM_LINE,The meeting approved more sleep.,会议通过了继续睡觉。,會議透過了繼續睡覺。
+EXPR_SLEEPY_DREAM_NAME,Dream Nod,梦里点头,夢裡點頭
+EXPR_SLEEPY_PILLOW_HINT,It may have something to do with “Pillow Migration”.,好像和「抱枕迁徙」有关。,好像和「抱枕遷徙」有關。
+EXPR_SLEEPY_PILLOW_LINE,It needs me more than I need it.,它比较需要我。,它比較需要我。
+EXPR_SLEEPY_PILLOW_NAME,Pillow Companion,抱枕不离身,抱枕不離身
+EXPR_SLEEPY_WINDOW_HINT,It may have something to do with “A Patch of Sunlight”.,好像和「一小块阳光」有关。,好像和「一小塊陽光」有關。
+EXPR_SLEEPY_WINDOW_LINE,Sunlight made my bones temporarily soft.,阳光让骨头暂时变软。,陽光讓骨頭暫時變軟。
+EXPR_SLEEPY_WINDOW_NAME,Window Melt,窗边融化,窗邊融化
+EXPR_SLEEPY_YAWN_HINT,It may have something to do with “Just One Stretch”.,好像和「只拉伸一下」有关。,好像和「只拉伸一下」有關。
+EXPR_SLEEPY_YAWN_LINE,This is part of the breathing exercise.,这是呼吸练习的一部分。,這是呼吸練習的一部分。
+EXPR_SLEEPY_YAWN_NAME,Stretch with Yawn,拉伸附带哈欠,拉伸附帶哈欠
+EXPR_WRONGED_ALARM_HINT,It may have something to do with “Successful Early Rising”.,好像和「早起成功」有关。,好像和「早起成功」有關。
+EXPR_WRONGED_ALARM_LINE,The first two were previews.,前两次只是预告。,前兩次只是預告。
+EXPR_WRONGED_ALARM_NAME,Third Ring Counts,第三次才算,第三次才算
+EXPR_WRONGED_EMPTY_FRIDGE_HINT,It may have something to do with “The Fridge Meeting”.,好像和「冰箱会议」有关。,好像和「冰箱會議」有關。
+EXPR_WRONGED_EMPTY_FRIDGE_LINE,It did not grow anything new today.,它今天没有长出新东西。,它今天沒有長出新東西。
+EXPR_WRONGED_EMPTY_FRIDGE_NAME,Uncooperative Fridge,冰箱没配合,冰箱沒配合
+EXPR_WRONGED_EXERCISE_HINT,It may have something to do with “Post-Run Reward”.,好像和「跑步后的奖励」有关。,好像和「跑步後的獎勵」有關。
+EXPR_WRONGED_EXERCISE_LINE,Lying down still has direction.,躺下也有方向。,躺下也有方向。
+EXPR_WRONGED_EXERCISE_NAME,Horizontal Exercise,横向运动,橫向運動
+EXPR_WRONGED_PAINT_HINT,It may have something to do with “Master of Abstract Art”.,好像和「抽象画大师」有关。,好像和「抽象畫大師」有關。
+EXPR_WRONGED_PAINT_LINE,The paint chose that spot.,颜料选择了那个位置。,顏料選擇了那個位置。
+EXPR_WRONGED_PAINT_NAME,The Painting Decided,画有自己的想法,畫有自己的想法
+EXPR_WRONGED_PLANT_HINT,It may have something to do with “An Apology to the Plant”.,好像和「给植物道歉」有关。,好像和「給植物道歉」有關。
+EXPR_WRONGED_PLANT_LINE,I watered in advance for tomorrow.,我是为明天提前浇的。,我是為明天提前澆的。
+EXPR_WRONGED_PLANT_NAME,A Little Extra Water,水多了一点,水多了一點
+EXPR_WRONGED_POKE_HINT,It may have something to do with “The Last Pea”.,好像和「最后一颗青豆」有关。,好像和「最後一顆青豆」有關。
+EXPR_WRONGED_POKE_LINE,The pea and I are still communicating.,青豆和我还在沟通。,青豆和我還在溝通。
+EXPR_WRONGED_POKE_NAME,Respect the Negotiation,请尊重谈判,請尊重談判
+EXPR_WRONGED_RAIN_HINT,It may have something to do with “When It Rains”.,好像和「下雨的时候」有关。,好像和「下雨的時候」有關。
+EXPR_WRONGED_RAIN_LINE,I have watched it for a very long time.,我已经看了它很久。,我已經看了它很久。
+EXPR_WRONGED_RAIN_NAME,Rain Kept Going,雨没有停,雨沒有停
+EXPR_WRONGED_ROBOT_HINT,It may have something to do with “Knight of the Cleaning Robot”.,好像和「扫地机器人骑士」有关。,好像和「掃地機器人騎士」有關。
+EXPR_WRONGED_ROBOT_LINE,The cushion suddenly entered the plan.,软垫突然出现在计划里。,軟墊突然出現在計劃裡。
+EXPR_WRONGED_ROBOT_NAME,Planned Stop,计划内停车,計劃內停車
+FACE_DEADPAN,Deadpan Eyes,死鱼眼,死魚眼
+FACE_DOT,Beady Eyes,豆豆眼,豆豆眼
+FACE_GLARE,Speechless Stare,无语凝视,無語凝視
+FACE_QUAKE,Pupil Panic,瞳孔地震,瞳孔地震
+FACE_SHOCK,Open-Mouthed Surprise,张嘴震惊,張嘴震驚
+FACE_SLEEPY,Sleepy Eyelids,睡眼惺忪,睡眼惺忪
+FACE_SLY,Mischievous Cookie Smile,阴险笑 · 只是想偷饼干,陰險笑 · 只是想偷餅乾
+FACE_SQUINT,Happy Squint,眯眼,眯眼
+FACE_TEARS,Streaming Tears,泪流满面,淚流滿面
+FOCUS_BREAK_READY,Your pig closes its book: some water and a stretch? Start your break whenever you like.,猪咪合上书：要不要喝点水、伸个懒腰？休息随时可以开始。,豬咪合上書：要不要喝點水、伸個懶腰？休息隨時可以開始。
+FOCUS_PAUSED,(Paused),（已暂停）,（已暫停）
+FOCUS_PHASE_FINISHED,Break Finished,本次休息结束,本次休息結束
+FOCUS_PHASE_IDLE,Just Hanging Out,随便待着,隨便待著
+FOCUS_PHASE_REST,Stretching Together,一起拉伸中,一起拉伸中
+FOCUS_PHASE_REST_READY,Break Available Whenever You Like,可随时开始休息,可隨時開始休息
+FOCUS_PHASE_WORK,Reading Together,专注读书中,專注讀書中
+FOCUS_TIMER_INTRO,"Focus for 25 minutes while your pig reads; start a 5-minute break yourself to stretch together. No pop-up, sound, or focus stealing. No reminders in the background, quiet, or do not disturb modes. Long sleep/wake gaps do not count as focus time. No rewards, scores, or check-ins.",25 分钟专注，猪咪陪你读书；主动开始 5 分钟休息后一起拉伸。到点不弹窗、不发声、不抢焦点；后台、安静或勿扰时不提示。睡眠/唤醒的长停顿不计入专注时间，没有奖励、考核或打卡。,25 分鐘專注，豬咪陪你讀書；主動開始 5 分鐘休息後一起拉伸。到點不彈窗、不發聲、不搶焦點；後臺、安靜或勿擾時不提示。睡眠/喚醒的長停頓不計入專注時間，沒有獎勵、考核或打卡。
+FOCUS_TIMER_PAUSE,Pause Timer,暂停计时,暫停計時
+FOCUS_TIMER_REST,Start 5-Minute Break,开始 5 分钟休息,開始 5 分鐘休息
+FOCUS_TIMER_RESUME,Resume Timer,继续计时,繼續計時
+FOCUS_TIMER_START,Start 25-Minute Focus,开始 25 分钟专注,開始 25 分鐘專注
+FOCUS_TIMER_STATUS,{phase} · {time} {paused},{phase} · {time} {paused},{phase} · {time} {paused}
+FOCUS_TIMER_STOP,End This Timer,结束本次计时,結束本次計時
+FORM_RULER,Paper-Crown Ruler Form,纸冠主宰形态,紙冠主宰形態
+FORM_WORKER,Tiny Office-Worker Form,小衬衫打工形态,小襯衫打工形態
+FURNITURE_ATMOSPHERE_ONLY,This piece gently changes the room atmosphere.,这件家具会轻轻改变房间的气氛。,這件傢俱會輕輕改變房間的氣氛。
+FURNITURE_CHOOSE_SLOT,Choose a Fixed Slot,选择固定插槽,選擇固定插槽
+FURNITURE_CHOOSE_SLOT_DESC,Where should “{item}” go? Choosing an occupied slot clearly replaces its current furniture.,要把「{item}」放在哪里？占用中的插槽会明确替换原家具。,要把「{item}」放在哪裡？佔用中的插槽會明確替換原傢俱。
+FURNITURE_CURRENT_SLOT,Currently in: {area} · Slot {number},现在位于：{area} · 插槽 {number},現在位於：{area} · 插槽 {number}
+FURNITURE_DECORATION_ONLY,This piece simply makes the room feel more like home.,这件家具只负责让房间更像家。,這件傢俱只負責讓房間更像家。
+FURNITURE_INVITE,Invite Your Pig to Try It,邀请猪咪试一试,邀請豬咪試一試
+FURNITURE_REACT,See What Your Pig Thinks,看看猪咪怎么说,看看豬咪怎麼說
+FURNITURE_REPLACE,Open Furniture List to Replace,打开家具清单替换,開啟傢俱清單替換
+FURNITURE_SLOT_EMPTY,Empty,空着,空著
+FURNITURE_SLOT_LABEL,{area} · Slot {number} (now: {current}),{area} · 插槽 {number}（现在：{current}）,{area} · 插槽 {number}（現在：{current}）
+FURN_BED_BASIC_DESC,Soft Little Bed adds a new behavior and may become the condition for a memory.,软软小床会带来一种新动作，也可能成为小剧场的条件。,軟軟小床會帶來一種新動作，也可能成為小劇場的條件。
+FURN_BED_BASIC_NAME,Soft Little Bed,软软小床,軟軟小床
+FURN_BLANKET_ROLL_DESC,Roll-Up Blanket adds a new behavior and may become the condition for a memory.,卷卷薄毯会带来一种新动作，也可能成为小剧场的条件。,卷卷薄毯會帶來一種新動作，也可能成為小劇場的條件。
+FURN_BLANKET_ROLL_NAME,Roll-Up Blanket,卷卷薄毯,卷卷薄毯
+FURN_BOOKSHELF_LOW_DESC,Low Bookshelf adds a new behavior and may become the condition for a memory.,矮矮书架会带来一种新动作，也可能成为小剧场的条件。,矮矮書架會帶來一種新動作，也可能成為小劇場的條件。
+FURN_BOOKSHELF_LOW_NAME,Low Bookshelf,矮矮书架,矮矮書架
+FURN_CAMERA_DESC,Everyday Camera adds a new behavior and may become the condition for a memory.,生活相机会带来一种新动作，也可能成为小剧场的条件。,生活相機會帶來一種新動作，也可能成為小劇場的條件。
+FURN_CAMERA_NAME,Everyday Camera,生活相机,生活相機
+FURN_CARDBOARD_CASTLE_DESC,Cardboard Castle adds a new behavior and may become the condition for a memory.,纸箱城堡会带来一种新动作，也可能成为小剧场的条件。,紙箱城堡會帶來一種新動作，也可能成為小劇場的條件。
+FURN_CARDBOARD_CASTLE_NAME,Cardboard Castle,纸箱城堡,紙箱城堡
+FURN_CLEANING_ROBOT_DESC,Cleaning Robot adds a new behavior and may become the condition for a memory.,扫地机器人会带来一种新动作，也可能成为小剧场的条件。,掃地機器人會帶來一種新動作，也可能成為小劇場的條件。
+FURN_CLEANING_ROBOT_NAME,Cleaning Robot,扫地机器人,掃地機器人
+FURN_CLOCK_SLEEPY_DESC,Sleepy Alarm Clock adds a new behavior and may become the condition for a memory.,困困闹钟会带来一种新动作，也可能成为小剧场的条件。,困困鬧鐘會帶來一種新動作，也可能成為小劇場的條件。
+FURN_CLOCK_SLEEPY_NAME,Sleepy Alarm Clock,困困闹钟,困困鬧鐘
+FURN_COOKIE_JAR_DESC,Cookie Jar adds a new behavior and may become the condition for a memory.,饼干罐会带来一种新动作，也可能成为小剧场的条件。,餅乾罐會帶來一種新動作，也可能成為小劇場的條件。
+FURN_COOKIE_JAR_NAME,Cookie Jar,饼干罐,餅乾罐
+FURN_DRINK_CRATE_DESC,Drink Crate adds a new behavior and may become the condition for a memory.,饮料箱会带来一种新动作，也可能成为小剧场的条件。,飲料箱會帶來一種新動作，也可能成為小劇場的條件。
+FURN_DRINK_CRATE_NAME,Drink Crate,饮料箱,飲料箱
+FURN_EASEL_DESC,Little Easel adds a new behavior and may become the condition for a memory.,小画架会带来一种新动作，也可能成为小剧场的条件。,小畫架會帶來一種新動作，也可能成為小劇場的條件。
+FURN_EASEL_NAME,Little Easel,小画架,小畫架
+FURN_FRIDGE_PINK_DESC,Pink Mini Fridge adds a new behavior and may become the condition for a memory.,粉色小冰箱会带来一种新动作，也可能成为小剧场的条件。,粉色小冰箱會帶來一種新動作，也可能成為小劇場的條件。
+FURN_FRIDGE_PINK_NAME,Pink Mini Fridge,粉色小冰箱,粉色小冰箱
+FURN_FRUIT_BOWL_DESC,Fruit Bowl grants no numeric advantage; it simply makes the room feel more like home.,水果碗不提高数值，只负责让房间更像家。,水果碗不提高數值，只負責讓房間更像家。
+FURN_FRUIT_BOWL_NAME,Fruit Bowl,水果碗,水果碗
+FURN_FRUIT_BOWL_REACTION,{name} circles the fruit bowl once and decides looking counts as vitamins.,{name} 绕着水果碗看了一圈，认为看过就算补充维生素。,{name} 繞著水果碗看了一圈，認為看過就算補充維生素。
+FURN_KETTLE_ROUND_DESC,Round Kettle adds a new behavior and may become the condition for a memory.,圆肚水壶会带来一种新动作，也可能成为小剧场的条件。,圓肚水壺會帶來一種新動作，也可能成為小劇場的條件。
+FURN_KETTLE_ROUND_NAME,Round Kettle,圆肚水壶,圓肚水壺
+FURN_MINI_OVEN_DESC,Mini Oven gently changes the light and mood of this corner.,迷你烤箱会轻轻改变这个角落的光线和气氛。,迷你烤箱會輕輕改變這個角落的光線和氣氛。
+FURN_MINI_OVEN_NAME,Mini Oven,迷你烤箱,迷你烤箱
+FURN_MIRROR_ROUND_DESC,Round Mirror adds a new behavior and may become the condition for a memory.,圆圆镜子会带来一种新动作，也可能成为小剧场的条件。,圓圓鏡子會帶來一種新動作，也可能成為小劇場的條件。
+FURN_MIRROR_ROUND_NAME,Round Mirror,圆圆镜子,圓圓鏡子
+FURN_NIGHTLIGHT_MOON_DESC,Moon Night-Light gently changes the light and mood of this corner.,月亮夜灯会轻轻改变这个角落的光线和气氛。,月亮夜燈會輕輕改變這個角落的光線和氣氛。
+FURN_NIGHTLIGHT_MOON_NAME,Moon Night-Light,月亮夜灯,月亮夜燈
+FURN_PILLOW_CLOUD_DESC,Cloud Pillow adds a new behavior and may become the condition for a memory.,云朵抱枕会带来一种新动作，也可能成为小剧场的条件。,雲朵抱枕會帶來一種新動作，也可能成為小劇場的條件。
+FURN_PILLOW_CLOUD_NAME,Cloud Pillow,云朵抱枕,雲朵抱枕
+FURN_PLANT_SPROUT_DESC,Sprout Pot adds a new behavior and may become the condition for a memory.,新芽盆栽会带来一种新动作，也可能成为小剧场的条件。,新芽盆栽會帶來一種新動作，也可能成為小劇場的條件。
+FURN_PLANT_SPROUT_NAME,Sprout Pot,新芽盆栽,新芽盆栽
+FURN_PUZZLE_BOX_DESC,Puzzle Box adds a new behavior and may become the condition for a memory.,谜题盒会带来一种新动作，也可能成为小剧场的条件。,謎題盒會帶來一種新動作，也可能成為小劇場的條件。
+FURN_PUZZLE_BOX_NAME,Puzzle Box,谜题盒,謎題盒
+FURN_RADIO_DESC,Soft-Voice Radio adds a new behavior and may become the condition for a memory.,慢声收音机会带来一种新动作，也可能成为小剧场的条件。,慢聲收音機會帶來一種新動作，也可能成為小劇場的條件。
+FURN_RADIO_NAME,Soft-Voice Radio,慢声收音机,慢聲收音機
+FURN_ROBOT_DOCK_DESC,Robot Dock grants no numeric advantage; it simply makes the room feel more like home.,机器人停靠点不提高数值，只负责让房间更像家。,機器人停靠點不提高數值，只負責讓房間更像家。
+FURN_ROBOT_DOCK_NAME,Robot Dock,机器人停靠点,機器人停靠點
+FURN_ROBOT_DOCK_REACTION,{name} inspects the empty dock and announces that its rider is on patrol.,{name} 认真检查了空底座，宣布骑士正在巡逻。,{name} 認真檢查了空底座，宣佈騎士正在巡邏。
+FURN_SOFT_BALL_DESC,Stay-Close Soft Ball adds a new behavior and may become the condition for a memory.,不会跑远的软球会带来一种新动作，也可能成为小剧场的条件。,不會跑遠的軟球會帶來一種新動作，也可能成為小劇場的條件。
+FURN_SOFT_BALL_NAME,Stay-Close Soft Ball,不会跑远的软球,不會跑遠的軟球
+FURN_TABLE_SNACK_DESC,Snack Table adds a new behavior and may become the condition for a memory.,零食小桌会带来一种新动作，也可能成为小剧场的条件。,零食小桌會帶來一種新動作，也可能成為小劇場的條件。
+FURN_TABLE_SNACK_NAME,Snack Table,零食小桌,零食小桌
+FURN_TEA_TRAY_DESC,Tea Tray grants no numeric advantage; it simply makes the room feel more like home.,下午茶托盘不提高数值，只负责让房间更像家。,下午茶托盤不提高數值，只負責讓房間更像家。
+FURN_TEA_TRAY_NAME,Tea Tray,下午茶托盘,下午茶托盤
+FURN_TEA_TRAY_REACTION,{name} sits by the tea tray and says the steam has already improved the day.,{name} 坐在茶盘旁边，宣布今天已经被热气改善了。,{name} 坐在茶盤旁邊，宣佈今天已經被熱氣改善了。
+FURN_TELESCOPE_DESC,Short Telescope adds a new behavior and may become the condition for a memory.,短筒望远镜会带来一种新动作，也可能成为小剧场的条件。,短筒望遠鏡會帶來一種新動作，也可能成為小劇場的條件。
+FURN_TELESCOPE_NAME,Short Telescope,短筒望远镜,短筒望遠鏡
+FURN_TINY_DRUM_DESC,Tiny Drum adds a new behavior and may become the condition for a memory.,小小鼓会带来一种新动作，也可能成为小剧场的条件。,小小鼓會帶來一種新動作，也可能成為小劇場的條件。
+FURN_TINY_DRUM_NAME,Tiny Drum,小小鼓,小小鼓
+FURN_TINY_LAMP_DESC,Tiny Lamp gently changes the light and mood of this corner.,一盏小灯会轻轻改变这个角落的光线和气氛。,一盞小燈會輕輕改變這個角落的光線和氣氛。
+FURN_TINY_LAMP_NAME,Tiny Lamp,一盏小灯,一盞小燈
+FURN_TREADMILL_DESC,Short Treadmill adds a new behavior and may become the condition for a memory.,短短跑步机会带来一种新动作，也可能成为小剧场的条件。,短短跑步機會帶來一種新動作，也可能成為小劇場的條件。
+FURN_TREADMILL_NAME,Short Treadmill,短短跑步机,短短跑步機
+FURN_WEATHER_CHARM_DESC,Weather Charm gently changes the light and mood of this corner.,天气挂件会轻轻改变这个角落的光线和气氛。,天氣掛件會輕輕改變這個角落的光線和氣氛。
+FURN_WEATHER_CHARM_NAME,Weather Charm,天气挂件,天氣掛件
+FURN_WINDOW_CUSHION_DESC,Window Cushion adds a new behavior and may become the condition for a memory.,窗边坐垫会带来一种新动作，也可能成为小剧场的条件。,窗邊坐墊會帶來一種新動作，也可能成為小劇場的條件。
+FURN_WINDOW_CUSHION_NAME,Window Cushion,窗边坐垫,窗邊坐墊
+FURN_WIND_CHIME_DESC,Gentle Wind Chime gently changes the light and mood of this corner.,轻声风铃会轻轻改变这个角落的光线和气氛。,輕聲風鈴會輕輕改變這個角落的光線和氣氛。
+FURN_WIND_CHIME_NAME,Gentle Wind Chime,轻声风铃,輕聲風鈴
+FURN_YOGA_MAT_DESC,Soft Yoga Mat adds a new behavior and may become the condition for a memory.,柔软瑜伽垫会带来一种新动作，也可能成为小剧场的条件。,柔軟瑜伽墊會帶來一種新動作，也可能成為小劇場的條件。
+FURN_YOGA_MAT_NAME,Soft Yoga Mat,柔软瑜伽垫,柔軟瑜伽墊
+HELP_ALBUM,Expressions show hints and first-seen dates; life photos can be replayed and exported; the diary records your relationship. A soft dot marks new content.,表情册显示线索与首次日期；生活照片可重看和导出；章节日记记录关系进展。新内容用柔和圆点提示。,表情冊顯示線索與首次日期；生活照片可重看和匯出；章節日記記錄關係進展。新內容用柔和圓點提示。
+HELP_CORE,"Watch your pig live: pet the body, poke the snout, feed it, furnish fixed slots, and view never-missable memories in the album. Every interaction is optional; your pig looks after itself.",观察猪咪的生活；点身体摸摸、点鼻子戳戳，也可投喂、布置固定插槽，并从相册观看不会错过的小剧场。所有互动都可忽略，猪咪仍会照顾好自己。,觀察豬咪的生活；點身體摸摸、點鼻子戳戳，也可投餵、佈置固定插槽，並從相簿觀看不會錯過的小劇場。所有互動都可忽略，豬咪仍會照顧好自己。
+HELP_DESKTOP,"Desktop Pal unlocks at Familiarity 2. Its controls cover docking, scale, always-on-top, action frequency, focus, pause, hide, room return, and exit; desktop music starts off.",熟悉度 2 级后可进入桌面陪伴。控制点可调整停靠、缩放、置顶、动作频率、专注、暂停、隐藏、返回小屋或退出；桌面音乐默认关闭。,熟悉度 2 級後可進入桌面陪伴。控制點可調整停靠、縮放、置頂、動作頻率、專注、暫停、隱藏、返回小屋或退出；桌面音樂預設關閉。
+HELP_REPLAY_NAMING,Rename and Replay Tutorial,重新命名并重看新手引导,重新命名並重看新手引導
+HELP_REPLAY_TUTORIAL,Replay Tutorial from Petting,从摸摸步骤重看新手引导,從摸摸步驟重看新手引導
+HELP_SAVING,"Progress auto-saves after important unlocks, mode switches, every 60 seconds, and exit, with two rotating backups. Machine window settings stay out of cross-device saves.",养成进度会在重要解锁、模式切换、每 60 秒和退出时自动保存，并保留两份轮换备份。机器窗口设置不会进入跨设备存档。,養成進度會在重要解鎖、模式切換、每 60 秒和退出時自動儲存，並保留兩份輪換備份。機器視窗設定不會進入跨裝置存檔。
+LANGUAGE_EN,English,英语,英語
+LANGUAGE_ZH_CN,Simplified Chinese,简体中文,簡體中文
+LANGUAGE_ZH_TW,Traditional Chinese,繁体中文,繁體中文
+LEGAL_NO_BRANDS,"New actions, rooms, props, packaging, music, and sound effects are project originals. Unknown-source legacy assets and real snack brands are not included.",游戏内新增动作、房间、道具、包装、音乐和音效均为项目原创；不包含来源不明的旧素材或现实零食品牌。,遊戲內新增動作、房間、道具、包裝、音樂和音效均為專案原創；不包含來源不明的舊素材或現實零食品牌。
+LEGAL_PRIVACY,"Privacy: the game has no account, private server, ad SDK, or default telemetry and collects no personal data. Progress saves, in-game photos, manual screenshots, and up to five rolling runtime logs stay local by default; logs are never uploaded automatically. When Steam Cloud is enabled, it syncs only the main progression save, two safety backups, and game-generated life-album photos; manual screenshots, exported copies, machine/window settings, and logs stay local. Full game and Demo use isolated cloud paths.",隐私：游戏没有账号、自建服务器、广告 SDK 或默认遥测，不采集个人数据。养成存档、游戏内照片、手动截图和最多 5 份滚动运行日志默认只写入本机；日志不会自动上传。启用 Steam Cloud 时，仅同步养成主档、两份安全备份和游戏自动生成的生活相册照片；手动截图、导出副本、机器/窗口设置和日志仍只留在本机。正式版和 Demo 使用互相隔离的云路径。,隱私：遊戲沒有賬號、自建伺服器、廣告 SDK 或預設遙測，不採集個人資料。養成存檔、遊戲內照片、手動截圖和最多 5 份滾動執行日誌預設只寫入本機；日誌不會自動上傳。啟用 Steam Cloud 時，僅同步養成主檔、兩份安全備份和遊戲自動生成的生活相簿照片；手動截圖、匯出副本、機器/視窗設定和日誌仍只留在本機。正式版和 Demo 使用互相隔離的雲路徑。
+LEGAL_THIRD_PARTY,"Third party: the pig graphic master is archived from Google Noto Emoji commit f2a4f72bffe0212c72949a22698be235269bfab5 under Apache License 2.0. The full license, source hashes, and modification notice ship with the game.",第三方：猪图形母版归档自 Google Noto Emoji 历史提交 f2a4f72bffe0212c72949a22698be235269bfab5，依据 Apache License 2.0 使用。完整许可证、来源哈希和修改说明随游戏提供。,第三方：豬圖形母版歸檔自 Google Noto Emoji 歷史提交 f2a4f72bffe0212c72949a22698be235269bfab5，依據 Apache License 2.0 使用。完整許可證、來源雜湊和修改說明隨遊戲提供。
+LIFE_PLAN_ACTIVE,Your Pig Is Taking Its Time,猪咪正在慢慢做,豬咪正在慢慢做
+LIFE_PLAN_CHOOSE,Take It Slowly,开始慢慢做,開始慢慢做
+LIFE_PLAN_COLLECTION,{count}/{total} notes kept,已经留下 {count}/{total} 段手账,已經留下 {count}/{total} 段手賬
+LIFE_PLAN_COMPLETE,All Three Notes Kept,三段手账都留下了,三段手賬都留下了
+LIFE_PLAN_CONTINUE,Carry On Slowly,接着慢慢做,接著慢慢做
+LIFE_PLAN_ENTRY_WAITING,"{title} · Written after {minutes} minutes of inspiration, whenever that happens.",{title} · 累计 {minutes} 分钟灵感后写下，不限时间。,{title} · 累計 {minutes} 分鐘靈感後寫下，不限時間。
+LIFE_PLAN_ENTRY_WRITTEN,{title}: {note},{title}：{note},{title}：{note}
+LIFE_PLAN_FURNITURE,Room inspiration: {items},摆进房间更容易有灵感：{items},擺進房間更容易有靈感：{items}
+LIFE_PLAN_INTRO,"Choose a little project to take slowly. Inspiration grows in the room, on your desktop, or offline. Switch, pause, or resume any time without losing progress or notes. No deadlines or check-ins. Notes are keepsakes, not points or familiarity rewards.",选一本慢慢做的小计划。猪咪在线、桌面陪伴或离线时都会积累灵感；可随时换本、暂停和继续，进度与手账不会清空。没有期限，也不需要打卡。手账只作纪念，不增加点数或熟悉度。,選一本慢慢做的小計劃。豬咪線上、桌面陪伴或離線時都會積累靈感；可隨時換本、暫停和繼續，進度與手賬不會清空。沒有期限，也不需要打卡。手賬只作紀念，不增加點數或熟悉度。
+LIFE_PLAN_OFFLINE,Your pig also added {count} project notes. Find them under Little Plans in the album.,猪咪还给小计划添了 {count} 段手账，可以到相册的小计划页看看。,豬咪還給小計劃添了 {count} 段手賬，可以到相簿的小計劃頁看看。
+LIFE_PLAN_PAUSE,Just Hang Out · Keep All Progress,先随便待着 · 保留所有进度,先隨便待著 · 保留所有進度
+LIFE_PLAN_PROGRESS,Notes {done}/{total} · Inspiration {percent}%,手账 {done}/{total} · 灵感 {percent}%,手賬 {done}/{total} · 靈感 {percent}%
+LIFE_PLAN_RATE,"Room inspiration rate {rate}%. Matching furniture adds 20% each, up to two pieces; a completed matching behavior adds 10 seconds.",房间灵感速度 {rate}% · 对应家具每件 +20%，最多两件；相关行为完成后另添 10 秒灵感。,房間靈感速度 {rate}% · 對應傢俱每件 +20%，最多兩件；相關行為完成後另添 10 秒靈感。
+MEME_RAGE,Furious Pig · Silent Grumble,暴怒猪 · 无声哼哼,暴怒豬 · 無聲哼哼
+MEME_RAGE_LINE,"{name}: Puffing up with rage… wait, pigs aren't pufferfish.",{name}：气成河豚……等等，猪猪不是河豚。,{name}：氣成河豚……等等，豬豬不是河豚。
+MEME_RULER,Pig Ruler of the World,世界主宰猪,世界主宰豬
+MEME_RULER_LINE,"{name}: By pig decree, everyone may take a proper rest.",{name}：本猪宣布，今天所有人都可以好好休息。,{name}：本豬宣佈，今天所有人都可以好好休息。
+MEME_SILLY,Silly Pig · Brain Buffering,笨蛋猪 · 猪脑过载,笨蛋豬 · 豬腦過載
+MEME_SILLY_LINE,"{name}: So many pig ideas, one tiny processor.",{name}：猪意很多，但猪脑一次只能处理一个。,{name}：豬意很多，但豬腦一次只能處理一個。
+MEME_SLACK,Slacker Pig,摆烂猪,擺爛豬
+MEME_SLACK_LINE,{name}: Today's pig priority: improve floor comfort.,{name}：今天的猪要任务，是把地板躺得更舒服。,{name}：今天的豬要任務，是把地板躺得更舒服。
+MEME_WORKER,Office Pig,打工猪,打工豬
+MEME_WORKER_LINE,{name}: Working towards financial cookie independence.,{name}：正在努力工作，争取早日实现饼干自由。,{name}：正在努力工作，爭取早日實現餅乾自由。
+MEME_WRONGED,Wronged Pig,委屈猪,委屈豬
+MEME_WRONGED_LINE,{name}: That last cookie had no name on it. I assumed mine.,{name}：最后一块饼干没有猪的名字，但猪觉得有。,{name}：最後一塊餅乾沒有豬的名字，但豬覺得有。
+NAME_DEFAULT,Piggy,猪咪,豬咪
+NAME_PROMPT_PLACEHOLDER,Enter a name (up to 16 characters),输入名字（最多 16 个字）,輸入名字（最多 16 個字）
+NAME_PROMPT_TEXT,It looks like it has already decided to stay. What should you call it?,它看起来已经决定住下了。要怎么称呼它？,它看起來已經決定住下了。要怎麼稱呼它？
+NAME_PROMPT_TITLE,A New Roommate,新住客,新住客
+NOTE_EXERCISE_1_TEXT,Writing down a wish to move is a very short invitation to the body.,把想动一动写下来，也算给身体发了一封很短的邀请。,把想動一動寫下來，也算給身體發了一封很短的邀請。
+NOTE_EXERCISE_1_TITLE,One Small Move,先动一下,先動一下
+NOTE_EXERCISE_2_TEXT,"The pause after a stretch matters. Your pig thinks pauses belong in the record, too.",伸懒腰后面的停顿很重要。猪咪认为停顿也应该进入记录。,伸懶腰後面的停頓很重要。豬咪認為停頓也應該進入記錄。
+NOTE_EXERCISE_2_TITLE,Moves and Pauses,动作与停顿,動作與停頓
+NOTE_EXERCISE_3_TEXT,"Your pig takes a breather. This pause is part of the exercise plan, not a forgotten plan.",猪咪决定猪动休息。这是运动计划的一部分，不是把计划忘了。,豬咪決定豬動休息。這是運動計劃的一部分，不是把計劃忘了。
+NOTE_EXERCISE_3_TITLE,Piggy Takes a Breather,猪动休息,豬動休息
+NOTE_EXPEDITION_1_TEXT,Your pig is hogging the map: the bed is both start and finish. Knowing the way back matters more than going far.,猪咪猪持大局，把床标成出发点，也标成终点。知道怎么回来，比走多远还重要。,豬咪豬持大局，把床標成出發點，也標成終點。知道怎麼回來，比走多遠還重要。
+NOTE_EXPEDITION_1_TITLE,Hogging the Map,猪持大局,豬持大局
+NOTE_EXPEDITION_2_TEXT,The same room and a different thought make a route you have never taken before.,同一个房间，换个想法，就多出了一条没走过的路线。,同一個房間，換個想法，就多出了一條沒走過的路線。
+NOTE_EXPEDITION_2_TITLE,Another Route,换一条路线,換一條路線
+NOTE_EXPEDITION_3_TEXT,"Beside the map, your pig writes: the room is still home, and a little more familiar.",猪咪在地图旁写下：今天的小屋还是家，而且更熟悉了一点。,豬咪在地圖旁寫下：今天的小屋還是家，而且更熟悉了一點。
+NOTE_EXPEDITION_3_TITLE,A Note on Returning,回来写两句,回來寫兩句
+NOTE_PILLOW_1_TEXT,Today's pig-ject: getting comfortable. The researcher lies down before deciding whether a meeting is necessary.,猪要课题：怎样躺着更舒服。研究员决定先躺好，再考虑要不要开会。,豬要課題：怎樣躺著更舒服。研究員決定先躺好，再考慮要不要開會。
+NOTE_PILLOW_1_TITLE,A Very Important Pig-ject,猪要课题,豬要課題
+NOTE_PILLOW_2_TEXT,"Turn over: the question is still there, and so is the comfort. An important review.",翻个身，问题还在，舒服也还在。这算一次重要的复核。,翻個身，問題還在，舒服也還在。這算一次重要的複核。
+NOTE_PILLOW_2_TITLE,Another Angle,换一个角度,換一個角度
+NOTE_PILLOW_3_TEXT,The note says: snout a worry in the world. The pillow stays. So does the pig.,本来想写高枕无忧，落笔成了高枕无猪。猪咪赶紧补上：猪在，忧不在。,本來想寫高枕無憂，落筆成了高枕無豬。豬咪趕緊補上：豬在，憂不在。
+NOTE_PILLOW_3_TITLE,Snout a Worry in the World,高枕无猪,高枕無豬
+NOTE_READING_1_TEXT,Not knowing what to write yet is a good reason to leave a page for your future self.,暂时不知道要写什么，也可以把这一页留给将来的自己。,暫時不知道要寫什麼，也可以把這一頁留給將來的自己。
+NOTE_READING_1_TITLE,A Blank Page,留一页空白,留一頁空白
+NOTE_READING_2_TEXT,Your pig sketches itself in the margin: the pig picture. Understanding every word is optional; having an idea is not.,猪咪在页边画了自己，称之为胸有成猪。一个字没读懂，也不耽误有自己的猪意。,豬咪在頁邊畫了自己，稱之為胸有成豬。一個字沒讀懂，也不耽誤有自己的豬意。
+NOTE_READING_2_TITLE,A Pig Picture,胸有成猪,胸有成豬
+NOTE_READING_3_TEXT,The booklet closes. Curiosity does not. The next page can wait until you want it.,小册合上了，好奇心没有。下一页可以等到想看的时候。,小冊合上了，好奇心沒有。下一頁可以等到想看的時候。
+NOTE_READING_3_TITLE,One More Page,还想再翻一页,還想再翻一頁
+NOTE_SNACK_1_TEXT,"First criterion: if the smell makes you want to sit down, it is already promising.",第一条评测标准：闻起来让人愿意坐下来，就已经很不错。,第一條評測標準：聞起來讓人願意坐下來，就已經很不錯。
+NOTE_SNACK_1_TITLE,The Nose Votes First,鼻子先投票,鼻子先投票
+NOTE_SNACK_2_TEXT,"After much thought, your pig cannot quite tell where aroma ends and anticipation begins.",猪咪想了很久，暂时没有找到香气和期待之间的分界线。,豬咪想了很久，暫時沒有找到香氣和期待之間的分界線。
+NOTE_SNACK_2_TITLE,Where Aroma Ends,香气的边界,香氣的邊界
+NOTE_SNACK_3_TEXT,"Not a snap judgment, but a snack judgment: worth sitting down and taking your time.",食不相瞒，猪咪对这份零食很有好感。评测结论：值得坐下来，慢慢吃。,食不相瞞，豬咪對這份零食很有好感。評測結論：值得坐下來，慢慢吃。
+NOTE_SNACK_3_TITLE,A Snack Judgment,食不相瞒,食不相瞞
+NOTE_WINDOW_1_TEXT,Not every cloud needs a name. Passing by is quite enough.,不是每一朵云都需要有名字。经过一下，也很好。,不是每一朵雲都需要有名字。經過一下，也很好。
+NOTE_WINDOW_1_TITLE,Ordinary Things,看见普通,看見普通
+NOTE_WINDOW_2_TEXT,"Sunlight makes the ears glow. A snoutstanding view, declares your pig. The cloud raises no objection.",阳光把耳朵照得亮亮的。猪咪宣布今天猪光宝气，窗外那朵云表示没有意见。,陽光把耳朵照得亮亮的。豬咪宣佈今天豬光寶氣，窗外那朵雲表示沒有意見。
+NOTE_WINDOW_2_TITLE,A Snoutstanding View,猪光宝气,豬光寶氣
+NOTE_WINDOW_3_TEXT,No grand event on this page. Only a place where it feels safe to sit down.,这页没有大事。只有一个可以放心坐下来的地方。,這頁沒有大事。只有一個可以放心坐下來的地方。
+NOTE_WINDOW_3_TITLE,Keep This Little Bit,记住这一小段,記住這一小段
+OFFLINE_LONG,"Your pig lived very seriously for about {hours} hours. The first 8 hours were full-rate, then low-rate, for {points} points total.",猪咪认真生活了约 {hours} 小时，前 8 小时完整结算，之后按低速记录，共获得 {points} 点。,豬咪認真生活了約 {hours} 小時，前 8 小時完整結算，之後按低速記錄，共獲得 {points} 點。
+OFFLINE_MANY_DAYS,"Your pig lived a few days of its own. Rewards were capped at 24 hours for {points} points, and no content was missed.",猪咪过了几天自己的日子。收益已按 24 小时上限结算，共 {points} 点，没有任何内容被错过。,豬咪過了幾天自己的日子。收益已按 24 小時上限結算，共 {points} 點，沒有任何內容被錯過。
+OFFLINE_MEMORIES,There are {count} memories waiting in the album.,还有 {count} 段回忆在相册里等你。,還有 {count} 段回憶在相簿裡等你。
+OFFLINE_NONE,Your pig barely had time to blink.,猪咪只是眨了眨眼。,豬咪只是眨了眨眼。
+OFFLINE_SHORT,You were away for about {hours} hours. Your pig did fine and brought back {points} Daily Points.,你离开了约 {hours} 小时。猪咪自己过得不错，带回了 {points} 点日常点数。,你離開了約 {hours} 小時。豬咪自己過得不錯，帶回了 {points} 點日常點數。
+OFFLINE_TITLE,While You Were Away,猪咪刚才的日子,豬咪剛才的日子
+OUTFIT_BERRY_BERET_DESC,Attaches the berry beret to its matching anchor. Cosmetic only; it never changes progression speed.,把莓果贝雷帽固定在对应锚点上。只改变外观，不改变养成效率。,把莓果貝雷帽固定在對應錨點上。只改變外觀，不改變養成效率。
+OUTFIT_BERRY_BERET_NAME,Berry Beret,莓果贝雷帽,莓果貝雷帽
+OUTFIT_BOW_TIE_DESC,Attaches the serious bow tie to its matching anchor. Cosmetic only; it never changes progression speed.,把认真领结固定在对应锚点上。只改变外观，不改变养成效率。,把認真領結固定在對應錨點上。只改變外觀，不改變養成效率。
+OUTFIT_BOW_TIE_NAME,Serious Bow Tie,认真领结,認真領結
+OUTFIT_CLOUD_SCARF_DESC,Attaches the cloud scarf to its matching anchor. Cosmetic only; it never changes progression speed.,把云朵围巾固定在对应锚点上。只改变外观，不改变养成效率。,把雲朵圍巾固定在對應錨點上。只改變外觀，不改變養成效率。
+OUTFIT_CLOUD_SCARF_NAME,Cloud Scarf,云朵围巾,雲朵圍巾
+OUTFIT_HERO_CAPE_DESC,Attaches the occasional hero cape to its matching anchor. Cosmetic only; it never changes progression speed.,把偶尔英雄披风固定在对应锚点上。只改变外观，不改变养成效率。,把偶爾英雄披風固定在對應錨點上。只改變外觀，不改變養成效率。
+OUTFIT_HERO_CAPE_NAME,Occasional Hero Cape,偶尔英雄披风,偶爾英雄披風
+OUTFIT_PAINTER_HAT_DESC,Attaches the painter hat to its matching anchor. Cosmetic only; it never changes progression speed.,把画家帽固定在对应锚点上。只改变外观，不改变养成效率。,把畫家帽固定在對應錨點上。只改變外觀，不改變養成效率。
+OUTFIT_PAINTER_HAT_NAME,Painter Hat,画家帽,畫家帽
+OUTFIT_PAPER_CROWN_DESC,Attaches the paper crown to its matching anchor. Cosmetic only; it never changes progression speed.,把纸片王冠固定在对应锚点上。只改变外观，不改变养成效率。,把紙片王冠固定在對應錨點上。只改變外觀，不改變養成效率。
+OUTFIT_PAPER_CROWN_NAME,Paper Crown,纸片王冠,紙片王冠
+OUTFIT_RAIN_CAPE_DESC,Attaches the little rain cape to its matching anchor. Cosmetic only; it never changes progression speed.,把小雨披固定在对应锚点上。只改变外观，不改变养成效率。,把小雨披固定在對應錨點上。只改變外觀，不改變養成效率。
+OUTFIT_RAIN_CAPE_NAME,Little Rain Cape,小雨披,小雨披
+OUTFIT_ROUND_GLASSES_DESC,Attaches the round glasses to its matching anchor. Cosmetic only; it never changes progression speed.,把圆框眼镜固定在对应锚点上。只改变外观，不改变养成效率。,把圓框眼鏡固定在對應錨點上。只改變外觀，不改變養成效率。
+OUTFIT_ROUND_GLASSES_NAME,Round Glasses,圆框眼镜,圓框眼鏡
+OUTFIT_SLEEPY_CAP_DESC,Attaches the sleepy cap to its matching anchor. Cosmetic only; it never changes progression speed.,把困困睡帽固定在对应锚点上。只改变外观，不改变养成效率。,把困困睡帽固定在對應錨點上。只改變外觀，不改變養成效率。
+OUTFIT_SLEEPY_CAP_NAME,Sleepy Cap,困困睡帽,困困睡帽
+OUTFIT_SPORTS_BAND_DESC,Attaches the sports headband to its matching anchor. Cosmetic only; it never changes progression speed.,把运动发带固定在对应锚点上。只改变外观，不改变养成效率。,把運動髮帶固定在對應錨點上。只改變外觀，不改變養成效率。
+OUTFIT_SPORTS_BAND_NAME,Sports Headband,运动发带,運動髮帶
+OUTFIT_SPROUT_PIN_DESC,Attaches the sprout pin to its matching anchor. Cosmetic only; it never changes progression speed.,把新芽发卡固定在对应锚点上。只改变外观，不改变养成效率。,把新芽髮卡固定在對應錨點上。只改變外觀，不改變養成效率。
+OUTFIT_SPROUT_PIN_NAME,Sprout Pin,新芽发卡,新芽髮卡
+OUTFIT_STAR_GLASSES_DESC,Attaches the star glasses to its matching anchor. Cosmetic only; it never changes progression speed.,把星星眼镜固定在对应锚点上。只改变外观，不改变养成效率。,把星星眼鏡固定在對應錨點上。只改變外觀，不改變養成效率。
+OUTFIT_STAR_GLASSES_NAME,Star Glasses,星星眼镜,星星眼鏡
+PERFORMANCE_CATEGORY,Performance Category,表现分类,表現分類
+PERFORMANCE_FACES,Faces,表情与五官,表情與五官
+PERFORMANCE_FORMS,Special Forms,特殊形态,特殊形態
+PERFORMANCE_INTRO,"One pig, five combinable categories. Residents, personality, and rewards stay unchanged.",同一只猪猪，五类可组合表现。性格、住客与收益都不变。,同一只豬豬，五類可組合表現。性格、住客與收益都不變。
+PERFORMANCE_OUTFIT_ACTION,Show This Outfit's Little Action,展示这套装扮的小动作,展示這套裝扮的小動作
+PERFORMANCE_OUTFIT_ACTIONS,Outfit Combinations,装扮专属动作,裝扮專屬動作
+PERFORMANCE_OUTFIT_COMBO,{outfit} · {pose},{outfit} · {pose},{outfit} · {pose}
+PERFORMANCE_POSES,Animated Poses,四帧小动作,四幀小動作
+PERFORMANCE_STATES,Meme States,临时梗状态,臨時梗狀態
+PERFORMANCE_STOP,Back to Ordinary Piggy,回到普通猪猪,回到普通豬豬
+PERFORMANCE_TEMPORARY,"Faces last two minutes, poses eight seconds; states and forms return to normal automatically. No saves, care requirements, or background catch-up. A pat or poke also ends the performance.",表情展示两分钟，动作八秒，梗状态与形态随后自动恢复；不写入存档、不要求照顾，不补演后台错过的动作。摸摸或戳戳也会结束展示。,表情展示兩分鐘，動作八秒，梗狀態與形態隨後自動恢復；不寫入存檔、不要求照顧，不補演後臺錯過的動作。摸摸或戳戳也會結束展示。
+PERFORMANCE_TITLE,Pig Faces and Little Performances,猪猪表情与动作剧场,豬豬表情與動作劇場
+PERFORMANCE_WEAR_FIRST,Wear this outfit first. No extra purchase is needed for its combination.,先穿上这套装扮；组合动作不需要额外付费。,先穿上這套裝扮；組合動作不需要額外付費。
+PERSONALITY_CARD,Personality: {personality},性格：{personality},性格：{personality}
+PERSONALITY_FOODIE_DESCRIPTION,Even a head pat brings snacks to mind; a belly poke reminds it of cookies. Never consumes extra food or nags for feeding.,摸头也能联想到零食，被戳肚子会想起饼干；不会消耗更多食物或催你投喂。,摸頭也能聯想到零食，被戳肚子會想起餅乾；不會消耗更多食物或催你投餵。
+PERSONALITY_FOODIE_NAME,Foodie,贪吃,貪吃
+PERSONALITY_FOODIE_PET,{name}: Head pats are lovely. A cookie in that hand would make it a snoutstanding day.,{name}：摸头真好。要是手里刚好有饼干，那就猪事顺利了。,{name}：摸頭真好。要是手裡剛好有餅乾，那就豬事順利了。
+PERSONALITY_FOODIE_POKE,{name}: Cookie memories live in here. That's not a request for more food.,{name}：这里装着饼干的回忆，不是催你投喂哦。,{name}：這裡裝著餅乾的回憶，不是催你投餵哦。
+PERSONALITY_INITIAL_CONFIRM,Choose This Pig's Personality,为这只猪猪确定性格,為這隻豬豬確定性格
+PERSONALITY_LAZY_DESCRIPTION,"Takes life slowly, yawns through head pats, and answers a poke with another sleepy blink.",喜欢慢慢来，摸头时打个哈欠，被戳也只想换个舒服的姿势。,喜歡慢慢來，摸頭時打個哈欠，被戳也只想換個舒服的姿勢。
+PERSONALITY_LAZY_NAME,Lazy,懒惰,懶惰
+PERSONALITY_LAZY_PET,{name}: This is proactive pig rest… leave your hand there a little longer.,{name}：这叫猪动休息……你的手先别走。,{name}：這叫豬動休息……你的手先別走。
+PERSONALITY_LAZY_POKE,{name}: Noted. Let me finish this half-yawn first.,{name}：收到，等我把这半个哈欠打完。,{name}：收到，等我把這半個哈欠打完。
+PERSONALITY_LEGACY_INTRO,"This pig has no saved personality yet. Choose once if you like, or keep its original easygoing reactions.",这只猪猪来自尚未设置性格的存档，可以补选一次；不选也能保持原来的生活。,這隻豬豬來自尚未設定性格的存檔，可以補選一次；不選也能保持原來的生活。
+PERSONALITY_LIVELY_DESCRIPTION,Leans happily into head pats and has a little grumble after a poke.,摸摸头就开心地贴过来，被戳一下也会认真地嘀咕两句。,摸摸頭就開心地貼過來，被戳一下也會認真地嘀咕兩句。
+PERSONALITY_LIVELY_NAME,Lively,活泼,活潑
+PERSONALITY_RANDOM,Random · Equal Chance of Five Personalities,随机遇见 · 五种性格等概率,隨機遇見 · 五種性格等機率
+PERSONALITY_RANDOM_DESCRIPTION,Rolled independently when welcomed. No rarity tiers or stronger personalities.,迎接时才随机决定，每只猪猪独立生成；没有稀有度或强弱之分。,迎接時才隨機決定，每隻豬豬獨立生成；沒有稀有度或強弱之分。
+PERSONALITY_SELECTOR,Pig Personality,猪猪性格,豬豬性格
+PERSONALITY_SETUP_INTRO,"Choose a personality or meet one at random. It changes reaction expressions and wording, not points, familiarity, needs, or care frequency. Naming, absence, and restarting never change it.",性格可以自己选，也可以随机遇见。只影响互动表情和说话方式，点数、熟悉度、需求消耗与照顾频率都一样；选定后不会因改名、离开或重启改变。,性格可以自己選，也可以隨機遇見。隻影響互動表情和說話方式，點數、熟悉度、需求消耗與照顧頻率都一樣；選定後不會因改名、離開或重啟改變。
+PERSONALITY_SHY_DESCRIPTION,Quietly enjoys head pats and widens its eyes at a surprise poke. Needs no extra company and never resents your absence.,安静地享受摸头，突然被戳会睁圆眼睛；不需要更多陪伴，也不会因离开难过。,安靜地享受摸頭，突然被戳會睜圓眼睛；不需要更多陪伴，也不會因離開難過。
+PERSONALITY_SHY_NAME,Shy,社恐,社恐
+PERSONALITY_SHY_PET,{name}: Quietly… it's quite comfy here with you.,{name}：小声说，和你待着还挺舒服的。,{name}：小聲說，和你待著還挺舒服的。
+PERSONALITY_SHY_POKE,{name}: Oh! It's you. That's a little reassuring.,{name}：啊！原来是你，那我就放心一点点。,{name}：啊！原來是你，那我就放心一點點。
+PERSONALITY_TSUNDERE_DESCRIPTION,"Claims not to enjoy the attention, but its face gives it away. Pretends to be stern when poked.",嘴上说才没有很开心，表情却藏不住；被戳时会假装很有威严。,嘴上說才沒有很開心，表情卻藏不住；被戳時會假裝很有威嚴。
+PERSONALITY_TSUNDERE_NAME,Tsundere,傲娇,傲嬌
+PERSONALITY_TSUNDERE_PET,{name}: I wasn't waiting for a head pat… though one more wouldn't hurt.,{name}：才、才不是在等你摸头……再摸一下也不是不可以。,{name}：才、才不是在等你摸頭……再摸一下也不是不可以。
+PERSONALITY_TSUNDERE_POKE,{name}: Hmph! This belly is under pig protection!,{name}：哼，这可是猪要保护的肚子！,{name}：哼，這可是豬要保護的肚子！
+PERSONALITY_UNASSIGNED,Easygoing · Not Chosen Yet,自然随性 · 尚未选择,自然隨性 · 尚未選擇
+PHOTO_FRAME_BERRY,Berry Keepsake,莓果纪念,莓果紀念
+PHOTO_FRAME_BERRY_LOCKED,Unlocks after collecting 16 expressions.,收集 16 个表情后解锁。,收集 16 個表情後解鎖。
+PHOTO_FRAME_PLAIN,Soft Margin,轻轻留白,輕輕留白
+PHOTO_FRAME_STAR,Star Collector,星星全收集,星星全收集
+PHOTO_FRAME_STAR_LOCKED,Unlocks after collecting all 48 expressions.,收集全部 48 个表情后解锁。,收集全部 48 個表情後解鎖。
+PHOTO_FRAME_TITLE,Album Photo Frame,相册相框,相簿相框
+PLAN_EXERCISE_DESC,Find a way to move without making it a chore. Activity furniture gives this gentle plan inspiration.,找一种不累人的活动方式。活动家具会给这份慢计划更多灵感。,找一種不累人的活動方式。活動傢俱會給這份慢計劃更多靈感。
+PLAN_EXERCISE_NAME,A Little Movement,一点点运动记录,一點點運動記錄
+PLAN_EXPEDITION_DESC,"Imagine your familiar room as a map. Toys, a robot, and a telescope inspire different routes.",把熟悉的小屋想成一张地图。玩具、机器人和望远镜带来不同路线的灵感。,把熟悉的小屋想成一張地圖。玩具、機器人和望遠鏡帶來不同路線的靈感。
+PLAN_EXPEDITION_NAME,A Tiny Expedition,小屋远征备忘,小屋遠征備忘
+PLAN_PILLOW_DESC,"Investigate being comfortable. Thinking needs no pillow, but soft furniture helps.",研究怎样躺着更舒服。没有枕头也能先想想，有柔软家具就更有灵感。,研究怎樣躺著更舒服。沒有枕頭也能先想想，有柔軟傢俱就更有靈感。
+PLAN_PILLOW_NAME,Pillow Research,枕头研究笔记,枕頭研究筆記
+PLAN_READING_DESC,Leave a little blank page for curiosity. Books and hobby furniture help ideas arrive.,给好奇心留一小页空白。书架和兴趣家具能让想法更容易冒出来。,給好奇心留一小頁空白。書架和興趣傢俱能讓想法更容易冒出來。
+PLAN_READING_NAME,Afternoon Reading,午后阅读随想,午後閱讀隨想
+PLAN_SNACK_DESC,Turn pleasant snack thoughts into a booklet. A snack nook helps both nose and mind.,把吃点好的想法写成小册。布置零食角，让鼻子和脑袋都慢慢参与。,把吃點好的想法寫成小冊。佈置零食角，讓鼻子和腦袋都慢慢參與。
+PLAN_SNACK_NAME,Snack Reviews,零食评测小册,零食評測小冊
+PLAN_WINDOW_DESC,Add little footnotes to ordinary scenery. Window furniture gives quiet observation more to notice.,给普通风景写一点注脚。窗边家具让安静的观察更有意思。,給普通風景寫一點註腳。窗邊傢俱讓安靜的觀察更有意思。
+PLAN_WINDOW_NAME,Window Notes,窗边观察手账,窗邊觀察手賬
+POSE_ARMS,Open-Hoof Hug,张开双手求贴贴,張開雙手求貼貼
+POSE_CORNER,Corner Crouch,蹲墙角搓蹄,蹲牆角搓蹄
+POSE_CRAWL,Silly Wriggling Crawl,扭曲爬行 · 可爱版,扭曲爬行 · 可愛版
+POSE_FLAT,Pancake Flop,躺平摊成猪饼,躺平攤成豬餅
+POSE_HEAD_HOLD,Hooves on Head,抱头想猪意,抱頭想豬意
+POSE_KNEEL,Little Kneeling Bow,跪下鞠个猪躬,跪下鞠個豬躬
+POSE_PEEK,Shy Peek,偷偷探头,偷偷探頭
+POSE_PRONE,Prone Stretch,趴着伸蹄,趴著伸蹄
+POSE_UPSIDE,Belly-Up Wiggle,四脚朝天扑腾,四腳朝天撲騰
+REACTION_SNACK_APPLE,Honestly sweet and tart.,酸甜得很诚实。,酸甜得很誠實。
+REACTION_SNACK_BERRY_MILK,It left a very scholarly milk moustache.,喝完留下了一圈很有学问的奶胡子。,喝完留下了一圈很有學問的奶鬍子。
+REACTION_SNACK_CLOUD_BUN,It feels like a pillow and tastes unlike one.,摸起来像枕头，吃起来不是。,摸起來像枕頭，吃起來不是。
+REACTION_SNACK_CRUNCHY_PEAS,It is loud enough to count as a formal meal.,声音很响，所以算正式吃饭。,聲音很響，所以算正式吃飯。
+REACTION_SNACK_PEACH_SODA,Every bubble is working very hard.,每个气泡都在认真工作。,每個氣泡都在認真工作。
+REACTION_SNACK_PUDDING_CUP,"The pudding wobbled first, so it was not the pig.",它先晃，所以不是猪咪没坐稳。,它先晃，所以不是豬咪沒坐穩。
+REACTION_SNACK_SEAWEED_ROLL,"One bite each, ideal for staying serious.",一口一个，便于保持严肃。,一口一個，便於保持嚴肅。
+REACTION_SNACK_STAR_COOKIE,A corner of the universe has been bitten off.,宇宙被咬掉了一个角。,宇宙被咬掉了一個角。
+REACTION_SNACK_TINY_SANDWICH,Triangles are easier to take seriously.,三角形更容易被认真对待。,三角形更容易被認真對待。
+REACTION_SNACK_WARM_COCOA,Both paws and mood are a little warmer.,今天的手和心情都暖了一点。,今天的手和心情都暖了一點。
+RESIDENTS_ADD,Welcome a New Resident,迎接新住客,迎接新住客
+RESIDENTS_ADD_INPUT,Name the new resident (up to 16 characters).,新住客叫什么？最多 16 个字。,新住客叫什麼？最多 16 個字。
+RESIDENTS_CAPACITY,{count}/{maximum} residents · Newcomers start their own first day; existing pigs are never replaced.,已入住 {count}/{maximum} 只 · 新住客从自己的第一天开始，原来的猪猪不会被替换。,已入住 {count}/{maximum} 只 · 新住客從自己的第一天開始，原來的豬豬不會被替換。
+RESIDENTS_CARD,Resident {number} · {name} · Familiarity {level} · {notes} notes,住客 {number} · {name} · 熟悉度 {level} · 手账 {notes} 段,住客 {number} · {name} · 熟悉度 {level} · 手賬 {notes} 段
+RESIDENTS_CURRENT,Current Companion,正在陪伴,正在陪伴
+RESIDENTS_INTRO,"Raise up to four pigs, each with its own name, familiarity, room, album, and little plans. Other residents live at the offline rate while you switch company. No absence penalties or point transfers. Desktop mode shows only the current pig.",最多一起养四只猪猪，各自有名字、熟悉度、小屋布置、相册和小计划。切换当前陪伴时，其他猪猪也会按离线规则慢慢生活；没有离开惩罚，点数不互相转移。桌面只显示当前这一只。,最多一起養四隻豬豬，各自有名字、熟悉度、小屋佈置、相簿和小計劃。切換當前陪伴時，其他豬豬也會按離線規則慢慢生活；沒有離開懲罰，點數不互相轉移。桌面只顯示當前這一隻。
+RESIDENTS_RENAME,Rename “{name}” without changing any progress.,给「{name}」改个名字，原有进度全部保留。,給「{name}」改個名字，原有進度全部保留。
+RESIDENTS_RENAME_CONFIRM,Save New Name,保存新名字,儲存新名字
+RESIDENTS_RENAME_INPUT,A New Name for the Current Pig,当前猪猪的新名字,當前豬豬的新名字
+RESIDENTS_SWITCH,Spend Time with This Pig,陪这只猪猪,陪這隻豬豬
+RESIDENTS_TITLE,Pig Residents · Names and Company,猪猪住客 · 起名与陪伴,豬豬住客 · 起名與陪伴
+ROOM_PALETTE_MINT,Mint Afternoon,薄荷午后,薄荷午後
+ROOM_PALETTE_MINT_LOCKED,Unlocks at Familiarity 7.,熟悉度 7 级解锁。,熟悉度 7 級解鎖。
+ROOM_PALETTE_NIGHT,Quiet Night,安静夜色,安靜夜色
+ROOM_PALETTE_NIGHT_LOCKED,Unlocks after collecting 36 expressions.,收集 36 个表情后解锁。,收集 36 個表情後解鎖。
+ROOM_PALETTE_ROSE,Warm Berry,莓果暖粉,莓果暖粉
+ROOM_PALETTE_TITLE,Room Color Palette,小屋整体配色,小屋整體配色
+SAVE_RECOVERY_MESSAGE,"The save and both backups could not be read. They may be damaged or from a newer version. Life simulation and progression writes are paused to protect the original files; no new save will replace them. Back up this folder, restore a valid save or use a compatible version, then retry:
+{path}","主存档和两份备份都暂时无法读取，可能损坏或来自更新版本。为了保护原文件，生活计时和进度写入已暂停，不会另存新档。请先备份此文件夹，并恢复有效存档或使用兼容版本，再重试读取：
+{path}","主存檔和兩份備份都暫時無法讀取，可能損壞或來自更新版本。為了保護原檔案，生活計時和進度寫入已暫停，不會另存新檔。請先備份此資料夾，並恢復有效存檔或使用相容版本，再重試讀取：
+{path}"
+SAVE_RECOVERY_RETRY,Retry Loading Save,重试读取存档,重試讀取存檔
+SAVE_RECOVERY_TITLE,Recover Your Pig's Days First,先找回猪咪的日常,先找回豬咪的日常
+SETTINGS_AMBIENT,Ambient Volume,环境音量,環境音量
+SETTINGS_AUDIO_SILENT,Dedicated audio has not been imported. This development build is silent by design.,专属音频尚未导入，当前开发版本按要求全程静音。,專屬音訊尚未匯入，當前開發版本按要求全程靜音。
+SETTINGS_BUBBLE_TIME,Subtitle / Bubble Duration,字幕/气泡停留时间,字幕/氣泡停留時間
+SETTINGS_CAMERA_SHAKE,Camera Shake,镜头晃动,鏡頭晃動
+SETTINGS_DESKTOP_MUSIC,Play Music in Desktop Mode (Off by Default),桌面模式也播放音乐（默认关闭）,桌面模式也播放音樂（預設關閉）
+SETTINGS_FULLSCREEN,Fullscreen,全屏,全屏
+SETTINGS_HELP,Help & Replay Tutorial,帮助与重看教程,幫助與重看教程
+SETTINGS_INTERACTION,Interaction Volume,互动音量,互動音量
+SETTINGS_LANGUAGE,Language,语言,語言
+SETTINGS_LEGAL,Privacy & Third-Party Notices,隐私与第三方声明,隱私與第三方宣告
+SETTINGS_MUSIC,Music Volume,音乐音量,音樂音量
+SETTINGS_REDUCE_DESKTOP_ACTION_FREQUENCY,Reduce Desktop Action Frequency,降低桌面动作频率,降低桌面動作頻率
+SETTINGS_REDUCE_DESKTOP_ROAMING,Reduce Desktop Roaming Range,减少桌面游走范围,減少桌面遊走範圍
+SETTINGS_REDUCE_MOTION,Reduce Motion,减少动态效果,減少動態效果
+SETTINGS_SKIP_TUTORIAL,Skip Current Tutorial,跳过当前新手引导,跳過當前新手引導
+SETTINGS_UI_SCALE,UI Scale,界面缩放,介面縮放
+SNACK_APPLE_DESC,"A serving of crisp apple slices in original packaging, with no real-world brand and no wrong choice.",一份原创包装的脆脆苹果片，没有现实品牌，也没有吃错惩罚。,一份原創包裝的脆脆蘋果片，沒有現實品牌，也沒有吃錯懲罰。
+SNACK_APPLE_NAME,Crisp Apple Slices,脆脆苹果片,脆脆蘋果片
+SNACK_BERRY_MILK_DESC,"A serving of berry milk in original packaging, with no real-world brand and no wrong choice.",一份原创包装的莓果牛奶，没有现实品牌，也没有吃错惩罚。,一份原創包裝的莓果牛奶，沒有現實品牌，也沒有吃錯懲罰。
+SNACK_BERRY_MILK_NAME,Berry Milk,莓果牛奶,莓果牛奶
+SNACK_CLOUD_BUN_DESC,"A serving of cloud bun in original packaging, with no real-world brand and no wrong choice.",一份原创包装的云朵小面包，没有现实品牌，也没有吃错惩罚。,一份原創包裝的雲朵小麵包，沒有現實品牌，也沒有吃錯懲罰。
+SNACK_CLOUD_BUN_NAME,Cloud Bun,云朵小面包,雲朵小麵包
+SNACK_CRUNCHY_PEAS_DESC,"A serving of crunchy peas in original packaging, with no real-world brand and no wrong choice.",一份原创包装的咔嚓青豆，没有现实品牌，也没有吃错惩罚。,一份原創包裝的咔嚓青豆，沒有現實品牌，也沒有吃錯懲罰。
+SNACK_CRUNCHY_PEAS_NAME,Crunchy Peas,咔嚓青豆,咔嚓青豆
+SNACK_PEACH_SODA_DESC,"A serving of peach soda in original packaging, with no real-world brand and no wrong choice.",一份原创包装的桃桃气泡水，没有现实品牌，也没有吃错惩罚。,一份原創包裝的桃桃氣泡水，沒有現實品牌，也沒有吃錯懲罰。
+SNACK_PEACH_SODA_NAME,Peach Soda,桃桃气泡水,桃桃氣泡水
+SNACK_PUDDING_CUP_DESC,"A serving of wobbly pudding in original packaging, with no real-world brand and no wrong choice.",一份原创包装的晃晃布丁，没有现实品牌，也没有吃错惩罚。,一份原創包裝的晃晃布丁，沒有現實品牌，也沒有吃錯懲罰。
+SNACK_PUDDING_CUP_NAME,Wobbly Pudding,晃晃布丁,晃晃布丁
+SNACK_SEAWEED_ROLL_DESC,"A serving of tiny seaweed roll in original packaging, with no real-world brand and no wrong choice.",一份原创包装的小海苔卷，没有现实品牌，也没有吃错惩罚。,一份原創包裝的小海苔卷，沒有現實品牌，也沒有吃錯懲罰。
+SNACK_SEAWEED_ROLL_NAME,Tiny Seaweed Roll,小海苔卷,小海苔卷
+SNACK_STAR_COOKIE_DESC,"A serving of star cookie in original packaging, with no real-world brand and no wrong choice.",一份原创包装的星星饼干，没有现实品牌，也没有吃错惩罚。,一份原創包裝的星星餅乾，沒有現實品牌，也沒有吃錯懲罰。
+SNACK_STAR_COOKIE_NAME,Star Cookie,星星饼干,星星餅乾
+SNACK_TINY_SANDWICH_DESC,"A serving of tiny triangle sandwich in original packaging, with no real-world brand and no wrong choice.",一份原创包装的三角小三明治，没有现实品牌，也没有吃错惩罚。,一份原創包裝的三角小三明治，沒有現實品牌，也沒有吃錯懲罰。
+SNACK_TINY_SANDWICH_NAME,Tiny Triangle Sandwich,三角小三明治,三角小三明治
+SNACK_WARM_COCOA_DESC,"A serving of warm cocoa in original packaging, with no real-world brand and no wrong choice.",一份原创包装的暖暖可可，没有现实品牌，也没有吃错惩罚。,一份原創包裝的暖暖可可，沒有現實品牌，也沒有吃錯懲罰。
+SNACK_WARM_COCOA_NAME,Warm Cocoa,暖暖可可,暖暖可可
+STATUS_BORED,Taking daydreaming very seriously,认真地发着呆,認真地發著呆
+STATUS_CONTENT,Having another very full day,今天也过得很充实,今天也過得很充實
+STATUS_ENERGETIC,Wide awake and possibly about to do something,精神得很，可能要做点什么,精神得很，可能要做點什麼
+STATUS_HUNGRY,"A little peckish, but being reasonable",有点馋，但正在讲道理,有點饞，但正在講道理
+STATUS_SLEEPY,Sleepy—its eyelids are in a meeting,困困的，眼皮正在开会,困困的，眼皮正在開會
+TENDENCY_ACTIVE_DESC,"Favors running, yoga, and active events.",更偏向跑步、瑜伽和活动事件。,更偏向跑步、瑜伽和活動事件。
+TENDENCY_ACTIVE_NAME,Move a Little,稍微运动,稍微運動
+TENDENCY_EXPLORE_DESC,Keeps things balanced and favors unseen content.,分配较平均，并提高未见内容的机会。,分配較平均，並提高未見內容的機會。
+TENDENCY_EXPLORE_NAME,See What Happens,随便看看,隨便看看
+TENDENCY_FOOD_DESC,"Favors kitchen, snack, and cooking events.",更偏向厨房、零食和料理事件。,更偏向廚房、零食和料理事件。
+TENDENCY_FOOD_NAME,Eat Something Nice,吃点好的,吃點好的
+TENDENCY_INTRO,This is not a task and there is no wrong choice. It only gently shifts which behaviors are more likely today.,倾向不是任务，也没有选错惩罚。它只会轻轻改变今天更容易出现的行为。,傾向不是任務，也沒有選錯懲罰。它只會輕輕改變今天更容易出現的行為。
+TENDENCY_REST_DESC,"Favors sleep, window time, and quiet events.",更偏向睡觉、窗边和安静事件。,更偏向睡覺、窗邊和安靜事件。
+TENDENCY_REST_NAME,Take It Slow,慢慢休息,慢慢休息
+TOAST_BEHAVIOR_POINTS,{behavior} · +{points} Daily Points,{behavior} · +{points} 日常点数,{behavior} · +{points} 日常點數
+TOAST_DEMO_SAVE_IMPORTED,Your demo progress was safely imported into the full game.,试玩进度已经安全带到正式版。,試玩進度已經安全帶到正式版。
+TOAST_FEED,This snack received a very serious nod.,这份零食获得了认真点头。,這份零食獲得了認真點頭。
+TOAST_FURNITURE_INVITED,Your pig accepted the invitation from “{item}”.,猪咪接受了「{item}」的邀请。,豬咪接受了「{item}」的邀請。
+TOAST_FURNITURE_PLACED,“{item}” is now in place.,「{item}」已经放好了。,「{item}」已經放好了。
+TOAST_LEVEL_UP,Familiarity reached {level}. A new corner of life opened up.,熟悉度升到 {level} 级。新的生活角落松动了一点。,熟悉度升到 {level} 級。新的生活角落鬆動了一點。
+TOAST_MEMORY_WAITING,A new memory is waiting in the album.,有一段新回忆在相册里等着。,有一段新回憶在相簿裡等著。
+TOAST_NOT_ENOUGH_POINTS,Not quite enough points. Your pig has chosen not to comment.,点数不太够。猪咪决定先不发表意见。,點數不太夠。豬咪決定先不發表意見。
+TOAST_PET,"{name}: I did not leave, so one more pat is acceptable.",{name}：我没有走开，所以可以再摸一下。,{name}：我沒有走開，所以可以再摸一下。
+TOAST_PHOTO_ADDED,A memory photo was added to the life album.,小剧场照片已经加入生活相册。,小劇場照片已經加入生活相簿。
+TOAST_PHOTO_EXPORTED,Photo exported to {path},照片已导出到 {path},照片已匯出到 {path}
+TOAST_PIG_PLACED,{name}: This spot works too. I adapt quickly.,{name}：这里也可以，我适应得很快。,{name}：這裡也可以，我適應得很快。
+TOAST_POKE,{name}: That was a poke. I am deciding whether it counts as formal feedback.,{name}：刚才是戳。我正在判断这算不算正式意见。,{name}：剛才是戳。我正在判斷這算不算正式意見。
+TOAST_PURCHASED,Bought “{item}”.,买下了「{item}」。,買下了「{item}」。
+TOAST_SAVE_FAILED,Progress could not be saved. Please check disk space or folder permissions.,这次进度没有保存成功。请检查磁盘空间或文件夹权限。,這次進度沒有儲存成功。請檢查磁碟空間或資料夾許可權。
+TOAST_SAVE_RECOVERED,The main save had a problem and was restored from the latest safe backup.,主存档有点不舒服，已经从最近的安全备份恢复。,主存檔有點不舒服，已經從最近的安全備份恢復。
+TOAST_SCREENSHOT_FAILED,The photo could not be saved.,照片没有保存成功。,照片沒有儲存成功。
+TOAST_SCREENSHOT_SAVED,Photo saved to {path},照片已保存到 {path},照片已儲存到 {path}
+TUTORIAL_ALBUM,The album keeps expressions and every memory waiting to be watched.,相册会保存表情和所有待看的小剧场。,相簿會儲存表情和所有待看的小劇場。
+TUTORIAL_DESKTOP,"At Familiarity 2, try Desktop Pal. You can return to the room at any time.",熟悉度 2 级后，试试桌面陪伴；随时可以回到小屋。,熟悉度 2 級後，試試桌面陪伴；隨時可以回到小屋。
+TUTORIAL_FEED,Open Snacks. Your first feed adds the first expression to the album.,打开零食，第一次投喂会把首个表情收进相册。,開啟零食，第一次投餵會把首個表情收進相簿。
+TUTORIAL_FURNITURE,Buy a piece of furniture and a new way of living appears with it.,买一件家具，新的生活方式会跟着出现。,買一件傢俱，新的生活方式會跟著出現。
+TUTORIAL_NAME,Start by naming your new roommate.,先给新住客取个名字。,先給新住客取個名字。
+TUTORIAL_PET,"Click the body to pet or the snout to poke, and watch the face your pig makes.",点身体是摸摸，点鼻子是戳戳，看看它会摆出什么表情。,點身體是摸摸，點鼻子是戳戳，看看它會擺出什麼表情。
+TUTORIAL_TENDENCY,Today's Mood opens at Familiarity 5. Choose once to gently steer random daily life.,熟悉度 5 级会开放今日倾向；选择一次，给随机日常一点柔和方向。,熟悉度 5 級會開放今日傾向；選擇一次，給隨機日常一點柔和方向。
+UI_ALBUM,Album,相册,相簿
+UI_BUY,Buy · {price} pts,购买 · {price} 点,購買 · {price} 點
+UI_CHOOSE,Choose,选择,選擇
+UI_CLOSE,Close,关闭,關閉
+UI_CONFIRM,Use This Name,就叫这个,就叫這個
+UI_DESKTOP,Desktop Pal,桌面陪伴,桌面陪伴
+UI_DESKTOP_HINT,Let your pig stay by the edge of the desktop.,让猪咪留在桌面边缘陪你。,讓豬咪留在桌面邊緣陪你。
+UI_DESKTOP_LOCKED,Unlocks at Familiarity 2.,熟悉度 2 级解锁。,熟悉度 2 級解鎖。
+UI_EQUIP,Equip,穿上,穿上
+UI_EQUIPPED,Equipped,正在穿,正在穿
+UI_FEED,Feed · {price} pts,投喂 · {price} 点,投餵 · {price} 點
+UI_FURNITURE,Furniture,家具,傢俱
+UI_OUTFITS,Outfits,装扮,裝扮
+UI_PIG_NAME_LEVEL,{name} · Familiarity {level},{name} · 熟悉度 {level},{name} · 熟悉度 {level}
+UI_PLACE,Place in Room,放进房间,放進房間
+UI_POINTS,Daily Points  {points},日常点数  {points},日常點數  {points}
+UI_REMOVE_OUTFIT,Remove Outfit,摘下装扮,摘下裝扮
+UI_SCREENSHOT,Photo,拍照,拍照
+UI_SELECTED,Selected,已选择,已選擇
+UI_SETTINGS,Settings,设置,設定
+UI_SNACKS,Snacks,零食,零食
+UI_TENDENCY,Today's Mood,今日倾向,今日傾向
+UI_TENDENCY_LOCKED,Today's Mood unlocks at Familiarity 5.,熟悉度 5 级解锁今日倾向。,熟悉度 5 級解鎖今日傾向。
+UI_UNLOCK_LEVEL,Unlocks at Familiarity {level},熟悉度 {level} 级解锁,熟悉度 {level} 級解鎖

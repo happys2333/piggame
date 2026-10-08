@@ -1,0 +1,12 @@
+{
+  "work_seconds": 1500,
+  "rest_seconds": 300,
+  "explicit_feedback_milliseconds": 1200,
+  "presentation_hold_seconds": {
+    "frequent": 0,
+    "normal": 45,
+    "rare": 120
+  },
+  "work_animation": "read",
+  "rest_animation": "yoga"
+}

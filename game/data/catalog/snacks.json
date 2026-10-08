@@ -1,0 +1,12 @@
+[
+  {"id":"snack_apple","name_key":"SNACK_APPLE_NAME","description_key":"SNACK_APPLE_DESC","reaction_key":"REACTION_SNACK_APPLE","price":10,"min_level":1,"satiety":10,"interest":3},
+  {"id":"snack_berry_milk","name_key":"SNACK_BERRY_MILK_NAME","description_key":"SNACK_BERRY_MILK_DESC","reaction_key":"REACTION_SNACK_BERRY_MILK","price":15,"min_level":1,"satiety":12,"interest":5},
+  {"id":"snack_cloud_bun","name_key":"SNACK_CLOUD_BUN_NAME","description_key":"SNACK_CLOUD_BUN_DESC","reaction_key":"REACTION_SNACK_CLOUD_BUN","price":18,"min_level":2,"satiety":16,"interest":4},
+  {"id":"snack_crunchy_peas","name_key":"SNACK_CRUNCHY_PEAS_NAME","description_key":"SNACK_CRUNCHY_PEAS_DESC","reaction_key":"REACTION_SNACK_CRUNCHY_PEAS","price":12,"min_level":3,"satiety":9,"interest":6},
+  {"id":"snack_peach_soda","name_key":"SNACK_PEACH_SODA_NAME","description_key":"SNACK_PEACH_SODA_DESC","reaction_key":"REACTION_SNACK_PEACH_SODA","price":20,"min_level":3,"satiety":8,"interest":8},
+  {"id":"snack_seaweed_roll","name_key":"SNACK_SEAWEED_ROLL_NAME","description_key":"SNACK_SEAWEED_ROLL_DESC","reaction_key":"REACTION_SNACK_SEAWEED_ROLL","price":16,"min_level":4,"satiety":14,"interest":5},
+  {"id":"snack_pudding_cup","name_key":"SNACK_PUDDING_CUP_NAME","description_key":"SNACK_PUDDING_CUP_DESC","reaction_key":"REACTION_SNACK_PUDDING_CUP","price":22,"min_level":5,"satiety":15,"interest":8},
+  {"id":"snack_star_cookie","name_key":"SNACK_STAR_COOKIE_NAME","description_key":"SNACK_STAR_COOKIE_DESC","reaction_key":"REACTION_SNACK_STAR_COOKIE","price":14,"min_level":5,"satiety":10,"interest":7},
+  {"id":"snack_warm_cocoa","name_key":"SNACK_WARM_COCOA_NAME","description_key":"SNACK_WARM_COCOA_DESC","reaction_key":"REACTION_SNACK_WARM_COCOA","price":25,"min_level":6,"satiety":13,"interest":9},
+  {"id":"snack_tiny_sandwich","name_key":"SNACK_TINY_SANDWICH_NAME","description_key":"SNACK_TINY_SANDWICH_DESC","reaction_key":"REACTION_SNACK_TINY_SANDWICH","price":24,"min_level":7,"satiety":20,"interest":6}
+]

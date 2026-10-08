@@ -1,0 +1,27 @@
+{
+  "artifacts": [
+    {
+      "file_name": "PiggyDidNothingToday.exe",
+      "format": "PE32+ GUI x86-64",
+      "path": "build/windows/PiggyDidNothingToday.exe",
+      "profile": "full",
+      "sha256": "07ec7e1866f146c2bcb055542ac7747b6032f1d69c21f941644af70b1734ff56",
+      "size_bytes": 127392264
+    },
+    {
+      "file_name": "PiggyDidNothingTodayDemo.exe",
+      "format": "PE32+ GUI x86-64",
+      "path": "build/windows/PiggyDidNothingTodayDemo.exe",
+      "profile": "demo",
+      "sha256": "e01d137e815cfe017dc1526c6abf1668c64a7f3409654379b51618c372b4a10b",
+      "size_bytes": 127392296
+    }
+  ],
+  "audio_playback_enabled": false,
+  "engine_version": "4.6.3.stable.official.7d41c59c4",
+  "export_host": "macOS",
+  "generated_date": "2026-10-08",
+  "release_stage": "silent-development-candidate",
+  "schema_version": 1,
+  "source_tree_sha256": "55320d070e9728b8bd9788a606b0a4928d8166446b20bf791547bfe0adc996b8"
+}

@@ -1,0 +1,1975 @@
+[
+  {
+    "id": "event_move_in",
+    "title_key": "EVENT_MOVE_IN_TITLE",
+    "summary_key": "EVENT_MOVE_IN_SUMMARY",
+    "category": "chapter",
+    "chapter": 1,
+    "min_level": 1,
+    "required_furniture": [],
+    "prerequisite_events": [],
+    "time": "any",
+    "weight": 5,
+    "unseen_multiplier": 12,
+    "cooldown_seconds": 86400,
+    "anchor": "center",
+    "props": [
+      "moving_box"
+    ],
+    "steps": [
+      {
+        "animation": "walk",
+        "duration": 3.0
+      },
+      {
+        "animation": "sniff",
+        "duration": 4.0
+      },
+      {
+        "animation": "sit",
+        "duration": 4.0
+      }
+    ],
+    "variants": [
+      "EVENT_MOVE_IN_LINE_1",
+      "EVENT_MOVE_IN_LINE_2",
+      "EVENT_MOVE_IN_LINE_3"
+    ],
+    "rewards": {
+      "points": 30,
+      "familiarity": 12,
+      "expressions": [
+        "expr_happy_soft",
+        "expr_shocked_new_home"
+      ],
+      "achievements": [
+        "ach_welcome_home"
+      ]
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        0,
+        100
+      ],
+      "interest": [
+        0,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_MOVE_IN_LINE_1",
+          "EVENT_MOVE_IN_LINE_2",
+          "EVENT_MOVE_IN_LINE_3"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_move_in"
+  },
+  {
+    "id": "event_fridge_meeting",
+    "title_key": "EVENT_FRIDGE_MEETING_TITLE",
+    "summary_key": "EVENT_FRIDGE_MEETING_SUMMARY",
+    "category": "food",
+    "chapter": 2,
+    "min_level": 3,
+    "required_furniture": [
+      "furn_fridge_pink"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "any",
+    "weight": 1.4,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 7200,
+    "anchor": "snack",
+    "props": [
+      "fridge"
+    ],
+    "steps": [
+      {
+        "animation": "fridge",
+        "duration": 5.0
+      },
+      {
+        "animation": "walk",
+        "duration": 3.0
+      },
+      {
+        "animation": "fridge",
+        "duration": 5.0
+      }
+    ],
+    "variants": [
+      "EVENT_FRIDGE_MEETING_LINE_1",
+      "EVENT_FRIDGE_MEETING_LINE_2",
+      "EVENT_FRIDGE_MEETING_LINE_3"
+    ],
+    "rewards": {
+      "points": 30,
+      "familiarity": 12,
+      "expressions": [
+        "expr_hungry_fridge",
+        "expr_wronged_empty_fridge"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        90
+      ],
+      "energy": [
+        0,
+        100
+      ],
+      "interest": [
+        0,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_FRIDGE_MEETING_LINE_1",
+          "EVENT_FRIDGE_MEETING_LINE_2",
+          "EVENT_FRIDGE_MEETING_LINE_3"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_fridge_meeting"
+  },
+  {
+    "id": "event_balanced_treat",
+    "title_key": "EVENT_BALANCED_TREAT_TITLE",
+    "summary_key": "EVENT_BALANCED_TREAT_SUMMARY",
+    "category": "food",
+    "chapter": 3,
+    "min_level": 4,
+    "required_furniture": [
+      "furn_treadmill"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "day",
+    "weight": 1.2,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 9000,
+    "anchor": "activity",
+    "props": [
+      "original_ice_pop"
+    ],
+    "steps": [
+      {
+        "animation": "run",
+        "duration": 7.0
+      },
+      {
+        "animation": "stare",
+        "duration": 2.0
+      },
+      {
+        "animation": "table_snack",
+        "duration": 5.0
+      }
+    ],
+    "variants": [
+      "EVENT_BALANCED_TREAT_LINE_1",
+      "EVENT_BALANCED_TREAT_LINE_2",
+      "EVENT_BALANCED_TREAT_LINE_3"
+    ],
+    "rewards": {
+      "points": 35,
+      "familiarity": 14,
+      "expressions": [
+        "expr_hungry_secret",
+        "expr_shocked_icecream"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        90
+      ],
+      "energy": [
+        0,
+        100
+      ],
+      "interest": [
+        0,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "hungry_science",
+        "conditions": {
+          "satiety_max": 55
+        },
+        "variant_keys": [
+          "EVENT_BALANCED_TREAT_LINE_2"
+        ],
+        "reward_bonus": {
+          "points": 2
+        }
+      },
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_BALANCED_TREAT_LINE_1",
+          "EVENT_BALANCED_TREAT_LINE_3"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_balanced_treat"
+  },
+  {
+    "id": "event_cookie_detective",
+    "title_key": "EVENT_COOKIE_DETECTIVE_TITLE",
+    "summary_key": "EVENT_COOKIE_DETECTIVE_SUMMARY",
+    "category": "food",
+    "chapter": 2,
+    "min_level": 3,
+    "required_furniture": [
+      "furn_cookie_jar"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "any",
+    "weight": 1.2,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 7500,
+    "anchor": "snack",
+    "props": [
+      "cookie_jar",
+      "crumbs"
+    ],
+    "steps": [
+      {
+        "animation": "sniff",
+        "duration": 4.0
+      },
+      {
+        "animation": "cookie_guard",
+        "duration": 5.0
+      },
+      {
+        "animation": "sit",
+        "duration": 3.0
+      }
+    ],
+    "variants": [
+      "EVENT_COOKIE_DETECTIVE_LINE_1",
+      "EVENT_COOKIE_DETECTIVE_LINE_2",
+      "EVENT_COOKIE_DETECTIVE_LINE_3"
+    ],
+    "rewards": {
+      "points": 28,
+      "familiarity": 11,
+      "expressions": [
+        "expr_happy_snack",
+        "expr_hungry_cookie"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        90
+      ],
+      "energy": [
+        0,
+        100
+      ],
+      "interest": [
+        0,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_COOKIE_DETECTIVE_LINE_1",
+          "EVENT_COOKIE_DETECTIVE_LINE_2",
+          "EVENT_COOKIE_DETECTIVE_LINE_3"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_cookie_detective"
+  },
+  {
+    "id": "event_cocoa_moustache",
+    "title_key": "EVENT_COCOA_MOUSTACHE_TITLE",
+    "summary_key": "EVENT_COCOA_MOUSTACHE_SUMMARY",
+    "category": "food",
+    "chapter": 3,
+    "min_level": 6,
+    "required_furniture": [
+      "furn_kettle_round"
+    ],
+    "prerequisite_events": [
+      "event_fridge_meeting"
+    ],
+    "time": "evening",
+    "weight": 1.1,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 8000,
+    "anchor": "snack",
+    "props": [
+      "cocoa_cup"
+    ],
+    "steps": [
+      {
+        "animation": "tea",
+        "duration": 5.0
+      },
+      {
+        "animation": "drink",
+        "duration": 4.0
+      },
+      {
+        "animation": "mirror_pose",
+        "duration": 4.0
+      }
+    ],
+    "variants": [
+      "EVENT_COCOA_MOUSTACHE_LINE_1",
+      "EVENT_COCOA_MOUSTACHE_LINE_2",
+      "EVENT_COCOA_MOUSTACHE_LINE_3"
+    ],
+    "rewards": {
+      "points": 32,
+      "familiarity": 12,
+      "expressions": [
+        "expr_happy_big",
+        "expr_hungry_cocoa"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        90
+      ],
+      "energy": [
+        0,
+        100
+      ],
+      "interest": [
+        0,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_COCOA_MOUSTACHE_LINE_1",
+          "EVENT_COCOA_MOUSTACHE_LINE_2",
+          "EVENT_COCOA_MOUSTACHE_LINE_3"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_cocoa_moustache"
+  },
+  {
+    "id": "event_midnight_snack",
+    "title_key": "EVENT_MIDNIGHT_SNACK_TITLE",
+    "summary_key": "EVENT_MIDNIGHT_SNACK_SUMMARY",
+    "category": "food",
+    "chapter": 2,
+    "min_level": 3,
+    "required_furniture": [
+      "furn_table_snack"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "night",
+    "weight": 1.2,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 8000,
+    "anchor": "snack",
+    "props": [
+      "snack_bag"
+    ],
+    "steps": [
+      {
+        "animation": "walk",
+        "duration": 4.0
+      },
+      {
+        "animation": "table_snack",
+        "duration": 5.0
+      },
+      {
+        "animation": "stare",
+        "duration": 3.0
+      }
+    ],
+    "variants": [
+      "EVENT_MIDNIGHT_SNACK_LINE_1",
+      "EVENT_MIDNIGHT_SNACK_LINE_2",
+      "EVENT_MIDNIGHT_SNACK_LINE_3"
+    ],
+    "rewards": {
+      "points": 30,
+      "familiarity": 11,
+      "expressions": [
+        "expr_hungry_midnight",
+        "expr_shocked_fridge"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        90
+      ],
+      "energy": [
+        0,
+        100
+      ],
+      "interest": [
+        0,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_MIDNIGHT_SNACK_LINE_1",
+          "EVENT_MIDNIGHT_SNACK_LINE_2",
+          "EVENT_MIDNIGHT_SNACK_LINE_3"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_midnight_snack"
+  },
+  {
+    "id": "event_last_pea",
+    "title_key": "EVENT_LAST_PEA_TITLE",
+    "summary_key": "EVENT_LAST_PEA_SUMMARY",
+    "category": "food",
+    "chapter": 2,
+    "min_level": 3,
+    "required_furniture": [
+      "furn_table_snack"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "any",
+    "weight": 1.1,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 7000,
+    "anchor": "snack",
+    "props": [
+      "single_pea"
+    ],
+    "steps": [
+      {
+        "animation": "stare",
+        "duration": 4.0
+      },
+      {
+        "animation": "sniff",
+        "duration": 3.0
+      },
+      {
+        "animation": "table_snack",
+        "duration": 3.0
+      }
+    ],
+    "variants": [
+      "EVENT_LAST_PEA_LINE_1",
+      "EVENT_LAST_PEA_LINE_2",
+      "EVENT_LAST_PEA_LINE_3"
+    ],
+    "rewards": {
+      "points": 26,
+      "familiarity": 10,
+      "expressions": [
+        "expr_hungry_pea",
+        "expr_wronged_poke"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        90
+      ],
+      "energy": [
+        0,
+        100
+      ],
+      "interest": [
+        0,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_LAST_PEA_LINE_1",
+          "EVENT_LAST_PEA_LINE_2",
+          "EVENT_LAST_PEA_LINE_3"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_last_pea"
+  },
+  {
+    "id": "event_yoga_blanket",
+    "title_key": "EVENT_YOGA_BLANKET_TITLE",
+    "summary_key": "EVENT_YOGA_BLANKET_SUMMARY",
+    "category": "sleep",
+    "chapter": 3,
+    "min_level": 4,
+    "required_furniture": [
+      "furn_yoga_mat"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "any",
+    "weight": 1.3,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 8500,
+    "anchor": "activity",
+    "props": [
+      "yoga_mat"
+    ],
+    "steps": [
+      {
+        "animation": "yoga",
+        "duration": 5.0
+      },
+      {
+        "animation": "blanket_roll",
+        "duration": 5.0
+      },
+      {
+        "animation": "sleep",
+        "duration": 6.0
+      }
+    ],
+    "variants": [
+      "EVENT_YOGA_BLANKET_LINE_1",
+      "EVENT_YOGA_BLANKET_LINE_2",
+      "EVENT_YOGA_BLANKET_LINE_3"
+    ],
+    "rewards": {
+      "points": 35,
+      "familiarity": 14,
+      "expressions": [
+        "expr_sleepy_blanket",
+        "expr_proud_yoga"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        0,
+        82
+      ],
+      "interest": [
+        0,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_YOGA_BLANKET_LINE_1",
+          "EVENT_YOGA_BLANKET_LINE_2",
+          "EVENT_YOGA_BLANKET_LINE_3"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_yoga_blanket"
+  },
+  {
+    "id": "event_alarm_victory",
+    "title_key": "EVENT_ALARM_VICTORY_TITLE",
+    "summary_key": "EVENT_ALARM_VICTORY_SUMMARY",
+    "category": "sleep",
+    "chapter": 3,
+    "min_level": 5,
+    "required_furniture": [
+      "furn_clock_sleepy"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "morning",
+    "weight": 1.2,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 10000,
+    "anchor": "sleep",
+    "props": [
+      "alarm_clock"
+    ],
+    "steps": [
+      {
+        "animation": "sleep",
+        "duration": 4.0
+      },
+      {
+        "animation": "alarm",
+        "duration": 6.0
+      },
+      {
+        "animation": "sit",
+        "duration": 4.0
+      }
+    ],
+    "variants": [
+      "EVENT_ALARM_VICTORY_LINE_1",
+      "EVENT_ALARM_VICTORY_LINE_2",
+      "EVENT_ALARM_VICTORY_LINE_3"
+    ],
+    "rewards": {
+      "points": 32,
+      "familiarity": 12,
+      "expressions": [
+        "expr_sleepy_alarm",
+        "expr_wronged_alarm"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        0,
+        82
+      ],
+      "interest": [
+        0,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "very_sleepy",
+        "conditions": {
+          "energy_max": 35
+        },
+        "variant_keys": [
+          "EVENT_ALARM_VICTORY_LINE_1"
+        ],
+        "reward_bonus": {
+          "familiarity": 1
+        }
+      },
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_ALARM_VICTORY_LINE_2",
+          "EVENT_ALARM_VICTORY_LINE_3"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_alarm_victory"
+  },
+  {
+    "id": "event_pillow_migration",
+    "title_key": "EVENT_PILLOW_MIGRATION_TITLE",
+    "summary_key": "EVENT_PILLOW_MIGRATION_SUMMARY",
+    "category": "sleep",
+    "chapter": 2,
+    "min_level": 2,
+    "required_furniture": [
+      "furn_pillow_cloud"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "any",
+    "weight": 1.2,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 7600,
+    "anchor": "sleep",
+    "props": [
+      "cloud_pillow"
+    ],
+    "steps": [
+      {
+        "animation": "pillow_flop",
+        "duration": 5.0
+      },
+      {
+        "animation": "walk",
+        "duration": 4.0
+      },
+      {
+        "animation": "pillow_flop",
+        "duration": 5.0
+      }
+    ],
+    "variants": [
+      "EVENT_PILLOW_MIGRATION_LINE_1",
+      "EVENT_PILLOW_MIGRATION_LINE_2",
+      "EVENT_PILLOW_MIGRATION_LINE_3"
+    ],
+    "rewards": {
+      "points": 28,
+      "familiarity": 11,
+      "expressions": [
+        "expr_sleepy_pillow",
+        "expr_hungry_drool"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        0,
+        82
+      ],
+      "interest": [
+        0,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_PILLOW_MIGRATION_LINE_1",
+          "EVENT_PILLOW_MIGRATION_LINE_2",
+          "EVENT_PILLOW_MIGRATION_LINE_3"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_pillow_migration"
+  },
+  {
+    "id": "event_dream_meeting",
+    "title_key": "EVENT_DREAM_MEETING_TITLE",
+    "summary_key": "EVENT_DREAM_MEETING_SUMMARY",
+    "category": "sleep",
+    "chapter": 2,
+    "min_level": 3,
+    "required_furniture": [
+      "furn_bed_basic"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "night",
+    "weight": 1.1,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 9000,
+    "anchor": "sleep",
+    "props": [
+      "dream_bubble"
+    ],
+    "steps": [
+      {
+        "animation": "bed_nap",
+        "duration": 6.0
+      },
+      {
+        "animation": "sleep",
+        "duration": 6.0
+      },
+      {
+        "animation": "sit",
+        "duration": 3.0
+      }
+    ],
+    "variants": [
+      "EVENT_DREAM_MEETING_LINE_1",
+      "EVENT_DREAM_MEETING_LINE_2",
+      "EVENT_DREAM_MEETING_LINE_3"
+    ],
+    "rewards": {
+      "points": 30,
+      "familiarity": 12,
+      "expressions": [
+        "expr_sleepy_dream",
+        "expr_happy_relaxed"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": true,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        0,
+        82
+      ],
+      "interest": [
+        0,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "deep_dream",
+        "conditions": {
+          "energy_max": 40
+        },
+        "variant_keys": [
+          "EVENT_DREAM_MEETING_LINE_3"
+        ],
+        "reward_bonus": {
+          "points": 2
+        }
+      },
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_DREAM_MEETING_LINE_1",
+          "EVENT_DREAM_MEETING_LINE_2"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_dream_meeting"
+  },
+  {
+    "id": "event_window_nap",
+    "title_key": "EVENT_WINDOW_NAP_TITLE",
+    "summary_key": "EVENT_WINDOW_NAP_SUMMARY",
+    "category": "sleep",
+    "chapter": 4,
+    "min_level": 6,
+    "required_furniture": [
+      "furn_window_cushion"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "day",
+    "weight": 1.1,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 9000,
+    "anchor": "window",
+    "props": [
+      "sun_patch"
+    ],
+    "steps": [
+      {
+        "animation": "window_nap",
+        "duration": 7.0
+      },
+      {
+        "animation": "sleep",
+        "duration": 6.0
+      },
+      {
+        "animation": "stare",
+        "duration": 3.0
+      }
+    ],
+    "variants": [
+      "EVENT_WINDOW_NAP_LINE_1",
+      "EVENT_WINDOW_NAP_LINE_2",
+      "EVENT_WINDOW_NAP_LINE_3"
+    ],
+    "rewards": {
+      "points": 30,
+      "familiarity": 12,
+      "expressions": [
+        "expr_sleepy_window",
+        "expr_happy_warm"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        0,
+        82
+      ],
+      "interest": [
+        0,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_WINDOW_NAP_LINE_1",
+          "EVENT_WINDOW_NAP_LINE_2",
+          "EVENT_WINDOW_NAP_LINE_3"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_window_nap"
+  },
+  {
+    "id": "event_treadmill_reward",
+    "title_key": "EVENT_TREADMILL_REWARD_TITLE",
+    "summary_key": "EVENT_TREADMILL_REWARD_SUMMARY",
+    "category": "sport",
+    "chapter": 3,
+    "min_level": 4,
+    "required_furniture": [
+      "furn_treadmill"
+    ],
+    "prerequisite_events": [
+      "event_balanced_treat"
+    ],
+    "time": "day",
+    "weight": 1.2,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 9500,
+    "anchor": "activity",
+    "props": [
+      "treadmill",
+      "towel"
+    ],
+    "steps": [
+      {
+        "animation": "run",
+        "duration": 7.0
+      },
+      {
+        "animation": "lie",
+        "duration": 4.0
+      },
+      {
+        "animation": "sit",
+        "duration": 3.0
+      }
+    ],
+    "variants": [
+      "EVENT_TREADMILL_REWARD_LINE_1",
+      "EVENT_TREADMILL_REWARD_LINE_2"
+    ],
+    "rewards": {
+      "points": 34,
+      "familiarity": 13,
+      "expressions": [
+        "expr_proud_treadmill",
+        "expr_wronged_exercise"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        25,
+        100
+      ],
+      "interest": [
+        20,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_TREADMILL_REWARD_LINE_1",
+          "EVENT_TREADMILL_REWARD_LINE_2"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_treadmill_reward"
+  },
+  {
+    "id": "event_one_stretch",
+    "title_key": "EVENT_ONE_STRETCH_TITLE",
+    "summary_key": "EVENT_ONE_STRETCH_SUMMARY",
+    "category": "sport",
+    "chapter": 3,
+    "min_level": 4,
+    "required_furniture": [
+      "furn_yoga_mat"
+    ],
+    "prerequisite_events": [
+      "event_yoga_blanket"
+    ],
+    "time": "any",
+    "weight": 1.1,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 8000,
+    "anchor": "activity",
+    "props": [
+      "yoga_mat"
+    ],
+    "steps": [
+      {
+        "animation": "yoga",
+        "duration": 5.0
+      },
+      {
+        "animation": "stare",
+        "duration": 3.0
+      },
+      {
+        "animation": "mirror_pose",
+        "duration": 4.0
+      }
+    ],
+    "variants": [
+      "EVENT_ONE_STRETCH_LINE_1",
+      "EVENT_ONE_STRETCH_LINE_2"
+    ],
+    "rewards": {
+      "points": 28,
+      "familiarity": 11,
+      "expressions": [
+        "expr_sleepy_yawn",
+        "expr_proud_pose"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        25,
+        100
+      ],
+      "interest": [
+        20,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_ONE_STRETCH_LINE_1",
+          "EVENT_ONE_STRETCH_LINE_2"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_one_stretch"
+  },
+  {
+    "id": "event_ball_coach",
+    "title_key": "EVENT_BALL_COACH_TITLE",
+    "summary_key": "EVENT_BALL_COACH_SUMMARY",
+    "category": "sport",
+    "chapter": 3,
+    "min_level": 4,
+    "required_furniture": [
+      "furn_soft_ball"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "any",
+    "weight": 1.1,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 7800,
+    "anchor": "activity",
+    "props": [
+      "soft_ball"
+    ],
+    "steps": [
+      {
+        "animation": "ball",
+        "duration": 6.0
+      },
+      {
+        "animation": "stare",
+        "duration": 3.0
+      },
+      {
+        "animation": "ball",
+        "duration": 4.0
+      }
+    ],
+    "variants": [
+      "EVENT_BALL_COACH_LINE_1",
+      "EVENT_BALL_COACH_LINE_2"
+    ],
+    "rewards": {
+      "points": 29,
+      "familiarity": 11,
+      "expressions": [
+        "expr_proud_ball",
+        "expr_shocked_ball"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        25,
+        100
+      ],
+      "interest": [
+        20,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_BALL_COACH_LINE_1",
+          "EVENT_BALL_COACH_LINE_2"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_ball_coach"
+  },
+  {
+    "id": "event_heroic_lap",
+    "title_key": "EVENT_HEROIC_LAP_TITLE",
+    "summary_key": "EVENT_HEROIC_LAP_SUMMARY",
+    "category": "sport",
+    "chapter": 4,
+    "min_level": 8,
+    "required_furniture": [
+      "furn_treadmill"
+    ],
+    "prerequisite_events": [
+      "event_treadmill_reward"
+    ],
+    "time": "day",
+    "weight": 1.0,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 11000,
+    "anchor": "activity",
+    "props": [
+      "paper_medal"
+    ],
+    "steps": [
+      {
+        "animation": "run",
+        "duration": 8.0
+      },
+      {
+        "animation": "mirror_pose",
+        "duration": 4.0
+      },
+      {
+        "animation": "lie",
+        "duration": 3.0
+      }
+    ],
+    "variants": [
+      "EVENT_HEROIC_LAP_LINE_1",
+      "EVENT_HEROIC_LAP_LINE_2"
+    ],
+    "rewards": {
+      "points": 38,
+      "familiarity": 15,
+      "expressions": [
+        "expr_proud_hero",
+        "expr_shocked_robot"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        25,
+        100
+      ],
+      "interest": [
+        20,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_HEROIC_LAP_LINE_1",
+          "EVENT_HEROIC_LAP_LINE_2"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_heroic_lap"
+  },
+  {
+    "id": "event_painting_master",
+    "title_key": "EVENT_PAINTING_MASTER_TITLE",
+    "summary_key": "EVENT_PAINTING_MASTER_SUMMARY",
+    "category": "hobby",
+    "chapter": 3,
+    "min_level": 4,
+    "required_furniture": [
+      "furn_easel"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "day",
+    "weight": 1.2,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 8800,
+    "anchor": "activity",
+    "props": [
+      "easel",
+      "paint_splotch"
+    ],
+    "steps": [
+      {
+        "animation": "paint",
+        "duration": 7.0
+      },
+      {
+        "animation": "stare",
+        "duration": 3.0
+      },
+      {
+        "animation": "mirror_pose",
+        "duration": 4.0
+      }
+    ],
+    "variants": [
+      "EVENT_PAINTING_MASTER_LINE_1",
+      "EVENT_PAINTING_MASTER_LINE_2"
+    ],
+    "rewards": {
+      "points": 32,
+      "familiarity": 12,
+      "expressions": [
+        "expr_proud_painter",
+        "expr_wronged_paint"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        15,
+        100
+      ],
+      "interest": [
+        20,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_PAINTING_MASTER_LINE_1",
+          "EVENT_PAINTING_MASTER_LINE_2"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_painting_master"
+  },
+  {
+    "id": "event_plant_apology",
+    "title_key": "EVENT_PLANT_APOLOGY_TITLE",
+    "summary_key": "EVENT_PLANT_APOLOGY_SUMMARY",
+    "category": "hobby",
+    "chapter": 4,
+    "min_level": 6,
+    "required_furniture": [
+      "furn_plant_sprout"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "day",
+    "weight": 1.1,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 9000,
+    "anchor": "window",
+    "props": [
+      "plant",
+      "watering_can"
+    ],
+    "steps": [
+      {
+        "animation": "water_plant",
+        "duration": 6.0
+      },
+      {
+        "animation": "stare",
+        "duration": 4.0
+      },
+      {
+        "animation": "water_plant",
+        "duration": 4.0
+      }
+    ],
+    "variants": [
+      "EVENT_PLANT_APOLOGY_LINE_1",
+      "EVENT_PLANT_APOLOGY_LINE_2"
+    ],
+    "rewards": {
+      "points": 31,
+      "familiarity": 12,
+      "expressions": [
+        "expr_proud_gardener",
+        "expr_wronged_plant"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        15,
+        100
+      ],
+      "interest": [
+        20,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_PLANT_APOLOGY_LINE_1",
+          "EVENT_PLANT_APOLOGY_LINE_2"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_plant_apology"
+  },
+  {
+    "id": "event_radio_dance",
+    "title_key": "EVENT_RADIO_DANCE_TITLE",
+    "summary_key": "EVENT_RADIO_DANCE_SUMMARY",
+    "category": "hobby",
+    "chapter": 4,
+    "min_level": 6,
+    "required_furniture": [
+      "furn_radio"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "any",
+    "weight": 1.1,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 8500,
+    "anchor": "window",
+    "props": [
+      "radio",
+      "music_notes"
+    ],
+    "steps": [
+      {
+        "animation": "radio",
+        "duration": 5.0
+      },
+      {
+        "animation": "walk",
+        "duration": 5.0
+      },
+      {
+        "animation": "sit",
+        "duration": 3.0
+      }
+    ],
+    "variants": [
+      "EVENT_RADIO_DANCE_LINE_1",
+      "EVENT_RADIO_DANCE_LINE_2"
+    ],
+    "rewards": {
+      "points": 31,
+      "familiarity": 12,
+      "expressions": [
+        "expr_happy_giggle",
+        "expr_shocked_music"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": true,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        15,
+        100
+      ],
+      "interest": [
+        20,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "active_mood",
+        "conditions": {
+          "tendency": "active"
+        },
+        "variant_keys": [
+          "EVENT_RADIO_DANCE_LINE_2"
+        ],
+        "reward_bonus": {
+          "points": 2
+        }
+      },
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_RADIO_DANCE_LINE_1"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_radio_dance"
+  },
+  {
+    "id": "event_robot_knight",
+    "title_key": "EVENT_ROBOT_KNIGHT_TITLE",
+    "summary_key": "EVENT_ROBOT_KNIGHT_SUMMARY",
+    "category": "hobby",
+    "chapter": 4,
+    "min_level": 8,
+    "required_furniture": [
+      "furn_cleaning_robot",
+      "furn_pillow_cloud"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "day",
+    "weight": 1.0,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 12000,
+    "anchor": "center",
+    "props": [
+      "cleaning_robot",
+      "soft_cushion"
+    ],
+    "steps": [
+      {
+        "animation": "robot_ride",
+        "duration": 8.0
+      },
+      {
+        "animation": "scratch",
+        "duration": 3.0,
+        "camera_shake": true
+      },
+      {
+        "animation": "mirror_pose",
+        "duration": 4.0
+      }
+    ],
+    "variants": [
+      "EVENT_ROBOT_KNIGHT_LINE_1",
+      "EVENT_ROBOT_KNIGHT_LINE_2"
+    ],
+    "rewards": {
+      "points": 40,
+      "familiarity": 15,
+      "expressions": [
+        "expr_wronged_robot",
+        "expr_shocked_bump"
+      ],
+      "achievements": [
+        "ach_robot_knight"
+      ]
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        15,
+        100
+      ],
+      "interest": [
+        20,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_ROBOT_KNIGHT_LINE_1",
+          "EVENT_ROBOT_KNIGHT_LINE_2"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_robot_knight"
+  },
+  {
+    "id": "event_rainy_window",
+    "title_key": "EVENT_RAINY_WINDOW_TITLE",
+    "summary_key": "EVENT_RAINY_WINDOW_SUMMARY",
+    "category": "weather",
+    "chapter": 4,
+    "min_level": 6,
+    "required_furniture": [
+      "furn_weather_charm"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "any",
+    "weight": 1.1,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 10000,
+    "anchor": "window",
+    "props": [
+      "rain",
+      "warm_drink"
+    ],
+    "steps": [
+      {
+        "animation": "weather",
+        "duration": 6.0
+      },
+      {
+        "animation": "stare",
+        "duration": 5.0
+      },
+      {
+        "animation": "drink",
+        "duration": 4.0
+      }
+    ],
+    "variants": [
+      "EVENT_RAINY_WINDOW_LINE_1",
+      "EVENT_RAINY_WINDOW_LINE_2"
+    ],
+    "rewards": {
+      "points": 34,
+      "familiarity": 13,
+      "expressions": [
+        "expr_happy_sparkle",
+        "expr_wronged_rain"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": true,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        0,
+        100
+      ],
+      "interest": [
+        15,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "warm_drink",
+        "conditions": {
+          "required_furniture": [
+            "furn_kettle_round"
+          ]
+        },
+        "variant_keys": [
+          "EVENT_RAINY_WINDOW_LINE_2"
+        ],
+        "reward_bonus": {
+          "familiarity": 2
+        }
+      },
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_RAINY_WINDOW_LINE_1"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_rainy_window"
+  },
+  {
+    "id": "event_sunrise_watch",
+    "title_key": "EVENT_SUNRISE_WATCH_TITLE",
+    "summary_key": "EVENT_SUNRISE_WATCH_SUMMARY",
+    "category": "weather",
+    "chapter": 4,
+    "min_level": 6,
+    "required_furniture": [
+      "furn_window_cushion"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "morning",
+    "weight": 1.0,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 11000,
+    "anchor": "window",
+    "props": [
+      "sunrise"
+    ],
+    "steps": [
+      {
+        "animation": "window_nap",
+        "duration": 5.0
+      },
+      {
+        "animation": "stare",
+        "duration": 5.0
+      },
+      {
+        "animation": "sniff",
+        "duration": 3.0
+      }
+    ],
+    "variants": [
+      "EVENT_SUNRISE_WATCH_LINE_1",
+      "EVENT_SUNRISE_WATCH_LINE_2"
+    ],
+    "rewards": {
+      "points": 32,
+      "familiarity": 12,
+      "expressions": [
+        "expr_sleepy_blink",
+        "expr_hungry_sniff"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        0,
+        100
+      ],
+      "interest": [
+        15,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_SUNRISE_WATCH_LINE_1",
+          "EVENT_SUNRISE_WATCH_LINE_2"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_sunrise_watch"
+  },
+  {
+    "id": "event_windy_chime",
+    "title_key": "EVENT_WINDY_CHIME_TITLE",
+    "summary_key": "EVENT_WINDY_CHIME_SUMMARY",
+    "category": "weather",
+    "chapter": 4,
+    "min_level": 6,
+    "required_furniture": [
+      "furn_wind_chime"
+    ],
+    "prerequisite_events": [
+      "event_move_in"
+    ],
+    "time": "any",
+    "weight": 1.0,
+    "unseen_multiplier": 5,
+    "cooldown_seconds": 9800,
+    "anchor": "window",
+    "props": [
+      "wind_chime",
+      "leaf"
+    ],
+    "steps": [
+      {
+        "animation": "wind_chime",
+        "duration": 6.0
+      },
+      {
+        "animation": "stare",
+        "duration": 4.0
+      },
+      {
+        "animation": "sleep",
+        "duration": 5.0
+      }
+    ],
+    "variants": [
+      "EVENT_WINDY_CHIME_LINE_1",
+      "EVENT_WINDY_CHIME_LINE_2"
+    ],
+    "rewards": {
+      "points": 32,
+      "familiarity": 12,
+      "expressions": [
+        "expr_shocked_weather",
+        "expr_sleepy_deep"
+      ],
+      "achievements": []
+    },
+    "desktop_allowed": true,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        0,
+        100
+      ],
+      "interest": [
+        15,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_WINDY_CHIME_LINE_1",
+          "EVENT_WINDY_CHIME_LINE_2"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_windy_chime"
+  },
+  {
+    "id": "event_ordinary_day",
+    "title_key": "EVENT_ORDINARY_DAY_TITLE",
+    "summary_key": "EVENT_ORDINARY_DAY_SUMMARY",
+    "category": "chapter",
+    "chapter": 5,
+    "min_level": 10,
+    "required_furniture": [],
+    "prerequisite_events": [
+      "event_move_in",
+      "event_fridge_meeting",
+      "event_balanced_treat",
+      "event_cookie_detective",
+      "event_cocoa_moustache",
+      "event_midnight_snack",
+      "event_last_pea",
+      "event_yoga_blanket",
+      "event_alarm_victory",
+      "event_pillow_migration",
+      "event_dream_meeting",
+      "event_window_nap",
+      "event_treadmill_reward",
+      "event_one_stretch",
+      "event_ball_coach",
+      "event_heroic_lap",
+      "event_painting_master",
+      "event_plant_apology",
+      "event_radio_dance",
+      "event_robot_knight",
+      "event_rainy_window",
+      "event_sunrise_watch",
+      "event_windy_chime"
+    ],
+    "time": "any",
+    "weight": 10,
+    "unseen_multiplier": 20,
+    "cooldown_seconds": 31536000,
+    "anchor": "center",
+    "props": [
+      "photo_album",
+      "thank_you_photo"
+    ],
+    "steps": [
+      {
+        "animation": "walk",
+        "duration": 4.0
+      },
+      {
+        "animation": "sit",
+        "duration": 6.0
+      },
+      {
+        "animation": "look_mouse",
+        "duration": 5.0
+      }
+    ],
+    "variants": [
+      "EVENT_ORDINARY_DAY_LINE_1",
+      "EVENT_ORDINARY_DAY_LINE_2"
+    ],
+    "rewards": {
+      "points": 40,
+      "familiarity": 20,
+      "expressions": [
+        "expr_happy_ending",
+        "expr_proud_ending"
+      ],
+      "achievements": [
+        "ach_events_24"
+      ]
+    },
+    "desktop_allowed": false,
+    "localization_complete": true,
+    "state_ranges": {
+      "satiety": [
+        0,
+        100
+      ],
+      "energy": [
+        0,
+        100
+      ],
+      "interest": [
+        0,
+        100
+      ]
+    },
+    "branches": [
+      {
+        "id": "complete_album",
+        "conditions": {
+          "seen_events_min": 23
+        },
+        "variant_keys": [
+          "EVENT_ORDINARY_DAY_LINE_1"
+        ],
+        "reward_bonus": {
+          "points": 10
+        }
+      },
+      {
+        "id": "default",
+        "conditions": {},
+        "variant_keys": [
+          "EVENT_ORDINARY_DAY_LINE_2"
+        ],
+        "reward_bonus": {}
+      }
+    ],
+    "photo_id": "photo_ordinary_day"
+  }
+]

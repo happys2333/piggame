@@ -1,0 +1,14 @@
+[
+  {"id":"outfit_berry_beret","name_key":"OUTFIT_BERRY_BERET_NAME","description_key":"OUTFIT_BERRY_BERET_DESC","anchor":"head","shape":"beret","color":"#c84f76","price":260,"min_level":2},
+  {"id":"outfit_round_glasses","name_key":"OUTFIT_ROUND_GLASSES_NAME","description_key":"OUTFIT_ROUND_GLASSES_DESC","anchor":"eyes","shape":"glasses","color":"#544955","price":260,"min_level":2},
+  {"id":"outfit_cloud_scarf","name_key":"OUTFIT_CLOUD_SCARF_NAME","description_key":"OUTFIT_CLOUD_SCARF_DESC","anchor":"neck","shape":"scarf","color":"#ecf1f4","price":260,"min_level":3},
+  {"id":"outfit_sprout_pin","name_key":"OUTFIT_SPROUT_PIN_NAME","description_key":"OUTFIT_SPROUT_PIN_DESC","anchor":"head","shape":"sprout","color":"#76a968","price":260,"min_level":3},
+  {"id":"outfit_sleepy_cap","name_key":"OUTFIT_SLEEPY_CAP_NAME","description_key":"OUTFIT_SLEEPY_CAP_DESC","anchor":"head","shape":"sleep_cap","color":"#8795c6","price":260,"min_level":4},
+  {"id":"outfit_rain_cape","name_key":"OUTFIT_RAIN_CAPE_NAME","description_key":"OUTFIT_RAIN_CAPE_DESC","anchor":"body","shape":"cape","color":"#e7b84d","price":260,"min_level":6},
+  {"id":"outfit_painter_hat","name_key":"OUTFIT_PAINTER_HAT_NAME","description_key":"OUTFIT_PAINTER_HAT_DESC","anchor":"head","shape":"painter_hat","color":"#d8c9af","price":260,"min_level":5},
+  {"id":"outfit_sports_band","name_key":"OUTFIT_SPORTS_BAND_NAME","description_key":"OUTFIT_SPORTS_BAND_DESC","anchor":"head","shape":"headband","color":"#e75d67","price":260,"min_level":5},
+  {"id":"outfit_bow_tie","name_key":"OUTFIT_BOW_TIE_NAME","description_key":"OUTFIT_BOW_TIE_DESC","anchor":"neck","shape":"bow_tie","color":"#6d7fb4","price":260,"min_level":5},
+  {"id":"outfit_paper_crown","name_key":"OUTFIT_PAPER_CROWN_NAME","description_key":"OUTFIT_PAPER_CROWN_DESC","anchor":"head","shape":"crown","color":"#efc75e","price":260,"min_level":7},
+  {"id":"outfit_star_glasses","name_key":"OUTFIT_STAR_GLASSES_NAME","description_key":"OUTFIT_STAR_GLASSES_DESC","anchor":"eyes","shape":"star_glasses","color":"#d6678f","price":260,"min_level":8},
+  {"id":"outfit_hero_cape","name_key":"OUTFIT_HERO_CAPE_NAME","description_key":"OUTFIT_HERO_CAPE_DESC","anchor":"body","shape":"hero_cape","color":"#cb5560","price":260,"min_level":9}
+]

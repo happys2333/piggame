@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "created_date": "2026-10-08",
+  "stage": "art-direction-preview-only",
+  "reason": "User rejected the composited pig expression artwork as low quality. Functional test success is not visual acceptance.",
+  "runtime_assets_changed": false,
+  "release_approved": false,
+  "references": [
+    {
+      "path": "/Users/happys/Library/Caches/piggame/ui-evidence/ui-smoke-xm_9a6dv/png/performances/faces.png",
+      "role": "Rejected composited preview; first iteration edit target."
+    },
+    {
+      "path": "build/validation/pighub-reference/猪咪委屈.jpg",
+      "role": "PigHub expression/style reference, not a new original or runtime asset."
+    },
+    {
+      "path": "build/validation/pighub-reference/猪开心.jpg",
+      "role": "PigHub expression/style reference, not a new original or runtime asset."
+    }
+  ],
+  "records": [
+    {
+      "id": "expression_preview_v2",
+      "tool": "built-in image_gen",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-220bca74-188f-45c5-ac18-2d20b0da3736.png",
+      "status": "rejected-exploration",
+      "reason": "Too close to rejected glossy base and not suitable as runtime artwork.",
+      "transparent_background": true,
+      "prompt": "Use case: style-transfer.\nAsset type: visual-direction proof for a pig desktop companion game, NOT a runtime sprite sheet.\nInput images: Image 1 is the EDIT TARGET, the rejected nine-pig expression preview. Images 2 and 3 are PigHub design references for lively simplified shapes and instantly readable emotions, not collage material.\nPrimary request: Completely redraw the nine-expression preview into a much stronger, charming, expressive, coherent 2D character-design sheet. The rejected image looks like tiny eye and mouth decals pasted onto an inert airbrushed pig. Eliminate that problem: draw integrated, anatomically coherent faces, not pasted-on emojis. Keep ONE canonical round pink pig identity across all nine cells: same bean-shaped chubby body, large integrated face toward the left, floppy ears, tiny rounded dark hooves, short curly tail. Clean warm rose outlines with deliberate variable line weight, flat peach-pink fills, minimal carefully placed cel shading, witty elastic facial acting. Take the graphic simplicity and expressive appeal from the PigHub references, but redraw an original unified interpretation. Less generic mobile-game clipart, no shiny plastic, no muddy airbrush, no gradients covering everything.\nComposition: square, exactly 3 columns by 3 rows, generous even transparent gutters, each entire pig clearly visible. Consistent three-quarter left-facing view, scale, body proportions and standing pose; slight ear/cheek acting only. Make the face sufficiently large to read at a 120-pixel desktop size. No labels, no Chinese text, no props, no backgrounds.\nNine expressions row-major:\n1 default bean eyes, relaxed tiny natural smile, quietly endearing;\n2 genuine delighted squint, lifted cheeks, broad curved smile with a tiny tongue, infectious goofy delight;\n3 exhausted dead-fish half-lids, tiny flat mouth, deadpan comic stare clearly different from 7;\n4 comically aggrieved: huge shimmering wet oval eyes, dramatically upturned inner brows, big blue tear streams and a trembling pout, adorable not distressed;\n5 pupils-earthquake: tall wide eyes with tiny offset pupils, lifted eyebrows, small stunned mouth, visually bewildered but NOT horror;\n6 mischievous smile: asymmetric knowing squint, one raised eyebrow and an unmistakable smug cheeky side grin;\n7 speechless judgment: sideways narrowed gaze, lowered flat eyebrows, compressed unimpressed mouth;\n8 sleepy: heavy drooping lids, limp ears, soft small yawn, no extra face or symbols;\n9 jaw-dropped surprise: large rounded shocked eyes and an integrated open rounded jaw with dark mouth interior and small pink tongue, no teeth, no dislocated mouth.\nCrucial facial anatomy: two eyes only, one snout with exactly two nostrils only, one mouth only; mouth belongs on the lower FACE immediately beside/below the snout, never floating halfway across the body or on belly. All facial marks match the head perspective and line weight. Different emotions must be visually obvious, not a sequence of nearly identical faces. Hands/limbs do not change identity. Keep all pigs fully contained and separated, no cropping, no scary anatomy, no additional pigs.\nOutput: a polished hand-drawn 2D expression proof with genuine alpha transparency. This is a preview for art direction, not an assertion that release assets are finished."
+    },
+    {
+      "id": "expression_preview_v3",
+      "tool": "built-in image_gen",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-90a616a4-c2cd-416f-97ba-4b2266676143.png",
+      "status": "not-selected-after-user-chose-pighub-meme-direction",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept.\nAsset type: desktop-pet character art direction, three-expression preview only.\nDraw a NEW ORIGINAL illustration, NOT an edit of any prior generated pig. Deliberately reject generic glossy mobile-game pig clipart. Make an appealingly goofy, expressive flat 2D meme pig: a compact upright-ish pear/bean silhouette with the face occupying most of the upper front, peach-pink solid skin, two floppy U-shaped rosy ears, broad saturated pink oval snout centered BELOW the eyes, two neat charcoal oval nostrils, teeny stubby feet, tiny curled tail. The face must clearly be a FACE, not detached facial features spread over a realistic sideways pig's torso. Use a simplified three-quarter view, gently leaning toward viewer, same one character design and silhouette in all three.\nStyle: confident hand-drawn character-design linework; smooth rounded charcoal-plum outlines of consistent intentional thickness; clean flat color shapes; a few pink cheek hatch marks; NO airbrush, NO soft gradient, NO plastic gloss, NO shiny 3D, NO dense shadow, NO rim light, NO beige paper, NO decorative sticker outline, NO speckles. Humor is dry, stupid-cute, a little dramatic and instantly readable at small desktop-pet size, rather than baby-product branding.\nLayout: a landscape transparent PNG with three full-body pigs arranged horizontally, equal size and generous empty transparent gutters. Clean isolated alpha, each character wholly inside the canvas, no ground shadow. No text, captions, symbols, cards, grid, border, costumes, or props.\nLeft: blank bean-eyed stare, slightly asymmetrical brow and very tiny neutral mouth, face of a pig with absolutely no thoughts.\nCenter: theatrically wronged crying pig; large black oval eyes with two small watery white highlights, inverted-V inner brows, two broad vivid blue tear streams and a small trembling pout immediately beneath the snout; adorable expressive melodrama, NOT suffering.\nRight: self-satisfied mischievous pig; sharply half-lidded sideways eyes, one raised eyebrow, broad lopsided confident grin immediately beneath the snout, round cheeks lightly lifted, smug but harmless.\nThe three emotional readings must be extremely different while clearly using the SAME base pig. Expressions flow with the head's curves. Exactly two eyes, one snout, two nostrils, one mouth on the lower face. No mouth on belly, no random facial fragments. Favor iconic flat graphic design and comedic appeal over intricate rendering.\nDeliver only this three-character concept preview, polished clean shapes and linework, genuine alpha transparency. Not a sprite atlas or release-ready claim."
+    }
+  ]
+}

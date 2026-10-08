@@ -1,33 +1,73 @@
 ; Engine configuration file.
-; It's best edited using the editor UI and not directly,
-; since the parameters that go here are not all obvious.
-;
-; Format:
-;   [section] ; section goes between []
-;   param=value ; assign values to parameters
+; Edit through Godot where possible. Hand-edited values are covered by tests.
 
 config_version=5
 
 [application]
 
-config/name="PIGGAME"
-run/main_scene="uid://c0d1rj5ct5dp7"
+config/name="猪咪今天也没干嘛"
+config/description="2D 放置养成、桌面陪伴与表情小剧场"
+config/version="1.0.0-dev"
+config/auto_accept_quit=false
+config/icon="res://game/assets/final/generated/app_icon.png"
+run/main_scene="res://game/scenes/main.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+
+[autoload]
+
+GameSession="*res://game/scripts/core/game_session.gd"
+AudioService="*res://game/scripts/audio/audio_service.gd"
+SteamService="*res://game/scripts/steam/steam_service.gd"
 
 [display]
 
-window/size/viewport_width=540
-window/size/viewport_height=960
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/size/resizable=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-window/handheld/orientation=1
+window/per_pixel_transparency/allowed=true
 
-[physics]
+[debug]
 
-3d/physics_engine="Jolt Physics"
+file_logging/enable_file_logging=true
+file_logging/enable_file_logging.pc=true
+file_logging/log_path="user://logs/piggy-did-nothing-today.log"
+file_logging/max_log_files=5
+
+[input]
+
+pause={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":4194305,"unicode":27)]
+}
+screenshot={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":4194334)]
+}
+
+[internationalization]
+
+locale/test=""
+locale/fallback="zh_CN"
+locale/translations=PackedStringArray("res://game/data/localization/game.en.translation", "res://game/data/localization/game.zh_CN.translation", "res://game/data/localization/game.zh_TW.translation")
 
 [rendering]
 
-rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+environment/defaults/default_clear_color=Color(0.95, 0.88, 0.85, 1)
+
+[steam]
+
+initialization/app_data/app_type=0
+initialization/app_data/app_type.demo=1
+initialization/app_data/app_id=0
+initialization/app_data/demo_id=0
+initialization/app_data/playtest_id=0
+initialization/app_data/tool_id=0
+initialization/processes/initialize_on_startup=false
+initialization/processes/embed_callbacks=false

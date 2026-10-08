@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "created_date": "2026-10-08",
+  "selected_direction": "PigHub-like simple, exaggerated, slightly ugly-cute meme pig",
+  "authorization": "User selected this style and separately required coordinated eye and mouth positions; selection approves the direction, not any generated asset.",
+  "stage": "direction-selected-production-art-not-ready",
+  "runtime_assets_changed": false,
+  "release_approved": false,
+  "reference_origin": "PigHub references recorded in docs/design/pighub-reference.md. Derived reference studies must not be described as exclusive user originals.",
+  "facial_rules": [
+    "Both eyes, snout and optional mouth form one compact face on the front-left of the shared pig.",
+    "Eyes share a consistent perspective axis above the snout; expression changes preserve landmark centres and scale.",
+    "Mouth remains immediately below or closely to the lower side of the snout, never on the belly.",
+    "Default vacant expression can omit a mouth; runtime routing must not force an artificial mouth onto it.",
+    "Future pose animation must transform the whole face with head-local landmarks, not reuse old universal eye/mouth offsets.",
+    "Ugly-cute means comic expression and silhouette, never misplaced anatomy."
+  ],
+  "visual_rules": [
+    "Sparse flat peach and pink fills, black bean eyes, deliberately naive shapes; no glossy sticker shading or refined chibi treatment.",
+    "One shared pig body and coherent face grammar across expressions, poses and costumes.",
+    "Inspect the actual small desktop size and every animation frame visually; functional tests cannot grant artistic acceptance.",
+    "Reject transparent fringes, stray coloured speckles, duplicate facial marks and body-colour gradients before runtime use."
+  ],
+  "records": [
+    {
+      "id": "pighub_direction_reference_study",
+      "tool": "built-in image_gen",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-24f7a2ef-758e-4222-80ee-c6fcbb3ceff0.png",
+      "prompt": "Use case: identity-preserve.\nEdit target: Image 1, the PigHub happy-pig illustration. Image 2 is only a reference for its crying expression.\nThe user specifically chose the simple, exaggerated, slightly ugly-cute PigHub meme style. Preserve the recognisable pig in Image 1 instead of turning it into another polished game mascot.\nRemove ALL original background, spotlight, text and other decoration. Rebuild a clean transparent image containing THREE copies of this SAME pig horizontally, same size and standing silhouette, ample empty gutters, full body visible.\nKeep the original's simple peach blob-shaped body, plump left-facing three-quarter head merged into body, pink U-shaped ear marks, pink oval nose, two big dark nostrils, tiny soft blunt feet with NO dark hooves, and curly peach tail. Use completely flat colour fills, no body outline except the original pink ear strokes. A deliberately naive slightly uneven meme doodle, not detailed drawing. The body is one peach fill, nose one pink fill, eyes/nostrils one dark fill. Not shiny, not painterly, not airbrushed, not a glossy sticker, not a smooth shaded chibi, not Disney eyes. Preserve the quirky sparse economy of the source.\nOnly change the three facial performances:\nLEFT: mind totally empty — two unreflective black oval dot eyes, no brows, no smile, no mouth. Ridiculously vacant but friendly. Eyes naturally sit above the snout.\nMIDDLE: aggrieved — same black oval eyes but bigger, two short raised worried brows, each eye has a broad comically blue tear trail. Three simple cheek marks and, if necessary, one tiny trembling mouth immediately below the snout, NOT on belly. Same body.\nRIGHT: smug — two thin half-lidded flat cartoon eyes looking sideways, one raised brow and one small crooked smirk beside the snout, arrogant but harmless. Same body.\nKeep the emotional contrast strong enough to read at small desktop-pet size. Exactly two eyes, one nose, two nostrils, never extra faces. No extra props or symbols, no text or labels, no frames, no paper texture, no shadow, no outline around the body, no depth, no gradients, no eye sparkle. Flat cheek hatches only, not airbrushed blush.\nThis is an art-direction concept sheet derived from the supplied PigHub reference, not claimed as an exclusive original or release-approved game asset. Genuine alpha transparency everywhere outside the three pigs.",
+      "transparent_background_requested": true,
+      "status": "reference-study-not-runtime-ready",
+      "issues": [
+        "Visible edge residue and coloured speckles; not accepted as game artwork."
+      ]
+    },
+    {
+      "id": "pighub_direction_coordination_edit",
+      "tool": "built-in image_gen",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-554c7c6f-cf6e-4e25-bf9b-6e7450393279.png",
+      "prompt": "Use case: precise-object-edit.\nEdit the supplied three-pig concept sheet. Preserve its PigHub-like flat peach blob body, pink U-shaped ears, minimal black features, awkward cute proportions, the three expressions (blank, crying, smug), their standing poses and horizontal layout. Do NOT change it into polished clipart.\nTwo targeted repairs:\n1. Coordinated facial anatomy. Treat both eyes, nose and mouth as ONE face on the FRONT LEFT of the pig, not separately placed symbols. In all three pigs the two eyes sit on the same gently slanted perspective baseline ABOVE the pink snout. Keep the SAME eye centres, snout centre and facial scale across the three. The snout lies below and between the eyes. No eye overlaps an ear or floats toward the back of the body. For crying and smug, the tiny mouth sits on the LOWER FACE directly below the snout, or just to its immediate lower-right by at most half a snout width; never the broad belly. Its height is comfortably below the eyes. Use a small crooked mouth, not a giant jaw. Blank pig has NO mouth. Crying has worried brows and two broad blue tears, smug has half-lids and one raised brow. Preserve exactly two eyes, two nostrils and at most one mouth.\n2. Clean raster production finish while retaining deliberately naive drawing. Redraw the silhouettes with solid flat colour and clean antialiasing. Completely remove all red/yellow/white stray speckles, ragged photographic residue, white halos, opaque bits between pigs and colour fringes around tails and feet. Outside silhouettes must be exact transparent alpha, not coloured pixels or a checkerboard. No airbrush or shading: uniform peach body, uniform pink nose/ears, solid near-black face marks, solid blue tears. No border, no shadow, no backdrop, no lettering.\nAll three pigs completely contained with generous transparent gutters. This remains a style-and-facial-coordination preview, not runtime art. Maintain the simple ridiculous expressive charm; the joke is the expression, not misplaced anatomy.",
+      "transparent_background_requested": true,
+      "status": "cleanup-attempt-not-runtime-ready",
+      "issues": [
+        "Requested transparent-edge cleanup was not achieved; visible speckles persist."
+      ]
+    },
+    {
+      "id": "pighub_direction_clean_redraw_attempt",
+      "tool": "built-in image_gen",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-28b6ee39-55cb-4c96-b0c9-9610d47a90fa.png",
+      "prompt": "用途：桌宠猪的丑萌梗图造型稿。重新画一张干净的新图，不要抠取、复制或沿用之前图片的像素边缘。\n一张横向透明PNG，三只完全同款的猪并排，站姿、体型、大小一致，四周留足空白。不是三种猪，只是同一只猪的三种表情。画风像简单手绘的中文猪猪表情包：傻乎乎、松垮、夸张、朴素，不是精致商业贴纸。\n基础造型：胖胖的横向豆子色块，头和身体连在一起，左前方是脸，三个可见的短小圆脚，右上角一笔卷尾巴。身体只有一个均匀的浅桃粉色平涂色块（#FFD0AE），没有轮廓线、没有渐变、没有阴影、没有高光、没有纹理。耳朵只是两条粗粗的玫粉色倒U形笔画，鼻子是一块玫粉色椭圆，两个黑色椭圆鼻孔；不要黑蹄、不要毛、不要大眼睛白眼球、不要亮晶晶。\n最重要的五官构图：两只眼睛、鼻子、嘴必须组成一张紧凑的脸，全部留在身体左前方。鼻子在两眼之间的下方，两眼遵循同一轻微倾斜的透视轴。三只猪的眼睛中心与鼻子中心位置相同，不因为换表情就把脸拉散。小嘴只能在鼻子正下方紧挨着或其侧下方，不能出现在身体中部、肚子或鼻孔内。\n左边：两个黑豆眼，脑袋空空，没有眉毛和嘴，呆到好笑。\n中间：相同落点的黑豆眼，八字眉，两条粗蓝色眼泪，一条很小的委屈波浪嘴紧贴鼻子下方。不是受伤，是戏精。\n右边：相同落点的半闭眼，视线斜向旁边，一边挑眉，鼻子紧邻的侧下方有一个短歪笑，得意得很欠但不恐怖。\n整张图只由明确、少量、干净的纯色块构成，线条可以略笨拙但像素边缘清楚。不要文字、背景、边框、网格、白色外描边、装饰、道具、噪点、孤立杂色点、黑色底图或棋盘底图。猪轮廓以外必须是真实alpha透明。三只都完整显示，不裁切。它是梗图式设计稿，不是完成的动作图集。",
+      "transparent_background_requested": true,
+      "status": "expression-layout-study-not-runtime-ready",
+      "issues": [
+        "Transparent fringe/speckle cleanup and truly uniform flat fills remain unresolved; no runtime replacement performed."
+      ]
+    }
+  ]
+}

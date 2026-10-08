@@ -1,0 +1,1724 @@
+{
+  "schema_version": 1,
+  "face_aliases": {
+    "face_quake": "face_shock"
+  },
+  "faces": {
+    "face_dot": {
+      "left": {
+        "offset": [
+          -8.9148,
+          -10.3544
+        ],
+        "size": [
+          18.2995,
+          20.8333
+        ]
+      },
+      "right": {
+        "offset": [
+          -9.1815,
+          -10.2816
+        ],
+        "size": [
+          18.5811,
+          20.8333
+        ]
+      },
+      "mouth": {
+        "offset": [
+          -14.1307,
+          -6.7199
+        ],
+        "size": [
+          28.4347,
+          12.6689
+        ]
+      }
+    },
+    "face_squint": {
+      "left": {
+        "offset": [
+          -14.2292,
+          -7.3731
+        ],
+        "size": [
+          28.4989,
+          16.0835
+        ]
+      },
+      "right": {
+        "offset": [
+          -14.5537,
+          -7.334
+        ],
+        "size": [
+          28.781,
+          16.0835
+        ]
+      },
+      "mouth": {
+        "offset": [
+          -14.1486,
+          -6.6903
+        ],
+        "size": [
+          28.4989,
+          12.6975
+        ]
+      }
+    },
+    "face_deadpan": {
+      "left": {
+        "offset": [
+          -15.3369,
+          -7.1684
+        ],
+        "size": [
+          31.3205,
+          18.0587
+        ]
+      },
+      "right": {
+        "offset": [
+          -15.0585,
+          -7.2768
+        ],
+        "size": [
+          31.3205,
+          18.3409
+        ]
+      },
+      "mouth": {
+        "offset": [
+          -12.4686,
+          -2.8151
+        ],
+        "size": [
+          25.1129,
+          5.9255
+        ]
+      }
+    },
+    "face_tears": {
+      "left": {
+        "offset": [
+          -14.8647,
+          -27.9222
+        ],
+        "size": [
+          24.4932,
+          68.4122
+        ]
+      },
+      "right": {
+        "offset": [
+          -8.8976,
+          -27.0084
+        ],
+        "size": [
+          23.6486,
+          68.1306
+        ]
+      },
+      "mouth": {
+        "offset": [
+          -16.1029,
+          -4.2463
+        ],
+        "size": [
+          32.0946,
+          8.4459
+        ]
+      }
+    },
+    "face_sly": {
+      "left": {
+        "offset": [
+          -15.6519,
+          -25.1412
+        ],
+        "size": [
+          31.8131,
+          35.1914
+        ]
+      },
+      "right": {
+        "offset": [
+          -15.2699,
+          -6.4485
+        ],
+        "size": [
+          31.25,
+          16.3288
+        ]
+      },
+      "mouth": {
+        "offset": [
+          -16.411,
+          -10.9135
+        ],
+        "size": [
+          30.4054,
+          17.455
+        ]
+      }
+    },
+    "face_glare": {
+      "left": {
+        "offset": [
+          -13.812,
+          -17.6755
+        ],
+        "size": [
+          29.0632,
+          27.3702
+        ]
+      },
+      "right": {
+        "offset": [
+          -13.7206,
+          -17.5659
+        ],
+        "size": [
+          29.0632,
+          27.3702
+        ]
+      },
+      "mouth": {
+        "offset": [
+          -12.5108,
+          -2.3941
+        ],
+        "size": [
+          25.395,
+          5.079
+        ]
+      }
+    },
+    "face_sleepy": {
+      "left": {
+        "offset": [
+          -15.5527,
+          -10.8927
+        ],
+        "size": [
+          28.781,
+          20.316
+        ]
+      },
+      "right": {
+        "offset": [
+          -13.6246,
+          -9.6565
+        ],
+        "size": [
+          29.3454,
+          18.623
+        ]
+      },
+      "mouth": {
+        "offset": [
+          -6.9328,
+          -9.1306
+        ],
+        "size": [
+          14.1084,
+          18.623
+        ]
+      }
+    },
+    "face_shock": {
+      "left": {
+        "offset": [
+          -10.6617,
+          -29.5131
+        ],
+        "size": [
+          20.8333,
+          40.8221
+        ]
+      },
+      "right": {
+        "offset": [
+          -9.5244,
+          -30.1494
+        ],
+        "size": [
+          23.9302,
+          41.3851
+        ]
+      },
+      "mouth": {
+        "offset": [
+          -6.8687,
+          -9.0717
+        ],
+        "size": [
+          14.0766,
+          18.5811
+        ]
+      }
+    }
+  },
+  "clips": {
+    "body_base": {
+      "frames": [
+        {
+          "snout": [
+            77.4844,
+            166.6145
+          ],
+          "head_top": 58.7986,
+          "scale": 0.95,
+          "landmarks": {
+            "left": [
+              61.5244,
+              129.2088
+            ],
+            "right": [
+              113.3944,
+              135.4788
+            ],
+            "mouth": [
+              78.4844,
+              193.1863
+            ]
+          }
+        },
+        {
+          "snout": [
+            72.4847,
+            165.2575
+          ],
+          "head_top": 58.7986,
+          "scale": 0.95,
+          "landmarks": {
+            "left": [
+              56.5247,
+              127.3996
+            ],
+            "right": [
+              108.3947,
+              133.6696
+            ],
+            "mouth": [
+              73.4847,
+              191.3771
+            ]
+          }
+        },
+        {
+          "snout": [
+            67.4401,
+            165.3459
+          ],
+          "head_top": 59.7032,
+          "scale": 0.95,
+          "landmarks": {
+            "left": [
+              51.4801,
+              128.3042
+            ],
+            "right": [
+              103.3501,
+              134.5742
+            ],
+            "mouth": [
+              68.4401,
+              191.3771
+            ]
+          }
+        },
+        {
+          "snout": [
+            61.8223,
+            165.1729
+          ],
+          "head_top": 62.417,
+          "scale": 0.9333,
+          "landmarks": {
+            "left": [
+              46.1423,
+              128.6242
+            ],
+            "right": [
+              97.1023,
+              134.7842
+            ],
+            "mouth": [
+              62.8223,
+              191.2571
+            ]
+          }
+        }
+      ],
+      "integrated_outfit": false,
+      "mouth_visible": true
+    },
+    "body_prone": {
+      "frames": [
+        {
+          "snout": [
+            73.5466,
+            168.5132
+          ],
+          "head_top": 50.9683,
+          "scale": 0.9167,
+          "landmarks": {
+            "left": [
+              58.1466,
+              127.1964
+            ],
+            "right": [
+              108.1966,
+              133.2464
+            ],
+            "mouth": [
+              74.5466,
+              198.8896
+            ]
+          }
+        },
+        {
+          "snout": [
+            71.3102,
+            172.8997
+          ],
+          "head_top": 63.7104,
+          "scale": 0.9167,
+          "landmarks": {
+            "left": [
+              55.9102,
+              132.9882
+            ],
+            "right": [
+              105.9602,
+              139.0382
+            ],
+            "mouth": [
+              72.3102,
+              202.3647
+            ]
+          }
+        },
+        {
+          "snout": [
+            65.6045,
+            168.8175
+          ],
+          "head_top": 54.4434,
+          "scale": 0.9167,
+          "landmarks": {
+            "left": [
+              50.2045,
+              128.3548
+            ],
+            "right": [
+              100.2545,
+              134.4048
+            ],
+            "mouth": [
+              66.6045,
+              198.8896
+            ]
+          }
+        },
+        {
+          "snout": [
+            61.1411,
+            170.3473
+          ],
+          "head_top": 55.6018,
+          "scale": 0.9,
+          "landmarks": {
+            "left": [
+              46.0211,
+              129.8331
+            ],
+            "right": [
+              95.1611,
+              135.7731
+            ],
+            "mouth": [
+              62.1411,
+              199.928
+            ]
+          }
+        }
+      ],
+      "integrated_outfit": false,
+      "mouth_visible": false
+    },
+    "body_flat": {
+      "frames": [
+        {
+          "snout": [
+            77.5035,
+            179.6967
+          ],
+          "head_top": 66.9538,
+          "scale": 0.9,
+          "landmarks": {
+            "left": [
+              62.3835,
+              137.6328
+            ],
+            "right": [
+              111.5235,
+              143.5728
+            ],
+            "mouth": [
+              78.5035,
+              211.28
+            ]
+          }
+        },
+        {
+          "snout": [
+            72.5303,
+            181.4527
+          ],
+          "head_top": 84.0205,
+          "scale": 0.8833,
+          "landmarks": {
+            "left": [
+              57.6903,
+              141.8913
+            ],
+            "right": [
+              105.9203,
+              147.7213
+            ],
+            "mouth": [
+              73.5303,
+              211.16
+            ]
+          }
+        },
+        {
+          "snout": [
+            62.2191,
+            181.4205
+          ],
+          "head_top": 80.0821,
+          "scale": 0.8833,
+          "landmarks": {
+            "left": [
+              47.3791,
+              141.8913
+            ],
+            "right": [
+              95.6091,
+              147.7213
+            ],
+            "mouth": [
+              63.2191,
+              211.16
+            ]
+          }
+        },
+        {
+          "snout": [
+            59.6778,
+            179.7134
+          ],
+          "head_top": 65.641,
+          "scale": 0.8833,
+          "landmarks": {
+            "left": [
+              44.8378,
+              137.9528
+            ],
+            "right": [
+              93.0678,
+              143.7828
+            ],
+            "mouth": [
+              60.6778,
+              211.16
+            ]
+          }
+        }
+      ],
+      "integrated_outfit": false,
+      "mouth_visible": false
+    },
+    "body_head_hold": {
+      "frames": [
+        {
+          "snout": [
+            91.7003,
+            149.8753
+          ],
+          "head_top": 36.8345,
+          "scale": 0.9167,
+          "landmarks": {
+            "left": [
+              76.3003,
+              113.1626
+            ],
+            "right": [
+              126.3503,
+              119.2126
+            ],
+            "mouth": [
+              92.7003,
+              176.0388
+            ]
+          }
+        },
+        {
+          "snout": [
+            90.0831,
+            157.9034
+          ],
+          "head_top": 46.0432,
+          "scale": 0.9,
+          "landmarks": {
+            "left": [
+              74.9631,
+              121.7704
+            ],
+            "right": [
+              124.1031,
+              127.7104
+            ],
+            "mouth": [
+              91.0831,
+              184.2066
+            ]
+          }
+        },
+        {
+          "snout": [
+            84.3171,
+            154.7286
+          ],
+          "head_top": 42.3597,
+          "scale": 0.9167,
+          "landmarks": {
+            "left": [
+              68.9171,
+              117.7669
+            ],
+            "right": [
+              118.9671,
+              123.8169
+            ],
+            "mouth": [
+              85.3171,
+              180.6432
+            ]
+          }
+        },
+        {
+          "snout": [
+            75.6597,
+            157.6105
+          ],
+          "head_top": 46.0432,
+          "scale": 0.9,
+          "landmarks": {
+            "left": [
+              60.5397,
+              120.8495
+            ],
+            "right": [
+              109.6797,
+              126.7895
+            ],
+            "mouth": [
+              76.6597,
+              183.2858
+            ]
+          }
+        }
+      ],
+      "integrated_outfit": false,
+      "mouth_visible": true
+    },
+    "body_kneel": {
+      "frames": [
+        {
+          "snout": [
+            92.0644,
+            180.0208
+          ],
+          "head_top": 69.6398,
+          "scale": 0.9333,
+          "landmarks": {
+            "left": [
+              76.3844,
+              140.9766
+            ],
+            "right": [
+              127.3444,
+              147.1366
+            ],
+            "mouth": [
+              93.0644,
+              207.7928
+            ]
+          }
+        },
+        {
+          "snout": [
+            103.1594,
+            188.1047
+          ],
+          "head_top": 91.2184,
+          "scale": 0.9167,
+          "landmarks": {
+            "left": [
+              87.7594,
+              150.1241
+            ],
+            "right": [
+              137.8094,
+              156.1741
+            ],
+            "mouth": [
+              104.1594,
+              214.5387
+            ]
+          }
+        },
+        {
+          "snout": [
+            84.8867,
+            187.3356
+          ],
+          "head_top": 78.4674,
+          "scale": 0.9333,
+          "landmarks": {
+            "left": [
+              69.2067,
+              148.8233
+            ],
+            "right": [
+              120.1667,
+              154.9833
+            ],
+            "mouth": [
+              85.8867,
+              214.6587
+            ]
+          }
+        },
+        {
+          "snout": [
+            69.0901,
+            165.11
+          ],
+          "head_top": 54.9272,
+          "scale": 0.9333,
+          "landmarks": {
+            "left": [
+              53.4101,
+              127.2448
+            ],
+            "right": [
+              104.3701,
+              133.4048
+            ],
+            "mouth": [
+              70.0901,
+              193.0802
+            ]
+          }
+        }
+      ],
+      "integrated_outfit": false,
+      "mouth_visible": true
+    },
+    "body_corner": {
+      "frames": [
+        {
+          "snout": [
+            102.4041,
+            136.6789
+          ],
+          "head_top": 47.2483,
+          "scale": 0.95,
+          "landmarks": {
+            "left": [
+              86.4441,
+              100.3103
+            ],
+            "right": [
+              138.3141,
+              106.5803
+            ],
+            "mouth": [
+              103.4041,
+              161.4709
+            ]
+          }
+        },
+        {
+          "snout": [
+            92.8697,
+            135.1626
+          ],
+          "head_top": 45.5302,
+          "scale": 0.9167,
+          "landmarks": {
+            "left": [
+              77.4697,
+              100.0913
+            ],
+            "right": [
+              127.5197,
+              106.1413
+            ],
+            "mouth": [
+              93.8697,
+              160.3718
+            ]
+          }
+        },
+        {
+          "snout": [
+            96.0354,
+            135.8767
+          ],
+          "head_top": 46.3893,
+          "scale": 0.9333,
+          "landmarks": {
+            "left": [
+              80.3554,
+              100.6303
+            ],
+            "right": [
+              131.3154,
+              106.7903
+            ],
+            "mouth": [
+              97.0354,
+              160.4918
+            ]
+          }
+        },
+        {
+          "snout": [
+            91.6434,
+            136.5408
+          ],
+          "head_top": 47.2483,
+          "scale": 0.9333,
+          "landmarks": {
+            "left": [
+              75.9634,
+              100.6303
+            ],
+            "right": [
+              126.9234,
+              106.7903
+            ],
+            "mouth": [
+              92.6434,
+              161.3509
+            ]
+          }
+        }
+      ],
+      "integrated_outfit": false,
+      "mouth_visible": false
+    },
+    "body_arms": {
+      "frames": [
+        {
+          "snout": [
+            81.9994,
+            153.1658
+          ],
+          "head_top": 43.5745,
+          "scale": 0.7178,
+          "landmarks": {
+            "left": [
+              69.9411,
+              115.8531
+            ],
+            "right": [
+              109.1306,
+              120.5903
+            ],
+            "mouth": [
+              82.9994,
+              181.6444
+            ]
+          }
+        },
+        {
+          "snout": [
+            80.727,
+            152.9839
+          ],
+          "head_top": 43.5745,
+          "scale": 0.7178,
+          "landmarks": {
+            "left": [
+              68.6687,
+              115.8531
+            ],
+            "right": [
+              107.8583,
+              120.5903
+            ],
+            "mouth": [
+              81.727,
+              181.6444
+            ]
+          }
+        },
+        {
+          "snout": [
+            80.8405,
+            153.1291
+          ],
+          "head_top": 43.5745,
+          "scale": 0.7155,
+          "landmarks": {
+            "left": [
+              68.8196,
+              115.8959
+            ],
+            "right": [
+              107.8875,
+              120.6184
+            ],
+            "mouth": [
+              81.8405,
+              181.6284
+            ]
+          }
+        },
+        {
+          "snout": [
+            80.0735,
+            153.0109
+          ],
+          "head_top": 43.5745,
+          "scale": 0.7178,
+          "landmarks": {
+            "left": [
+              68.0152,
+              115.8531
+            ],
+            "right": [
+              107.2047,
+              120.5903
+            ],
+            "mouth": [
+              81.0735,
+              181.6444
+            ]
+          }
+        }
+      ],
+      "integrated_outfit": false,
+      "mouth_visible": true
+    },
+    "body_upside": {
+      "frames": [
+        {
+          "snout": [
+            78.7735,
+            156.1498
+          ],
+          "head_top": 50.7053,
+          "scale": 0.7045,
+          "landmarks": {
+            "left": [
+              66.9385,
+              116.3293
+            ],
+            "right": [
+              105.4023,
+              120.9788
+            ],
+            "mouth": [
+              79.7735,
+              186.8693
+            ]
+          }
+        },
+        {
+          "snout": [
+            78.3318,
+            163.0802
+          ],
+          "head_top": 65.5459,
+          "scale": 0.7045,
+          "landmarks": {
+            "left": [
+              66.4968,
+              122.5129
+            ],
+            "right": [
+              104.9606,
+              127.1624
+            ],
+            "mouth": [
+              79.3318,
+              194.2895
+            ]
+          }
+        },
+        {
+          "snout": [
+            77.5873,
+            150.9939
+          ],
+          "head_top": 51.942,
+          "scale": 0.689,
+          "landmarks": {
+            "left": [
+              66.0116,
+              111.6789
+            ],
+            "right": [
+              103.6325,
+              116.2265
+            ],
+            "mouth": [
+              78.5873,
+              183.048
+            ]
+          }
+        },
+        {
+          "snout": [
+            74.1638,
+            155.8257
+          ],
+          "head_top": 55.6522,
+          "scale": 0.6912,
+          "landmarks": {
+            "left": [
+              62.552,
+              116.5845
+            ],
+            "right": [
+              100.2901,
+              121.1463
+            ],
+            "mouth": [
+              75.1638,
+              188.0103
+            ]
+          }
+        }
+      ],
+      "integrated_outfit": false,
+      "mouth_visible": true
+    },
+    "body_peek": {
+      "frames": [
+        {
+          "snout": [
+            84.4588,
+            195.3557
+          ],
+          "head_top": 73.4928,
+          "scale": 0.7045,
+          "landmarks": {
+            "left": [
+              72.6238,
+              155.5078
+            ],
+            "right": [
+              111.0876,
+              160.1572
+            ],
+            "mouth": [
+              85.4588,
+              225.5506
+            ]
+          }
+        },
+        {
+          "snout": [
+            89.6665,
+            155.7911
+          ],
+          "head_top": 25.7225,
+          "scale": 0.7178,
+          "landmarks": {
+            "left": [
+              77.6082,
+              116.0564
+            ],
+            "right": [
+              116.7977,
+              120.7936
+            ],
+            "mouth": [
+              90.6665,
+              187.675
+            ]
+          }
+        },
+        {
+          "snout": [
+            74.6839,
+            174.014
+          ],
+          "head_top": 52.6699,
+          "scale": 0.7023,
+          "landmarks": {
+            "left": [
+              62.8856,
+              133.5019
+            ],
+            "right": [
+              101.23,
+              138.137
+            ],
+            "mouth": [
+              75.6839,
+              204.7119
+            ]
+          }
+        },
+        {
+          "snout": [
+            83.955,
+            148.9447
+          ],
+          "head_top": 19.5981,
+          "scale": 0.7045,
+          "landmarks": {
+            "left": [
+              72.12,
+              108.9623
+            ],
+            "right": [
+              110.5838,
+              113.6118
+            ],
+            "mouth": [
+              84.955,
+              180.23
+            ]
+          }
+        }
+      ],
+      "integrated_outfit": false,
+      "mouth_visible": true
+    },
+    "body_crawl": {
+      "frames": [
+        {
+          "snout": [
+            81.1698,
+            175.8902
+          ],
+          "head_top": 43.3661,
+          "scale": 0.7178,
+          "landmarks": {
+            "left": [
+              69.1115,
+              131.7054
+            ],
+            "right": [
+              108.301,
+              136.4426
+            ],
+            "mouth": [
+              82.1698,
+              210.8072
+            ]
+          }
+        },
+        {
+          "snout": [
+            77.3707,
+            175.6687
+          ],
+          "head_top": 51.7596,
+          "scale": 0.7178,
+          "landmarks": {
+            "left": [
+              65.3124,
+              131.7054
+            ],
+            "right": [
+              104.5019,
+              136.4426
+            ],
+            "mouth": [
+              78.3707,
+              210.8072
+            ]
+          }
+        },
+        {
+          "snout": [
+            85.869,
+            175.3471
+          ],
+          "head_top": 41.9672,
+          "scale": 0.7155,
+          "landmarks": {
+            "left": [
+              73.8481,
+              131.7482
+            ],
+            "right": [
+              112.916,
+              136.4707
+            ],
+            "mouth": [
+              86.869,
+              210.7911
+            ]
+          }
+        },
+        {
+          "snout": [
+            73.7491,
+            183.565
+          ],
+          "head_top": 57.3552,
+          "scale": 0.7045,
+          "landmarks": {
+            "left": [
+              61.9141,
+              140.354
+            ],
+            "right": [
+              100.3779,
+              145.0035
+            ],
+            "mouth": [
+              74.7491,
+              217.706
+            ]
+          }
+        }
+      ],
+      "integrated_outfit": false,
+      "mouth_visible": false
+    },
+    "body_worker": {
+      "frames": [
+        {
+          "snout": [
+            89.2648,
+            164.4192
+          ],
+          "head_top": 33.5738,
+          "scale": 0.638,
+          "landmarks": {
+            "left": [
+              78.5463,
+              124.8432
+            ],
+            "right": [
+              113.3815,
+              129.054
+            ],
+            "mouth": [
+              90.2648,
+              194.845
+            ]
+          }
+        },
+        {
+          "snout": [
+            88.7601,
+            164.3305
+          ],
+          "head_top": 33.5738,
+          "scale": 0.6247,
+          "landmarks": {
+            "left": [
+              78.2649,
+              125.0984
+            ],
+            "right": [
+              112.3743,
+              129.2215
+            ],
+            "mouth": [
+              89.7601,
+              194.7493
+            ]
+          }
+        },
+        {
+          "snout": [
+            89.2896,
+            164.4693
+          ],
+          "head_top": 33.5738,
+          "scale": 0.6228,
+          "landmarks": {
+            "left": [
+              78.827,
+              125.1356
+            ],
+            "right": [
+              112.8304,
+              129.2459
+            ],
+            "mouth": [
+              90.2896,
+              196.1342
+            ]
+          }
+        },
+        {
+          "snout": [
+            87.6597,
+            164.5505
+          ],
+          "head_top": 33.5738,
+          "scale": 0.638,
+          "landmarks": {
+            "left": [
+              76.9412,
+              124.8432
+            ],
+            "right": [
+              111.7763,
+              129.054
+            ],
+            "mouth": [
+              88.6597,
+              194.845
+            ]
+          }
+        }
+      ],
+      "integrated_outfit": true,
+      "mouth_visible": false
+    },
+    "body_ruler": {
+      "frames": [
+        {
+          "snout": [
+            94.9629,
+            138.7023
+          ],
+          "head_top": 29.6812,
+          "scale": 0.6114,
+          "landmarks": {
+            "left": [
+              84.691,
+              104.5119
+            ],
+            "right": [
+              118.0747,
+              108.5473
+            ],
+            "mouth": [
+              95.9629,
+              165.1752
+            ]
+          }
+        },
+        {
+          "snout": [
+            91.7913,
+            137.9986
+          ],
+          "head_top": 29.6812,
+          "scale": 0.6114,
+          "landmarks": {
+            "left": [
+              81.5194,
+              103.2752
+            ],
+            "right": [
+              114.9031,
+              107.3106
+            ],
+            "mouth": [
+              92.7913,
+              165.1752
+            ]
+          }
+        },
+        {
+          "snout": [
+            93.4991,
+            138.9169
+          ],
+          "head_top": 33.3913,
+          "scale": 0.5963,
+          "landmarks": {
+            "left": [
+              83.4817,
+              104.8028
+            ],
+            "right": [
+              116.0382,
+              108.7382
+            ],
+            "mouth": [
+              94.4991,
+              165.0661
+            ]
+          }
+        },
+        {
+          "snout": [
+            91.4176,
+            135.7689
+          ],
+          "head_top": 28.4444,
+          "scale": 0.5981,
+          "landmarks": {
+            "left": [
+              81.369,
+              101.057
+            ],
+            "right": [
+              114.0269,
+              105.0046
+            ],
+            "mouth": [
+              92.4176,
+              162.6061
+            ]
+          }
+        }
+      ],
+      "integrated_outfit": true,
+      "mouth_visible": true
+    }
+  },
+  "behaviors": {
+    "idle": {
+      "body_id": "body_base",
+      "face_id": "face_dot",
+      "prop": "",
+      "frame_stride": 2
+    },
+    "walk": {
+      "body_id": "body_base",
+      "face_id": "face_squint",
+      "prop": "",
+      "frame_stride": 1
+    },
+    "sit": {
+      "body_id": "body_kneel",
+      "face_id": "face_dot",
+      "prop": "",
+      "frame_stride": 2
+    },
+    "lie": {
+      "body_id": "body_prone",
+      "face_id": "face_sleepy",
+      "prop": "",
+      "frame_stride": 4
+    },
+    "sleep": {
+      "body_id": "body_flat",
+      "face_id": "face_sleepy",
+      "prop": "",
+      "frame_stride": 4
+    },
+    "stare": {
+      "body_id": "body_peek",
+      "face_id": "face_deadpan",
+      "prop": "",
+      "frame_stride": 2
+    },
+    "scratch": {
+      "body_id": "body_head_hold",
+      "face_id": "face_tears",
+      "prop": "",
+      "frame_stride": 1
+    },
+    "look_mouse": {
+      "body_id": "body_peek",
+      "face_id": "face_shock",
+      "prop": "",
+      "frame_stride": 2
+    },
+    "sniff": {
+      "body_id": "body_crawl",
+      "face_id": "face_dot",
+      "prop": "",
+      "frame_stride": 2
+    },
+    "bed_nap": {
+      "body_id": "body_prone",
+      "face_id": "face_sleepy",
+      "prop": "furn_bed_basic",
+      "frame_stride": 4
+    },
+    "pillow_flop": {
+      "body_id": "body_flat",
+      "face_id": "face_sleepy",
+      "prop": "furn_pillow_cloud",
+      "frame_stride": 4
+    },
+    "nightlight": {
+      "body_id": "body_peek",
+      "face_id": "face_dot",
+      "prop": "furn_nightlight_moon",
+      "frame_stride": 2
+    },
+    "blanket_roll": {
+      "body_id": "body_flat",
+      "face_id": "face_sleepy",
+      "prop": "furn_blanket_roll",
+      "frame_stride": 4
+    },
+    "mirror_pose": {
+      "body_id": "body_peek",
+      "face_id": "face_sly",
+      "prop": "furn_mirror_round",
+      "frame_stride": 2
+    },
+    "read": {
+      "body_id": "body_kneel",
+      "face_id": "face_dot",
+      "prop": "furn_bookshelf_low",
+      "frame_stride": 2
+    },
+    "alarm": {
+      "body_id": "body_head_hold",
+      "face_id": "face_tears",
+      "prop": "furn_clock_sleepy",
+      "frame_stride": 2
+    },
+    "table_snack": {
+      "body_id": "body_crawl",
+      "face_id": "face_dot",
+      "prop": "furn_table_snack",
+      "frame_stride": 2
+    },
+    "fridge": {
+      "body_id": "body_crawl",
+      "face_id": "face_dot",
+      "prop": "furn_fridge_pink",
+      "frame_stride": 2
+    },
+    "drink": {
+      "body_id": "body_kneel",
+      "face_id": "face_dot",
+      "prop": "furn_drink_crate",
+      "frame_stride": 2
+    },
+    "tea": {
+      "body_id": "body_kneel",
+      "face_id": "face_dot",
+      "prop": "furn_kettle_round",
+      "frame_stride": 2
+    },
+    "cookie_guard": {
+      "body_id": "body_corner",
+      "face_id": "face_dot",
+      "prop": "furn_cookie_jar",
+      "frame_stride": 2
+    },
+    "run": {
+      "body_id": "body_base",
+      "face_id": "face_sly",
+      "prop": "furn_treadmill",
+      "frame_stride": 1
+    },
+    "yoga": {
+      "body_id": "body_arms",
+      "face_id": "face_sly",
+      "prop": "furn_yoga_mat",
+      "frame_stride": 2
+    },
+    "paint": {
+      "body_id": "body_arms",
+      "face_id": "face_sly",
+      "prop": "furn_easel",
+      "frame_stride": 2
+    },
+    "ball": {
+      "body_id": "body_arms",
+      "face_id": "face_dot",
+      "prop": "furn_soft_ball",
+      "frame_stride": 2
+    },
+    "drum": {
+      "body_id": "body_arms",
+      "face_id": "face_sly",
+      "prop": "furn_tiny_drum",
+      "frame_stride": 1
+    },
+    "camera": {
+      "body_id": "body_peek",
+      "face_id": "face_sly",
+      "prop": "furn_camera",
+      "frame_stride": 2
+    },
+    "puzzle": {
+      "body_id": "body_head_hold",
+      "face_id": "face_shock",
+      "prop": "furn_puzzle_box",
+      "frame_stride": 2
+    },
+    "castle": {
+      "body_id": "body_peek",
+      "face_id": "face_shock",
+      "prop": "furn_cardboard_castle",
+      "frame_stride": 2
+    },
+    "water_plant": {
+      "body_id": "body_kneel",
+      "face_id": "face_dot",
+      "prop": "furn_plant_sprout",
+      "frame_stride": 2
+    },
+    "radio": {
+      "body_id": "body_arms",
+      "face_id": "face_dot",
+      "prop": "furn_radio",
+      "frame_stride": 2
+    },
+    "weather": {
+      "body_id": "body_peek",
+      "face_id": "face_shock",
+      "prop": "furn_weather_charm",
+      "frame_stride": 2
+    },
+    "window_nap": {
+      "body_id": "body_prone",
+      "face_id": "face_sleepy",
+      "prop": "furn_window_cushion",
+      "frame_stride": 4
+    },
+    "telescope": {
+      "body_id": "body_peek",
+      "face_id": "face_shock",
+      "prop": "furn_telescope",
+      "frame_stride": 2
+    },
+    "wind_chime": {
+      "body_id": "body_peek",
+      "face_id": "face_shock",
+      "prop": "furn_wind_chime",
+      "frame_stride": 2
+    },
+    "robot_ride": {
+      "body_id": "body_base",
+      "face_id": "face_sly",
+      "prop": "furn_cleaning_robot",
+      "frame_stride": 2
+    }
+  },
+  "expressions": {
+    "expr_happy_soft": "face_dot",
+    "expr_happy_snack": "face_squint",
+    "expr_happy_big": "face_squint",
+    "expr_happy_relaxed": "face_deadpan",
+    "expr_happy_warm": "face_squint",
+    "expr_happy_giggle": "face_squint",
+    "expr_happy_sparkle": "face_sly",
+    "expr_happy_ending": "face_squint",
+    "expr_sleepy_blanket": "face_sleepy",
+    "expr_sleepy_alarm": "face_glare",
+    "expr_sleepy_pillow": "face_sleepy",
+    "expr_sleepy_dream": "face_deadpan",
+    "expr_sleepy_window": "face_sleepy",
+    "expr_sleepy_yawn": "face_sleepy",
+    "expr_sleepy_blink": "face_dot",
+    "expr_sleepy_deep": "face_sleepy",
+    "expr_hungry_fridge": "face_dot",
+    "expr_hungry_secret": "face_sly",
+    "expr_hungry_cookie": "face_shock",
+    "expr_hungry_cocoa": "face_tears",
+    "expr_hungry_midnight": "face_glare",
+    "expr_hungry_pea": "face_dot",
+    "expr_hungry_drool": "face_sly",
+    "expr_hungry_sniff": "face_shock",
+    "expr_wronged_empty_fridge": "face_tears",
+    "expr_wronged_poke": "face_glare",
+    "expr_wronged_alarm": "face_tears",
+    "expr_wronged_exercise": "face_deadpan",
+    "expr_wronged_paint": "face_tears",
+    "expr_wronged_plant": "face_glare",
+    "expr_wronged_robot": "face_shock",
+    "expr_wronged_rain": "face_tears",
+    "expr_proud_yoga": "face_sly",
+    "expr_proud_treadmill": "face_squint",
+    "expr_proud_pose": "face_sly",
+    "expr_proud_ball": "face_dot",
+    "expr_proud_hero": "face_deadpan",
+    "expr_proud_painter": "face_sly",
+    "expr_proud_gardener": "face_squint",
+    "expr_proud_ending": "face_sly",
+    "expr_shocked_new_home": "face_shock",
+    "expr_shocked_icecream": "face_dot",
+    "expr_shocked_fridge": "face_shock",
+    "expr_shocked_ball": "face_tears",
+    "expr_shocked_robot": "face_glare",
+    "expr_shocked_music": "face_shock",
+    "expr_shocked_bump": "face_deadpan",
+    "expr_shocked_weather": "face_shock"
+  },
+  "category_faces": {
+    "happy": [
+      "face_dot",
+      "face_squint",
+      "face_squint",
+      "face_deadpan",
+      "face_dot",
+      "face_squint",
+      "face_sly",
+      "face_squint"
+    ],
+    "sleepy": [
+      "face_sleepy",
+      "face_glare",
+      "face_sleepy",
+      "face_deadpan",
+      "face_sleepy",
+      "face_sleepy",
+      "face_dot",
+      "face_sleepy"
+    ],
+    "hungry": [
+      "face_dot",
+      "face_sly",
+      "face_shock",
+      "face_tears",
+      "face_glare",
+      "face_dot",
+      "face_sly",
+      "face_squint"
+    ],
+    "wronged": [
+      "face_tears",
+      "face_glare",
+      "face_tears",
+      "face_deadpan",
+      "face_tears",
+      "face_glare",
+      "face_shock",
+      "face_tears"
+    ],
+    "proud": [
+      "face_sly",
+      "face_squint",
+      "face_sly",
+      "face_dot",
+      "face_deadpan",
+      "face_sly",
+      "face_squint",
+      "face_sly"
+    ],
+    "shocked": [
+      "face_shock",
+      "face_dot",
+      "face_shock",
+      "face_tears",
+      "face_glare",
+      "face_shock",
+      "face_deadpan",
+      "face_shock"
+    ]
+  }
+}

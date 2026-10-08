@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "scope": "Development sprite review only; not integrated into runtime or approved for release.",
+  "user_request": "Correct anatomically misplaced mouths in the protective-belly, ticklish-laugh, bath and biscuit poses; image_gen is authorized.",
+  "records": [
+    {
+      "id": "presence_reactions_v1",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-54717221-9617-491f-b457-de9a6ba48b0a.png",
+      "destination": "build/validation/presence-art/reactions-v1-rejected.png",
+      "sha256": "e1df8866fcef91cd48d6d1d8afbab759e90b300e3b5bc13d525744a88cb2b26f",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Asset type: ONE production 2D game sprite atlas, true transparent PNG. The input is CHARACTER IDENTITY/STYLE REFERENCE only; do not edit or overwrite it. Generate a NEW exact 1024x1024 sheet with exactly 4 columns x4 rows, sixteen equal 256x256 cells. One full-body pig reaction per cell. No text, labels, grid lines, numbers, watermark, checkerboard, background, cast shadows, halos, haze or blur. All empty pixels alpha=0. Clean opaque soft pastel shapes with narrow antialiasing only. Match the reference's cozy blush-pink bean-shaped pig, left-facing three-quarter snout, dark plum dot eyes, floppy ears, four short dark rose hooves, tiny curled tail. Same character identity, proportions and scale in all cells. Each pig and its small props must fit wholly inside x=25..232,y=30..225 of its 256x256 cell; feet baseline around y=220, generous transparent padding. Tiny tasteful props, no human hands or arms, pig uses its short forehooves. Flat children's-picture-book art, not 3D, not sticker white borders. Read cells LEFT TO RIGHT then TOP TO BOTTOM: row1: (1) warm smile offering a tiny steaming cream coffee cup on a saucer; (2) sleepy open-mouth yawn with a tiny crescent-moon prop; (3) independently batting a small mint toy ball with a happy curious look; (4) lying comfortably looking at three tiny blue raindrops, cozy not sad. Row2: (5) delighted shy blush with tucked forehooves, after repeated head pats; (6) gently annoyed sideways glance, one ear folded, comical not threatening; (7) protectively hugging its round belly with forehooves, startled but cute; (8) ticklish laughing eyes, wiggly short hooves. Row3: (9) seated dizzy with two tiny pale yellow stars above its head, no motion blur; (10) comically grumpy after waking up, half-open eyes and crumpled sleepy ears; (11) cheerful bath with white soap bubbles, a tiny yellow duck, no tub/background; (12) contentedly nibbling a tiny orange biscuit with a few crumbs, not messy. Row4: (13) curled asleep holding a small pale-blue pillow, peaceful; (14) nose forward curious sniff of a tiny leaf; (15) shy huddled pig partially hiding its face behind short hooves, safe and calm; (16) same pig wearing a small festive teal cone party hat with a pale yellow pompom, happy celebratory smile, no confetti backdrop. These are sixteen DISTINCT full-body reaction sprites, NOT four frames repeated per row. Transparent sprites only, each entirely separated inside its cell.",
+      "status": "rejected",
+      "reason": "User identified frightening cheek/torso mouth placement.",
+      "provided_by_user": false,
+      "approved_for_release": false
+    },
+    {
+      "id": "presence_reactions_mouth_fixed_v2",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-6f20d555-f3af-40c6-973b-fdf667685520.png",
+      "destination": "build/validation/presence-art/reactions-mouth-fixed-v2.png",
+      "sha256": "7f8f0ab4eafcd237d5336e7b5fa4ed49ed1410b8c7cb4d0b6edb8c7d4483cb3a",
+      "tool": "built-in image_gen",
+      "prompt": "EDIT TARGET: the attached newly generated 4x4 pig reaction sprite atlas. This is an anatomical correction, not a redesign. Preserve the entire exact canvas size, transparent background, sixteen equal cells, character positions, body silhouettes, ears, eyes, snouts, curled tails, forehooves, pose, props, colors and cell layout. Do NOT add new faces or change their expression identity. Critical correction: several pigs have mouths floating on the cheek or stomach, which look frightening. In EVERY cell, erase any mouth drawn on the cheek/torso/belly or between forehooves. The face is the small LEFT-facing snout and eye area; the round belly is NOT a second face. The only possible mouth location is the LOWER LEFT/FORWARD rim of the pink protruding snout, immediately beneath the two nostrils, as a tiny subtle curved mark. Never place a mouth under the RIGHT eye or near the torso center. Keep exactly two dark nostrils and the original two eyes, do not confuse nostrils with a mouth. Specific four offending cells: ROW2 COLUMN3 protective belly hug — completely REMOVE the tiny open mouth/black mark below or to the right of its snout; keep an ordinary rounded belly without facial marks. ROW2 COLUMN4 ticklish laughing — remove the big red mouth from the cheek/belly, replace only with a TINY cheerful curve on the snout's lower-forward rim. ROW3 COLUMN3 soapy bath — REMOVE the small smile sitting on the cheek above the duck, leave the closed smiling eyes and otherwise mouthless face. ROW3 COLUMN4 biscuit nibbling — REMOVE the dangling cheek smile above the biscuit; show eating through the biscuit/crumbs, face otherwise mouthless. For other cells, prefer a mouthless pig face; only ROW1 COLUMN2 yawning may keep a SMALL open mouth directly underneath the projecting snout, tucked on the front edge of the head, NOT a large oval descending down the torso. This same facial topology must hold throughout all sixteen pigs. Cute cozy normal pig anatomy, not human faces, no mouths on body. Also remove isolated colored alpha speckles and any WHITE sticker-like outer contour/halo in transparent padding, keeping clean narrow antialiased silhouette edges. Do not paint checkerboard or a background. True transparent PNG, all empty pixels alpha zero, unchanged exact atlas dimensions and registration. No text, grid or labels.",
+      "status": "mouth-correction-preview",
+      "reference": "presence_reactions_v1",
+      "provided_by_user": false,
+      "approved_for_release": false
+    }
+  ]
+}

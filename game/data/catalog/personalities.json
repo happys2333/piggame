@@ -1,0 +1,7 @@
+[
+  {"id":"personality_lively","name_key":"PERSONALITY_LIVELY_NAME","description_key":"PERSONALITY_LIVELY_DESCRIPTION","pet":{"category":"happy","expression_id":"expr_happy_soft","toast_key":"TOAST_PET"},"poke":{"category":"wronged","expression_id":"expr_wronged_poke","toast_key":"TOAST_POKE"}},
+  {"id":"personality_tsundere","name_key":"PERSONALITY_TSUNDERE_NAME","description_key":"PERSONALITY_TSUNDERE_DESCRIPTION","pet":{"category":"proud","expression_id":"expr_proud_pose","toast_key":"PERSONALITY_TSUNDERE_PET"},"poke":{"category":"wronged","expression_id":"expr_wronged_alarm","toast_key":"PERSONALITY_TSUNDERE_POKE"}},
+  {"id":"personality_lazy","name_key":"PERSONALITY_LAZY_NAME","description_key":"PERSONALITY_LAZY_DESCRIPTION","pet":{"category":"sleepy","expression_id":"expr_sleepy_yawn","toast_key":"PERSONALITY_LAZY_PET"},"poke":{"category":"sleepy","expression_id":"expr_sleepy_blink","toast_key":"PERSONALITY_LAZY_POKE"}},
+  {"id":"personality_shy","name_key":"PERSONALITY_SHY_NAME","description_key":"PERSONALITY_SHY_DESCRIPTION","pet":{"category":"happy","expression_id":"expr_happy_warm","toast_key":"PERSONALITY_SHY_PET"},"poke":{"category":"shocked","expression_id":"expr_shocked_new_home","toast_key":"PERSONALITY_SHY_POKE"}},
+  {"id":"personality_foodie","name_key":"PERSONALITY_FOODIE_NAME","description_key":"PERSONALITY_FOODIE_DESCRIPTION","pet":{"category":"hungry","expression_id":"expr_hungry_sniff","toast_key":"PERSONALITY_FOODIE_PET"},"poke":{"category":"hungry","expression_id":"expr_hungry_cookie","toast_key":"PERSONALITY_FOODIE_POKE"}}
+]

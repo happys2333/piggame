@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "created_date": "2026-10-08",
+  "stage": "generated-expression-source-render-reviewed-not-runtime-integrated",
+  "subject_locked": true,
+  "subject_reference": {
+    "path": "docs/design/art/pighub-subject-lock-reference.png",
+    "sha256": "c167d9d50eb2350867f2ef09e878cb8f9f14f02e7f68439993dab37f4c76d7f3",
+    "dimensions": [
+      2172,
+      724
+    ],
+    "mode": "RGBA",
+    "source_file": "/var/folders/rf/dgnm75850p1_wm033h90780c0000gn/T/codex-clipboard-7a19f452-6fd7-48ad-874a-171410f4d997.png",
+    "role": "User-selected identity/style reference. This is not proof of exclusive original ownership; the preceding draft derives from PigHub reference studies."
+  },
+  "user_constraints": [
+    "Do not replace or redesign the pig subject shown in the attached reference.",
+    "Keep eye, snout and mouth placement coordinated in a compact face region.",
+    "Remove the middle white-eye expression; use solid black eye shapes in all pig expression artwork.",
+    "No white sclera, eye rings or shiny eye highlights. Emotion comes from black shapes, lids, brows, tears and mouth."
+  ],
+  "asset": {
+    "path": "docs/design/art/pighub-black-eye-expressions-v1.png",
+    "sha256": "7806c956cf541094adad64f4de97891a3d501c055b7adfd1e833d0661ee338cf",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "mode": "RGBA",
+    "high_alpha_white_pixels": 0,
+    "columns": 4,
+    "rows": 2,
+    "expressions_row_major": [
+      "face_dot",
+      "face_squint",
+      "face_deadpan",
+      "face_tears",
+      "face_sly",
+      "face_glare",
+      "face_sleepy",
+      "face_shock"
+    ],
+    "removed_expression": "face_quake",
+    "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-9885ac07-e533-46e1-9d20-edca3ce2469b.png",
+    "copied_original_bytes": true,
+    "tool": "built-in image_gen",
+    "transparent_background_requested": true,
+    "prompt": "Use case: precise-object-edit.\nEdit ONLY the supplied 3x3 pig expression atlas, following the user's correction.\nDELETE the central cell (row 2 column 2), the wide WHITE-EYEBALL expression. Do NOT replace it with another new expression.\nKeep the other EIGHT pigs and their expressions, then arrange them into a clean 4-column x 2-row transparent atlas, equal cells, same scale, ample transparent gutters, full bodies visible.\nReading order:\ntop row = original neutral bean eyes, happy crescent eyes, exhausted half-lids, crying;\nbottom row = original smug grin, judgmental deadpan, sleepy yawn, open-mouth surprise.\nThe pig SUBJECT IS LOCKED to the supplied atlas: identical peach bean-shaped body, head shape, body proportions, pink U-shaped ears, blunt tiny legs, curly tail, pink snout and its two black nostrils. No redesign, new pose, new shading, new outline or new clothing.\nALL EYES must consist only of solid near-black shapes, matching the reference's black bean eyes. Closed eyes may be simple black crescent strokes; half-lids are black lid strokes and black half-oval eye shapes. Crying eyes are solid black ovals without highlights. Surprised eyes are slightly larger solid black ovals, not white circles with pupils.\nAbsolutely NO white eyeballs, white sclera, irises, rings around pupils, shiny white eye dots, sparkle highlights or realistic eye anatomy in any cell.\nPreserve the existing emotional acting with brows, lids, cheeks, tears and the small mouth, rather than using white eyeballs to signal shock.\nKeep both eyes above the snout on the same perspective axis and keep facial landmarks consistent across all eight. The optional mouth belongs close under/beside the lower snout, never on the belly. Neutral has no mouth. Exactly two eyes, one snout, two nostrils, at most one mouth.\nNo labels, no text, no grid, no decorations, no props, no backdrop. Keep genuine alpha transparency. This is the same user-selected pig with eight black-eye expressions, NOT a new mascot."
+  },
+  "superseded": {
+    "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-110f2f77-eba4-4035-8667-b13c1e0d360e.png",
+    "tool": "built-in image_gen",
+    "reason": "User rejected the centre white-eyeball expression; retain the remaining eight with black eyes.",
+    "prompt": "Use case: identity-preserve.\nEdit target and ONLY character identity authority: the attached three-pig reference.\nThe user explicitly says DO NOT REPLACE OR REDESIGN THE PIG SUBJECT. Use the LEFT pig in the reference as the master body and repeat that exact same character, silhouette, proportions and standing pose. Preserve its wide rounded peach body, merged front-left head, large rear body, pink U-shaped ears at their existing locations, small blunt legs including the far leg, high curly tail, original peach/pink colours and simple PigHub meme illustration language. Do not turn it into a circular blob, upright chibi, detailed sticker mascot or a different breed. Never add dark hooves, heavy outlines, large white shiny eyes, clothes or props. Do not widen/narrow the head or change body dimensions from cell to cell.\nOutput one square transparent PNG atlas, exactly 3 columns by 3 rows, equal cells, nine FULL-BODY copies of the LOCKED master pig, evenly aligned with generous transparent padding. Change ONLY eyes, brows, small mouth and expression marks inside the compact front-left FACE area. No labels, captions, grid or backdrop.\nFACIAL COORDINATION IS CRITICAL: use the eye and nose locations from the user reference. Two eyes stay above the snout, sharing the same gently sloped perspective axis. Nose centre and the two nostrils never move. The mouth belongs directly below or closely beside the LOWER snout, not between the eyes and not far onto the body/belly. Expression curves have the reference's small simple black line weight. Default need not have a mouth. Keep facial centres fixed as emotional shapes change; do not scatter eyes or duplicate faces.\nNine expressions, row major:\n1 豆豆眼: exactly the reference's vacant neutral black-oval eyes, no brows, NO mouth.\n2 眯眼: two simple delighted crescent eyes and a very small curved smile just under the snout, quiet silly delight.\n3 死鱼眼: heavy half-lids with small dark pupils, exhausted empty stare, tiny flat mouth immediately under snout.\n4 泪流满面: black oval eyes, worried inner brows, two broad blue tear streams like the reference centre pig, tiny trembling mouth just under snout.\n5 瞳孔地震: modest wide eye shapes with tiny off-centre pupils, lifted brows, a tiny 'o' immediately under snout; startled, funny, never frightening.\n6 阴险笑: precisely the reference right pig's smug half-lids, one raised eyebrow and short crooked smirk close beside the lower snout.\n7 无语凝视: flat narrowed sideways eyes, short flat brows, tight small flat mouth under snout; distinctly judgmental rather than sleepy.\n8 睡眼惺忪: two small drooping eyelids, tiny yawn under snout, ears and body unchanged.\n9 张嘴震惊: two slightly rounded widened eyes, lifted brows, a small round open mouth directly under snout, not a huge jaw and no teeth.\nProduction cleanup ONLY: clean antialiased silhouette edges and real alpha outside the pigs. Remove isolated red/yellow/white edge residue and stray speckles from the reference, but do not redesign the subject to do so. Preserve the simple sparse reference finish and don't add 3D shading, glitter, sticker borders, gradients or airbrushed cheek patches. Every pig fully visible with no cropping or overlap.\nThis is an expression expansion of the user's chosen existing pig, not a new character-design proposal."
+  },
+  "preview": {
+    "path": "build/validation/art-review/pighub-black-eye-expressions-white-render.png",
+    "method": "Godot 4.6.3 actual TextureRect alpha blending on white, separate temporary project, Dummy audio, no gameplay save or test-suite run.",
+    "original_asset_unchanged": true
+  },
+  "alpha_diagnostic": {
+    "scope": "Superseded nine-expression generated PNG only",
+    "visible_preview_noise": "Saturated red/yellow RGB samples seen in transparent tool previews had alpha 1 (15824 pixels) or 2 (43 pixels) out of 255, not opaque colour contamination.",
+    "caution": "Prior raw-preview speckle observations were preliminary; assess actual alpha-blended rendering rather than interpreting unassociated RGB as opaque. This is not a final release acceptance."
+  },
+  "runtime_assets_changed": false,
+  "permanent_content_ids_deleted": false,
+  "release_approved": false
+}

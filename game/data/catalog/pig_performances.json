@@ -1,0 +1,577 @@
+{
+  "base": "body_base",
+  "faces": [
+    {
+      "id": "face_dot",
+      "name_key": "FACE_DOT"
+    },
+    {
+      "id": "face_squint",
+      "name_key": "FACE_SQUINT"
+    },
+    {
+      "id": "face_deadpan",
+      "name_key": "FACE_DEADPAN"
+    },
+    {
+      "id": "face_tears",
+      "name_key": "FACE_TEARS"
+    },
+    {
+      "id": "face_quake",
+      "name_key": "FACE_QUAKE"
+    },
+    {
+      "id": "face_sly",
+      "name_key": "FACE_SLY"
+    },
+    {
+      "id": "face_glare",
+      "name_key": "FACE_GLARE"
+    },
+    {
+      "id": "face_sleepy",
+      "name_key": "FACE_SLEEPY"
+    },
+    {
+      "id": "face_shock",
+      "name_key": "FACE_SHOCK"
+    }
+  ],
+  "clips": [
+    {
+      "id": "body_base",
+      "sheet": 0,
+      "row": 0,
+      "snouts": [
+        [
+          77.4844,
+          166.6145
+        ],
+        [
+          72.4847,
+          165.2575
+        ],
+        [
+          67.4401,
+          165.3459
+        ],
+        [
+          61.8223,
+          165.1729
+        ]
+      ]
+    },
+    {
+      "id": "body_prone",
+      "sheet": 0,
+      "row": 1,
+      "snouts": [
+        [
+          73.5466,
+          168.5132
+        ],
+        [
+          71.3102,
+          172.8997
+        ],
+        [
+          65.6045,
+          168.8175
+        ],
+        [
+          61.1411,
+          170.3473
+        ]
+      ]
+    },
+    {
+      "id": "body_flat",
+      "sheet": 0,
+      "row": 2,
+      "snouts": [
+        [
+          77.5035,
+          179.6967
+        ],
+        [
+          72.5303,
+          181.4527
+        ],
+        [
+          62.2191,
+          181.4205
+        ],
+        [
+          59.6778,
+          179.7134
+        ]
+      ]
+    },
+    {
+      "id": "body_head_hold",
+      "sheet": 0,
+      "row": 3,
+      "snouts": [
+        [
+          91.7003,
+          149.8753
+        ],
+        [
+          90.0831,
+          157.9034
+        ],
+        [
+          84.3171,
+          154.7286
+        ],
+        [
+          75.6597,
+          157.6105
+        ]
+      ]
+    },
+    {
+      "id": "body_kneel",
+      "sheet": 0,
+      "row": 4,
+      "snouts": [
+        [
+          92.0644,
+          180.0208
+        ],
+        [
+          103.1594,
+          188.1047
+        ],
+        [
+          84.8867,
+          187.3356
+        ],
+        [
+          69.0901,
+          165.11
+        ]
+      ]
+    },
+    {
+      "id": "body_corner",
+      "sheet": 0,
+      "row": 5,
+      "snouts": [
+        [
+          102.4041,
+          136.6789
+        ],
+        [
+          92.8697,
+          135.1626
+        ],
+        [
+          96.0354,
+          135.8767
+        ],
+        [
+          91.6434,
+          136.5408
+        ]
+      ]
+    },
+    {
+      "id": "body_arms",
+      "sheet": 1,
+      "row": 0,
+      "snouts": [
+        [
+          81.9994,
+          153.1658
+        ],
+        [
+          80.727,
+          152.9839
+        ],
+        [
+          80.8405,
+          153.1291
+        ],
+        [
+          80.0735,
+          153.0109
+        ]
+      ]
+    },
+    {
+      "id": "body_upside",
+      "sheet": 1,
+      "row": 1,
+      "snouts": [
+        [
+          78.7735,
+          156.1498
+        ],
+        [
+          78.3318,
+          163.0802
+        ],
+        [
+          77.5873,
+          150.9939
+        ],
+        [
+          74.1638,
+          155.8257
+        ]
+      ]
+    },
+    {
+      "id": "body_peek",
+      "sheet": 1,
+      "row": 2,
+      "snouts": [
+        [
+          84.4588,
+          195.3557
+        ],
+        [
+          89.6665,
+          155.7911
+        ],
+        [
+          74.6839,
+          174.014
+        ],
+        [
+          83.955,
+          148.9447
+        ]
+      ]
+    },
+    {
+      "id": "body_crawl",
+      "sheet": 1,
+      "row": 3,
+      "snouts": [
+        [
+          81.1698,
+          175.8902
+        ],
+        [
+          77.3707,
+          175.6687
+        ],
+        [
+          85.869,
+          175.3471
+        ],
+        [
+          73.7491,
+          183.565
+        ]
+      ]
+    },
+    {
+      "id": "body_worker",
+      "sheet": 1,
+      "row": 4,
+      "snouts": [
+        [
+          89.2648,
+          164.4192
+        ],
+        [
+          88.7601,
+          164.3305
+        ],
+        [
+          89.2896,
+          164.4693
+        ],
+        [
+          87.6597,
+          164.5505
+        ]
+      ],
+      "integrated_outfit": true
+    },
+    {
+      "id": "body_ruler",
+      "sheet": 1,
+      "row": 5,
+      "snouts": [
+        [
+          94.9629,
+          138.7023
+        ],
+        [
+          91.7913,
+          137.9986
+        ],
+        [
+          93.4991,
+          138.9169
+        ],
+        [
+          91.4176,
+          135.7689
+        ]
+      ],
+      "integrated_outfit": true
+    }
+  ],
+  "poses": [
+    {
+      "id": "pose_prone",
+      "name_key": "POSE_PRONE",
+      "clip_id": "body_prone",
+      "duration_seconds": 8
+    },
+    {
+      "id": "pose_flat",
+      "name_key": "POSE_FLAT",
+      "clip_id": "body_flat",
+      "duration_seconds": 8
+    },
+    {
+      "id": "pose_head_hold",
+      "name_key": "POSE_HEAD_HOLD",
+      "clip_id": "body_head_hold",
+      "duration_seconds": 8
+    },
+    {
+      "id": "pose_kneel",
+      "name_key": "POSE_KNEEL",
+      "clip_id": "body_kneel",
+      "duration_seconds": 8
+    },
+    {
+      "id": "pose_corner",
+      "name_key": "POSE_CORNER",
+      "clip_id": "body_corner",
+      "duration_seconds": 8
+    },
+    {
+      "id": "pose_arms",
+      "name_key": "POSE_ARMS",
+      "clip_id": "body_arms",
+      "duration_seconds": 8
+    },
+    {
+      "id": "pose_upside",
+      "name_key": "POSE_UPSIDE",
+      "clip_id": "body_upside",
+      "duration_seconds": 8
+    },
+    {
+      "id": "pose_peek",
+      "name_key": "POSE_PEEK",
+      "clip_id": "body_peek",
+      "duration_seconds": 8
+    },
+    {
+      "id": "pose_crawl",
+      "name_key": "POSE_CRAWL",
+      "clip_id": "body_crawl",
+      "duration_seconds": 8
+    }
+  ],
+  "states": [
+    {
+      "id": "meme_silly",
+      "name_key": "MEME_SILLY",
+      "line_key": "MEME_SILLY_LINE",
+      "pose_ids": [
+        "pose_head_hold",
+        "pose_upside"
+      ],
+      "face_ids": [
+        "face_dot",
+        "face_quake"
+      ],
+      "duration_seconds": 12
+    },
+    {
+      "id": "meme_worker",
+      "name_key": "MEME_WORKER",
+      "line_key": "MEME_WORKER_LINE",
+      "form_id": "form_worker",
+      "face_ids": [
+        "face_deadpan",
+        "face_glare"
+      ],
+      "duration_seconds": 90
+    },
+    {
+      "id": "meme_slack",
+      "name_key": "MEME_SLACK",
+      "line_key": "MEME_SLACK_LINE",
+      "pose_ids": [
+        "pose_flat",
+        "pose_prone"
+      ],
+      "face_ids": [
+        "face_sleepy",
+        "face_deadpan"
+      ],
+      "duration_seconds": 120
+    },
+    {
+      "id": "meme_rage",
+      "name_key": "MEME_RAGE",
+      "line_key": "MEME_RAGE_LINE",
+      "pose_ids": [
+        "pose_head_hold",
+        "pose_arms"
+      ],
+      "face_ids": [
+        "face_glare",
+        "face_quake"
+      ],
+      "duration_seconds": 10
+    },
+    {
+      "id": "meme_wronged",
+      "name_key": "MEME_WRONGED",
+      "line_key": "MEME_WRONGED_LINE",
+      "pose_ids": [
+        "pose_corner",
+        "pose_kneel"
+      ],
+      "face_ids": [
+        "face_tears",
+        "face_glare"
+      ],
+      "duration_seconds": 30
+    },
+    {
+      "id": "meme_ruler",
+      "name_key": "MEME_RULER",
+      "line_key": "MEME_RULER_LINE",
+      "form_id": "form_ruler",
+      "face_ids": [
+        "face_sly",
+        "face_squint"
+      ],
+      "duration_seconds": 45
+    }
+  ],
+  "forms": [
+    {
+      "id": "form_worker",
+      "name_key": "FORM_WORKER",
+      "clip_id": "body_worker",
+      "duration_seconds": 30
+    },
+    {
+      "id": "form_ruler",
+      "name_key": "FORM_RULER",
+      "clip_id": "body_ruler",
+      "duration_seconds": 30
+    }
+  ],
+  "outfit_actions": [
+    {
+      "id": "action_berry_beret",
+      "outfit_id": "outfit_berry_beret",
+      "pose_id": "pose_peek",
+      "face_id": "face_sly",
+      "chance": 0.3,
+      "duration_seconds": 6
+    },
+    {
+      "id": "action_round_glasses",
+      "outfit_id": "outfit_round_glasses",
+      "pose_id": "pose_head_hold",
+      "face_id": "face_dot",
+      "chance": 0.3,
+      "duration_seconds": 6
+    },
+    {
+      "id": "action_cloud_scarf",
+      "outfit_id": "outfit_cloud_scarf",
+      "pose_id": "pose_prone",
+      "face_id": "face_squint",
+      "chance": 0.3,
+      "duration_seconds": 6
+    },
+    {
+      "id": "action_sprout_pin",
+      "outfit_id": "outfit_sprout_pin",
+      "pose_id": "pose_arms",
+      "face_id": "face_dot",
+      "chance": 0.3,
+      "duration_seconds": 6
+    },
+    {
+      "id": "action_sleepy_cap",
+      "outfit_id": "outfit_sleepy_cap",
+      "pose_id": "pose_flat",
+      "face_id": "face_sleepy",
+      "chance": 0.65,
+      "duration_seconds": 6
+    },
+    {
+      "id": "action_rain_cape",
+      "outfit_id": "outfit_rain_cape",
+      "pose_id": "pose_corner",
+      "face_id": "face_glare",
+      "chance": 0.3,
+      "duration_seconds": 6
+    },
+    {
+      "id": "action_painter_hat",
+      "outfit_id": "outfit_painter_hat",
+      "pose_id": "pose_head_hold",
+      "face_id": "face_quake",
+      "chance": 0.3,
+      "duration_seconds": 6
+    },
+    {
+      "id": "action_sports_band",
+      "outfit_id": "outfit_sports_band",
+      "pose_id": "pose_upside",
+      "face_id": "face_dot",
+      "chance": 0.3,
+      "duration_seconds": 6
+    },
+    {
+      "id": "action_bow_tie",
+      "outfit_id": "outfit_bow_tie",
+      "pose_id": "pose_kneel",
+      "face_id": "face_sly",
+      "chance": 0.3,
+      "duration_seconds": 6
+    },
+    {
+      "id": "action_paper_crown",
+      "outfit_id": "outfit_paper_crown",
+      "pose_id": "pose_arms",
+      "face_id": "face_sly",
+      "chance": 0.3,
+      "duration_seconds": 6
+    },
+    {
+      "id": "action_star_glasses",
+      "outfit_id": "outfit_star_glasses",
+      "pose_id": "pose_arms",
+      "face_id": "face_sly",
+      "chance": 0.65,
+      "duration_seconds": 6
+    },
+    {
+      "id": "action_hero_cape",
+      "outfit_id": "outfit_hero_cape",
+      "pose_id": "pose_arms",
+      "face_id": "face_squint",
+      "chance": 0.3,
+      "duration_seconds": 6
+    }
+  ],
+  "settings": {
+    "auto_interval_seconds": {
+      "frequent": 60,
+      "normal": 120,
+      "rare": 240
+    },
+    "phase_seconds": 8
+  }
+}

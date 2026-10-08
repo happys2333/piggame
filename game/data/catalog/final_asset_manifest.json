@@ -1,0 +1,4335 @@
+{
+  "schema_version": 1,
+  "ready": false,
+  "provided_by_user": false,
+  "visual_ready": true,
+  "generation_authorized": true,
+  "note": "Commissioned image_gen visuals, including modular faces/poses/forms. Audio, release ownership and external acceptance remain pending; generated images are not user-supplied originals.",
+  "entries": [
+    {
+      "path": "res://game/assets/final/generated/furniture_01.png",
+      "sha256": "9aef79f262fe106411254657864e8c41ceada4c33bdf896b04f6b22ff24e1e4f",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record furniture_01",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "regions": {
+        "furniture:furn_bed_basic": [
+          0,
+          0,
+          314,
+          314
+        ],
+        "furniture:furn_pillow_cloud": [
+          314,
+          0,
+          313,
+          314
+        ],
+        "furniture:furn_nightlight_moon": [
+          627,
+          0,
+          313,
+          314
+        ],
+        "furniture:furn_blanket_roll": [
+          940,
+          0,
+          314,
+          314
+        ],
+        "furniture:furn_mirror_round": [
+          0,
+          314,
+          314,
+          313
+        ],
+        "furniture:furn_bookshelf_low": [
+          314,
+          314,
+          313,
+          313
+        ],
+        "furniture:furn_clock_sleepy": [
+          627,
+          314,
+          313,
+          313
+        ],
+        "furniture:furn_robot_dock": [
+          940,
+          314,
+          314,
+          313
+        ],
+        "furniture:furn_table_snack": [
+          0,
+          627,
+          314,
+          313
+        ],
+        "furniture:furn_fridge_pink": [
+          314,
+          627,
+          313,
+          313
+        ],
+        "furniture:furn_drink_crate": [
+          627,
+          627,
+          313,
+          313
+        ],
+        "furniture:furn_kettle_round": [
+          940,
+          627,
+          314,
+          313
+        ],
+        "furniture:furn_cookie_jar": [
+          0,
+          940,
+          314,
+          314
+        ],
+        "furniture:furn_fruit_bowl": [
+          314,
+          940,
+          313,
+          314
+        ],
+        "furniture:furn_mini_oven": [
+          627,
+          940,
+          313,
+          314
+        ],
+        "furniture:furn_cleaning_robot": [
+          940,
+          940,
+          314,
+          314
+        ]
+      },
+      "covers": [
+        "furniture:furn_bed_basic",
+        "furniture:furn_pillow_cloud",
+        "furniture:furn_nightlight_moon",
+        "furniture:furn_blanket_roll",
+        "furniture:furn_mirror_round",
+        "furniture:furn_bookshelf_low",
+        "furniture:furn_clock_sleepy",
+        "furniture:furn_robot_dock",
+        "furniture:furn_table_snack",
+        "furniture:furn_fridge_pink",
+        "furniture:furn_drink_crate",
+        "furniture:furn_kettle_round",
+        "furniture:furn_cookie_jar",
+        "furniture:furn_fruit_bowl",
+        "furniture:furn_mini_oven",
+        "furniture:furn_cleaning_robot"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/furniture_02.png",
+      "sha256": "efd6a9fb0884f7aca5623cbc0903f33b782ab4fd75c6a67d351b9066d5fd1722",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record furniture_02",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "regions": {
+        "furniture:furn_treadmill": [
+          0,
+          0,
+          314,
+          314
+        ],
+        "furniture:furn_yoga_mat": [
+          314,
+          0,
+          313,
+          314
+        ],
+        "furniture:furn_easel": [
+          627,
+          0,
+          313,
+          314
+        ],
+        "furniture:furn_soft_ball": [
+          940,
+          0,
+          314,
+          314
+        ],
+        "furniture:furn_tiny_drum": [
+          0,
+          314,
+          314,
+          313
+        ],
+        "furniture:furn_camera": [
+          314,
+          314,
+          313,
+          313
+        ],
+        "furniture:furn_puzzle_box": [
+          627,
+          314,
+          313,
+          313
+        ],
+        "furniture:furn_cardboard_castle": [
+          940,
+          314,
+          314,
+          313
+        ],
+        "furniture:furn_plant_sprout": [
+          0,
+          627,
+          314,
+          313
+        ],
+        "furniture:furn_radio": [
+          314,
+          627,
+          313,
+          313
+        ],
+        "furniture:furn_weather_charm": [
+          627,
+          627,
+          313,
+          313
+        ],
+        "furniture:furn_window_cushion": [
+          940,
+          627,
+          314,
+          313
+        ],
+        "furniture:furn_telescope": [
+          0,
+          940,
+          314,
+          314
+        ],
+        "furniture:furn_wind_chime": [
+          314,
+          940,
+          313,
+          314
+        ],
+        "furniture:furn_tea_tray": [
+          627,
+          940,
+          313,
+          314
+        ],
+        "furniture:furn_tiny_lamp": [
+          940,
+          940,
+          314,
+          314
+        ]
+      },
+      "covers": [
+        "furniture:furn_treadmill",
+        "furniture:furn_yoga_mat",
+        "furniture:furn_easel",
+        "furniture:furn_soft_ball",
+        "furniture:furn_tiny_drum",
+        "furniture:furn_camera",
+        "furniture:furn_puzzle_box",
+        "furniture:furn_cardboard_castle",
+        "furniture:furn_plant_sprout",
+        "furniture:furn_radio",
+        "furniture:furn_weather_charm",
+        "furniture:furn_window_cushion",
+        "furniture:furn_telescope",
+        "furniture:furn_wind_chime",
+        "furniture:furn_tea_tray",
+        "furniture:furn_tiny_lamp"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/snacks.png",
+      "sha256": "92ba5d035f60532ae6c6a49f00bbf861ec99b8f6f722cd59b990cab4fc143550",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record snacks",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "regions": {
+        "snack:snack_apple": [
+          0,
+          0,
+          314,
+          314
+        ],
+        "snack:snack_berry_milk": [
+          314,
+          0,
+          313,
+          314
+        ],
+        "snack:snack_cloud_bun": [
+          627,
+          0,
+          313,
+          314
+        ],
+        "snack:snack_crunchy_peas": [
+          940,
+          0,
+          314,
+          314
+        ],
+        "snack:snack_peach_soda": [
+          0,
+          314,
+          314,
+          313
+        ],
+        "snack:snack_seaweed_roll": [
+          314,
+          314,
+          313,
+          313
+        ],
+        "snack:snack_pudding_cup": [
+          627,
+          314,
+          313,
+          313
+        ],
+        "snack:snack_star_cookie": [
+          940,
+          314,
+          314,
+          313
+        ],
+        "snack:snack_warm_cocoa": [
+          0,
+          627,
+          314,
+          313
+        ],
+        "snack:snack_tiny_sandwich": [
+          314,
+          627,
+          313,
+          313
+        ]
+      },
+      "covers": [
+        "snack:snack_apple",
+        "snack:snack_berry_milk",
+        "snack:snack_cloud_bun",
+        "snack:snack_crunchy_peas",
+        "snack:snack_peach_soda",
+        "snack:snack_seaweed_roll",
+        "snack:snack_pudding_cup",
+        "snack:snack_star_cookie",
+        "snack:snack_warm_cocoa",
+        "snack:snack_tiny_sandwich"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/outfits.png",
+      "sha256": "e0de2f9e83c4e8f290d5839ae3b3f0823a6c11b34aed09111ca72e915b3728a5",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record outfits",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "regions": {
+        "outfit:outfit_berry_beret": [
+          36,
+          82,
+          232,
+          121
+        ],
+        "outfit:outfit_round_glasses": [
+          354,
+          140,
+          224,
+          113
+        ],
+        "outfit:outfit_cloud_scarf": [
+          679,
+          198,
+          227,
+          109
+        ],
+        "outfit:outfit_sprout_pin": [
+          981,
+          89,
+          239,
+          116
+        ],
+        "outfit:outfit_sleepy_cap": [
+          41,
+          379,
+          273,
+          155
+        ],
+        "outfit:outfit_rain_cape": [
+          314,
+          472,
+          299,
+          130
+        ],
+        "outfit:outfit_painter_hat": [
+          666,
+          385,
+          228,
+          122
+        ],
+        "outfit:outfit_sports_band": [
+          978,
+          439,
+          229,
+          83
+        ],
+        "outfit:outfit_bow_tie": [
+          89,
+          817,
+          145,
+          76
+        ],
+        "outfit:outfit_paper_crown": [
+          353,
+          683,
+          228,
+          131
+        ],
+        "outfit:outfit_star_glasses": [
+          665,
+          748,
+          234,
+          99
+        ],
+        "outfit:outfit_hero_cape": [
+          976,
+          765,
+          257,
+          126
+        ]
+      },
+      "placements": {
+        "outfit:outfit_berry_beret": [
+          28,
+          50,
+          142,
+          57
+        ],
+        "outfit:outfit_round_glasses": [
+          40,
+          72,
+          124,
+          82
+        ],
+        "outfit:outfit_cloud_scarf": [
+          48,
+          154,
+          137,
+          63
+        ],
+        "outfit:outfit_sprout_pin": [
+          28,
+          62,
+          139,
+          59
+        ],
+        "outfit:outfit_sleepy_cap": [
+          24,
+          41,
+          158,
+          83
+        ],
+        "outfit:outfit_rain_cape": [
+          115,
+          117,
+          139,
+          101
+        ],
+        "outfit:outfit_painter_hat": [
+          27,
+          51,
+          148,
+          63
+        ],
+        "outfit:outfit_sports_band": [
+          26,
+          79,
+          139,
+          37
+        ],
+        "outfit:outfit_bow_tie": [
+          68,
+          161,
+          74,
+          40
+        ],
+        "outfit:outfit_paper_crown": [
+          26,
+          33,
+          146,
+          77
+        ],
+        "outfit:outfit_star_glasses": [
+          40,
+          98,
+          112,
+          42
+        ],
+        "outfit:outfit_hero_cape": [
+          124,
+          121,
+          129,
+          96
+        ]
+      },
+      "covers": [
+        "outfit:outfit_berry_beret",
+        "outfit:outfit_round_glasses",
+        "outfit:outfit_cloud_scarf",
+        "outfit:outfit_sprout_pin",
+        "outfit:outfit_sleepy_cap",
+        "outfit:outfit_rain_cape",
+        "outfit:outfit_painter_hat",
+        "outfit:outfit_sports_band",
+        "outfit:outfit_bow_tie",
+        "outfit:outfit_paper_crown",
+        "outfit:outfit_star_glasses",
+        "outfit:outfit_hero_cape"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/room_rose.png",
+      "sha256": "c76f76d29c4d5d57fa22a15a73f377979c7d0d2983e0d7693819ff844b76fa0f",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record room_rose",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "covers": [
+        "room:rose"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/room_mint.png",
+      "sha256": "ee2c88d16eb3af21ef8ed39aa51c68bf96d2a245e574aea6f258fa5ad9e3c69b",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record room_mint",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "covers": [
+        "room:mint"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/room_night.png",
+      "sha256": "d518ffccc4d3f11c5de6eafe48d81472b2bc43e573718cc76cbcd20b535f87cb",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record room_night",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "covers": [
+        "room:night"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/events_01.png",
+      "sha256": "5c62df731047b34a8f541cc99ab81f2c86427e910dcafab79d24a0f624fbd2e8",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record events_01",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "regions": {
+        "event:event_move_in": [
+          2,
+          2,
+          764,
+          337
+        ],
+        "event:event_fridge_meeting": [
+          770,
+          2,
+          764,
+          337
+        ],
+        "event:event_balanced_treat": [
+          2,
+          343,
+          764,
+          338
+        ],
+        "event:event_cookie_detective": [
+          770,
+          343,
+          764,
+          338
+        ],
+        "event:event_cocoa_moustache": [
+          2,
+          685,
+          764,
+          337
+        ],
+        "event:event_midnight_snack": [
+          770,
+          685,
+          764,
+          337
+        ]
+      },
+      "covers": [
+        "event:event_move_in",
+        "event:event_fridge_meeting",
+        "event:event_balanced_treat",
+        "event:event_cookie_detective",
+        "event:event_cocoa_moustache",
+        "event:event_midnight_snack"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/events_02.png",
+      "sha256": "9fe3d3d8035de101dc6837cd8d351a8763fe0cba99b3d1e9cee63e6b641d1da7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record events_02",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "regions": {
+        "event:event_last_pea": [
+          2,
+          2,
+          764,
+          337
+        ],
+        "event:event_yoga_blanket": [
+          770,
+          2,
+          764,
+          337
+        ],
+        "event:event_alarm_victory": [
+          2,
+          343,
+          764,
+          338
+        ],
+        "event:event_pillow_migration": [
+          770,
+          343,
+          764,
+          338
+        ],
+        "event:event_dream_meeting": [
+          2,
+          685,
+          764,
+          337
+        ],
+        "event:event_window_nap": [
+          770,
+          685,
+          764,
+          337
+        ]
+      },
+      "covers": [
+        "event:event_last_pea",
+        "event:event_yoga_blanket",
+        "event:event_alarm_victory",
+        "event:event_pillow_migration",
+        "event:event_dream_meeting",
+        "event:event_window_nap"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/events_03.png",
+      "sha256": "bf6c811dbd9c859b07b9c3c5bb71c6cc9b2a271db0fc5d5c59f9f47564d41151",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record events_03",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "regions": {
+        "event:event_treadmill_reward": [
+          2,
+          2,
+          764,
+          337
+        ],
+        "event:event_one_stretch": [
+          770,
+          2,
+          764,
+          337
+        ],
+        "event:event_ball_coach": [
+          2,
+          343,
+          764,
+          338
+        ],
+        "event:event_heroic_lap": [
+          770,
+          343,
+          764,
+          338
+        ],
+        "event:event_painting_master": [
+          2,
+          685,
+          764,
+          337
+        ],
+        "event:event_plant_apology": [
+          770,
+          685,
+          764,
+          337
+        ]
+      },
+      "covers": [
+        "event:event_treadmill_reward",
+        "event:event_one_stretch",
+        "event:event_ball_coach",
+        "event:event_heroic_lap",
+        "event:event_painting_master",
+        "event:event_plant_apology"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/events_04.png",
+      "sha256": "a487db0da7aacc5d03d08ebdc738ed8a7ab0ec654d9b78e3a2ea0ef845d6812f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record events_04",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "regions": {
+        "event:event_radio_dance": [
+          2,
+          2,
+          764,
+          337
+        ],
+        "event:event_robot_knight": [
+          770,
+          2,
+          764,
+          337
+        ],
+        "event:event_rainy_window": [
+          2,
+          343,
+          764,
+          338
+        ],
+        "event:event_sunrise_watch": [
+          770,
+          343,
+          764,
+          338
+        ],
+        "event:event_windy_chime": [
+          2,
+          685,
+          764,
+          337
+        ],
+        "event:event_ordinary_day": [
+          770,
+          685,
+          764,
+          337
+        ]
+      },
+      "covers": [
+        "event:event_radio_dance",
+        "event:event_robot_knight",
+        "event:event_rainy_window",
+        "event:event_sunrise_watch",
+        "event:event_windy_chime",
+        "event:event_ordinary_day"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/room_effects.png",
+      "sha256": "28640f0fbd90a7eb62d9b374c103dd55542a8fd1388631caa25b8f992f9c103a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record room_effects",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "regions": {
+        "room_effect:sleep_glow": [
+          3,
+          3,
+          762,
+          335
+        ],
+        "room_effect:oven_warmth": [
+          771,
+          3,
+          762,
+          335
+        ],
+        "room_effect:rainy_window": [
+          3,
+          344,
+          762,
+          336
+        ],
+        "room_effect:breeze": [
+          771,
+          344,
+          762,
+          336
+        ],
+        "room_effect:window_glow": [
+          3,
+          686,
+          762,
+          335
+        ]
+      },
+      "covers": [
+        "room_effect:sleep_glow",
+        "room_effect:oven_warmth",
+        "room_effect:rainy_window",
+        "room_effect:breeze",
+        "room_effect:window_glow"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/photo_frames.png",
+      "sha256": "6cbdfbe3b8e5361b5116fdaab411d05e7bbd3f9da82ac2b4f4ec21e9daafa876",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record photo_frames",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "regions": {
+        "ui:photo_frame_plain": [
+          0,
+          0,
+          1024,
+          512
+        ],
+        "ui:photo_frame_berry": [
+          0,
+          512,
+          1024,
+          512
+        ],
+        "ui:photo_frame_star": [
+          0,
+          1024,
+          1024,
+          512
+        ]
+      },
+      "covers": [
+        "ui:photo_frame_plain",
+        "ui:photo_frame_berry",
+        "ui:photo_frame_star"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/pighub_expressions.png",
+      "sha256": "7806c956cf541094adad64f4de97891a3d501c055b7adfd1e833d0661ee338cf",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record pighub_expressions",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "regions": {
+        "expression:expr_happy_soft": [
+          0,
+          0,
+          444,
+          444
+        ],
+        "expression:expr_happy_snack": [
+          444,
+          0,
+          443,
+          444
+        ],
+        "expression:expr_happy_big": [
+          444,
+          0,
+          443,
+          444
+        ],
+        "expression:expr_happy_relaxed": [
+          887,
+          0,
+          443,
+          444
+        ],
+        "expression:expr_happy_warm": [
+          444,
+          0,
+          443,
+          444
+        ],
+        "expression:expr_happy_giggle": [
+          444,
+          0,
+          443,
+          444
+        ],
+        "expression:expr_happy_sparkle": [
+          0,
+          444,
+          444,
+          443
+        ],
+        "expression:expr_happy_ending": [
+          444,
+          0,
+          443,
+          444
+        ],
+        "expression:expr_sleepy_blanket": [
+          887,
+          444,
+          443,
+          443
+        ],
+        "expression:expr_sleepy_alarm": [
+          444,
+          444,
+          443,
+          443
+        ],
+        "expression:expr_sleepy_pillow": [
+          887,
+          444,
+          443,
+          443
+        ],
+        "expression:expr_sleepy_dream": [
+          887,
+          0,
+          443,
+          444
+        ],
+        "expression:expr_sleepy_window": [
+          887,
+          444,
+          443,
+          443
+        ],
+        "expression:expr_sleepy_yawn": [
+          887,
+          444,
+          443,
+          443
+        ],
+        "expression:expr_sleepy_blink": [
+          0,
+          0,
+          444,
+          444
+        ],
+        "expression:expr_sleepy_deep": [
+          887,
+          444,
+          443,
+          443
+        ],
+        "expression:expr_hungry_fridge": [
+          0,
+          0,
+          444,
+          444
+        ],
+        "expression:expr_hungry_secret": [
+          0,
+          444,
+          444,
+          443
+        ],
+        "expression:expr_hungry_cookie": [
+          1330,
+          444,
+          444,
+          443
+        ],
+        "expression:expr_hungry_cocoa": [
+          1330,
+          0,
+          444,
+          444
+        ],
+        "expression:expr_hungry_midnight": [
+          444,
+          444,
+          443,
+          443
+        ],
+        "expression:expr_hungry_pea": [
+          0,
+          0,
+          444,
+          444
+        ],
+        "expression:expr_hungry_drool": [
+          0,
+          444,
+          444,
+          443
+        ],
+        "expression:expr_hungry_sniff": [
+          1330,
+          444,
+          444,
+          443
+        ],
+        "expression:expr_wronged_empty_fridge": [
+          1330,
+          0,
+          444,
+          444
+        ],
+        "expression:expr_wronged_poke": [
+          444,
+          444,
+          443,
+          443
+        ],
+        "expression:expr_wronged_alarm": [
+          1330,
+          0,
+          444,
+          444
+        ],
+        "expression:expr_wronged_exercise": [
+          887,
+          0,
+          443,
+          444
+        ],
+        "expression:expr_wronged_paint": [
+          1330,
+          0,
+          444,
+          444
+        ],
+        "expression:expr_wronged_plant": [
+          444,
+          444,
+          443,
+          443
+        ],
+        "expression:expr_wronged_robot": [
+          1330,
+          444,
+          444,
+          443
+        ],
+        "expression:expr_wronged_rain": [
+          1330,
+          0,
+          444,
+          444
+        ],
+        "expression:expr_proud_yoga": [
+          0,
+          444,
+          444,
+          443
+        ],
+        "expression:expr_proud_treadmill": [
+          444,
+          0,
+          443,
+          444
+        ],
+        "expression:expr_proud_pose": [
+          0,
+          444,
+          444,
+          443
+        ],
+        "expression:expr_proud_ball": [
+          0,
+          0,
+          444,
+          444
+        ],
+        "expression:expr_proud_hero": [
+          887,
+          0,
+          443,
+          444
+        ],
+        "expression:expr_proud_painter": [
+          0,
+          444,
+          444,
+          443
+        ],
+        "expression:expr_proud_gardener": [
+          444,
+          0,
+          443,
+          444
+        ],
+        "expression:expr_proud_ending": [
+          0,
+          444,
+          444,
+          443
+        ],
+        "expression:expr_shocked_new_home": [
+          1330,
+          444,
+          444,
+          443
+        ],
+        "expression:expr_shocked_icecream": [
+          0,
+          0,
+          444,
+          444
+        ],
+        "expression:expr_shocked_fridge": [
+          1330,
+          444,
+          444,
+          443
+        ],
+        "expression:expr_shocked_ball": [
+          1330,
+          0,
+          444,
+          444
+        ],
+        "expression:expr_shocked_robot": [
+          444,
+          444,
+          443,
+          443
+        ],
+        "expression:expr_shocked_music": [
+          1330,
+          444,
+          444,
+          443
+        ],
+        "expression:expr_shocked_bump": [
+          887,
+          0,
+          443,
+          444
+        ],
+        "expression:expr_shocked_weather": [
+          1330,
+          444,
+          444,
+          443
+        ],
+        "ui:status_sleepy": [
+          887,
+          444,
+          443,
+          443
+        ],
+        "ui:status_hungry": [
+          0,
+          0,
+          444,
+          444
+        ],
+        "ui:status_bored": [
+          444,
+          444,
+          443,
+          443
+        ],
+        "ui:status_energetic": [
+          1330,
+          444,
+          444,
+          443
+        ],
+        "ui:status_content": [
+          444,
+          0,
+          443,
+          444
+        ]
+      },
+      "full_character": true,
+      "covers": [
+        "expression:expr_happy_soft",
+        "expression:expr_happy_snack",
+        "expression:expr_happy_big",
+        "expression:expr_happy_relaxed",
+        "expression:expr_happy_warm",
+        "expression:expr_happy_giggle",
+        "expression:expr_happy_sparkle",
+        "expression:expr_happy_ending",
+        "expression:expr_sleepy_blanket",
+        "expression:expr_sleepy_alarm",
+        "expression:expr_sleepy_pillow",
+        "expression:expr_sleepy_dream",
+        "expression:expr_sleepy_window",
+        "expression:expr_sleepy_yawn",
+        "expression:expr_sleepy_blink",
+        "expression:expr_sleepy_deep",
+        "expression:expr_hungry_fridge",
+        "expression:expr_hungry_secret",
+        "expression:expr_hungry_cookie",
+        "expression:expr_hungry_cocoa",
+        "expression:expr_hungry_midnight",
+        "expression:expr_hungry_pea",
+        "expression:expr_hungry_drool",
+        "expression:expr_hungry_sniff",
+        "expression:expr_wronged_empty_fridge",
+        "expression:expr_wronged_poke",
+        "expression:expr_wronged_alarm",
+        "expression:expr_wronged_exercise",
+        "expression:expr_wronged_paint",
+        "expression:expr_wronged_plant",
+        "expression:expr_wronged_robot",
+        "expression:expr_wronged_rain",
+        "expression:expr_proud_yoga",
+        "expression:expr_proud_treadmill",
+        "expression:expr_proud_pose",
+        "expression:expr_proud_ball",
+        "expression:expr_proud_hero",
+        "expression:expr_proud_painter",
+        "expression:expr_proud_gardener",
+        "expression:expr_proud_ending",
+        "expression:expr_shocked_new_home",
+        "expression:expr_shocked_icecream",
+        "expression:expr_shocked_fridge",
+        "expression:expr_shocked_ball",
+        "expression:expr_shocked_robot",
+        "expression:expr_shocked_music",
+        "expression:expr_shocked_bump",
+        "expression:expr_shocked_weather",
+        "ui:status_sleepy",
+        "ui:status_hungry",
+        "ui:status_bored",
+        "ui:status_energetic",
+        "ui:status_content"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/app_icon.png",
+      "sha256": "144e69f10bc862182db93e8e1ab4726b7a7653117ce084f8f597b995dde41b4a",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source": "Built-in image_gen, commissioned by the user; prompt record app_icon",
+      "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
+      "covers": [
+        "ui:app_icon"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/pighub_motion_01.png",
+      "sha256": "2a6935af090bb8e7fb47fb035ab1fda2aaa50ff7fa491e35459602cafd27f0ce",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "source": "Built-in image_gen; commissioned prompt record pig-performance:body_01",
+      "license": "User-authorized AI-generated project art; final release ownership review remains pending.",
+      "frames": {
+        "performance_body:body_base": [
+          [
+            0,
+            0,
+            256,
+            283
+          ],
+          [
+            256,
+            0,
+            256,
+            283
+          ],
+          [
+            512,
+            0,
+            256,
+            283
+          ],
+          [
+            768,
+            0,
+            256,
+            283
+          ]
+        ],
+        "performance_body:body_prone": [
+          [
+            0,
+            283,
+            256,
+            221
+          ],
+          [
+            256,
+            283,
+            256,
+            221
+          ],
+          [
+            512,
+            283,
+            256,
+            221
+          ],
+          [
+            768,
+            283,
+            256,
+            221
+          ]
+        ],
+        "performance_body:body_flat": [
+          [
+            0,
+            504,
+            256,
+            195
+          ],
+          [
+            256,
+            504,
+            256,
+            195
+          ],
+          [
+            512,
+            504,
+            256,
+            195
+          ],
+          [
+            768,
+            504,
+            256,
+            195
+          ]
+        ],
+        "performance_body:body_head_hold": [
+          [
+            0,
+            699,
+            256,
+            278
+          ],
+          [
+            256,
+            699,
+            256,
+            278
+          ],
+          [
+            512,
+            699,
+            256,
+            278
+          ],
+          [
+            768,
+            699,
+            256,
+            278
+          ]
+        ],
+        "performance_body:body_kneel": [
+          [
+            0,
+            977,
+            256,
+            261
+          ],
+          [
+            256,
+            977,
+            256,
+            261
+          ],
+          [
+            512,
+            977,
+            256,
+            261
+          ],
+          [
+            768,
+            977,
+            256,
+            261
+          ]
+        ],
+        "performance_body:body_corner": [
+          [
+            0,
+            1238,
+            256,
+            298
+          ],
+          [
+            256,
+            1238,
+            256,
+            298
+          ],
+          [
+            512,
+            1238,
+            256,
+            298
+          ],
+          [
+            768,
+            1238,
+            256,
+            298
+          ]
+        ],
+        "behavior:idle": [
+          [
+            0,
+            0,
+            256,
+            283
+          ],
+          [
+            256,
+            0,
+            256,
+            283
+          ],
+          [
+            512,
+            0,
+            256,
+            283
+          ],
+          [
+            768,
+            0,
+            256,
+            283
+          ]
+        ],
+        "behavior:walk": [
+          [
+            0,
+            0,
+            256,
+            283
+          ],
+          [
+            256,
+            0,
+            256,
+            283
+          ],
+          [
+            512,
+            0,
+            256,
+            283
+          ],
+          [
+            768,
+            0,
+            256,
+            283
+          ]
+        ],
+        "behavior:sit": [
+          [
+            0,
+            977,
+            256,
+            261
+          ],
+          [
+            256,
+            977,
+            256,
+            261
+          ],
+          [
+            512,
+            977,
+            256,
+            261
+          ],
+          [
+            768,
+            977,
+            256,
+            261
+          ]
+        ],
+        "behavior:lie": [
+          [
+            0,
+            283,
+            256,
+            221
+          ],
+          [
+            256,
+            283,
+            256,
+            221
+          ],
+          [
+            512,
+            283,
+            256,
+            221
+          ],
+          [
+            768,
+            283,
+            256,
+            221
+          ]
+        ],
+        "behavior:sleep": [
+          [
+            0,
+            504,
+            256,
+            195
+          ],
+          [
+            256,
+            504,
+            256,
+            195
+          ],
+          [
+            512,
+            504,
+            256,
+            195
+          ],
+          [
+            768,
+            504,
+            256,
+            195
+          ]
+        ],
+        "behavior:scratch": [
+          [
+            0,
+            699,
+            256,
+            278
+          ],
+          [
+            256,
+            699,
+            256,
+            278
+          ],
+          [
+            512,
+            699,
+            256,
+            278
+          ],
+          [
+            768,
+            699,
+            256,
+            278
+          ]
+        ],
+        "behavior:bed_nap": [
+          [
+            0,
+            283,
+            256,
+            221
+          ],
+          [
+            256,
+            283,
+            256,
+            221
+          ],
+          [
+            512,
+            283,
+            256,
+            221
+          ],
+          [
+            768,
+            283,
+            256,
+            221
+          ]
+        ],
+        "behavior:pillow_flop": [
+          [
+            0,
+            504,
+            256,
+            195
+          ],
+          [
+            256,
+            504,
+            256,
+            195
+          ],
+          [
+            512,
+            504,
+            256,
+            195
+          ],
+          [
+            768,
+            504,
+            256,
+            195
+          ]
+        ],
+        "behavior:blanket_roll": [
+          [
+            0,
+            504,
+            256,
+            195
+          ],
+          [
+            256,
+            504,
+            256,
+            195
+          ],
+          [
+            512,
+            504,
+            256,
+            195
+          ],
+          [
+            768,
+            504,
+            256,
+            195
+          ]
+        ],
+        "behavior:read": [
+          [
+            0,
+            977,
+            256,
+            261
+          ],
+          [
+            256,
+            977,
+            256,
+            261
+          ],
+          [
+            512,
+            977,
+            256,
+            261
+          ],
+          [
+            768,
+            977,
+            256,
+            261
+          ]
+        ],
+        "behavior:alarm": [
+          [
+            0,
+            699,
+            256,
+            278
+          ],
+          [
+            256,
+            699,
+            256,
+            278
+          ],
+          [
+            512,
+            699,
+            256,
+            278
+          ],
+          [
+            768,
+            699,
+            256,
+            278
+          ]
+        ],
+        "behavior:drink": [
+          [
+            0,
+            977,
+            256,
+            261
+          ],
+          [
+            256,
+            977,
+            256,
+            261
+          ],
+          [
+            512,
+            977,
+            256,
+            261
+          ],
+          [
+            768,
+            977,
+            256,
+            261
+          ]
+        ],
+        "behavior:tea": [
+          [
+            0,
+            977,
+            256,
+            261
+          ],
+          [
+            256,
+            977,
+            256,
+            261
+          ],
+          [
+            512,
+            977,
+            256,
+            261
+          ],
+          [
+            768,
+            977,
+            256,
+            261
+          ]
+        ],
+        "behavior:cookie_guard": [
+          [
+            0,
+            1238,
+            256,
+            298
+          ],
+          [
+            256,
+            1238,
+            256,
+            298
+          ],
+          [
+            512,
+            1238,
+            256,
+            298
+          ],
+          [
+            768,
+            1238,
+            256,
+            298
+          ]
+        ],
+        "behavior:run": [
+          [
+            0,
+            0,
+            256,
+            283
+          ],
+          [
+            256,
+            0,
+            256,
+            283
+          ],
+          [
+            512,
+            0,
+            256,
+            283
+          ],
+          [
+            768,
+            0,
+            256,
+            283
+          ]
+        ],
+        "behavior:puzzle": [
+          [
+            0,
+            699,
+            256,
+            278
+          ],
+          [
+            256,
+            699,
+            256,
+            278
+          ],
+          [
+            512,
+            699,
+            256,
+            278
+          ],
+          [
+            768,
+            699,
+            256,
+            278
+          ]
+        ],
+        "behavior:water_plant": [
+          [
+            0,
+            977,
+            256,
+            261
+          ],
+          [
+            256,
+            977,
+            256,
+            261
+          ],
+          [
+            512,
+            977,
+            256,
+            261
+          ],
+          [
+            768,
+            977,
+            256,
+            261
+          ]
+        ],
+        "behavior:window_nap": [
+          [
+            0,
+            283,
+            256,
+            221
+          ],
+          [
+            256,
+            283,
+            256,
+            221
+          ],
+          [
+            512,
+            283,
+            256,
+            221
+          ],
+          [
+            768,
+            283,
+            256,
+            221
+          ]
+        ],
+        "behavior:robot_ride": [
+          [
+            0,
+            0,
+            256,
+            283
+          ],
+          [
+            256,
+            0,
+            256,
+            283
+          ],
+          [
+            512,
+            0,
+            256,
+            283
+          ],
+          [
+            768,
+            0,
+            256,
+            283
+          ]
+        ]
+      },
+      "frame_trims": {
+        "performance_body:body_base": [
+          [
+            25,
+            41,
+            227,
+            217
+          ],
+          [
+            277,
+            39,
+            226,
+            218
+          ],
+          [
+            527,
+            41,
+            226,
+            216
+          ],
+          [
+            778,
+            41,
+            223,
+            214
+          ]
+        ],
+        "performance_body:body_prone": [
+          [
+            23,
+            307,
+            226,
+            159
+          ],
+          [
+            278,
+            310,
+            223,
+            156
+          ],
+          [
+            528,
+            325,
+            227,
+            141
+          ],
+          [
+            779,
+            321,
+            222,
+            145
+          ]
+        ],
+        "performance_body:body_flat": [
+          [
+            22,
+            544,
+            230,
+            131
+          ],
+          [
+            274,
+            555,
+            231,
+            120
+          ],
+          [
+            524,
+            555,
+            228,
+            120
+          ],
+          [
+            774,
+            541,
+            227,
+            134
+          ]
+        ],
+        "performance_body:body_head_hold": [
+          [
+            23,
+            727,
+            229,
+            234
+          ],
+          [
+            284,
+            730,
+            221,
+            231
+          ],
+          [
+            529,
+            727,
+            224,
+            234
+          ],
+          [
+            777,
+            723,
+            227,
+            238
+          ]
+        ],
+        "performance_body:body_kneel": [
+          [
+            31,
+            996,
+            216,
+            216
+          ],
+          [
+            287,
+            993,
+            212,
+            219
+          ],
+          [
+            535,
+            1014,
+            218,
+            198
+          ],
+          [
+            786,
+            1001,
+            212,
+            211
+          ]
+        ],
+        "performance_body:body_corner": [
+          [
+            33,
+            1263,
+            207,
+            193
+          ],
+          [
+            287,
+            1273,
+            203,
+            183
+          ],
+          [
+            540,
+            1271,
+            204,
+            185
+          ],
+          [
+            794,
+            1268,
+            196,
+            189
+          ]
+        ],
+        "behavior:idle": [
+          [
+            25,
+            41,
+            227,
+            217
+          ],
+          [
+            277,
+            39,
+            226,
+            218
+          ],
+          [
+            527,
+            41,
+            226,
+            216
+          ],
+          [
+            778,
+            41,
+            223,
+            214
+          ]
+        ],
+        "behavior:walk": [
+          [
+            25,
+            41,
+            227,
+            217
+          ],
+          [
+            277,
+            39,
+            226,
+            218
+          ],
+          [
+            527,
+            41,
+            226,
+            216
+          ],
+          [
+            778,
+            41,
+            223,
+            214
+          ]
+        ],
+        "behavior:sit": [
+          [
+            31,
+            996,
+            216,
+            216
+          ],
+          [
+            287,
+            993,
+            212,
+            219
+          ],
+          [
+            535,
+            1014,
+            218,
+            198
+          ],
+          [
+            786,
+            1001,
+            212,
+            211
+          ]
+        ],
+        "behavior:lie": [
+          [
+            23,
+            307,
+            226,
+            159
+          ],
+          [
+            278,
+            310,
+            223,
+            156
+          ],
+          [
+            528,
+            325,
+            227,
+            141
+          ],
+          [
+            779,
+            321,
+            222,
+            145
+          ]
+        ],
+        "behavior:sleep": [
+          [
+            22,
+            544,
+            230,
+            131
+          ],
+          [
+            274,
+            555,
+            231,
+            120
+          ],
+          [
+            524,
+            555,
+            228,
+            120
+          ],
+          [
+            774,
+            541,
+            227,
+            134
+          ]
+        ],
+        "behavior:scratch": [
+          [
+            23,
+            727,
+            229,
+            234
+          ],
+          [
+            284,
+            730,
+            221,
+            231
+          ],
+          [
+            529,
+            727,
+            224,
+            234
+          ],
+          [
+            777,
+            723,
+            227,
+            238
+          ]
+        ],
+        "behavior:bed_nap": [
+          [
+            23,
+            307,
+            226,
+            159
+          ],
+          [
+            278,
+            310,
+            223,
+            156
+          ],
+          [
+            528,
+            325,
+            227,
+            141
+          ],
+          [
+            779,
+            321,
+            222,
+            145
+          ]
+        ],
+        "behavior:pillow_flop": [
+          [
+            22,
+            544,
+            230,
+            131
+          ],
+          [
+            274,
+            555,
+            231,
+            120
+          ],
+          [
+            524,
+            555,
+            228,
+            120
+          ],
+          [
+            774,
+            541,
+            227,
+            134
+          ]
+        ],
+        "behavior:blanket_roll": [
+          [
+            22,
+            544,
+            230,
+            131
+          ],
+          [
+            274,
+            555,
+            231,
+            120
+          ],
+          [
+            524,
+            555,
+            228,
+            120
+          ],
+          [
+            774,
+            541,
+            227,
+            134
+          ]
+        ],
+        "behavior:read": [
+          [
+            31,
+            996,
+            216,
+            216
+          ],
+          [
+            287,
+            993,
+            212,
+            219
+          ],
+          [
+            535,
+            1014,
+            218,
+            198
+          ],
+          [
+            786,
+            1001,
+            212,
+            211
+          ]
+        ],
+        "behavior:alarm": [
+          [
+            23,
+            727,
+            229,
+            234
+          ],
+          [
+            284,
+            730,
+            221,
+            231
+          ],
+          [
+            529,
+            727,
+            224,
+            234
+          ],
+          [
+            777,
+            723,
+            227,
+            238
+          ]
+        ],
+        "behavior:drink": [
+          [
+            31,
+            996,
+            216,
+            216
+          ],
+          [
+            287,
+            993,
+            212,
+            219
+          ],
+          [
+            535,
+            1014,
+            218,
+            198
+          ],
+          [
+            786,
+            1001,
+            212,
+            211
+          ]
+        ],
+        "behavior:tea": [
+          [
+            31,
+            996,
+            216,
+            216
+          ],
+          [
+            287,
+            993,
+            212,
+            219
+          ],
+          [
+            535,
+            1014,
+            218,
+            198
+          ],
+          [
+            786,
+            1001,
+            212,
+            211
+          ]
+        ],
+        "behavior:cookie_guard": [
+          [
+            33,
+            1263,
+            207,
+            193
+          ],
+          [
+            287,
+            1273,
+            203,
+            183
+          ],
+          [
+            540,
+            1271,
+            204,
+            185
+          ],
+          [
+            794,
+            1268,
+            196,
+            189
+          ]
+        ],
+        "behavior:run": [
+          [
+            25,
+            41,
+            227,
+            217
+          ],
+          [
+            277,
+            39,
+            226,
+            218
+          ],
+          [
+            527,
+            41,
+            226,
+            216
+          ],
+          [
+            778,
+            41,
+            223,
+            214
+          ]
+        ],
+        "behavior:puzzle": [
+          [
+            23,
+            727,
+            229,
+            234
+          ],
+          [
+            284,
+            730,
+            221,
+            231
+          ],
+          [
+            529,
+            727,
+            224,
+            234
+          ],
+          [
+            777,
+            723,
+            227,
+            238
+          ]
+        ],
+        "behavior:water_plant": [
+          [
+            31,
+            996,
+            216,
+            216
+          ],
+          [
+            287,
+            993,
+            212,
+            219
+          ],
+          [
+            535,
+            1014,
+            218,
+            198
+          ],
+          [
+            786,
+            1001,
+            212,
+            211
+          ]
+        ],
+        "behavior:window_nap": [
+          [
+            23,
+            307,
+            226,
+            159
+          ],
+          [
+            278,
+            310,
+            223,
+            156
+          ],
+          [
+            528,
+            325,
+            227,
+            141
+          ],
+          [
+            779,
+            321,
+            222,
+            145
+          ]
+        ],
+        "behavior:robot_ride": [
+          [
+            25,
+            41,
+            227,
+            217
+          ],
+          [
+            277,
+            39,
+            226,
+            218
+          ],
+          [
+            527,
+            41,
+            226,
+            216
+          ],
+          [
+            778,
+            41,
+            223,
+            214
+          ]
+        ]
+      },
+      "regions": {
+        "performance_body:body_base": [
+          0,
+          0,
+          256,
+          283
+        ],
+        "performance_body:body_prone": [
+          0,
+          283,
+          256,
+          221
+        ],
+        "performance_body:body_flat": [
+          0,
+          504,
+          256,
+          195
+        ],
+        "performance_body:body_head_hold": [
+          0,
+          699,
+          256,
+          278
+        ],
+        "performance_body:body_kneel": [
+          0,
+          977,
+          256,
+          261
+        ],
+        "performance_body:body_corner": [
+          0,
+          1238,
+          256,
+          298
+        ],
+        "behavior:idle": [
+          0,
+          0,
+          256,
+          283
+        ],
+        "behavior:walk": [
+          0,
+          0,
+          256,
+          283
+        ],
+        "behavior:sit": [
+          0,
+          977,
+          256,
+          261
+        ],
+        "behavior:lie": [
+          0,
+          283,
+          256,
+          221
+        ],
+        "behavior:sleep": [
+          0,
+          504,
+          256,
+          195
+        ],
+        "behavior:scratch": [
+          0,
+          699,
+          256,
+          278
+        ],
+        "behavior:bed_nap": [
+          0,
+          283,
+          256,
+          221
+        ],
+        "behavior:pillow_flop": [
+          0,
+          504,
+          256,
+          195
+        ],
+        "behavior:blanket_roll": [
+          0,
+          504,
+          256,
+          195
+        ],
+        "behavior:read": [
+          0,
+          977,
+          256,
+          261
+        ],
+        "behavior:alarm": [
+          0,
+          699,
+          256,
+          278
+        ],
+        "behavior:drink": [
+          0,
+          977,
+          256,
+          261
+        ],
+        "behavior:tea": [
+          0,
+          977,
+          256,
+          261
+        ],
+        "behavior:cookie_guard": [
+          0,
+          1238,
+          256,
+          298
+        ],
+        "behavior:run": [
+          0,
+          0,
+          256,
+          283
+        ],
+        "behavior:puzzle": [
+          0,
+          699,
+          256,
+          278
+        ],
+        "behavior:water_plant": [
+          0,
+          977,
+          256,
+          261
+        ],
+        "behavior:window_nap": [
+          0,
+          283,
+          256,
+          221
+        ],
+        "behavior:robot_ride": [
+          0,
+          0,
+          256,
+          283
+        ]
+      },
+      "covers": [
+        "performance_body:body_base",
+        "performance_body:body_prone",
+        "performance_body:body_flat",
+        "performance_body:body_head_hold",
+        "performance_body:body_kneel",
+        "performance_body:body_corner",
+        "behavior:idle",
+        "behavior:walk",
+        "behavior:sit",
+        "behavior:lie",
+        "behavior:sleep",
+        "behavior:scratch",
+        "behavior:bed_nap",
+        "behavior:pillow_flop",
+        "behavior:blanket_roll",
+        "behavior:read",
+        "behavior:alarm",
+        "behavior:drink",
+        "behavior:tea",
+        "behavior:cookie_guard",
+        "behavior:run",
+        "behavior:puzzle",
+        "behavior:water_plant",
+        "behavior:window_nap",
+        "behavior:robot_ride"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/pighub_motion_02.png",
+      "sha256": "72b5bf8d46579ed1ff7532a769a205c4d9e647e2d0c5c44a52ce806a62439c78",
+      "dimensions": [
+        1285,
+        1224
+      ],
+      "source": "Built-in image_gen; commissioned prompt record pig-performance:body_02",
+      "license": "User-authorized AI-generated project art; final release ownership review remains pending.",
+      "frames": {
+        "performance_body:body_arms": [
+          [
+            0,
+            0,
+            321,
+            235
+          ],
+          [
+            321,
+            0,
+            321,
+            235
+          ],
+          [
+            642,
+            0,
+            322,
+            235
+          ],
+          [
+            964,
+            0,
+            321,
+            235
+          ]
+        ],
+        "performance_body:body_upside": [
+          [
+            0,
+            235,
+            321,
+            207
+          ],
+          [
+            321,
+            235,
+            321,
+            207
+          ],
+          [
+            642,
+            235,
+            322,
+            207
+          ],
+          [
+            964,
+            235,
+            321,
+            207
+          ]
+        ],
+        "performance_body:body_peek": [
+          [
+            0,
+            442,
+            321,
+            209
+          ],
+          [
+            321,
+            442,
+            321,
+            209
+          ],
+          [
+            642,
+            442,
+            322,
+            209
+          ],
+          [
+            964,
+            442,
+            321,
+            209
+          ]
+        ],
+        "performance_body:body_crawl": [
+          [
+            0,
+            651,
+            321,
+            183
+          ],
+          [
+            321,
+            651,
+            321,
+            183
+          ],
+          [
+            642,
+            651,
+            322,
+            183
+          ],
+          [
+            964,
+            651,
+            321,
+            183
+          ]
+        ],
+        "performance_body:body_worker": [
+          [
+            0,
+            834,
+            321,
+            183
+          ],
+          [
+            321,
+            834,
+            321,
+            183
+          ],
+          [
+            642,
+            834,
+            322,
+            183
+          ],
+          [
+            964,
+            834,
+            321,
+            183
+          ]
+        ],
+        "performance_body:body_ruler": [
+          [
+            0,
+            1017,
+            321,
+            207
+          ],
+          [
+            321,
+            1017,
+            321,
+            207
+          ],
+          [
+            642,
+            1017,
+            322,
+            207
+          ],
+          [
+            964,
+            1017,
+            321,
+            207
+          ]
+        ],
+        "behavior:stare": [
+          [
+            0,
+            442,
+            321,
+            209
+          ],
+          [
+            321,
+            442,
+            321,
+            209
+          ],
+          [
+            642,
+            442,
+            322,
+            209
+          ],
+          [
+            964,
+            442,
+            321,
+            209
+          ]
+        ],
+        "behavior:look_mouse": [
+          [
+            0,
+            442,
+            321,
+            209
+          ],
+          [
+            321,
+            442,
+            321,
+            209
+          ],
+          [
+            642,
+            442,
+            322,
+            209
+          ],
+          [
+            964,
+            442,
+            321,
+            209
+          ]
+        ],
+        "behavior:sniff": [
+          [
+            0,
+            651,
+            321,
+            183
+          ],
+          [
+            321,
+            651,
+            321,
+            183
+          ],
+          [
+            642,
+            651,
+            322,
+            183
+          ],
+          [
+            964,
+            651,
+            321,
+            183
+          ]
+        ],
+        "behavior:nightlight": [
+          [
+            0,
+            442,
+            321,
+            209
+          ],
+          [
+            321,
+            442,
+            321,
+            209
+          ],
+          [
+            642,
+            442,
+            322,
+            209
+          ],
+          [
+            964,
+            442,
+            321,
+            209
+          ]
+        ],
+        "behavior:mirror_pose": [
+          [
+            0,
+            442,
+            321,
+            209
+          ],
+          [
+            321,
+            442,
+            321,
+            209
+          ],
+          [
+            642,
+            442,
+            322,
+            209
+          ],
+          [
+            964,
+            442,
+            321,
+            209
+          ]
+        ],
+        "behavior:table_snack": [
+          [
+            0,
+            651,
+            321,
+            183
+          ],
+          [
+            321,
+            651,
+            321,
+            183
+          ],
+          [
+            642,
+            651,
+            322,
+            183
+          ],
+          [
+            964,
+            651,
+            321,
+            183
+          ]
+        ],
+        "behavior:fridge": [
+          [
+            0,
+            651,
+            321,
+            183
+          ],
+          [
+            321,
+            651,
+            321,
+            183
+          ],
+          [
+            642,
+            651,
+            322,
+            183
+          ],
+          [
+            964,
+            651,
+            321,
+            183
+          ]
+        ],
+        "behavior:yoga": [
+          [
+            0,
+            0,
+            321,
+            235
+          ],
+          [
+            321,
+            0,
+            321,
+            235
+          ],
+          [
+            642,
+            0,
+            322,
+            235
+          ],
+          [
+            964,
+            0,
+            321,
+            235
+          ]
+        ],
+        "behavior:paint": [
+          [
+            0,
+            0,
+            321,
+            235
+          ],
+          [
+            321,
+            0,
+            321,
+            235
+          ],
+          [
+            642,
+            0,
+            322,
+            235
+          ],
+          [
+            964,
+            0,
+            321,
+            235
+          ]
+        ],
+        "behavior:ball": [
+          [
+            0,
+            0,
+            321,
+            235
+          ],
+          [
+            321,
+            0,
+            321,
+            235
+          ],
+          [
+            642,
+            0,
+            322,
+            235
+          ],
+          [
+            964,
+            0,
+            321,
+            235
+          ]
+        ],
+        "behavior:drum": [
+          [
+            0,
+            0,
+            321,
+            235
+          ],
+          [
+            321,
+            0,
+            321,
+            235
+          ],
+          [
+            642,
+            0,
+            322,
+            235
+          ],
+          [
+            964,
+            0,
+            321,
+            235
+          ]
+        ],
+        "behavior:camera": [
+          [
+            0,
+            442,
+            321,
+            209
+          ],
+          [
+            321,
+            442,
+            321,
+            209
+          ],
+          [
+            642,
+            442,
+            322,
+            209
+          ],
+          [
+            964,
+            442,
+            321,
+            209
+          ]
+        ],
+        "behavior:castle": [
+          [
+            0,
+            442,
+            321,
+            209
+          ],
+          [
+            321,
+            442,
+            321,
+            209
+          ],
+          [
+            642,
+            442,
+            322,
+            209
+          ],
+          [
+            964,
+            442,
+            321,
+            209
+          ]
+        ],
+        "behavior:radio": [
+          [
+            0,
+            0,
+            321,
+            235
+          ],
+          [
+            321,
+            0,
+            321,
+            235
+          ],
+          [
+            642,
+            0,
+            322,
+            235
+          ],
+          [
+            964,
+            0,
+            321,
+            235
+          ]
+        ],
+        "behavior:weather": [
+          [
+            0,
+            442,
+            321,
+            209
+          ],
+          [
+            321,
+            442,
+            321,
+            209
+          ],
+          [
+            642,
+            442,
+            322,
+            209
+          ],
+          [
+            964,
+            442,
+            321,
+            209
+          ]
+        ],
+        "behavior:telescope": [
+          [
+            0,
+            442,
+            321,
+            209
+          ],
+          [
+            321,
+            442,
+            321,
+            209
+          ],
+          [
+            642,
+            442,
+            322,
+            209
+          ],
+          [
+            964,
+            442,
+            321,
+            209
+          ]
+        ],
+        "behavior:wind_chime": [
+          [
+            0,
+            442,
+            321,
+            209
+          ],
+          [
+            321,
+            442,
+            321,
+            209
+          ],
+          [
+            642,
+            442,
+            322,
+            209
+          ],
+          [
+            964,
+            442,
+            321,
+            209
+          ]
+        ]
+      },
+      "frame_trims": {
+        "performance_body:body_arms": [
+          [
+            33,
+            25,
+            267,
+            196
+          ],
+          [
+            365,
+            25,
+            236,
+            197
+          ],
+          [
+            670,
+            25,
+            263,
+            196
+          ],
+          [
+            986,
+            25,
+            257,
+            197
+          ]
+        ],
+        "performance_body:body_upside": [
+          [
+            51,
+            251,
+            249,
+            170
+          ],
+          [
+            370,
+            249,
+            249,
+            172
+          ],
+          [
+            693,
+            253,
+            248,
+            169
+          ],
+          [
+            1016,
+            252,
+            242,
+            169
+          ]
+        ],
+        "performance_body:body_peek": [
+          [
+            58,
+            457,
+            218,
+            181
+          ],
+          [
+            394,
+            444,
+            205,
+            192
+          ],
+          [
+            695,
+            450,
+            218,
+            184
+          ],
+          [
+            1024,
+            447,
+            211,
+            190
+          ]
+        ],
+        "performance_body:body_crawl": [
+          [
+            39,
+            672,
+            269,
+            151
+          ],
+          [
+            349,
+            673,
+            270,
+            151
+          ],
+          [
+            705,
+            672,
+            213,
+            160
+          ],
+          [
+            986,
+            673,
+            267,
+            151
+          ]
+        ],
+        "performance_body:body_worker": [
+          [
+            39,
+            841,
+            230,
+            167
+          ],
+          [
+            360,
+            841,
+            227,
+            167
+          ],
+          [
+            681,
+            841,
+            227,
+            167
+          ],
+          [
+            1000,
+            841,
+            228,
+            166
+          ]
+        ],
+        "performance_body:body_ruler": [
+          [
+            55,
+            1023,
+            225,
+            186
+          ],
+          [
+            368,
+            1023,
+            243,
+            187
+          ],
+          [
+            721,
+            1023,
+            189,
+            187
+          ],
+          [
+            1024,
+            1022,
+            217,
+            188
+          ]
+        ],
+        "behavior:stare": [
+          [
+            58,
+            457,
+            218,
+            181
+          ],
+          [
+            394,
+            444,
+            205,
+            192
+          ],
+          [
+            695,
+            450,
+            218,
+            184
+          ],
+          [
+            1024,
+            447,
+            211,
+            190
+          ]
+        ],
+        "behavior:look_mouse": [
+          [
+            58,
+            457,
+            218,
+            181
+          ],
+          [
+            394,
+            444,
+            205,
+            192
+          ],
+          [
+            695,
+            450,
+            218,
+            184
+          ],
+          [
+            1024,
+            447,
+            211,
+            190
+          ]
+        ],
+        "behavior:sniff": [
+          [
+            39,
+            672,
+            269,
+            151
+          ],
+          [
+            349,
+            673,
+            270,
+            151
+          ],
+          [
+            705,
+            672,
+            213,
+            160
+          ],
+          [
+            986,
+            673,
+            267,
+            151
+          ]
+        ],
+        "behavior:nightlight": [
+          [
+            58,
+            457,
+            218,
+            181
+          ],
+          [
+            394,
+            444,
+            205,
+            192
+          ],
+          [
+            695,
+            450,
+            218,
+            184
+          ],
+          [
+            1024,
+            447,
+            211,
+            190
+          ]
+        ],
+        "behavior:mirror_pose": [
+          [
+            58,
+            457,
+            218,
+            181
+          ],
+          [
+            394,
+            444,
+            205,
+            192
+          ],
+          [
+            695,
+            450,
+            218,
+            184
+          ],
+          [
+            1024,
+            447,
+            211,
+            190
+          ]
+        ],
+        "behavior:table_snack": [
+          [
+            39,
+            672,
+            269,
+            151
+          ],
+          [
+            349,
+            673,
+            270,
+            151
+          ],
+          [
+            705,
+            672,
+            213,
+            160
+          ],
+          [
+            986,
+            673,
+            267,
+            151
+          ]
+        ],
+        "behavior:fridge": [
+          [
+            39,
+            672,
+            269,
+            151
+          ],
+          [
+            349,
+            673,
+            270,
+            151
+          ],
+          [
+            705,
+            672,
+            213,
+            160
+          ],
+          [
+            986,
+            673,
+            267,
+            151
+          ]
+        ],
+        "behavior:yoga": [
+          [
+            33,
+            25,
+            267,
+            196
+          ],
+          [
+            365,
+            25,
+            236,
+            197
+          ],
+          [
+            670,
+            25,
+            263,
+            196
+          ],
+          [
+            986,
+            25,
+            257,
+            197
+          ]
+        ],
+        "behavior:paint": [
+          [
+            33,
+            25,
+            267,
+            196
+          ],
+          [
+            365,
+            25,
+            236,
+            197
+          ],
+          [
+            670,
+            25,
+            263,
+            196
+          ],
+          [
+            986,
+            25,
+            257,
+            197
+          ]
+        ],
+        "behavior:ball": [
+          [
+            33,
+            25,
+            267,
+            196
+          ],
+          [
+            365,
+            25,
+            236,
+            197
+          ],
+          [
+            670,
+            25,
+            263,
+            196
+          ],
+          [
+            986,
+            25,
+            257,
+            197
+          ]
+        ],
+        "behavior:drum": [
+          [
+            33,
+            25,
+            267,
+            196
+          ],
+          [
+            365,
+            25,
+            236,
+            197
+          ],
+          [
+            670,
+            25,
+            263,
+            196
+          ],
+          [
+            986,
+            25,
+            257,
+            197
+          ]
+        ],
+        "behavior:camera": [
+          [
+            58,
+            457,
+            218,
+            181
+          ],
+          [
+            394,
+            444,
+            205,
+            192
+          ],
+          [
+            695,
+            450,
+            218,
+            184
+          ],
+          [
+            1024,
+            447,
+            211,
+            190
+          ]
+        ],
+        "behavior:castle": [
+          [
+            58,
+            457,
+            218,
+            181
+          ],
+          [
+            394,
+            444,
+            205,
+            192
+          ],
+          [
+            695,
+            450,
+            218,
+            184
+          ],
+          [
+            1024,
+            447,
+            211,
+            190
+          ]
+        ],
+        "behavior:radio": [
+          [
+            33,
+            25,
+            267,
+            196
+          ],
+          [
+            365,
+            25,
+            236,
+            197
+          ],
+          [
+            670,
+            25,
+            263,
+            196
+          ],
+          [
+            986,
+            25,
+            257,
+            197
+          ]
+        ],
+        "behavior:weather": [
+          [
+            58,
+            457,
+            218,
+            181
+          ],
+          [
+            394,
+            444,
+            205,
+            192
+          ],
+          [
+            695,
+            450,
+            218,
+            184
+          ],
+          [
+            1024,
+            447,
+            211,
+            190
+          ]
+        ],
+        "behavior:telescope": [
+          [
+            58,
+            457,
+            218,
+            181
+          ],
+          [
+            394,
+            444,
+            205,
+            192
+          ],
+          [
+            695,
+            450,
+            218,
+            184
+          ],
+          [
+            1024,
+            447,
+            211,
+            190
+          ]
+        ],
+        "behavior:wind_chime": [
+          [
+            58,
+            457,
+            218,
+            181
+          ],
+          [
+            394,
+            444,
+            205,
+            192
+          ],
+          [
+            695,
+            450,
+            218,
+            184
+          ],
+          [
+            1024,
+            447,
+            211,
+            190
+          ]
+        ]
+      },
+      "regions": {
+        "performance_body:body_arms": [
+          0,
+          0,
+          321,
+          235
+        ],
+        "performance_body:body_upside": [
+          0,
+          235,
+          321,
+          207
+        ],
+        "performance_body:body_peek": [
+          0,
+          442,
+          321,
+          209
+        ],
+        "performance_body:body_crawl": [
+          0,
+          651,
+          321,
+          183
+        ],
+        "performance_body:body_worker": [
+          0,
+          834,
+          321,
+          183
+        ],
+        "performance_body:body_ruler": [
+          0,
+          1017,
+          321,
+          207
+        ],
+        "behavior:stare": [
+          0,
+          442,
+          321,
+          209
+        ],
+        "behavior:look_mouse": [
+          0,
+          442,
+          321,
+          209
+        ],
+        "behavior:sniff": [
+          0,
+          651,
+          321,
+          183
+        ],
+        "behavior:nightlight": [
+          0,
+          442,
+          321,
+          209
+        ],
+        "behavior:mirror_pose": [
+          0,
+          442,
+          321,
+          209
+        ],
+        "behavior:table_snack": [
+          0,
+          651,
+          321,
+          183
+        ],
+        "behavior:fridge": [
+          0,
+          651,
+          321,
+          183
+        ],
+        "behavior:yoga": [
+          0,
+          0,
+          321,
+          235
+        ],
+        "behavior:paint": [
+          0,
+          0,
+          321,
+          235
+        ],
+        "behavior:ball": [
+          0,
+          0,
+          321,
+          235
+        ],
+        "behavior:drum": [
+          0,
+          0,
+          321,
+          235
+        ],
+        "behavior:camera": [
+          0,
+          442,
+          321,
+          209
+        ],
+        "behavior:castle": [
+          0,
+          442,
+          321,
+          209
+        ],
+        "behavior:radio": [
+          0,
+          0,
+          321,
+          235
+        ],
+        "behavior:weather": [
+          0,
+          442,
+          321,
+          209
+        ],
+        "behavior:telescope": [
+          0,
+          442,
+          321,
+          209
+        ],
+        "behavior:wind_chime": [
+          0,
+          442,
+          321,
+          209
+        ]
+      },
+      "covers": [
+        "performance_body:body_arms",
+        "performance_body:body_upside",
+        "performance_body:body_peek",
+        "performance_body:body_crawl",
+        "performance_body:body_worker",
+        "performance_body:body_ruler",
+        "behavior:stare",
+        "behavior:look_mouse",
+        "behavior:sniff",
+        "behavior:nightlight",
+        "behavior:mirror_pose",
+        "behavior:table_snack",
+        "behavior:fridge",
+        "behavior:yoga",
+        "behavior:paint",
+        "behavior:ball",
+        "behavior:drum",
+        "behavior:camera",
+        "behavior:castle",
+        "behavior:radio",
+        "behavior:weather",
+        "behavior:telescope",
+        "behavior:wind_chime"
+      ]
+    },
+    {
+      "path": "res://game/assets/final/generated/pighub_face_glyphs.png",
+      "sha256": "5def12a91baed1b94568740abca0f845a2b36521ff458fc05da70fcafdac7ad5",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "source": "Built-in image_gen; commissioned prompt record pig-performance:faces",
+      "license": "User-authorized AI-generated project art; final release ownership review remains pending.",
+      "regions": {
+        "performance_face:face_dot_left": [
+          89,
+          213,
+          65,
+          74
+        ],
+        "performance_face:face_dot_right": [
+          270,
+          227,
+          66,
+          74
+        ],
+        "performance_face:face_dot_mouth": [
+          156,
+          340,
+          101,
+          45
+        ],
+        "performance_face:face_squint_left": [
+          517,
+          215,
+          101,
+          57
+        ],
+        "performance_face:face_squint_right": [
+          709,
+          217,
+          102,
+          57
+        ],
+        "performance_face:face_squint_mouth": [
+          605,
+          343,
+          101,
+          45
+        ],
+        "performance_face:face_deadpan_left": [
+          934,
+          213,
+          111,
+          64
+        ],
+        "performance_face:face_deadpan_right": [
+          1134,
+          219,
+          111,
+          65
+        ],
+        "performance_face:face_deadpan_mouth": [
+          1042,
+          354,
+          89,
+          21
+        ],
+        "performance_face:face_tears_left": [
+          1380,
+          143,
+          87,
+          243
+        ],
+        "performance_face:face_tears_right": [
+          1595,
+          157,
+          84,
+          242
+        ],
+        "performance_face:face_tears_mouth": [
+          1471,
+          357,
+          114,
+          30
+        ],
+        "performance_face:face_sly_left": [
+          77,
+          545,
+          113,
+          125
+        ],
+        "performance_face:face_sly_right": [
+          260,
+          609,
+          111,
+          58
+        ],
+        "performance_face:face_sly_mouth": [
+          188,
+          698,
+          108,
+          62
+        ],
+        "performance_face:face_glare_left": [
+          511,
+          575,
+          103,
+          97
+        ],
+        "performance_face:face_glare_right": [
+          705,
+          575,
+          103,
+          97
+        ],
+        "performance_face:face_glare_mouth": [
+          618,
+          741,
+          90,
+          18
+        ],
+        "performance_face:face_sleepy_left": [
+          945,
+          593,
+          102,
+          72
+        ],
+        "performance_face:face_sleepy_right": [
+          1146,
+          601,
+          104,
+          66
+        ],
+        "performance_face:face_sleepy_mouth": [
+          1071,
+          711,
+          50,
+          66
+        ],
+        "performance_face:face_shock_left": [
+          1408,
+          535,
+          74,
+          145
+        ],
+        "performance_face:face_shock_right": [
+          1595,
+          549,
+          85,
+          147
+        ],
+        "performance_face:face_shock_mouth": [
+          1512,
+          707,
+          50,
+          66
+        ],
+        "performance_face:face_quake_left": [
+          1408,
+          535,
+          74,
+          145
+        ],
+        "performance_face:face_quake_right": [
+          1595,
+          549,
+          85,
+          147
+        ],
+        "performance_face:face_quake_mouth": [
+          1512,
+          707,
+          50,
+          66
+        ]
+      },
+      "covers": [
+        "performance_face:face_dot_left",
+        "performance_face:face_dot_right",
+        "performance_face:face_dot_mouth",
+        "performance_face:face_squint_left",
+        "performance_face:face_squint_right",
+        "performance_face:face_squint_mouth",
+        "performance_face:face_deadpan_left",
+        "performance_face:face_deadpan_right",
+        "performance_face:face_deadpan_mouth",
+        "performance_face:face_tears_left",
+        "performance_face:face_tears_right",
+        "performance_face:face_tears_mouth",
+        "performance_face:face_sly_left",
+        "performance_face:face_sly_right",
+        "performance_face:face_sly_mouth",
+        "performance_face:face_glare_left",
+        "performance_face:face_glare_right",
+        "performance_face:face_glare_mouth",
+        "performance_face:face_sleepy_left",
+        "performance_face:face_sleepy_right",
+        "performance_face:face_sleepy_mouth",
+        "performance_face:face_shock_left",
+        "performance_face:face_shock_right",
+        "performance_face:face_shock_mouth",
+        "performance_face:face_quake_left",
+        "performance_face:face_quake_right",
+        "performance_face:face_quake_mouth"
+      ]
+    }
+  ]
+}

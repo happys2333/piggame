@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "reference": "User-selected subject lock, PigHub-inspired simple meme style. Eight black-eye expressions; legacy face_quake aliases face_shock, never a ninth white-eye image. Generated output is not user-supplied original art or release-approved.",
+  "records": [
+    {
+      "id": "body_01",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-4906af39-7e3c-484d-a093-efd6a32de930.png",
+      "destination": "game/assets/final/generated/pighub_motion_01.png",
+      "row_edges": [
+        0,
+        283,
+        504,
+        699,
+        977,
+        1238,
+        1536
+      ],
+      "prompt": "Use case: identity-preserve. Asset type: Godot desktop pet transparent animation sprite sheet.\nInput image 1 is the LOCKED pig identity. Image 2 is its approved black-eye expression sheet. Keep exactly that simple peach-pink bean pig, soft peach body, hot-pink U-shaped ears, short ROUND peach legs, small pink rear leg, peach CURL tail, hot pink oval snout with two BLACK nostrils. Preserve the funny lumpy meme silhouette and compact front-left face area. Not a new mascot. No black outline, no black hooves, no white shading/highlights, no 3D/sticker gloss.\nCreate a clean sprite sheet with EXACTLY 4 columns by 6 rows (24 full pig sprites), evenly spaced equal cells, transparent background, no text, no grid. The pig should occupy ~75% of each square cell, with identical scale and baseline within each row. Four columns are four distinct hand-drawn loop keyframes, readable limb/ear/tail changes, not merely translated duplicates.\nCRITICAL RIG LAYERS: draw the snout and its two black nostrils, but OMIT ALL EYES, EYEBROWS, MOUTHS, TEARS and cheek marks. These will be composited by the game. The empty eye area stays peach. No detached facial glyphs. Keep the nose on the same front-left FACE, not belly.\nRow 1: standing neutral, four little walk-in-place steps: front legs alternate, ears/tail lightly swing, bean body kept stable.\nRow 2: lying prone, four settling/breathing keyframes; legs tucked, head stays front left.\nRow 3: very lazy lying-flat pancake pig, four slow squash/release keyframes; preserve snout, ears, tail and peach round legs.\nRow 4: front legs raised to the temples (head-holding), four exasperated clutch/release keyframes; leave facial space unobstructed.\nRow 5: kneeling on short front legs, four bow-and-rise keyframes; same bean pig, not human-shaped.\nRow 6: hunched shy pig tucked into itself, four little hide-and-peek keyframes; no wall, no props.\nEvery frame must preserve the chosen subject. Fully transparent between sprites, no checkerboard, captions, shadows, floor, decorative objects. Clean original generated alpha.",
+      "tool": "built-in image_gen",
+      "transparent_background": true,
+      "created_date": "2026-10-08",
+      "reference": "docs/design/art/pighub-subject-lock-reference.png"
+    },
+    {
+      "id": "body_02",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-6525d665-f03d-413e-aa65-e25ef414ee70.png",
+      "destination": "game/assets/final/generated/pighub_motion_02.png",
+      "row_edges": [
+        0,
+        235,
+        442,
+        651,
+        834,
+        1017,
+        1224
+      ],
+      "prompt": "Use case: identity-preserve. Asset type: transparent Godot desktop pig animation atlas.\nUse the attached pig identity exactly: simple lumpy peach-pink bean body, two hot-pink U-shaped ears, short rounded peach legs, small pink rear leg, peach curl tail, pink oval snout with two black nostrils at front LEFT. Same shape, color, flat meme feel as the reference, no outlines, no black hooves, no 3D, no white highlights.\nEXACT layout 4 columns x 6 rows, 24 sprites, evenly centered in equal square cells, ~75% cell occupancy, generous transparent gaps. Each row is FOUR genuinely different looping limb/body keyframes left to right. No text/grid/captions/background/shadows.\nIMPORTANT: draw the snout and nostrils, OMIT eyes, eyebrows, mouths, cheek marks and tears on EVERY sprite. These will be composited in the game. Nose always stays on a compact front-left face, no belly mouth. Keep face upright in all poses including belly-up, front LEFT, unobstructed. Keep scale stable.\nRows top to bottom:\n1. Open both short front legs wide for a silly welcoming hug, wiggle them and bounce.\n2. Lie on back with round peach feet pointing upward, wiggle all feet; head stays upright facing front-left.\n3. Peek shyly: lean front-left head forward, then pull head back and lean again; full body always visible, no wall.\n4. Low playful wriggling crawl: alternating front legs, body stretches then bunches.\n5. Tiny office-worker form: SAME bean pig with just a little blue necktie and very small toy laptop, taps with short front legs in four typing keyframes. No humanoid body/shirt.\n6. Tiny king form: SAME bean pig with little gold PAPER crown and small berry cape, four proud waving-front-leg keyframes. No throne/weapon.\nPeach body remains dominant, silly flat sketch/meme rendering. Output genuine transparent alpha outside sprites. Keep exact subject of reference.",
+      "tool": "built-in image_gen",
+      "transparent_background": true,
+      "created_date": "2026-10-08",
+      "reference": "docs/design/art/pighub-subject-lock-reference.png"
+    },
+    {
+      "id": "faces",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-a7a150eb-ed33-4154-912a-db2c1d4fb16a.png",
+      "destination": "game/assets/final/generated/pighub_face_glyphs.png",
+      "prompt": "Use case: identity-preserve. Asset type: TRANSPARENT facial glyph sheet to overlay on the attached peach bean pig, NOT a sheet of pigs.\nExtract the expressive BLACK eyes/brows/tears and tiny BLACK mouths from the eight expressions in the attached approved image. Preserve their funny simple meme marks. Draw ONLY glyphs, NO pig bodies, NO head, NO nose, NO nostrils, NO peach/pink fill, NO ears/feet/tail.\nExact 4 columns by 2 rows, eight equal cells, transparent everywhere else. Each cell has a left eye centered x28% y32%, right eye centered x68% y35%, mouth centered x49% y72%; consistent landmarks. Eye width ~10% cell, tiny mouth width ~12% cell. Eyebrows immediately above eyes, tears below their respective eyes, no unrelated marks. Generous gaps between left/right/mouth for region cropping.\nEight expressions row-major:\n1 small solid black dot eyes and tiny friendly smile.\n2 black upward happy arcs, tiny curved smile.\n3 BLACK half-lidded semicircle eyes with black lid lines, short flat black mouth.\n4 solid BLACK dot eyes, black sad eyebrows, blue streaming tears from each eye, tiny wavy black mouth.\n5 solid BLACK half-lidded eyes with one mischievous black eyebrow and small side grin.\n6 solid BLACK half-lidded unimpressed eyes, flat brows and short flat black mouth.\n7 BLACK drooping closed eyelids and tiny black oval yawn mouth.\n8 larger solid BLACK dot eyes with curved black brows, tiny black oval surprised mouth.\nALL eye shapes must be solid BLACK only. NO WHITE anywhere, no eye whites, no highlights, no pupils inside rings, no colored iris, no outlines around white. No ninth expression. No white-eye earthquake variant.\nKeep lines slightly wonky and simple, not detailed sticker art. True alpha transparency, no colored canvas or checkerboard, text, grids or shadows.",
+      "tool": "built-in image_gen",
+      "transparent_background": true,
+      "created_date": "2026-10-08",
+      "reference": "docs/design/art/pighub-subject-lock-reference.png"
+    }
+  ],
+  "superseded_records": [
+    {
+      "id": "body_01",
+      "tool": "built-in image_gen",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-cee06291-398a-40b7-8116-c3e5ca1ed540.png",
+      "destination": "game/assets/final/generated/performance_body_01.png",
+      "prompt": "Use case: identity-preserve. Create a production transparent PNG animation atlas for the existing pink pig desktop game. Reference image is identity/style reference ONLY. Preserve its round pink pig body, snout on the left, floppy ears, small dark hooves, tiny curly tail, soft clean pastel sticker outline. ONE shared pig model, not new breeds. Output portrait 1024x1536, exactly 4 columns by 6 rows of equal square cells; 24 sprites, all isolated and entirely inside their cell with generous transparent padding, no labels/grid/background/shadow. Each row is a four-keyframe looping animation, progressing left to right with real limb/body movement, not identical copies. Rows top to bottom: 1 default standing with gently breathing body; 2 prone lying on belly with forehooves stretching forward; 3 completely flat on belly, flopping and breathing like a silly pancake but still cute pink pig; 4 sitting holding both sides of head with forehooves, gently rocking; 5 kneeling and slowly bowing, harmless theatrical apology; 6 curled up crouching in a corner (NO wall or surroundings), nervously fiddling its hooves. IMPORTANT modular-face rig: EVERY sprite must have NO EYES, NO EYEBROWS, NO MOUTH. Leave the pink eye/mouth area completely blank, retain the pink snout and its two nostrils and subtle cheeks. Keep the head upright and snout facing left for all 24 sprites so a separate face decal can be safely attached later. The eye area must never be covered by hooves: head-holding hooves hug above the ears, not across face. Head/face should stay in the same location within the four frames of each row, only ears/body/limbs breathe. No mouths on belly, no extra faces, no text. Real alpha transparency outside all sprites; never flatten against pink, white, checkerboard or gradients.",
+      "transparent_background": true,
+      "created_date": "2026-10-07"
+    },
+    {
+      "id": "body_02",
+      "tool": "built-in image_gen",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-eeb35004-7afa-496a-b0b7-0f466d86d583.png",
+      "destination": "game/assets/final/generated/performance_body_02.png",
+      "prompt": "Use case: identity-preserve. Transparent production PNG sprite sheet for our same round pink pig, matching reference pink pig model and pastel sticker rendering. Reference is identity/style, not edit target. Output exactly 1024x1536 portrait, FOUR columns SIX rows of equal 256x256 cells, no grid/text/background. Left-to-right four DISTINCT looping keyframes in each row, consistent head within each sequence, meaningful limb motion. Rows: 1 sitting and opening both forelegs wide for a warm theatrical embrace, gently bouncing; 2 lying belly-up, four hooves pointing upwards and wiggling, head upright with snout to the LEFT and ears upright even though body is playfully belly-up; 3 peeking out shyly, leaning head then body from the left side of its own cell, no wall, no cropped anatomy; 4 silly low wriggling crawl, moving forehooves one at a time, cute NOT horror, all body fully visible; 5 same pig as temporary office-worker form in a tiny cream collared shirt and blue necktie, typing on a small toy laptop with its hooves; 6 same pig as tiny world-ruler form wearing a gold paper crown and flowing berry cape, theatrically waving one hoof, no weapon, no throne, no other pig. All sprites have NO EYES, NO EYEBROWS, NO MOUTH: leave the pink eye/mouth area blank, keep ONLY the snout's two nostrils, cheeks, ears. Keep head upright and snout on left in EVERY frame, all faces unobstructed, no existing faces accidentally drawn. All sprites fit generous cell padding. Same pig proportions/outline/body hue as reference; forms are costume transformations not new species. Real alpha transparency, no colored/checkerboard backdrop.",
+      "transparent_background": true,
+      "created_date": "2026-10-07"
+    },
+    {
+      "id": "faces",
+      "tool": "built-in image_gen",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-741edf3a-e73c-4386-a8f8-fc3256ad1a68.png",
+      "destination": "game/assets/final/generated/performance_faces.png",
+      "prompt": "Use case: stylized-concept. A modular FACE DECAL atlas for a cute round pink pig game. ONE transparent PNG, square 1024x1024, exactly 3 columns by 3 rows, nine equally sized square cells. DO NOT draw any pig body, head, snout, nose, skin fill, ears, cheeks, text, border or grid. Draw ONLY two small dark-plum cartoon eyes (and optional eyebrows/tears) plus one small mouth, on otherwise genuine transparent alpha. This is a production rig so ALIGN ALL expressions to exactly the SAME face landmark positions in every cell: first eye center at 28% cell width and 32% cell height; second eye center at 68% width and 32% height; mouth center at 60% width and 70% height. NO nostrils or extra eye pair. Mouth must be tiny, cute and comfortably BELOW the eye line; never between eyes or on the pig belly. Keep all art within 15%..85% padding. Nine expressions row-major: 1 bead/dot eyes and tiny friendly curved smile; 2 closed happy crescent eyes and tiny smile; 3 half-lidded deadpan eyes and short flat mouth; 4 gently streaming cartoon tears from both eyes and small wobbly sad mouth; 5 wide tiny trembling pupils inside white eyes and tiny 'o' mouth, startled not horror; 6 mischievous narrowed smiling eyes and tiny side-grin, cute not threatening; 7 unimpressed sideways stare with flat short mouth; 8 sleepy drooping eyelids and very small yawning mouth; 9 round surprised eyes and larger oval open mouth centered at the same mouth point, no teeth. Clean pastel sticker-line style, plum/brown eyes/mouth with white only inside open eyes and subtle blue tears. No pink background, no checkerboard, no shadow, no opaque canvas. All nine expressions are isolated face glyphs only. Face glyph shape positions must stay aligned across the nine cells.",
+      "transparent_background": true,
+      "created_date": "2026-10-07"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://game/scripts/ui/main.gd" id="1_main"]
+[ext_resource type="Script" path="res://game/scripts/ui/room_visual.gd" id="2_room"]
+[ext_resource type="Script" path="res://game/scripts/ui/pig_visual.gd" id="3_pig"]
+[ext_resource type="Script" path="res://game/scripts/ui/main_ui.gd" id="4_ui"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main")
+
+[node name="Room" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_room")
+
+[node name="Pig" type="Control" parent="."]
+custom_minimum_size = Vector2(280, 230)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -70.0
+offset_right = 140.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_pig")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="MainUI" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_ui")
+
