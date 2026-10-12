@@ -1,0 +1,10 @@
+[
+  {"id":"postcard_wake","points":100,"name_key":"POSTCARD_WAKE_NAME","body_key":"POSTCARD_WAKE_BODY"},
+  {"id":"postcard_carrot","points":300,"name_key":"POSTCARD_CARROT_NAME","body_key":"POSTCARD_CARROT_BODY"},
+  {"id":"postcard_flat","points":600,"name_key":"POSTCARD_FLAT_NAME","body_key":"POSTCARD_FLAT_BODY"},
+  {"id":"postcard_huddle","points":1200,"name_key":"POSTCARD_HUDDLE_NAME","body_key":"POSTCARD_HUDDLE_BODY"},
+  {"id":"postcard_park","points":2500,"name_key":"POSTCARD_PARK_NAME","body_key":"POSTCARD_PARK_BODY"},
+  {"id":"postcard_fact","points":5000,"name_key":"POSTCARD_FACT_NAME","body_key":"POSTCARD_FACT_BODY"},
+  {"id":"postcard_bold","points":9000,"name_key":"POSTCARD_BOLD_NAME","body_key":"POSTCARD_BOLD_BODY"},
+  {"id":"postcard_belly","points":15000,"name_key":"POSTCARD_BELLY_NAME","body_key":"POSTCARD_BELLY_BODY"}
+]

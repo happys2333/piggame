@@ -10,6 +10,7 @@ from pathlib import Path
 from PIL import Image
 
 from validate_final_assets import expected_coverage
+from pighub_postcard_assets import postcard_asset_entries
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,9 +23,15 @@ def validate_manifest(manifest: dict, root: Path = ROOT) -> list[str]:
     if manifest.get("ready") is not False or manifest.get("provided_by_user") is not False:
         errors.append("generated visual-only artwork must not be described as user-supplied final assets")
     covered = []
+    try:
+        imported_entries = {entry["path"]: entry for entry in postcard_asset_entries(root)}
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        return errors + [f"PigHub provenance cannot be read: {exc}"]
     for entry in manifest.get("entries", []):
         path = entry.get("path", "")
-        if not path.startswith("res://game/assets/final/generated/") or ".." in path:
+        imported = entry.get("origin") == "pighub_original"
+        prefix = "res://game/assets/final/pighub/" if imported else "res://game/assets/final/generated/"
+        if not path.startswith(prefix) or ".." in path:
             errors.append(f"invalid generated PNG path: {path}")
             continue
         disk_path = root / path.removeprefix("res://")
@@ -35,9 +42,12 @@ def validate_manifest(manifest: dict, root: Path = ROOT) -> list[str]:
             errors.append(f"generated image hash mismatch: {path}")
         image = Image.open(disk_path)
         image.load()
-        if image.format != "PNG" or list(image.size) != entry.get("dimensions"):
+        expected_format = "PNG" if not imported else ("WEBP" if path.endswith(".webp") else "JPEG")
+        if image.format != expected_format or list(image.size) != entry.get("dimensions"):
             errors.append(f"generated PNG dimensions mismatch: {path}")
-        if "image_gen" not in entry.get("source", "") or not entry.get("license", "").strip():
+        if imported and entry != imported_entries.get(path):
+            errors.append(f"PigHub original provenance mismatch: {path}")
+        if (not imported and "image_gen" not in entry.get("source", "")) or not entry.get("license", "").strip():
             errors.append(f"generated image provenance is missing: {path}")
         tokens = entry.get("covers", [])
         covered.extend(tokens)
@@ -91,7 +101,8 @@ def main() -> int:
         return 1
     count = sum(len(entry['covers']) for entry in manifest['entries'])
     bodies = sum(token.startswith("performance_body:") for entry in manifest["entries"] for token in entry["covers"])
-    print(f"PASS: {count} generated visual tokens, {len(manifest['entries'])} unchanged PNG sources, {bodies} shared four-frame bodies, 36 behavior aliases; audio and final release remain pending")
+    originals = sum(entry.get("origin") == "pighub_original" for entry in manifest["entries"])
+    print(f"PASS: {count} visual tokens, {len(manifest['entries']) - originals} unchanged generated PNGs, {originals} original PigHub WebP/JPEGs, {bodies} shared four-frame bodies; audio and final release remain pending")
     return 0
 
 

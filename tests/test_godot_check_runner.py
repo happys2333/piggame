@@ -123,6 +123,20 @@ class GodotCheckRunnerTests(unittest.TestCase):
             ],
         )
 
+    def test_desktop_drag_scene_is_required_with_exact_pass_marker(self) -> None:
+        checks = [check for check in RUNNER.CHECKS if check[0] == "desktop drag rules"]
+        self.assertEqual(len(checks), 1)
+        label, arguments, marker = checks[0]
+        self.assertEqual(arguments, ("res://tests/desktop_drag_rules.tscn",))
+        self.assertEqual(marker, "DESKTOP_DRAG_RULES: assertions=85 failures=0")
+        passed = subprocess.CompletedProcess(args=["godot"], returncode=0, stdout=marker + "\n")
+        self.assertEqual(RUNNER.result_exit_code(passed, label, marker), 0)
+        failed = subprocess.CompletedProcess(
+            args=["godot"], returncode=0, stdout=marker.replace("failures=0", "failures=1") + "\n"
+        )
+        with contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(RUNNER.result_exit_code(failed, label, marker), 1)
+
     def test_stages_sources_and_cleans_only_isolated_user_data(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

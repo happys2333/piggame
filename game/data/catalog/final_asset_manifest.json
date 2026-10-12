@@ -4,7 +4,7 @@
   "provided_by_user": false,
   "visual_ready": true,
   "generation_authorized": true,
-  "note": "Commissioned image_gen visuals, including modular faces/poses/forms. Audio, release ownership and external acceptance remain pending; generated images are not user-supplied originals.",
+  "note": "Commissioned image_gen visuals plus separately attributed original PigHub postcard WebP/JPEGs authorized by the project owner. Audio, independent rights verification and final release approval remain pending; neither generated nor downloaded images are user-created originals.",
   "entries": [
     {
       "path": "res://game/assets/final/generated/furniture_01.png",
@@ -17,100 +17,100 @@
       "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
       "regions": {
         "furniture:furn_bed_basic": [
-          0,
-          0,
-          314,
-          314
+          22,
+          97,
+          292,
+          201
         ],
         "furniture:furn_pillow_cloud": [
-          314,
-          0,
-          313,
-          314
+          350,
+          97,
+          261,
+          180
         ],
         "furniture:furn_nightlight_moon": [
-          627,
-          0,
-          313,
-          314
+          695,
+          61,
+          172,
+          231
         ],
         "furniture:furn_blanket_roll": [
-          940,
-          0,
-          314,
-          314
+          959,
+          99,
+          272,
+          194
         ],
         "furniture:furn_mirror_round": [
-          0,
-          314,
-          314,
-          313
+          48,
+          359,
+          229,
+          257
         ],
         "furniture:furn_bookshelf_low": [
-          314,
-          314,
-          313,
-          313
+          344,
+          395,
+          269,
+          213
         ],
         "furniture:furn_clock_sleepy": [
-          627,
-          314,
-          313,
-          313
+          685,
+          360,
+          201,
+          256
         ],
         "furniture:furn_robot_dock": [
-          940,
-          314,
-          314,
-          313
+          975,
+          392,
+          230,
+          216
         ],
         "furniture:furn_table_snack": [
-          0,
-          627,
-          314,
-          313
+          30,
+          728,
+          279,
+          156
         ],
         "furniture:furn_fridge_pink": [
-          314,
-          627,
-          313,
-          313
+          380,
+          647,
+          200,
+          255
         ],
         "furniture:furn_drink_crate": [
-          627,
-          627,
-          313,
-          313
+          645,
+          701,
+          280,
+          200
         ],
         "furniture:furn_kettle_round": [
-          940,
-          627,
-          314,
-          313
+          972,
+          658,
+          237,
+          253
         ],
         "furniture:furn_cookie_jar": [
-          0,
-          940,
-          314,
-          314
+          47,
+          948,
+          227,
+          257
         ],
         "furniture:furn_fruit_bowl": [
-          314,
-          940,
-          313,
-          314
+          337,
+          979,
+          269,
+          221
         ],
         "furniture:furn_mini_oven": [
-          627,
-          940,
-          313,
-          314
+          646,
+          972,
+          280,
+          219
         ],
         "furniture:furn_cleaning_robot": [
-          940,
-          940,
-          314,
-          314
+          961,
+          1017,
+          264,
+          169
         ]
       },
       "covers": [
@@ -143,100 +143,100 @@
       "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
       "regions": {
         "furniture:furn_treadmill": [
-          0,
-          0,
-          314,
-          314
+          48,
+          56,
+          262,
+          255
         ],
         "furniture:furn_yoga_mat": [
-          314,
-          0,
-          313,
-          314
+          337,
+          125,
+          290,
+          181
         ],
         "furniture:furn_easel": [
-          627,
-          0,
-          313,
-          314
+          683,
+          37,
+          193,
+          277
         ],
         "furniture:furn_soft_ball": [
-          940,
-          0,
-          314,
-          314
+          985,
+          76,
+          217,
+          218
         ],
         "furniture:furn_tiny_drum": [
-          0,
-          314,
-          314,
-          313
+          49,
+          387,
+          217,
+          204
         ],
         "furniture:furn_camera": [
-          314,
-          314,
-          313,
-          313
+          336,
+          411,
+          251,
+          171
         ],
         "furniture:furn_puzzle_box": [
-          627,
-          314,
-          313,
-          313
+          666,
+          388,
+          248,
+          208
         ],
         "furniture:furn_cardboard_castle": [
-          940,
-          314,
-          314,
-          313
+          990,
+          361,
+          222,
+          235
         ],
         "furniture:furn_plant_sprout": [
-          0,
-          627,
-          314,
-          313
+          82,
+          679,
+          168,
+          224
         ],
         "furniture:furn_radio": [
-          314,
-          627,
-          313,
-          313
+          354,
+          660,
+          241,
+          239
         ],
         "furniture:furn_weather_charm": [
-          627,
-          627,
-          313,
-          313
+          701,
+          646,
+          169,
+          277
         ],
         "furniture:furn_window_cushion": [
-          940,
-          627,
-          314,
-          313
+          951,
+          706,
+          265,
+          188
         ],
         "furniture:furn_telescope": [
-          0,
-          940,
-          314,
-          314
+          57,
+          959,
+          233,
+          262
         ],
         "furniture:furn_wind_chime": [
-          314,
+          406,
           940,
-          313,
-          314
+          135,
+          281
         ],
         "furniture:furn_tea_tray": [
-          627,
-          940,
-          313,
-          314
+          631,
+          999,
+          297,
+          200
         ],
         "furniture:furn_tiny_lamp": [
-          940,
-          940,
-          314,
-          314
+          1007,
+          964,
+          176,
+          255
         ]
       },
       "covers": [
@@ -269,64 +269,64 @@
       "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
       "regions": {
         "snack:snack_apple": [
-          0,
-          0,
-          314,
-          314
+          63,
+          68,
+          207,
+          237
         ],
         "snack:snack_berry_milk": [
-          314,
-          0,
-          313,
-          314
+          396,
+          50,
+          143,
+          264
         ],
         "snack:snack_cloud_bun": [
-          627,
-          0,
-          313,
-          314
+          642,
+          115,
+          272,
+          191
         ],
         "snack:snack_crunchy_peas": [
-          940,
-          0,
-          314,
-          314
+          986,
+          123,
+          221,
+          183
         ],
         "snack:snack_peach_soda": [
-          0,
-          314,
-          314,
-          313
+          95,
+          353,
+          137,
+          274
         ],
         "snack:snack_seaweed_roll": [
-          314,
-          314,
-          313,
-          313
+          352,
+          443,
+          237,
+          177
         ],
         "snack:snack_pudding_cup": [
-          627,
-          314,
-          313,
-          313
+          663,
+          396,
+          241,
+          231
         ],
         "snack:snack_star_cookie": [
-          940,
-          314,
-          314,
-          313
+          972,
+          396,
+          254,
+          231
         ],
         "snack:snack_warm_cocoa": [
-          0,
-          627,
-          314,
-          313
+          50,
+          707,
+          259,
+          221
         ],
         "snack:snack_tiny_sandwich": [
-          314,
-          627,
-          313,
-          313
+          364,
+          701,
+          246,
+          224
         ]
       },
       "covers": [
@@ -344,7 +344,7 @@
     },
     {
       "path": "res://game/assets/final/generated/outfits.png",
-      "sha256": "e0de2f9e83c4e8f290d5839ae3b3f0823a6c11b34aed09111ca72e915b3728a5",
+      "sha256": "b0d6c6a8e4d20af454a85be1d9da925913e6a84282e3c9f870aa1a0586723332",
       "dimensions": [
         1254,
         1254
@@ -353,165 +353,63 @@
       "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
       "regions": {
         "outfit:outfit_berry_beret": [
-          36,
-          82,
-          232,
-          121
-        ],
-        "outfit:outfit_round_glasses": [
-          354,
-          140,
-          224,
-          113
-        ],
-        "outfit:outfit_cloud_scarf": [
-          679,
-          198,
-          227,
-          109
-        ],
-        "outfit:outfit_sprout_pin": [
-          981,
-          89,
-          239,
-          116
-        ],
-        "outfit:outfit_sleepy_cap": [
-          41,
-          379,
-          273,
-          155
-        ],
-        "outfit:outfit_rain_cape": [
-          314,
-          472,
-          299,
-          130
-        ],
-        "outfit:outfit_painter_hat": [
-          666,
-          385,
-          228,
-          122
-        ],
-        "outfit:outfit_sports_band": [
-          978,
-          439,
-          229,
-          83
-        ],
-        "outfit:outfit_bow_tie": [
-          89,
-          817,
-          145,
-          76
-        ],
-        "outfit:outfit_paper_crown": [
-          353,
-          683,
-          228,
+          63,
+          96,
+          222,
           131
         ],
-        "outfit:outfit_star_glasses": [
-          665,
-          748,
-          234,
-          99
-        ],
-        "outfit:outfit_hero_cape": [
-          976,
-          765,
-          257,
-          126
-        ]
-      },
-      "placements": {
-        "outfit:outfit_berry_beret": [
-          28,
-          50,
-          142,
-          57
-        ],
         "outfit:outfit_round_glasses": [
-          40,
-          72,
-          124,
-          82
-        ],
-        "outfit:outfit_cloud_scarf": [
-          48,
-          154,
-          137,
-          63
+          344,
+          146,
+          262,
+          104
         ],
         "outfit:outfit_sprout_pin": [
-          28,
-          62,
-          139,
-          59
+          1048,
+          136,
+          123,
+          99
         ],
         "outfit:outfit_sleepy_cap": [
-          24,
-          41,
-          158,
-          83
-        ],
-        "outfit:outfit_rain_cape": [
-          115,
-          117,
-          139,
-          101
+          48,
+          390,
+          261,
+          188
         ],
         "outfit:outfit_painter_hat": [
-          27,
-          51,
-          148,
-          63
+          677,
+          411,
+          224,
+          134
         ],
         "outfit:outfit_sports_band": [
-          26,
-          79,
-          139,
-          37
-        ],
-        "outfit:outfit_bow_tie": [
-          68,
-          161,
-          74,
-          40
+          980,
+          453,
+          233,
+          80
         ],
         "outfit:outfit_paper_crown": [
-          26,
-          33,
-          146,
-          77
+          379,
+          717,
+          185,
+          128
         ],
         "outfit:outfit_star_glasses": [
-          40,
-          98,
-          112,
-          42
-        ],
-        "outfit:outfit_hero_cape": [
-          124,
-          121,
-          129,
-          96
+          649,
+          736,
+          272,
+          120
         ]
       },
       "covers": [
         "outfit:outfit_berry_beret",
         "outfit:outfit_round_glasses",
-        "outfit:outfit_cloud_scarf",
         "outfit:outfit_sprout_pin",
         "outfit:outfit_sleepy_cap",
-        "outfit:outfit_rain_cape",
         "outfit:outfit_painter_hat",
         "outfit:outfit_sports_band",
-        "outfit:outfit_bow_tie",
         "outfit:outfit_paper_crown",
-        "outfit:outfit_star_glasses",
-        "outfit:outfit_hero_cape"
+        "outfit:outfit_star_glasses"
       ]
     },
     {
@@ -837,22 +735,22 @@
       "license": "AI-generated output for this user-authorized project; release ownership and legal review remain pending.",
       "regions": {
         "ui:photo_frame_plain": [
-          0,
-          0,
-          1024,
-          512
+          18,
+          18,
+          988,
+          464
         ],
         "ui:photo_frame_berry": [
-          0,
-          512,
-          1024,
-          512
+          16,
+          516,
+          992,
+          463
         ],
         "ui:photo_frame_star": [
-          0,
+          18,
           1024,
-          1024,
-          512
+          989,
+          484
         ]
       },
       "covers": [
@@ -1348,32 +1246,6 @@
             195
           ]
         ],
-        "performance_body:body_head_hold": [
-          [
-            0,
-            699,
-            256,
-            278
-          ],
-          [
-            256,
-            699,
-            256,
-            278
-          ],
-          [
-            512,
-            699,
-            256,
-            278
-          ],
-          [
-            768,
-            699,
-            256,
-            278
-          ]
-        ],
         "performance_body:body_kneel": [
           [
             0,
@@ -1556,32 +1428,6 @@
             195
           ]
         ],
-        "behavior:scratch": [
-          [
-            0,
-            699,
-            256,
-            278
-          ],
-          [
-            256,
-            699,
-            256,
-            278
-          ],
-          [
-            512,
-            699,
-            256,
-            278
-          ],
-          [
-            768,
-            699,
-            256,
-            278
-          ]
-        ],
         "behavior:bed_nap": [
           [
             0,
@@ -1686,32 +1532,6 @@
             261
           ]
         ],
-        "behavior:alarm": [
-          [
-            0,
-            699,
-            256,
-            278
-          ],
-          [
-            256,
-            699,
-            256,
-            278
-          ],
-          [
-            512,
-            699,
-            256,
-            278
-          ],
-          [
-            768,
-            699,
-            256,
-            278
-          ]
-        ],
         "behavior:drink": [
           [
             0,
@@ -1814,32 +1634,6 @@
             0,
             256,
             283
-          ]
-        ],
-        "behavior:puzzle": [
-          [
-            0,
-            699,
-            256,
-            278
-          ],
-          [
-            256,
-            699,
-            256,
-            278
-          ],
-          [
-            512,
-            699,
-            256,
-            278
-          ],
-          [
-            768,
-            699,
-            256,
-            278
           ]
         ],
         "behavior:water_plant": [
@@ -2000,32 +1794,6 @@
             134
           ]
         ],
-        "performance_body:body_head_hold": [
-          [
-            23,
-            727,
-            229,
-            234
-          ],
-          [
-            284,
-            730,
-            221,
-            231
-          ],
-          [
-            529,
-            727,
-            224,
-            234
-          ],
-          [
-            777,
-            723,
-            227,
-            238
-          ]
-        ],
         "performance_body:body_kneel": [
           [
             31,
@@ -2208,32 +1976,6 @@
             134
           ]
         ],
-        "behavior:scratch": [
-          [
-            23,
-            727,
-            229,
-            234
-          ],
-          [
-            284,
-            730,
-            221,
-            231
-          ],
-          [
-            529,
-            727,
-            224,
-            234
-          ],
-          [
-            777,
-            723,
-            227,
-            238
-          ]
-        ],
         "behavior:bed_nap": [
           [
             23,
@@ -2338,32 +2080,6 @@
             211
           ]
         ],
-        "behavior:alarm": [
-          [
-            23,
-            727,
-            229,
-            234
-          ],
-          [
-            284,
-            730,
-            221,
-            231
-          ],
-          [
-            529,
-            727,
-            224,
-            234
-          ],
-          [
-            777,
-            723,
-            227,
-            238
-          ]
-        ],
         "behavior:drink": [
           [
             31,
@@ -2466,32 +2182,6 @@
             41,
             223,
             214
-          ]
-        ],
-        "behavior:puzzle": [
-          [
-            23,
-            727,
-            229,
-            234
-          ],
-          [
-            284,
-            730,
-            221,
-            231
-          ],
-          [
-            529,
-            727,
-            224,
-            234
-          ],
-          [
-            777,
-            723,
-            227,
-            238
           ]
         ],
         "behavior:water_plant": [
@@ -2592,12 +2282,6 @@
           256,
           195
         ],
-        "performance_body:body_head_hold": [
-          0,
-          699,
-          256,
-          278
-        ],
         "performance_body:body_kneel": [
           0,
           977,
@@ -2640,12 +2324,6 @@
           256,
           195
         ],
-        "behavior:scratch": [
-          0,
-          699,
-          256,
-          278
-        ],
         "behavior:bed_nap": [
           0,
           283,
@@ -2669,12 +2347,6 @@
           977,
           256,
           261
-        ],
-        "behavior:alarm": [
-          0,
-          699,
-          256,
-          278
         ],
         "behavior:drink": [
           0,
@@ -2700,12 +2372,6 @@
           256,
           283
         ],
-        "behavior:puzzle": [
-          0,
-          699,
-          256,
-          278
-        ],
         "behavior:water_plant": [
           0,
           977,
@@ -2729,7 +2395,6 @@
         "performance_body:body_base",
         "performance_body:body_prone",
         "performance_body:body_flat",
-        "performance_body:body_head_hold",
         "performance_body:body_kneel",
         "performance_body:body_corner",
         "behavior:idle",
@@ -2737,17 +2402,14 @@
         "behavior:sit",
         "behavior:lie",
         "behavior:sleep",
-        "behavior:scratch",
         "behavior:bed_nap",
         "behavior:pillow_flop",
         "behavior:blanket_roll",
         "behavior:read",
-        "behavior:alarm",
         "behavior:drink",
         "behavior:tea",
         "behavior:cookie_guard",
         "behavior:run",
-        "behavior:puzzle",
         "behavior:water_plant",
         "behavior:window_nap",
         "behavior:robot_ride"
@@ -4129,6 +3791,260 @@
       ]
     },
     {
+      "path": "res://game/assets/final/generated/pighub_head_hold.png",
+      "sha256": "dd2af7c7d427d52b11c0b038ac15d24c2d1e602cce8f3fa891d87b6df227f75c",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "source": "Built-in image_gen; commissioned prompt record pig-performance:body_03",
+      "license": "User-authorized AI-generated project art; final release ownership review remains pending.",
+      "frames": {
+        "performance_body:body_head_hold": [
+          [
+            0,
+            82,
+            543,
+            544
+          ],
+          [
+            543,
+            82,
+            543,
+            544
+          ],
+          [
+            1086,
+            82,
+            543,
+            544
+          ],
+          [
+            1629,
+            82,
+            543,
+            544
+          ]
+        ],
+        "behavior:scratch": [
+          [
+            0,
+            82,
+            543,
+            544
+          ],
+          [
+            543,
+            82,
+            543,
+            544
+          ],
+          [
+            1086,
+            82,
+            543,
+            544
+          ],
+          [
+            1629,
+            82,
+            543,
+            544
+          ]
+        ],
+        "behavior:alarm": [
+          [
+            0,
+            82,
+            543,
+            544
+          ],
+          [
+            543,
+            82,
+            543,
+            544
+          ],
+          [
+            1086,
+            82,
+            543,
+            544
+          ],
+          [
+            1629,
+            82,
+            543,
+            544
+          ]
+        ],
+        "behavior:puzzle": [
+          [
+            0,
+            82,
+            543,
+            544
+          ],
+          [
+            543,
+            82,
+            543,
+            544
+          ],
+          [
+            1086,
+            82,
+            543,
+            544
+          ],
+          [
+            1629,
+            82,
+            543,
+            544
+          ]
+        ]
+      },
+      "frame_trims": {
+        "performance_body:body_head_hold": [
+          [
+            52,
+            168,
+            440,
+            357
+          ],
+          [
+            599,
+            168,
+            436,
+            357
+          ],
+          [
+            1136,
+            168,
+            442,
+            357
+          ],
+          [
+            1681,
+            168,
+            439,
+            357
+          ]
+        ],
+        "behavior:scratch": [
+          [
+            52,
+            168,
+            440,
+            357
+          ],
+          [
+            599,
+            168,
+            436,
+            357
+          ],
+          [
+            1136,
+            168,
+            442,
+            357
+          ],
+          [
+            1681,
+            168,
+            439,
+            357
+          ]
+        ],
+        "behavior:alarm": [
+          [
+            52,
+            168,
+            440,
+            357
+          ],
+          [
+            599,
+            168,
+            436,
+            357
+          ],
+          [
+            1136,
+            168,
+            442,
+            357
+          ],
+          [
+            1681,
+            168,
+            439,
+            357
+          ]
+        ],
+        "behavior:puzzle": [
+          [
+            52,
+            168,
+            440,
+            357
+          ],
+          [
+            599,
+            168,
+            436,
+            357
+          ],
+          [
+            1136,
+            168,
+            442,
+            357
+          ],
+          [
+            1681,
+            168,
+            439,
+            357
+          ]
+        ]
+      },
+      "regions": {
+        "performance_body:body_head_hold": [
+          0,
+          82,
+          543,
+          544
+        ],
+        "behavior:scratch": [
+          0,
+          82,
+          543,
+          544
+        ],
+        "behavior:alarm": [
+          0,
+          82,
+          543,
+          544
+        ],
+        "behavior:puzzle": [
+          0,
+          82,
+          543,
+          544
+        ]
+      },
+      "covers": [
+        "performance_body:body_head_hold",
+        "behavior:scratch",
+        "behavior:alarm",
+        "behavior:puzzle"
+      ]
+    },
+    {
       "path": "res://game/assets/final/generated/pighub_face_glyphs.png",
       "sha256": "5def12a91baed1b94568740abca0f845a2b36521ff458fc05da70fcafdac7ad5",
       "dimensions": [
@@ -4330,6 +4246,118 @@
         "performance_face:face_quake_right",
         "performance_face:face_quake_mouth"
       ]
+    },
+    {
+      "path": "res://game/assets/final/pighub/postcard_wake.webp",
+      "sha256": "f2e4e2c78972fa4b70f869722390144741c07be3f059785fbe864efd59c5ce07",
+      "dimensions": [
+        736,
+        732
+      ],
+      "covers": [
+        "postcard:postcard_wake"
+      ],
+      "origin": "pighub_original",
+      "source": "PigHub original WEBP: https://pighub.top/images/%E4%BD%A0%E9%86%92%E5%95%A6.jpg",
+      "license": "Project owner authorized use on 2026-10-05 and 2026-10-09; independent rights verification and final release approval remain pending. See LICENSES/PigHub/SOURCE.md."
+    },
+    {
+      "path": "res://game/assets/final/pighub/postcard_carrot.webp",
+      "sha256": "40f31fac7d709a5e7503dadd64438e6b5e13f81ea1bbae341cb14d4280229010",
+      "dimensions": [
+        719,
+        631
+      ],
+      "covers": [
+        "postcard:postcard_carrot"
+      ],
+      "origin": "pighub_original",
+      "source": "PigHub original WEBP: https://pighub.top/images/%E8%90%9D%E5%8D%9C%E7%8C%AA.jpg",
+      "license": "Project owner authorized use on 2026-10-05 and 2026-10-09; independent rights verification and final release approval remain pending. See LICENSES/PigHub/SOURCE.md."
+    },
+    {
+      "path": "res://game/assets/final/pighub/postcard_flat.webp",
+      "sha256": "370d774f9592c7900c196fc55aa005f5cdf7e6c5c9ee7ff4be97926a1e1f2574",
+      "dimensions": [
+        1092,
+        428
+      ],
+      "covers": [
+        "postcard:postcard_flat"
+      ],
+      "origin": "pighub_original",
+      "source": "PigHub original WEBP: https://pighub.top/images/%E6%89%81%E7%8C%AA.jpg",
+      "license": "Project owner authorized use on 2026-10-05 and 2026-10-09; independent rights verification and final release approval remain pending. See LICENSES/PigHub/SOURCE.md."
+    },
+    {
+      "path": "res://game/assets/final/pighub/postcard_huddle.webp",
+      "sha256": "f916914b39e5ed9d1e608275e6a5810195b70709d3bf576728c062ea4a9b2889",
+      "dimensions": [
+        370,
+        360
+      ],
+      "covers": [
+        "postcard:postcard_huddle"
+      ],
+      "origin": "pighub_original",
+      "source": "PigHub original WEBP: https://pighub.top/images/%E6%AC%A2%E4%B9%90%E5%A4%9A%E7%8C%AA.jpg",
+      "license": "Project owner authorized use on 2026-10-05 and 2026-10-09; independent rights verification and final release approval remain pending. See LICENSES/PigHub/SOURCE.md."
+    },
+    {
+      "path": "res://game/assets/final/pighub/postcard_park.webp",
+      "sha256": "c6ea79a460b2f2ee1004e5f3d02ff3a2b1c6ac55efa249e72388c98a1f975b99",
+      "dimensions": [
+        640,
+        573
+      ],
+      "covers": [
+        "postcard:postcard_park"
+      ],
+      "origin": "pighub_original",
+      "source": "PigHub original WEBP: https://pighub.top/images/%E4%B9%B1%E5%81%9C%E7%8C%AA.jpg",
+      "license": "Project owner authorized use on 2026-10-05 and 2026-10-09; independent rights verification and final release approval remain pending. See LICENSES/PigHub/SOURCE.md."
+    },
+    {
+      "path": "res://game/assets/final/pighub/postcard_fact.webp",
+      "sha256": "c61c93ea5608c54f008a04868f18af4fc9976b3668899a74833e5dcb09f153ad",
+      "dimensions": [
+        954,
+        1098
+      ],
+      "covers": [
+        "postcard:postcard_fact"
+      ],
+      "origin": "pighub_original",
+      "source": "PigHub original WEBP: https://pighub.top/images/%E4%BD%A0%E7%9F%A5%E9%81%93%E5%90%97.jpg",
+      "license": "Project owner authorized use on 2026-10-05 and 2026-10-09; independent rights verification and final release approval remain pending. See LICENSES/PigHub/SOURCE.md."
+    },
+    {
+      "path": "res://game/assets/final/pighub/postcard_bold.webp",
+      "sha256": "4b51e8b95e632551a6c43cb1034edf57b357006a4cf19d65dce10287af529091",
+      "dimensions": [
+        1800,
+        1800
+      ],
+      "covers": [
+        "postcard:postcard_bold"
+      ],
+      "origin": "pighub_original",
+      "source": "PigHub original WEBP: https://pighub.top/images/%E7%AC%A8%E7%AC%A8%E7%9A%84%E7%8C%AA%E6%B0%94%E5%8A%BF%E6%B1%B9%E6%B1%B9%E5%9C%B0%E7%99%BB%E5%9C%BA%EF%BC%81.jpg",
+      "license": "Project owner authorized use on 2026-10-05 and 2026-10-09; independent rights verification and final release approval remain pending. See LICENSES/PigHub/SOURCE.md."
+    },
+    {
+      "path": "res://game/assets/final/pighub/postcard_belly.jpg",
+      "sha256": "dbfb360ef3c5382f2f4bf53ae7c1609505656a775be6f6f62cdd29b6347085bb",
+      "dimensions": [
+        540,
+        540
+      ],
+      "covers": [
+        "postcard:postcard_belly"
+      ],
+      "origin": "pighub_original",
+      "source": "PigHub original JPEG: https://pighub.top/images/%E8%82%A5%E7%8C%AA.jpg",
+      "license": "Project owner authorized use on 2026-10-05 and 2026-10-09; independent rights verification and final release approval remain pending. See LICENSES/PigHub/SOURCE.md."
     }
   ]
 }

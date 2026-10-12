@@ -9,6 +9,7 @@ signal content_unlocked(type: String, id: String)
 # onboarding: desktop mode first, then the snack/activity areas and tendency.
 # The longer tail keeps the theme ending in the 8–12 active-hour design target.
 const FAMILIARITY_THRESHOLDS: Array[int] = [0, 70, 78, 86, 95, 200, 400, 750, 1250, 2000]
+const STARTING_POINTS: int = 70
 
 var name: String = ""
 var personality_id: String = ""
@@ -18,7 +19,10 @@ var interest: float = 64.0
 var familiarity_xp: int = 0
 var familiarity_level: int = 1
 var active_seconds: float = 0.0
-var daily_points: int = 70
+var daily_points: int = STARTING_POINTS
+var earned_points: int = 0
+var received_postcards: Dictionary = {}
+var read_postcards: Array[String] = []
 var tendency: String = "explore"
 var current_outfit: String = ""
 var current_room_palette: String = "rose"
@@ -54,6 +58,7 @@ func normalize() -> void:
 	familiarity_xp = maxi(familiarity_xp, 0)
 	active_seconds = maxf(active_seconds, 0.0)
 	daily_points = maxi(daily_points, 0)
+	earned_points = maxi(earned_points, 0)
 	var derived_level: int = 1
 	for index: int in FAMILIARITY_THRESHOLDS.size():
 		if familiarity_xp >= FAMILIARITY_THRESHOLDS[index]:
@@ -76,6 +81,7 @@ func add_familiarity(amount: int) -> bool:
 
 func add_points(amount: int) -> void:
 	daily_points = maxi(daily_points + amount, 0)
+	earned_points += maxi(amount, 0)
 	changed.emit()
 
 
@@ -136,6 +142,9 @@ func to_dict() -> Dictionary:
 		"familiarity_level": familiarity_level,
 		"active_seconds": active_seconds,
 		"daily_points": daily_points,
+		"earned_points": earned_points,
+		"received_postcards": received_postcards,
+		"read_postcards": read_postcards,
 		"tendency": tendency,
 		"current_outfit": current_outfit,
 		"current_room_palette": current_room_palette,
@@ -175,6 +184,9 @@ func load_dict(data: Dictionary) -> void:
 	familiarity_level = int(data.get("familiarity_level", familiarity_level))
 	active_seconds = float(data.get("active_seconds", active_seconds))
 	daily_points = int(data.get("daily_points", daily_points))
+	earned_points = int(data.get("earned_points", maxi(daily_points - STARTING_POINTS, 0)))
+	received_postcards = (data.get("received_postcards", {}) as Dictionary).duplicate(true)
+	read_postcards = _to_strings(data.get("read_postcards", []))
 	tendency = str(data.get("tendency", tendency))
 	current_outfit = str(data.get("current_outfit", current_outfit))
 	current_room_palette = str(data.get("current_room_palette", current_room_palette))

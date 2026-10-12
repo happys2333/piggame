@@ -3,6 +3,7 @@ extends Node
 signal ready_for_ui
 signal state_changed
 signal behavior_changed(behavior: Dictionary)
+signal furniture_invited(furniture_id: String)
 signal toast_requested(text_key: String, values: Dictionary)
 signal offline_summary_ready(summary: Dictionary)
 signal event_queued(event_id: String)
@@ -21,6 +22,7 @@ signal desktop_companion_changed
 signal focus_timer_changed
 signal focus_break_ready
 signal pig_performance_changed
+signal postcard_mail_changed
 
 const EVENT_CHECK_SECONDS: float = 75.0
 const AUTOSAVE_SECONDS: float = 60.0
@@ -326,6 +328,7 @@ func invite_to_furniture(furniture_id: String) -> bool:
 		return false
 	_progression_commit_in_progress = false
 	simulation.announce_current_behavior()
+	furniture_invited.emit(furniture_id)
 	toast_requested.emit("TOAST_FURNITURE_INVITED", {"item": tr(str(furniture.get("name_key", "")))})
 	state_changed.emit()
 	return true
@@ -401,7 +404,7 @@ func set_photo_frame(frame_id: String) -> bool:
 
 
 func equip_outfit(outfit_id: String) -> bool:
-	if not outfit_id.is_empty() and not outfit_id in pig_state.owned_outfits:
+	if not outfit_id.is_empty() and (not catalog.has_item("outfits", outfit_id) or not outfit_id in pig_state.owned_outfits):
 		return false
 	var mutation := func() -> void:
 		pig_state.current_outfit = outfit_id
@@ -898,6 +901,7 @@ func _settle_companion_until(previous_unix: int, now: int) -> Dictionary:
 		settlement["life_plan_entries"] = (update.new_entries as Array).duplicate()
 	for sample_unix: int in offline_event_sample_times(settlement, now):
 		event_director.discover_one(catalog.events, pig_state, sample_unix, false, false)
+	PostcardRules.deliver(catalog.postcards, pig_state, now)
 	_sync_ending_state(false)
 	return settlement
 
@@ -915,6 +919,36 @@ func _apply_companion_snapshot(snapshot: Dictionary) -> void:
 
 func pig_display_name() -> String:
 	return pig_state.name if not pig_state.name.strip_edges().is_empty() else tr("NAME_DEFAULT")
+
+
+func unread_postcard_count() -> int:
+	return PostcardRules.unread_count(pig_state)
+
+
+func postcard_snapshot(postcard_id: String) -> Dictionary:
+	var card: Dictionary = catalog.get_item("postcards", postcard_id)
+	if card.is_empty():
+		return {}
+	var result: Dictionary = card.duplicate(true)
+	result["received"] = pig_state.received_postcards.has(postcard_id)
+	result["unread"] = bool(result.received) and postcard_id not in pig_state.read_postcards
+	result["received_unix"] = int(pig_state.received_postcards.get(postcard_id, 0))
+	result["progress"] = mini(pig_state.earned_points, int(card.points))
+	return result
+
+
+func open_postcard(postcard_id: String) -> bool:
+	if not catalog.has_item("postcards", postcard_id) or not pig_state.received_postcards.has(postcard_id):
+		return false
+	note_explicit_companion_interaction()
+	if postcard_id in pig_state.read_postcards:
+		return true
+	var mutation := func() -> void:
+		pig_state.read_postcards.append(postcard_id)
+	if not _commit_pig_state_transaction(mutation, false):
+		return false
+	postcard_mail_changed.emit()
+	return true
 
 
 func complete_tutorial_step(completed_step: int) -> bool:
@@ -1061,6 +1095,8 @@ func _save_game_at(unix_time: int) -> Error:
 		return ERR_UNCONFIGURED
 	_autosave_elapsed = 0.0
 	var saved_unix: int = maxi(unix_time, 0)
+	var mail_before: Dictionary = pig_state.received_postcards.duplicate()
+	var delivered: Array[String] = PostcardRules.deliver(catalog.postcards, pig_state, saved_unix)
 	var data := {
 		"schema_version": SaveService.CURRENT_SCHEMA,
 		"release_profile": ReleaseProfile.profile_id(),
@@ -1081,6 +1117,10 @@ func _save_game_at(unix_time: int) -> Error:
 		_last_saved_unix = saved_unix
 		_important_save_pending = false
 		last_save_error = ""
+		if not delivered.is_empty():
+			postcard_mail_changed.emit()
+	else:
+		pig_state.received_postcards = mail_before
 	return error
 
 
@@ -1617,6 +1657,8 @@ func _on_save_failed(message: String) -> void:
 func _on_pig_state_changed() -> void:
 	if not _progression_commit_in_progress:
 		state_changed.emit()
+		if PostcardRules.needs_delivery(catalog.postcards, pig_state):
+			_schedule_important_save()
 
 
 func _on_familiarity_level_changed(level: int) -> void:

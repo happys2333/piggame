@@ -12,6 +12,11 @@ func _run() -> void:
 	if expected_user_dir.is_empty() or not OS.get_user_data_dir().ends_with(expected_user_dir):
 		_fail("pack probe requires isolated user data")
 		return
+	var splash_visible: Variant = ProjectSettings.get_setting("application/boot_splash/show_image", true)
+	var splash_wait: Variant = ProjectSettings.get_setting("application/boot_splash/minimum_display_time", -1)
+	if not splash_visible is bool or splash_visible or not splash_wait is int or splash_wait != 0:
+		_fail("pack probe refused the engine splash or an artificial startup delay")
+		return
 	var actual_profile: Variant = ProjectSettings.get_setting_with_override("steam/initialization/app_data/app_type")
 	if not actual_profile is int or actual_profile != expected_profile or OS.has_feature("demo") != (expected_profile == 1):
 		_fail("pack probe observed the wrong profile")
@@ -33,7 +38,9 @@ func _run() -> void:
 	var count: int = 0
 	for entry: Dictionary in manifest.get("entries", []) as Array:
 		for token: String in entry.get("covers", []) as Array:
-			if not str(assets.call("path_for", token)).begins_with("res://game/assets/final/generated/"):
+			var postcard: bool = str(entry.get("origin", "")) == "pighub_original"
+			var expected_path: String = "res://game/assets/final/pighub/" if postcard else "res://game/assets/final/generated/"
+			if not str(assets.call("path_for", token)).begins_with(expected_path) or (postcard and not token.begins_with("postcard:")):
 				_fail("pack probe lost a permanent visual path")
 				return
 			var frame_regions: Array = (entry.get("frames", {}) as Dictionary).get(token, []) as Array
@@ -56,10 +63,29 @@ func _run() -> void:
 						_fail("pack probe lost animation canvas registration")
 						return
 			count += 1
-	if count != 218:
+	if count != 222:
 		_fail("pack probe observed incomplete visual coverage")
 		return
 	var catalog: RefCounted = session.get("catalog") as RefCounted
+	var outfit_rig: Dictionary = JsonStore.read_object("res://game/data/catalog/pig_outfit_rig.json")
+	var rig_script: Script = load("res://game/scripts/ui/pig_visual_rig.gdc") as Script
+	var rig: RefCounted = rig_script.new() as RefCounted if rig_script != null else null
+	var shared_outfits: Array[Dictionary] = JsonStore.read_array("res://game/data/catalog/outfits.json")
+	var retired_outfits: Array[Dictionary] = JsonStore.read_array("res://game/data/catalog/retired_outfits.json")
+	if rig == null or outfit_rig.get("schema_version", 0) != 1 or (outfit_rig.get("shapes", {}) as Dictionary).size() != 8 or (outfit_rig.get("poses", {}) as Dictionary).size() != 12 or shared_outfits.size() != 8 or retired_outfits.size() != 4:
+		_fail("pack probe lost the head and face wardrobe or legacy compatibility")
+		return
+	for attire: Dictionary in shared_outfits:
+		if str(attire.anchor) not in ["head", "eyes"] or not bool(rig.call("outfit_visible", "body_base", attire)) or bool(rig.call("outfit_visible", "body_worker", attire)):
+			_fail("pack probe allowed a body accessory or overlapping integrated costume")
+			return
+	for attire: Dictionary in retired_outfits:
+		if catalog.call("has_item", "outfits", str(attire.id)) or assets.call("texture_for", "outfit:" + str(attire.id)) != null:
+			_fail("pack probe retained a retired wearable or its artwork route")
+			return
+	if (catalog.get("postcards") as Array).size() != 8:
+		_fail("pack probe lost offline postcards")
+		return
 	if (catalog.get("life_plans") as Array).size() != (1 if expected_profile == 1 else 6):
 		_fail("pack probe lost the profile-specific life plans")
 		return
@@ -108,7 +134,16 @@ func _run() -> void:
 		_fail("pack probe lost the shared pig performance library")
 		return
 	session.stop_pig_performance()
-	print("PASS: exported pack startup app_type=%d visuals=218 frames=4 residents=2 cache<=8 silent=true protection=true timer=25/5 personalities=5 performances=9/9/6/2" % expected_profile)
+	var state: RefCounted = session.get("pig_state") as RefCounted
+	state.call("add_points", 600)
+	if session.call("save_game") != OK or int(session.call("unread_postcard_count")) != 3 or not bool(session.call("open_postcard", "postcard_wake")):
+		_fail("pack probe could not automatically receive or open offline mail")
+		return
+	session.call("_load_or_create_game")
+	if int(session.call("unread_postcard_count")) != 2:
+		_fail("pack probe lost persistent postcard read state")
+		return
+	print("PASS: exported pack startup app_type=%d visuals=222 frames=4 residents=2 cache<=8 silent=true protection=true timer=25/5 personalities=5 performances=9/9/6/2 postcards=8 splash=false outfits=head/face:8 retired=4" % expected_profile)
 	quit(0)
 
 

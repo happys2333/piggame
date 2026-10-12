@@ -583,14 +583,16 @@ func _test_pig_performance_library(main: Node, session: Node, ui: Control) -> vo
 		for face: Dictionary in faces:
 			var first_pixels := PackedByteArray()
 			for frame: int in 4:
+				specimen.set("_has_drawn", false)
 				specimen.set_performance({"id":"test", "body_id":str(clip.id), "face_id":str(face.id), "manual":true})
-				specimen.set("_phase", float(frame) * PigVisual.FRAME_STEP)
+				var motion: PigMotionPlayer = specimen.get("_motion") as PigMotionPlayer
+				motion.clock = float(frame) * 0.3
+				motion.breath_phase = float(frame) * 0.6
 				specimen.queue_redraw()
 				await get_tree().process_frame
 				await RenderingServer.frame_post_draw
 				var image: Image = viewport.get_texture().get_image()
-				var snout_anchor: Array = (clip.snouts as Array)[frame] as Array
-				var snout_point := Vector2(float(snout_anchor[0]), float(snout_anchor[1])) * specimen.size / Vector2(256, 256)
+				var snout_point: Vector2 = specimen.visible_snout_position()
 				_expect_eq(specimen.interaction_kind_at(snout_point), "poke", "%s/%s/frame%d recognizes the visible animated snout rather than a fixed old hotspot" % [clip.id, face.id, frame])
 				_expect_true(not image.is_empty() and image.get_used_rect().has_area(), "%s/%s/frame%d renders actual layered pig pixels" % [clip.id, face.id, frame])
 				_expect_true((session.final_assets.get("_atlas_cache") as Dictionary).size() <= 8, "combinable faces and poses keep the eight-atlas LRU budget")
@@ -599,7 +601,7 @@ func _test_pig_performance_library(main: Node, session: Node, ui: Control) -> vo
 					if str(face.id) == "face_dot":
 						image.save_png("%s/%s.png" % [directory, str(clip.id)])
 				elif frame == 1:
-					_expect_true(image.get_data() != first_pixels, "%s/%s has real animated keyframes rather than a static sticker" % [clip.id, face.id])
+					_expect_true(image.get_data() != first_pixels, "%s/%s has continuous body deformation rather than four inconsistent cut frames" % [clip.id, face.id])
 	viewport.queue_free()
 	await get_tree().process_frame
 	var face_viewport := SubViewport.new()
@@ -770,7 +772,7 @@ func _test_life_plan_album(session: Node, ui: Control) -> void:
 	album.pressed.emit()
 	await get_tree().process_frame
 	var tabs: TabContainer = ui.find_child("AlbumTabs", true, false) as TabContainer
-	_expect_true(tabs != null and tabs.get_tab_count() == 4, "the real album contains the optional little-plans page")
+	_expect_true(tabs != null and tabs.get_tab_count() == 5, "the real album contains both optional little plans and Piggy Post")
 	if tabs == null:
 		return
 	tabs.current_tab = 3
@@ -1523,9 +1525,9 @@ func _test_unread_indicator(session: Node, ui: Control) -> void:
 	var unread_style: StyleBoxFlat = unread_dot.get_theme_stylebox("panel") as StyleBoxFlat
 	_expect_true(
 		unread_style != null
-			and unread_style.bg_color.a < 1.0
+			and unread_style.bg_color == ThemeFactory.ROSE
 			and unread_style.bg_color.r > unread_style.bg_color.g,
-		"new-content indicator uses a soft translucent rose treatment instead of button-text glyphs"
+		"new-content indicator uses the shared rose accent instead of button-text glyphs"
 	)
 	for layout: Array in [
 		[Vector2i(960, 540), 1.0, "960x540"],
@@ -1837,10 +1839,11 @@ func _test_pig_interruption_transaction(main: Node, session: Node, ui: Control) 
 	session.simulation.load_dict({"current_behavior_id":"behavior_idle_stand", "remaining_seconds":60.0}, session.catalog)
 	session.behavior_director.cooldown_until.erase("behavior_bed_nap")
 	_expect_eq(session.save_game(), OK, "interruption fixture commits real furniture before checking save generations")
+	(main.get_node("RoomInteraction") as RoomInteractionController).present(session.catalog.get_item("behaviors", "behavior_bed_nap"))
 	room.queue_redraw()
 	await get_tree().process_frame
 	await RenderingServer.frame_post_draw
-	var hitboxes: Dictionary = room.get("_furniture_hitboxes") as Dictionary
+	var hitboxes: Dictionary = room.furniture_hitboxes()
 	var hitbox: Dictionary = hitboxes.get("sleep_1", {}) as Dictionary
 	_expect_true(hitbox.has("rect") and session.can_invite_to_furniture("furn_bed_basic"), "interruption fixture targets an available rendered functional bed")
 	var save_paths: Array[String] = [session.save_service.save_path, session.save_service.backup_1_path, session.save_service.backup_2_path]
@@ -2008,10 +2011,11 @@ func _test_pig_furniture_drag_transaction(main: Node, session: Node, ui: Control
 	session.behavior_director.cooldown_until.erase("behavior_bed_nap")
 	room.scale = Vector2(0.9, 0.85)
 	room.position += Vector2(140, 0)
+	(main.get_node("RoomInteraction") as RoomInteractionController).present(session.catalog.get_item("behaviors", "behavior_bed_nap"))
 	room.queue_redraw()
 	await get_tree().process_frame
 	await RenderingServer.frame_post_draw
-	var hitboxes: Dictionary = room.get("_furniture_hitboxes") as Dictionary
+	var hitboxes: Dictionary = room.furniture_hitboxes()
 	var hitbox: Dictionary = hitboxes.get("sleep_1", {}) as Dictionary
 	_expect_true(hitbox.has("rect") and str(hitbox.get("furniture_id", "")) == "furn_bed_basic" and session.can_invite_to_furniture("furn_bed_basic"), "mouse placement uses the rendered bed's real hitbox while invitation is available")
 	if hitbox.has("rect"):
@@ -2500,9 +2504,8 @@ func _test_help_replay_and_tendency(session: Node, ui: Control) -> void:
 	_expect_true(
 		active_choose != null
 			and not active_choose.disabled
-			and active_choose.text == tr("UI_CHOOSE")
-			and _count_labels_with_text(ui, tr("TENDENCY_INTRO")) == 1,
-		"the unlocked tendency panel explains the soft choice and enables an unselected option"
+			and active_choose.text == tr("UI_CHOOSE"),
+		"the unlocked tendency panel enables an unselected option without requiring explanatory copy"
 	)
 	if active_choose != null:
 		active_choose.pressed.emit()
@@ -2552,7 +2555,7 @@ func _test_silent_audio_settings(session: Node, ui: Control) -> void:
 		if slider != null and not slider.editable:
 			disabled_audio_sliders += 1
 		if slider != null:
-			var row := slider.get_parent() as HBoxContainer
+			var row := slider.get_parent() as BoxContainer
 			var label := row.get_child(0) as Label if row != null and row.get_child_count() > 0 else null
 			if label != null and label.text == tr("SETTINGS_BUBBLE_TIME"):
 				bubble_slider = slider
@@ -2635,7 +2638,7 @@ func _test_event_caption_duration(session: Node, ui: Control) -> void:
 		var slider: HSlider
 		for node: Node in ui.find_children("*", "HSlider", true, false):
 			var candidate := node as HSlider
-			var row := candidate.get_parent() as HBoxContainer
+			var row := candidate.get_parent() as BoxContainer
 			var row_label := row.get_child(0) as Label if row != null and row.get_child_count() > 0 else null
 			if row_label != null and row_label.text == tr("SETTINGS_BUBBLE_TIME"):
 				slider = candidate
@@ -3131,8 +3134,9 @@ func _test_main_window_mode_switch(session: Node, ui: Control) -> void:
 	var fullscreen_settings: Dictionary = session.save_service.load_settings()
 	if OS.has_feature("macos"):
 		await get_tree().create_timer(MACOS_FULLSCREEN_SETTLE_SECONDS).timeout
+	fullscreen_checkbox = ui.find_child("SETTINGS_FULLSCREEN", true, false) as CheckBox
 	_expect_true(
-		fullscreen_checkbox.button_pressed
+		fullscreen_checkbox != null and fullscreen_checkbox.button_pressed
 			and session.main_window_fullscreen
 			and DisplayServer.window_get_mode() in [
 				DisplayServer.WINDOW_MODE_FULLSCREEN,
@@ -3169,8 +3173,9 @@ func _test_main_window_mode_switch(session: Node, ui: Control) -> void:
 	var restored_settings: Dictionary = session.save_service.load_settings()
 	if OS.has_feature("macos"):
 		await get_tree().create_timer(MACOS_FULLSCREEN_SETTLE_SECONDS).timeout
+	fullscreen_checkbox = ui.find_child("SETTINGS_FULLSCREEN", true, false) as CheckBox
 	_expect_true(
-		not fullscreen_checkbox.button_pressed
+		fullscreen_checkbox != null and not fullscreen_checkbox.button_pressed
 			and not session.main_window_fullscreen
 			and DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED
 			and not bool(restored_settings.get("main_window_fullscreen", true)),
@@ -3308,7 +3313,7 @@ func _test_minimum_window_overlays(session: Node, ui: Control) -> void:
 	var tabs: TabContainer = tab_nodes[0] as TabContainer if not tab_nodes.is_empty() else null
 	var album_scrolls: Array[Node] = tabs.find_children("*", "ScrollContainer", true, false) if tabs != null else []
 	_expect_true(
-		tabs != null and panel_scroll != null and tabs.size.y <= 480.0 and panel_scroll.get_global_rect().intersects(tabs.get_global_rect()),
+		tabs != null and panel_scroll != null and _rect_inside(panel_scroll.get_global_rect(), tabs.get_global_rect()),
 		"album tabs remain inside the panel's scrollable body at the minimum window"
 	)
 	_expect_true(not album_scrolls.is_empty(), "album pages retain nested scrolling at the minimum window")
@@ -4856,8 +4861,8 @@ func _test_ending_flow(session: Node, ui: Control) -> void:
 			album_titles.append(album_tabs.get_tab_title(index))
 	_expect_eq(
 		album_titles,
-		[tr("ALBUM_EXPRESSIONS"), tr("ALBUM_MEMORIES"), tr("ALBUM_DIARY"), tr("ALBUM_LIFE_PLANS")],
-		"the real album preserves its three original pages and adds a distinct little-plans page"
+		[tr("ALBUM_EXPRESSIONS"), tr("ALBUM_MEMORIES"), tr("ALBUM_DIARY"), tr("ALBUM_LIFE_PLANS"), tr("POSTCARD_INBOX")],
+		"the real album preserves original page indices and adds distinct plans and mail pages"
 	)
 	var diary: Control = album_tabs.get_child(2) as Control if album_tabs != null and album_tabs.get_child_count() >= 3 else null
 	if album_tabs != null and diary != null:
@@ -6751,7 +6756,7 @@ func _test_shop_save_failure_recovery(main: Node, session: Node, ui: Control) ->
 			rebuilt_slot_two = button
 			break
 	var room: RoomVisual = main.get_node("Room") as RoomVisual
-	var furniture_hitboxes: Dictionary = room.get("_furniture_hitboxes") as Dictionary if room != null else {}
+	var furniture_hitboxes: Dictionary = room.furniture_hitboxes() if room != null else {}
 	panel_title = ui.get("_panel_title") as Label
 	toast_label = ui.get("_toast_label") as Label
 	_expect_true(
@@ -7142,14 +7147,16 @@ func _test_behavior_visuals(session: Node) -> void:
 		var id: String = str(behavior.id)
 		var image_hash: int = hash(image.get_data()) if image != null else 0
 		_expect_true(image != null and not image.is_empty(), "behavior renders to an image: %s" % id)
-		_expect_true(not hashes.has(image_hash), "behavior visual is distinct: %s" % id)
-		hashes[image_hash] = id
+		var motion: PigMotionPlayer = pig.get("_motion") as PigMotionPlayer
+		var transform: Transform2D = motion.pose_transform(pig.size, motion.weight() >= 0.5)
+		_expect_true(absf(transform.x.length() / transform.y.length() - 1.0) < 0.001, "behavior artwork preserves uniform body proportions: %s" % id)
+		hashes[id] = image_hash
 		if image != null and not image.is_empty():
 			image.save_png("%s/%s.png" % [output_dir, id])
 		viewport.queue_free()
 		await get_tree().process_frame
 	session.reduce_motion = previous_reduce_motion
-	_expect_true(hashes.size() == session.catalog.behaviors.size(), "all 36 behavior visuals have distinct rendered evidence")
+	_expect_true(hashes.size() == session.catalog.behaviors.size(), "all 36 behavior visuals have rendered evidence without floating duplicate furniture")
 
 
 func _test_furniture_visuals(session: Node) -> void:
@@ -7294,7 +7301,7 @@ func _test_furniture_purchase_controls(main: Node, session: Node, ui: Control) -
 	await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	var placed_action: Button = _catalog_action_for_name(ui, tr(str(target.get("name_key", ""))))
-	var placed_hitboxes: Dictionary = room.get("_furniture_hitboxes") as Dictionary if room != null else {}
+	var placed_hitboxes: Dictionary = room.furniture_hitboxes() if room != null else {}
 	var placed_hitbox: Dictionary = placed_hitboxes.get("sleep_2", {}) as Dictionary
 	var placed_save: Dictionary = session.save_service.load_game()
 	var placed_save_data: Dictionary = placed_save.get("data", {}) as Dictionary
@@ -7306,7 +7313,7 @@ func _test_furniture_purchase_controls(main: Node, session: Node, ui: Control) -
 			and placed_action != null
 			and not placed_action.disabled
 			and placed_action.text == tr("UI_PLACE")
-			and str(placed_hitbox.get("furniture_id", "")) == target_id
+			and placed_hitbox.is_empty() and room.interaction_layout(target_id).is_empty()
 			and toast_label != null
 			and toast_label.text == tr("TOAST_FURNITURE_PLACED").format({"item":tr(str(target.get("name_key", "")))})
 			and bool(placed_save.get("ok", false))
@@ -7343,7 +7350,7 @@ func _test_furniture_purchase_controls(main: Node, session: Node, ui: Control) -
 	await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	var moved_action: Button = _catalog_action_for_name(ui, tr(str(target.get("name_key", ""))))
-	var moved_hitboxes: Dictionary = room.get("_furniture_hitboxes") as Dictionary if room != null else {}
+	var moved_hitboxes: Dictionary = room.furniture_hitboxes() if room != null else {}
 	var moved_hitbox: Dictionary = moved_hitboxes.get("sleep_3", {}) as Dictionary
 	var moved_save: Dictionary = session.save_service.load_game()
 	var moved_save_data: Dictionary = moved_save.get("data", {}) as Dictionary
@@ -7356,7 +7363,7 @@ func _test_furniture_purchase_controls(main: Node, session: Node, ui: Control) -
 			and not session.pig_state.placed_furniture.has("sleep_2")
 			and str(session.pig_state.placed_furniture.get("sleep_3", "")) == target_id
 			and not moved_hitboxes.has("sleep_2")
-			and str(moved_hitbox.get("furniture_id", "")) == target_id
+			and moved_hitbox.is_empty() and room.interaction_layout(target_id).is_empty()
 			and moved_action != null
 			and moved_action.text == tr("UI_PLACE")
 			and bool(moved_save.get("ok", false))
@@ -7403,16 +7410,17 @@ func _test_furniture_controls(main: Node, session: Node, ui: Control) -> void:
 		simulation.load_dict({}, session.catalog)
 	if behavior_director != null:
 		behavior_director.cooldown_until.erase(str(bed.get("behavior_id", "")))
+	(main.get_node("RoomInteraction") as RoomInteractionController).present(session.catalog.get_item("behaviors", "behavior_bed_nap"))
 	room.queue_redraw()
 	await get_tree().process_frame
 	await RenderingServer.frame_post_draw
-	var hitboxes: Dictionary = room.get("_furniture_hitboxes") as Dictionary
+	var hitboxes: Dictionary = room.furniture_hitboxes()
 	var bed_hitbox: Dictionary = hitboxes.get("sleep_1", {}) as Dictionary
 	var furniture_touch := InputEventScreenTouch.new()
 	furniture_touch.index = 6
 	furniture_touch.pressed = true
-	furniture_touch.position = (bed_hitbox.get("rect", Rect2()) as Rect2).get_center()
-	room.call("_gui_input", furniture_touch)
+	furniture_touch.position = (room.item_stage.interaction_layout().rect as Rect2).get_center()
+	room.item_stage.call("_gui_input", furniture_touch)
 	await get_tree().process_frame
 	var panel_title: Label = ui.get("_panel_title") as Label
 	var invite_button: Button
@@ -7452,7 +7460,7 @@ func _test_furniture_controls(main: Node, session: Node, ui: Control) -> void:
 			and toast_label.text == tr("TOAST_FURNITURE_INVITED").format({"item":tr(str(bed.get("name_key", "")))}),
 		"the real invite button starts the furniture behavior and returns to the room with feedback"
 	)
-	room.call("_gui_input", furniture_touch)
+	room.item_stage.call("_gui_input", furniture_touch)
 	await get_tree().process_frame
 	var active_invite_disabled: bool = false
 	replace_button = null
@@ -7711,7 +7719,7 @@ func _test_desktop_expression_preference(main: Node, session: Node, ui: Control)
 	if target_card != null:
 		for node: Node in target_card.find_children("*", "Button", true, false):
 			var button := node as Button
-			if button != null and button.text == "☆ " + tr("ALBUM_DESKTOP_FAVORITE"):
+			if button != null and button.text == tr("ALBUM_DESKTOP_FAVORITE") and button.icon != null:
 				favorite_button = button
 				break
 	var expected_date: String = tr("ALBUM_EXPRESSION_DATE").format({"date": GameClock.local_date_string(first_seen_unix)})

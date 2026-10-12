@@ -6,22 +6,26 @@ const PATHS := {
 	"furniture": "res://game/data/furniture/furniture.json",
 	"snacks": "res://game/data/catalog/snacks.json",
 	"outfits": "res://game/data/catalog/outfits.json",
+	"retired_outfits": "res://game/data/catalog/retired_outfits.json",
 	"expressions": "res://game/data/expressions/expressions.json",
 	"events": "res://game/data/events/events.json",
 	"achievements": "res://game/data/catalog/achievements.json",
 	"life_plans": "res://game/data/catalog/life_plans.json",
 	"personalities": "res://game/data/catalog/personalities.json",
+	"postcards": "res://game/data/catalog/postcards.json",
 }
 
 var behaviors: Array[Dictionary] = []
 var furniture: Array[Dictionary] = []
 var snacks: Array[Dictionary] = []
 var outfits: Array[Dictionary] = []
+var retired_outfits: Array[Dictionary] = []
 var expressions: Array[Dictionary] = []
 var events: Array[Dictionary] = []
 var achievements: Array[Dictionary] = []
 var life_plans: Array[Dictionary] = []
 var personalities: Array[Dictionary] = []
+var postcards: Array[Dictionary] = []
 var performances := PigPerformanceLibrary.new()
 var _by_type: Dictionary = {}
 
@@ -31,11 +35,13 @@ func load_all() -> Array[String]:
 	furniture = JsonStore.read_array(PATHS.furniture)
 	snacks = JsonStore.read_array(PATHS.snacks)
 	outfits = JsonStore.read_array(PATHS.outfits)
+	retired_outfits = JsonStore.read_array(PATHS.retired_outfits)
 	expressions = JsonStore.read_array(PATHS.expressions)
 	events = JsonStore.read_array(PATHS.events)
 	achievements = JsonStore.read_array(PATHS.achievements)
 	life_plans = JsonStore.read_array(PATHS.life_plans)
 	personalities = JsonStore.read_array(PATHS.personalities)
+	postcards = JsonStore.read_array(PATHS.postcards)
 	performances.load_all()
 	_rebuild_index()
 	return validate()
@@ -76,12 +82,13 @@ func validate() -> Array[String]:
 	var expected := {
 		"furniture": 32,
 		"snacks": 10,
-		"outfits": 12,
+		"outfits": 8,
 		"expressions": 48,
 		"events": 24,
 		"achievements": 24,
 		"life_plans": 6,
 		"personalities": 5,
+		"postcards": 8,
 	}
 	for type: String in expected:
 		var items: Array = get_all(type)
@@ -94,6 +101,18 @@ func validate() -> Array[String]:
 			if all_ids.has(id):
 				errors.append("Duplicate permanent id across catalogs: %s" % id)
 			all_ids[id] = type
+	for attire: Dictionary in outfits:
+		if str(attire.get("anchor", "")) not in ["head", "eyes"]:
+			errors.append("Outfit %s must be a head or face accessory" % attire.get("id", "?"))
+	var retired_ids: Array[String] = []
+	for attire: Dictionary in retired_outfits:
+		var id: String = str(attire.get("id", ""))
+		var refund: Variant = attire.get("refund_points", -1)
+		if id.is_empty() or id in retired_ids or all_ids.has(id) or not (refund is int or refund is float) or not is_finite(float(refund)) or float(refund) < 0 or float(refund) != floorf(float(refund)):
+			errors.append("Invalid retired outfit compatibility record: %s" % id)
+		retired_ids.append(id)
+	if retired_ids.size() != 4:
+		errors.append("Retired outfit compatibility requires four permanent IDs")
 	for item: Dictionary in furniture:
 		var behavior_id: String = str(item.get("behavior_id", ""))
 		var area_id: String = str(item.get("area", ""))
@@ -143,6 +162,7 @@ func validate() -> Array[String]:
 		errors.append("At least 16 furniture items must add behaviors, found %d" % functional_count)
 	errors.append_array(LifePlanRules.validate_content(life_plans, behaviors, furniture, all_ids))
 	errors.append_array(PersonalityRules.validate_content(personalities, expressions))
+	errors.append_array(PostcardRules.validate_content(postcards))
 	errors.append_array(performances.validate(outfits))
 	for plan_id: String in ReleaseProfile.DEMO_LIFE_PLAN_IDS:
 		if not has_item("life_plans", plan_id):
@@ -165,6 +185,7 @@ func get_all(type: String) -> Array:
 		"achievements": return achievements
 		"life_plans": return life_plans
 		"personalities": return personalities
+		"postcards": return postcards
 		_: return []
 
 
@@ -189,4 +210,5 @@ func _rebuild_index() -> void:
 		"achievements": _index(achievements),
 		"life_plans": _index(life_plans),
 		"personalities": _index(personalities),
+		"postcards": _index(postcards),
 	}

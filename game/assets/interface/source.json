@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "retrieved_on": "2026-10-09",
+  "offline_runtime": true,
+  "ai_generated": false,
+  "purpose": "Native UI fonts and supplemental line icons, not replacement pig art",
+  "pinned_commits": {
+    "google/fonts": "51303ca9e8ac9dcea7b12d307ba568fd0e6fcfca",
+    "lxgw/LxgwWenKai": "7e4325d61d6217e86776733a94d28e6a528f7b8c",
+    "lucide-icons/lucide": "6d01fea3d3925cab6480e5f65203421b24a35cff"
+  },
+  "records": [
+    {
+      "path": "res://game/assets/interface/fonts/pig-ui-body.ttf",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/51303ca9e8ac9dcea7b12d307ba568fd0e6fcfca/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf",
+      "source_sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+      "sha256": "236a031d5397051e23ff99b0fd304fbedaae84f5c5b6d396f0fcd57605733146",
+      "modified": true,
+      "modification": "UI localization plus GB2312 character subset; Noto variable weight instantiated at 450; derived family renamed; copyright/license names retained",
+      "glyphs": 8020,
+      "bytes": 2470696
+    },
+    {
+      "path": "res://game/assets/interface/fonts/pig-ui-title.ttf",
+      "source_url": "https://raw.githubusercontent.com/lxgw/LxgwWenKai/7e4325d61d6217e86776733a94d28e6a528f7b8c/fonts/TTF/LXGWWenKai-Medium.ttf",
+      "source_sha256": "d4bdeb38a39151d74d084cba5090f8cb7d20bf83eedb78c35939ae70b9f4e3f6",
+      "sha256": "89cb60e07430666e180e510fa38167cef0105c2c23e6ca94dcce033c526e001d",
+      "modified": true,
+      "modification": "UI localization plus GB2312 character subset; Noto variable weight instantiated at 450; derived family renamed; copyright/license names retained",
+      "glyphs": 8043,
+      "bytes": 3731620
+    },
+    {
+      "path": "res://game/assets/interface/lucide/armchair.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/armchair.svg",
+      "source_sha256": "94040a227db83a21e42834b8839426754b4e1f36530eb90a440abaa3f3ee13eb",
+      "sha256": "8df153c61a6822a7bbecbf9298b0e7cedf55f5ab27b2eceefb0cd6494c573c2d",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/cookie.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/cookie.svg",
+      "source_sha256": "5e4f1c0b38be7530fbbe8fb413f0fcd87b84309b1915c0d88c1e442ea10c0b82",
+      "sha256": "bf1cfe535baa511b14dd922f28a28476cee0af39437038daa630bde36cd3eee7",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/shirt.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/shirt.svg",
+      "source_sha256": "6e7df3e5ab01881bce6e00eebd449c950fd8535de656c7b720e6cba6b5a70602",
+      "sha256": "f6475c3d142204ada0675b423bc5f8875b238c1c6bc1f8241cd39885fc216b00",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/sparkles.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/sparkles.svg",
+      "source_sha256": "f5499f33f09d7158151e9bd2ec0faf79ff8fb57292f84fdd7286d96d0f0424d8",
+      "sha256": "2bca3005a88e05fd9db35dfd414100592fbe4ad827242cc9aae319fa15f57b24",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/monitor.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/monitor.svg",
+      "source_sha256": "d1a443233345724859de8e4fb48968ba91e885e12ddbd710701548bd91b39428",
+      "sha256": "f5a79f49cf446d9c1a22f896c2a4ba0513e6864fe33a350cbbf27fa60c68d058",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/book-open.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/book-open.svg",
+      "source_sha256": "9b9bed0ff057283d5c5c5a1c71f8d3e927db26a56639603a92fdf7b25961510e",
+      "sha256": "bd3c4e5712465c701f01f5a3db2fac1a586c3c029b0bc6b796208fd35d476fb0",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/camera.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/camera.svg",
+      "source_sha256": "ebbb3178dd80dfd942770a2237fe7bfc3515c55c7daa9d3666933a656d2790e3",
+      "sha256": "59d5eaf94194fb05a2cde7f0ea8edfe50d750f2256db6e42a4f1cab0a07826bc",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/settings-2.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/settings-2.svg",
+      "source_sha256": "06d06c191bd7eb28afaf9d40acb5c49ef69448fdeda91801d9823d7c440a4e10",
+      "sha256": "822dc4ebf7b17d8f7af591bb927c4943df732161903947816de54fd45eaccef8",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/coins.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/coins.svg",
+      "source_sha256": "bcfec9236fd10d0aadbf90951f61dd31ec7cedc72dd38d2639f95c2b8437b9f1",
+      "sha256": "83dac14a19e387a2f674845bc5531ae18878d39002392c6c699257b4779a4b53",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/smile.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/face-slightly-smiling.svg",
+      "source_sha256": "0018f779245b089b700ad4a2ab99db4518f5c87c559af743fbbf9abc070f10d3",
+      "sha256": "1febc0203379e66ce47ff568b35285a5e4ec136f46afb5e492a9c5c4cf38827c",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/notebook-pen.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/notebook-pen.svg",
+      "source_sha256": "56705c35e839977bd6f133d7ca4e9c93a6eea563c89e4be125efd0a32e1fa041",
+      "sha256": "ab859a0807aa8576fc2d10e0873e66877d7961787159cd2ef03de1db377ca012",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/mail.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/mail.svg",
+      "source_sha256": "3236a51d5b8ce9b0528cf2e6ad07e527bd636dded6f5a9d656072052b99caea8",
+      "sha256": "bbb9266ad6838f443863bb76db7465c163472917d918c553169a3a6b133bfec6",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/x.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/x.svg",
+      "source_sha256": "4a9cdab38fbb96162e7dace28e33f4ca0e49d8963a6162abc3d4691b7d675117",
+      "sha256": "26b96514e0751a02f9244e3e81798c67f450bb697b7304e890fd18da98601560",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/check.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/check.svg",
+      "source_sha256": "7f33acc9a77a61659531044525fc008edebe215bf4dcf1c789c8674ad3277db0",
+      "sha256": "5cd29f8a24bc0c44f240ecef37b67a8816e2dbbde20b6fadb46ed397babecd53",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/lock-keyhole.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/lock-keyhole.svg",
+      "source_sha256": "fc0b8b7590d1d9e9bb0112c5c2e15a78ade0bfeca6d6f8c79fbbe149236d74be",
+      "sha256": "830ffa56767d16df18d7cb8f04e5f5f913c30505b507d319d97d3aab3f6551ea",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/chevron-down.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/chevron-down.svg",
+      "source_sha256": "66ea878e72ed3488bb3b464c39dfdccee8d1f78e560dccea40e5e12da0e87e87",
+      "sha256": "dda029eb41eed780c364279e1021558b4d509328e6671224c9e6c6e44b0ec1a9",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/volume-2.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/volume-2.svg",
+      "source_sha256": "fb404f9c128a0579de67b399177631e5edb3502fdc247ceb30e8b15754b46071",
+      "sha256": "c0e00cbdaf773c8896c994f116ecfd3daf904e519a680a83da428be0167ede41",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/sliders-horizontal.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/sliders-horizontal.svg",
+      "source_sha256": "e43a00e5eb684e6cbb61083bed2528d7a3fa5f265693eb2b5f314cd432aa65f4",
+      "sha256": "e657c1341eaf81f5bbf3e88f19bb682cf9df427f307c5e663a4f5011a4dce365",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/users.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/users.svg",
+      "source_sha256": "eeed488a1ec95ba730dd69996536fb65061d6ea273afb2429ae47e65eebf401c",
+      "sha256": "d47829e86444fc879fc14e1e44bb1872e3e0700ae6d42b4d009c975cb626c7eb",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/coffee.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/coffee.svg",
+      "source_sha256": "970595bdafac0df42c00b847d53fd00c2283ecc3b83881274de2aa7dbce2bbc8",
+      "sha256": "3fdbe95760e4c58a01d106bba80d208d118cff4d37119f28f4063b42707ea482",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/pause.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/pause.svg",
+      "source_sha256": "f122ec4ea7f5693a0b1baafa9c708b53980dc87b4aacb297c6e6f71c1a4c115c",
+      "sha256": "e92ca7eb2658899bb1c7a720ca9acc31d4606c78dc732c4a4abe832a6e32de6c",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/play.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/play.svg",
+      "source_sha256": "d7c34786135922a92b6896f6c2384ceeb0346afbf6041dc79982011411409833",
+      "sha256": "fdccb548488d30d53bea66d0ce03ae5710313b6330615038516e675d3436e062",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/square.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/square.svg",
+      "source_sha256": "bd979354f0ab184b95cecf03eedefe40c2dc65830ac6d7e60017b2b25a354acb",
+      "sha256": "0511032bdc9c31855aa3a7374d315a66cea670ab1cae7e258abf86e969fb96b0",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/moon.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/moon.svg",
+      "source_sha256": "205b959e940d5841f0ce1d09c933153da9d9c94130a54d5cc0c68c2af1d403da",
+      "sha256": "b941fb54976fe0b2bcfa3415879bfe1b95006c4d22432059c1b201c9e3236ad4",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/circle.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/circle.svg",
+      "source_sha256": "3a991bd47beaf9874fba6fdf87bbba442970a89b5e6aa391558bc8b0a00a0513",
+      "sha256": "1a315cfb65ba6d9fd4fe048003d53a6b465eaae099e39e9b3bc08150b700f995",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/circle-check.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/circle-check.svg",
+      "source_sha256": "9711e045a5999f8a3b0782eb88e09b04e0559bc7b379dcc0a4ae645223e10345",
+      "sha256": "eceaef10699ec9b8d9c10ffae5917e3a7e066346a843a5a296090b509b315513",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/heart.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/heart.svg",
+      "source_sha256": "70af5f30be9fcb500b852556b38dcdf8c04a4ba81fd262534fb0336bd39b3b52",
+      "sha256": "2aa0255c17e720d6a1bb9193e3edf90f7eb1be7f83096eeb812dc224102526fc",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "res://game/assets/interface/lucide/arrow-left.svg",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/icons/arrow-left.svg",
+      "source_sha256": "c5f4b88076108eb1a0d95336e1aa7e7bb1419a3a92af96f6247d88cd3456f933",
+      "sha256": "21b9a525ddcfd5ac12b2e3f788e8fb6d4117c5b41d19cb6d9b390f86b6146174",
+      "modified": true,
+      "modification": "White stroke for native Theme tint; 48px raster canvas with unchanged 24-unit viewBox and path geometry"
+    },
+    {
+      "path": "LICENSES/NotoSansSC/LICENSE.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/51303ca9e8ac9dcea7b12d307ba568fd0e6fcfca/ofl/notosanssc/OFL.txt",
+      "sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
+      "modified": false
+    },
+    {
+      "path": "LICENSES/LXGWWenKai/LICENSE.txt",
+      "source_url": "https://raw.githubusercontent.com/lxgw/LxgwWenKai/7e4325d61d6217e86776733a94d28e6a528f7b8c/OFL.txt",
+      "sha256": "1a25e35da1031c6c3436fde545bb9cb5aca954e9873afe510c834b8b79bd21a0",
+      "modified": false
+    },
+    {
+      "path": "LICENSES/Lucide/LICENSE.txt",
+      "source_url": "https://raw.githubusercontent.com/lucide-icons/lucide/6d01fea3d3925cab6480e5f65203421b24a35cff/LICENSE",
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+      "modified": false
+    }
+  ]
+}

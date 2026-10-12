@@ -14,6 +14,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 from validate_pig_performances import validate_performances
+from validate_pig_outfits import validate_outfit_rig, validate_retired_outfits
+from pighub_postcard_assets import validate_postcards
 
 DEFAULT_ROOT = Path(__file__).resolve().parents[1]
 ROOT = Path(os.environ.get("PIGGAME_VALIDATION_ROOT", str(DEFAULT_ROOT))).resolve()
@@ -29,17 +31,19 @@ PATHS = {
     "achievements": DATA / "catalog" / "achievements.json",
     "life_plans": DATA / "catalog" / "life_plans.json",
     "personalities": DATA / "catalog" / "personalities.json",
+    "postcards": DATA / "catalog" / "postcards.json",
 }
 EXPECTED = {
     "behaviors": 36,
     "furniture": 32,
     "snacks": 10,
-    "outfits": 12,
+    "outfits": 8,
     "expressions": 48,
     "events": 24,
     "achievements": 24,
     "life_plans": 6,
     "personalities": 5,
+    "postcards": 8,
 }
 AREA_UNLOCK_LEVELS = {"sleep": 1, "snack": 3, "activity": 4, "window": 6}
 AREAS = set(AREA_UNLOCK_LEVELS)
@@ -57,7 +61,7 @@ ACHIEVEMENT_LIMITS = {
     "expressions": 48,
     "events": 24,
     "furniture": 32,
-    "outfits": 12,
+    "outfits": 8,
 }
 FORBIDDEN_CONTENT_FIELDS = {
     "streak",
@@ -452,6 +456,29 @@ def validate_desktop_companion(config: Any, behaviors: list[dict], errors: list[
             errors.append(f"desktop companion {field} references missing art")
 
 
+def validate_room_interactions(config: dict, behaviors: list[dict], furniture_ids: set[str], body_ids: set[str], errors: list[str]) -> None:
+    required = {item["required_furniture"] for item in behaviors if item.get("required_furniture")}
+    if set(config) != required:
+        errors.append("room interactions must cover exactly the furniture used by autonomous behaviors")
+    for furniture_id, profile in config.items():
+        if furniture_id not in furniture_ids or not isinstance(profile, dict):
+            errors.append(f"room interaction {furniture_id}: unknown furniture or malformed profile")
+            continue
+        if set(profile) - {"width", "contact", "anchor", "pig_scale", "motion", "body_id"}:
+            errors.append(f"room interaction {furniture_id}: unknown profile fields")
+        if profile.get("anchor") not in {"ground", "snout"} or profile.get("motion") not in {"none", "roll", "tap", "sway"}:
+            errors.append(f"room interaction {furniture_id}: invalid contact or motion")
+        contact = profile.get("contact")
+        if not isinstance(contact, list) or len(contact) != 2 or not all(isinstance(value, (int, float)) and -0.25 <= value <= 1.6 for value in contact):
+            errors.append(f"room interaction {furniture_id}: invalid contact coordinates")
+        for field, minimum, maximum in (("width", 50, 280), ("pig_scale", 0.3, 1.2)):
+            value = profile.get(field)
+            if not isinstance(value, (int, float)) or not minimum <= value <= maximum:
+                errors.append(f"room interaction {furniture_id}: invalid {field}")
+        if profile.get("body_id", "body_base") not in body_ids:
+            errors.append(f"room interaction {furniture_id}: unknown body override")
+
+
 def main() -> int:
     errors: list[str] = []
     catalogs = {name: load(path) for name, path in PATHS.items()}
@@ -464,6 +491,15 @@ def main() -> int:
     validate_personalities(catalogs["personalities"], indexes["expressions"], errors)
     performance_config = json.loads((DATA / "catalog" / "pig_performances.json").read_text(encoding="utf-8"))
     validate_performances(performance_config, set(indexes["outfits"]), errors)
+    outfit_rig = json.loads((DATA / "catalog" / "pig_outfit_rig.json").read_text(encoding="utf-8"))
+    visual_rig = json.loads((DATA / "catalog" / "pig_visual_rig.json").read_text(encoding="utf-8"))
+    errors.extend(validate_outfit_rig(outfit_rig, visual_rig["clips"], catalogs["outfits"]))
+    errors.extend(validate_retired_outfits(load(DATA / "catalog" / "retired_outfits.json"), set(indexes["outfits"])))
+    try:
+        interaction_config = json.loads((DATA / "catalog" / "room_interactions.json").read_text(encoding="utf-8"))
+        validate_room_interactions(interaction_config, catalogs["behaviors"], furniture_ids, {item["id"] for item in performance_config["clips"]}, errors)
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"room interaction configuration cannot be read: {exc}")
     companion_config = DATA / "catalog" / "desktop_companion.json"
     try:
         validate_desktop_companion(json.loads(companion_config.read_text(encoding="utf-8")), catalogs["behaviors"], errors)
@@ -915,7 +951,7 @@ def main() -> int:
         ui_prefixes = (
             "UI_", "SETTINGS_", "HELP_", "LEGAL_", "CATALOG_", "TENDENCY_", "ALBUM_", "EVENT_",
             "AREA_", "STATUS_", "NAME_", "TUTORIAL_", "OFFLINE_", "DIARY_", "DESKTOP_", "TOAST_",
-            "ROOM_", "FURNITURE_", "ENDING_", "EXIT_", "PHOTO_FRAME_", "DEMO_", "PERFORMANCE_",
+            "ROOM_", "FURNITURE_", "ENDING_", "EXIT_", "PHOTO_FRAME_", "DEMO_", "PERFORMANCE_", "POSTCARD_",
         )
         script_keys: set[str] = set()
         for script_path in (ROOT / "game" / "scripts").rglob("*.gd"):
@@ -926,7 +962,6 @@ def main() -> int:
         script_keys.update(
             {
                 *(f"AREA_{area.upper()}" for area in AREAS),
-                *(f"CATALOG_{kind}_INTRO" for kind in ("FURNITURE", "SNACKS", "OUTFITS")),
                 *(f"ROOM_PALETTE_{palette}" for palette in ("ROSE", "MINT", "NIGHT")),
                 *(f"PHOTO_FRAME_{frame}" for frame in ("PLAIN", "BERRY", "STAR")),
             }
@@ -998,6 +1033,7 @@ def main() -> int:
             errors.append("final asset manifest provided_by_user must be boolean")
         if not isinstance(final_asset_manifest.get("entries"), list):
             errors.append("final asset manifest entries must be an array")
+        errors.extend(validate_postcards(catalogs["postcards"], final_asset_manifest, ROOT))
     else:
         errors.append("missing game/data/catalog/final_asset_manifest.json")
 
@@ -1186,6 +1222,7 @@ def main() -> int:
         f"{len(catalogs['expressions'])} expressions, "
         f"{len(catalogs['events'])} events/{variant_count} variants, "
         f"{len(catalogs['achievements'])} achievements, "
+        f"{len(catalogs['postcards'])} permanent postcards, "
         f"{len(catalogs['life_plans'])} life plans/18 diary entries, "
         f"{music_count} music loops/{sfx_count} sound effects."
     )

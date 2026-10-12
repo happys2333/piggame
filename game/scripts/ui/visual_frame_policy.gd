@@ -2,6 +2,10 @@ class_name VisualFramePolicy
 extends RefCounted
 
 const FRAME_STEP: float = 0.1
+const POSE_FRAME_STEP: float = 1.0 / 30.0
+const DESKTOP_POSE_FRAME_STEP: float = 1.0 / 12.0
+const TRANSITION_FRAME_STEP: float = 1.0 / 60.0
+const DESKTOP_TRANSITION_FRAME_STEP: float = 1.0 / 30.0
 
 
 static func camera_shake_offset(requested: bool, progress: float, elapsed: float, enabled: bool, reduce_motion: bool) -> Vector2:

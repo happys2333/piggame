@@ -20,7 +20,7 @@ One pig, one little room, and a surprising number of full days spent doing nothi
 
 领养一只可命名、会自己生活的粉色猪咪。它会吃饭、睡觉、发呆，也会一本正经地为偷懒和馋嘴找理由。你可以摸摸、轻戳或投喂它，也可以什么都不做；猪咪不会饿死、离家，或因为你很久没上线而责怪你。
 
-把一间小屋慢慢布置成你们共同生活的地方。四个固定区域里共有 32 件家具与 12 套锚点装扮，功能家具会加入新动作和小剧场，装饰不会提供数值优势。收集 48 个表情、24 段小剧场、生活照片、章节日记与 24 个成就；随机日常满足条件后会进入待看队列，不会永久错过。
+把一间小屋慢慢布置成你们共同生活的地方。四个固定区域里共有 32 件家具与 8 件头脸饰品，功能家具会加入新动作和小剧场，装饰不会提供数值优势。收集 48 个表情、24 段小剧场、生活照片、章节日记与 24 个成就；随机日常满足条件后会进入待看队列，不会永久错过。
 
 需要专心做别的事时，让猪咪待在桌面边缘陪你。桌面陪伴与小屋共享同一份进度，可以调整大小、停靠、置顶、专注和鼠标穿透，也始终提供普通小窗降级方式。
 
@@ -30,7 +30,7 @@ One pig, one little room, and a surprising number of full days spent doing nothi
 
 領養一隻可命名、會自己生活的粉色豬咪。牠會吃飯、睡覺、發呆，也會一本正經地為偷懶和嘴饞找理由。你可以摸摸、輕戳或餵牠，也可以什麼都不做；豬咪不會餓死、離家，或因為你很久沒上線而責怪你。
 
-把一間小屋慢慢佈置成你們共同生活的地方。四個固定區域裡共有 32 件傢俱與 12 套錨點裝扮，功能傢俱會加入新動作和小劇場，裝飾不會提供數值優勢。收集 48 個表情、24 段小劇場、生活照片、章節日記與 24 個成就；隨機日常滿足條件後會進入待看佇列，不會永久錯過。
+把一間小屋慢慢佈置成你們共同生活的地方。四個固定區域裡共有 32 件傢俱與 8 件頭臉飾品，功能傢俱會加入新動作和小劇場，裝飾不會提供數值優勢。收集 48 個表情、24 段小劇場、生活照片、章節日記與 24 個成就；隨機日常滿足條件後會進入待看佇列，不會永久錯過。
 
 需要專心做別的事時，讓豬咪待在桌面邊緣陪你。桌面陪伴與小屋共享同一份進度，可以調整大小、停靠、置頂、專注和滑鼠穿透，也始終提供普通小窗降級方式。
 
@@ -40,7 +40,7 @@ One pig, one little room, and a surprising number of full days spent doing nothi
 
 Adopt a nameable pink pig who is perfectly capable of living its own little life. It eats, sleeps, stares into space, and offers very serious explanations for every lazy or snack-related decision. Pet, gently poke, or feed your pig—or simply watch. It never dies, leaves, or blames you for being away.
 
-Turn one small room into a shared home. Four fixed areas hold 32 pieces of furniture and 12 anchor-based outfits. Functional furniture adds behaviors and memories, while decoration never grants a numerical advantage. Collect 48 expressions, 24 memories, life photos, diary chapters, and 24 achievements. Once a random memory becomes available, it enters a watch-later queue and is never permanently missed.
+Turn one small room into a shared home. Four fixed areas hold 32 pieces of furniture and 8 head and face accessories. Functional furniture adds behaviors and memories, while decoration never grants a numerical advantage. Collect 48 expressions, 24 memories, life photos, diary chapters, and 24 achievements. Once a random memory becomes available, it enters a watch-later queue and is never permanently missed.
 
 When it is time to focus on something else, let your pig stay near the edge of the desktop. Desktop Pal shares progress with the room and provides size, docking, always-on-top, focus, and click-through controls, with a normal-window fallback always available.
 

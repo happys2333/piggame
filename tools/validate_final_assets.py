@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "game" / "data"
 MANIFEST = DATA / "catalog" / "final_asset_manifest.json"
 FINAL_PREFIX = "res://game/assets/final/"
-VISUAL_SUFFIXES = {".png", ".webp", ".svg", ".tres", ".res"}
+VISUAL_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".svg", ".tres", ".res"}
 
 
 def load(path: Path) -> Any:
@@ -30,6 +30,7 @@ def expected_coverage() -> set[str]:
         "snack": load(DATA / "catalog" / "snacks.json"),
         "expression": load(DATA / "expressions" / "expressions.json"),
         "event": load(DATA / "events" / "events.json"),
+        "postcard": load(DATA / "catalog" / "postcards.json"),
     }
     result = {
         f"{kind}:{item['id']}"
@@ -113,7 +114,7 @@ def main() -> int:
             visual_tokens = [str(token) for token in covers if not str(token).startswith("audio:")]
             if visual_tokens and disk_path is not None and disk_path.suffix.lower() not in VISUAL_SUFFIXES:
                 errors.append(
-                    f"entry {index} visual tokens require PNG, WebP, SVG, TRES or RES: {resource_path}"
+                    f"entry {index} visual tokens require PNG, JPEG, WebP, SVG, TRES or RES: {resource_path}"
                 )
         if not isinstance(regions, dict):
             errors.append(f"entry {index} regions must be an object when provided")

@@ -2,7 +2,7 @@ class_name PigPerformanceLibrary
 extends RefCounted
 
 const PATH: String = "res://game/data/catalog/pig_performances.json"
-const COUNTS := {"faces":9, "clips":12, "poses":9, "states":6, "forms":2, "outfit_actions":12}
+const COUNTS := {"faces":9, "clips":12, "poses":9, "states":6, "forms":2, "outfit_actions":8}
 
 var configuration: Dictionary = {}
 var _by_id: Dictionary = {}

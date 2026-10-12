@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "localization_csv_sha256": "e890e0d807da10c8e16da3786bb9644a07b98563c2626637d1f424233c98f6c8",
+  "changes": [
+    {
+      "key": "UI_OUTFITS",
+      "original_text_sha256": "8994b700527a21b54ae904cd580fab0afd24ef758132bf0fdc38b06c10ad01ab",
+      "zh_CN": "装扮",
+      "zh_TW": null,
+      "en": "Outfits",
+      "reason": "术语统一：UI 标签用“饰品”，而同一系统的成就与表现分类写“装扮”（ACH_OUTFITS_6_DESC 拥有 6 套装扮、PERFORMANCE_OUTFIT_ACTIONS 装扮专属动作、PERFORMANCE_WEAR_FIRST 先穿上这套装扮）。同一个 8 件头脸收藏品出现两个名字。取“装扮”与成就/表现分类一致，也让 UI_OUTFITS 回到与键名 outfit 相符的用词。英文同步为 Outfits，对齐同键的 ACH_OUTFITS_6_DESC “Own 6 outfits.”。"
+    },
+    {
+      "key": "UI_NO_ACCESSORY",
+      "original_text_sha256": "2a64d69bc2cc4bb1de7676388f47734266db447b8ccc1d9b59a9c5d30ebf4cf3",
+      "zh_CN": "未佩戴装扮",
+      "zh_TW": null,
+      "en": "Nothing on",
+      "reason": "联动 UI_OUTFITS 改名“装扮”。英文 No accessory 在改为 Outfits 后读作 No outfit 会歧义为“没有整套服装”，改成 Nothing on 保持“当前没有佩戴头脸装扮”的原意，也不暗示新增套装系统。"
+    },
+    {
+      "key": "UI_REMOVE_OUTFIT",
+      "original_text_sha256": "60a90645040b75d021043145314e78dafda20223d186812e1e77719aea64af22",
+      "zh_CN": "摘下装扮",
+      "zh_TW": null,
+      "en": "Take off",
+      "reason": "联动 UI_OUTFITS 改名“装扮”。中文“摘下”对头脸饰品成立，字数与原“摘下饰品”相同，不影响 1280×720 / 150% 字号下的按钮宽度。英文 Remove 与相邻的 Equipped 状态不对应，改为 Take off 与 UI_EQUIP 的 Wear 成对。"
+    },
+    {
+      "key": "UI_EQUIP",
+      "original_text_sha256": "def4e5a77e7808003f65aa74c7b4123ade8e30156ed0765a6f0c5955ddb71295",
+      "zh_CN": "穿上",
+      "zh_TW": null,
+      "en": "Wear",
+      "reason": "联动 UI_OUTFITS 改名“装扮”。中文“穿上”可保留。英文 Equip 与同键族 UI_OUTFITS（Accessories）连用偏装备系统语感，改为 Wear 与 UI_EQUIPPED 的 Worn 成对，更贴近“头脸装扮”的轻量语气。"
+    },
+    {
+      "key": "UI_EQUIPPED",
+      "original_text_sha256": "885cadf7263885c3d17f526c660c6945e067ac6fd246df4309a22bf188d92e1d",
+      "zh_CN": "已佩戴",
+      "zh_TW": null,
+      "en": "Worn",
+      "reason": "联动 UI_OUTFITS 改名“装扮”。中文“已佩戴”保留（指头脸饰品，语感正确）。英文 Equipped 同步改为 Worn，与 UI_EQUIP 的 Wear 成对。"
+    },
+    {
+      "key": "ACH_OUTFITS_6_DESC",
+      "original_text_sha256": "fd05503ccf606b3bc23b96cfc17b084dfc521cdf9b9ebd125edcbc8a18034a1d",
+      "zh_CN": "拥有 6 件装扮。",
+      "zh_TW": null,
+      "en": "Own 6 outfit pieces.",
+      "reason": "术语统一：原文“拥有 6 套装扮”的“套”暗示整套服装，但活动可穿戴目录只有 8 件头部/脸部饰品，不存在套装。改为“件”与 DEMO_COMPLETE_SILHOUETTES“8 件头脸饰品”及 UI 的“装扮”一致，也不借此新增套装系统。英文 outfits 保留，加 pieces 消掉“整套服装”的歧义。数字 6 未改。"
+    },
+    {
+      "key": "PERSONALITY_FOODIE_POKE",
+      "original_text_sha256": "20eafabfe67bfb0477e3772ca6c68e7586cf17a5b1cd24b0c1b8daadb2dd13fa",
+      "zh_CN": "{name}：这里装着饼干的回忆，不是提醒你做什么。",
+      "zh_TW": null,
+      "en": "{name}: Cookie memories live in here. That is not a request for more food.",
+      "reason": "反催逼：原句“不是催你投喂哦”把投喂这个动作直接拉进台词，读起来既像作者在向玩家交代设计意图，也顺势把“该投喂了”摆到玩家眼前——正是贪吃声线要避免的催逼。英文原文 That's not a request for more food 说的是“我心里想饼干，不等于我在点单”，立场是对自己不催玩家，比中文更稳，所以英文只把缩写 That's 改成 That is；中文顺着同一立场重写为“不是提醒你做什么”，保留“这里装着饼干的回忆”的贪吃设定，不再提投喂。{name} 保留。"
+    },
+    {
+      "key": "OUTFIT_BERRY_BERET_DESC",
+      "original_text_sha256": "16886f2397356d392644d43a20251c1b3b9a12d58392d1d58c928645b39ebd72",
+      "zh_CN": "头顶一颗莓果色的小主意。",
+      "zh_TW": null,
+      "en": "A berry-colored little idea, perched on the head.",
+      "reason": "谐音收拢：本作有一整套“猪意←主意”的谐音（POSE_HEAD_HOLD 抱头想猪意、MEME_SILLY_LINE 猪意很多、NOTE_READING_2_TEXT 有自己的猪意），但“小猪意”并不是“小主意”的谐音，只是把两个字粘在一起，读者要绕一下才明白这顶贝雷帽是“一个想法”。改回“小主意”，梗仍然落在猪身上（这是猪的贝雷帽、猪的想法），但一眼就读通。英文原句已用 idea，补 perched on the head 把“头顶”交代清楚。"
+    },
+    {
+      "key": "EXPR_HUNGRY_COCOA_NAME",
+      "original_text_sha256": "57a98d054eeb1b0838f60d4ab667127bae14862c75a6fc938c21a6ef5d7bf18c",
+      "zh_CN": "奶胡子",
+      "zh_TW": null,
+      "en": "Milk Moustache",
+      "reason": "消除循环引用：该表情关联事件 event_cocoa_moustache，事件标题就是“可可胡子”，而表情名也叫“可可胡子”。EXPR_*_HINT 由事件标题生成（tools/build_localization.py:606），因此这条线索实际变成“可可胡子好像和「可可胡子」有关”，等于没有线索。表情改名为“奶胡子”后线索恢复指向性，事件标题、EXPR_HUNGRY_COCOA_HINT、EXPR_HUNGRY_COCOA_LINE（今天显得成熟了一点）都不必动。联动键：EVENT_COCOA_MOUSTACHE_TITLE、EXPR_HUNGRY_COCOA_HINT、EXPR_HUNGRY_COCOA_LINE；表情册按 name_key 取值，无需改数据文件。"
+    },
+    {
+      "key": "ACH_ROBOT_KNIGHT_NAME",
+      "original_text_sha256": "6eb9c076ce16ffb45636ff457a76dfd8e5111229b6a1f4ba2e039dd84e8ebd5a",
+      "zh_CN": "绕开软垫",
+      "zh_TW": null,
+      "en": "Cushion Avoided",
+      "reason": "消除重名：成就“计划内停车”与表情 EXPR_WRONGED_ROBOT_NAME 完全同名，而该表情又由同一事件 event_robot_knight 解锁，成就和表情在相册里会显示成同一个名字。成就保留“看完扫地机器人骑士”这个事实，改名“绕开软垫”用反差表达“这次没撞上”。联动键：ACH_ROBOT_KNIGHT_DESC（看完“扫地机器人骑士”。）不变。类似重名还有 EVENT_ORDINARY_DAY_TITLE 与 ACH_EVENTS_24_NAME 都叫“普通的一天”，见 questions。"
+    },
+    {
+      "key": "TOAST_NOT_ENOUGH_POINTS",
+      "original_text_sha256": "61cab5672e38d88a766e0f16610bd470206b4616dd905d56dd7352fa063a18cf",
+      "zh_CN": "点数还不够。先逛逛也好。",
+      "zh_TW": null,
+      "en": "Not quite enough points. Browsing is fine too.",
+      "reason": "原句“猪咪决定先不发表意见”把买不起写成角色对玩家的冷淡反应，属于轻度的错过惩罚语感。改成“先逛逛也好”，点数是攒出来的、不是催出来的，也不新增任何获取途径。数字与玩法未动。"
+    },
+    {
+      "key": "EXIT_SAVE_FAILED_TITLE",
+      "original_text_sha256": "01f4c9b849d27131f15b2f67d78c2c5e3dba1bfb051d15cae12a9837e44c074b",
+      "zh_CN": "退出前保存失败",
+      "zh_TW": null,
+      "en": "Save Before Exit Failed",
+      "reason": "原文是“……吗？”的问句，但正文 EXIT_SAVE_FAILED_MESSAGE 已经说明写入没有完成、可以重试或返回检查存储空间。标题用问句会把已经发生的失败写回成一次待选择的询问，且与“重试 / 不保存并退出”两个按钮语义重叠。改为陈述失败事实，保留正文的全部安全信息（重试、检查存储空间、备份原文件路径）。"
+    },
+    {
+      "key": "DESKTOP_PIG_ONLY",
+      "original_text_sha256": "d346d06e8f6120c7a5ed485d913dcf7737ac5c9dd44163177a80d26b5d6b0657",
+      "zh_CN": "只显示猪咪",
+      "zh_TW": null,
+      "en": "Pig Only",
+      "reason": "菜单项不应写成操作说明。“（右键菜单 / Esc）”把使用方式塞进标签，1280×720 及 150% 字号下会撑长桌面右键菜单；且该键当前没有任何运行时引用。去掉括号后与 DESKTOP_QUIET、DESKTOP_FOCUS 等同级标签长度一致。英文原本已无括号，无需改。"
+    },
+    {
+      "key": "DESKTOP_ROOM_HINT",
+      "original_text_sha256": "9e03d792e6c58f8d46841fe0e9c16d97907bba28bac17344540303001241fef6",
+      "zh_CN": "回到完整小屋。",
+      "zh_TW": null,
+      "en": "Back to the full room.",
+      "reason": "与同类提示统一。同族的返回提示应短而准；“返回完整小屋”保留了“完整小屋”这一与 DESKTOP_COMPATIBILITY_FALLBACK（普通小窗模式）相对的关键词，只补一个“到”字，不改变含义，也不新增入口。"
+    },
+    {
+      "key": "HELP_DESKTOP",
+      "original_text_sha256": "320eb3d4cc75ea34a74fe012d53d9cd450063719cf7ca47da3b250ff052a2286",
+      "zh_CN": "熟悉度 2 级解锁桌面陪伴。右键猪咪打开菜单，Esc 返回小屋；切换到其他应用时自动安静。",
+      "zh_TW": null,
+      "en": "Desktop Companion unlocks at Familiarity 2. Right-click your pig for the menu; Esc returns to the room. Switching to another app makes your pig quiet.",
+      "reason": "术语统一：“桌宠”在本游戏只出现这一次，UI_DESKTOP、UI_DESKTOP_LOCKED、TUTORIAL_DESKTOP 一律叫“桌面陪伴”，英文也用 Desktop Companion。同一功能两个名字会让玩家以为是两个东西。只换词，解锁等级 2 级、右键菜单、Esc 返回小屋、失焦自动安静这些事实全部保留。"
+    },
+    {
+      "key": "HELP_ALBUM",
+      "original_text_sha256": "11fdc58478b700ce0a18b1420d01f2cfa0c5f3e5f8283aabbed3e8ccb2d4c217",
+      "zh_CN": "相册收藏表情、照片、日记和来信。明信片按累计获得的点数解锁。",
+      "zh_TW": null,
+      "en": "The album keeps expressions, photos, diary pages, and mail. Postcards unlock as you earn points.",
+      "reason": "与相册实际分区对齐：ALBUM_EXPRESSIONS 表情册、ALBUM_MEMORIES 生活照片、ALBUM_DIARY 章节日记、POSTCARD_INBOX 猪咪来信。原文用“回忆”和“手账”，而相册里没有叫这两个名字的分区（“手账”是 ALBUM_LIFE_PLANS 小计划里的产物）。只改称呼，不新增分区；解锁方式（累计点数）与英文原本的 memories 用词一并改为照片，和同一段里的英文说明保持一致。"
+    },
+    {
+      "key": "HELP_CORE",
+      "original_text_sha256": "e43718073f25388e486d44eba57e7c19f23cc00f998fe82ddf7612a175e1360e",
+      "zh_CN": "点身体摸摸、点鼻子戳戳；零食可以投喂，家具可以摆放或邀请猪咪使用。",
+      "zh_TW": null,
+      "en": "Pet the body, poke the snout, feed snacks, and place furniture or invite your pig to use an item.",
+      "reason": "用词与按钮对齐：家具的实际动作按钮是 UI_PLACE“放进房间”、FURNITURE_INVITE“邀请猪咪试一试”，原文“布置”不是界面上出现的词；改为“摆放”既贴近动作，也不暗示新增自由摆放玩法。其余操作（摸、戳、投喂）未改动。"
+    },
+    {
+      "key": "TENDENCY_ACTIVE_DESC",
+      "original_text_sha256": "8d9bd835a55019511c05754734ce7d81417c4ff53fb06e5028bfea78af8b1d9a",
+      "zh_CN": "更常去跑步、瑜伽和活动那边。",
+      "zh_TW": null,
+      "en": "Leans toward running, yoga, and being active.",
+      "reason": "去掉引擎用词：“事件”是内部实现词（events.json 的 event），玩家界面里没有“事件”这个概念；同桌的四张今日倾向卡片都会显示这句话，写成“活动事件”读起来像策划文档。改为“活动那边”，保持“稍微活动”这一项名的指向，也不改随机权重。英文同步去掉 events，改为 being active。"
+    },
+    {
+      "key": "TENDENCY_FOOD_DESC",
+      "original_text_sha256": "d184b113eda9cb4cb1eb25eca5521061610609baaefb11af6e60fd640fc5e784",
+      "zh_CN": "更常去厨房、零食和吃的那边。",
+      "zh_TW": null,
+      "en": "Leans toward kitchen, snacks, and food.",
+      "reason": "联动 TENDENCY_ACTIVE_DESC 去掉“事件”。同一项名是“吃点好的”，中文“料理”偏正式、更像系统词，改成“吃的”与该倾向名一致，也不改变它影响的家具区域。"
+    },
+    {
+      "key": "TENDENCY_REST_DESC",
+      "original_text_sha256": "903027a5c574f2603c58d0449b8b30880ad10dd49c60bcf06d02d9e1c07d4e88",
+      "zh_CN": "更常去睡觉、窗边和安静的那边。",
+      "zh_TW": null,
+      "en": "Leans toward sleep, the window, and quiet.",
+      "reason": "联动 TENDENCY_ACTIVE_DESC 去掉“事件”。只把“安静事件”改成“安静的那边”，保留睡觉与窗边两个真实区域指向。"
+    },
+    {
+      "key": "TENDENCY_EXPLORE_DESC",
+      "original_text_sha256": "03d3fd75ee89ace901366307771cd862dfbfae5686da93f7a615039302bd4431",
+      "zh_CN": "安排得比较平均，也会多去还没见过的地方。",
+      "zh_TW": null,
+      "en": "Keeps things even, and favors places you have not seen yet.",
+      "reason": "去掉引擎用词与英文泄漏：中文“分配较平均，并提高未见内容的机会”读起来是概率说明；英文原文 “favors unseen content” 更是直接用了 content 这个实现词。改为玩家视角的“还没见过的地方”，四项倾向描述自此语气一致，且不改变它确实偏向未见内容这一行为。"
+    },
+    {
+      "key": "FURNITURE_CHOOSE_SLOT",
+      "original_text_sha256": "60dbfc0268eed5af580c94164db759f5ff0e26086d77ce83dfbc65f48139a7ab",
+      "zh_CN": "选择摆放位置",
+      "zh_TW": null,
+      "en": "Choose a Spot",
+      "reason": "术语替换：“插槽”是硬件/程序词，且是玩家在摆放家具流程里第一眼看到的标题（main_ui.gd:653）。改为“摆放位置”与同一流程的 UI_PLACE“放进房间”、FURNITURE_REPLACE“打开家具清单替换”统一。位置数量与固定对应关系（一件家具只能放进类型匹配的位置）未改。"
+    },
+    {
+      "key": "FURNITURE_CHOOSE_SLOT_DESC",
+      "original_text_sha256": "173ed046d6dc48ffc14f6c9443680c4a75e11bc3de9992220aa0d48a82cfe64a",
+      "zh_CN": "为「{item}」选择摆放位置。",
+      "zh_TW": null,
+      "en": "Choose a spot for “{item}”.",
+      "reason": "修正病句：原文“为「{item}」选择用品位。”把两个短语粘在一起（英文对应句 Choose an item slot for “{item}.” 可读，中文不可读）；同一面板标题就是 FURNITURE_CHOOSE_SLOT，这里重复“摆放位置”即可说清。{item} 保留。"
+    },
+    {
+      "key": "FURNITURE_SLOT_LABEL",
+      "original_text_sha256": "bdb02f416b2b2793de962f0d7278cfe983d54888d69e1a6ecbf560009d183f59",
+      "zh_CN": "{area} · 位置 {number}（现在：{current}）",
+      "zh_TW": null,
+      "en": "{area} · Spot {number} (now: {current})",
+      "reason": "联动 FURNITURE_CHOOSE_SLOT 换掉“插槽”。这一串直接作为按钮文字（main_ui.gd:664），{area} 是“睡眠用品/活动用品”等分区名，{number} 是该分区内的位置序号，{current} 是当前占用的家具名或“空着”。三个变量原样保留，只换一个名词。"
+    },
+    {
+      "key": "FURNITURE_CURRENT_SLOT",
+      "original_text_sha256": "900d4cb7a22e857ee0bc2f2e227924225aa0bb5fe4b6fa8b0e3f4cf742b61dd8",
+      "zh_CN": "现在位于：{area} · 位置 {number}",
+      "zh_TW": null,
+      "en": "Currently in: {area} · Spot {number}",
+      "reason": "联动 FURNITURE_CHOOSE_SLOT 换掉“插槽”，保证家具详情页（main_ui.gd:690）与摆放面板用同一个词。变量 {area}、{number} 保留。"
+    }
+  ],
+  "metadata_changes": [
+    {
+      "review_id": "PROJECT_CONFIG_NAME",
+      "not_a_localization_key": true,
+      "source": "project.godot:8",
+      "current": "猪咪今天也没干嘛",
+      "proposed": null,
+      "note": "建议保留。这个名字把“放置/陪伴”和“什么都不用做”一次说清，和结局标题《普通的一天》、ENDING_FREE_COMPANION“普通日子，还在继续。”、成就 ACH_EVENTS_18_NAME“什么都发生了一点”互相咬合；改成更热闹的名字会破坏整条“普通日子也值得过完”的主线，也会和窗口内出现三处的“猪咪今天也没干嘛”不一致。"
+    },
+    {
+      "review_id": "PROJECT_CONFIG_DESCRIPTION",
+      "not_a_localization_key": true,
+      "source": "project.godot:9",
+      "current": "2D 放置养成、桌面陪伴与表情小剧场",
+      "proposed": "2D 放置养成、桌面陪伴与表情小剧场",
+      "note": "建议保留原文。这三个词正好对应三块真实内容，且都已有统一用词：放置养成（离线 OFFLINE_* / 日常点数）、桌面陪伴（UI_DESKTOP、HELP_DESKTOP）、表情小剧场（ALBUM_EXPRESSIONS、ACH_EVENTS_*）。没有需要修正的夸大或未交付承诺，故 proposed 与原值相同。"
+    }
+  ],
+  "image_caption_suggestions": [
+    {
+      "postcard_id": "postcard_park",
+      "current_observed_image_text": "乱停猪 / 罚单 / Z / z",
+      "proposed_caption": null,
+      "note": "本轮不改原图，也不改图内文字。这里只记录一个与文案相关的观察：明信片在相册里显示的名称是 POSTCARD_PARK_NAME“乱停猪，暂停营业”，与图内烧录的“乱停猪”一致；POSTCARD_PARK_BODY 复述了罚单梗（罚款内容是继续休息五分钟），但没有逐字抄图内的罚单细字——这是对的，图内表格细字本来就无法可靠辨读，正文用改写而非伪造转录。若日后重制该图，建议保持“乱停猪”三字，以便图与 POSTCARD_PARK_NAME 继续对应。"
+    },
+    {
+      "postcard_id": "postcard_bold",
+      "current_observed_image_text": "笨笨的我气势汹汹地登场",
+      "proposed_caption": null,
+      "note": "本轮不改原图。图内文字用“我”，而 POSTCARD_BOLD_BODY 写成“笨笨的{name}”，来源登记标题又写作“笨笨的猪”——三处人称不同。{name} 是可自定义猪名，正文用它是必要的（玩家取的名字要出现），因此建议保持现状：正文用 {name}，图内保留原样“我”。不要把图内“我”改成 {name} 之外的固定称呼，也不要为了对齐而改动原图。"
+    },
+    {
+      "postcard_id": "postcard_wake",
+      "current_observed_image_text": "你醒啦，你刚刚一直在说什么要考试、要找工作什么的，是不是吃错饲料了，我们只是小猪猪呀",
+      "proposed_caption": null,
+      "note": "本轮不改原图。POSTCARD_WAKE_BODY 把图内长句压成了“把考试和工作暂时留在信封外吧。今天的猪要任务：好好休息。”，保留了“别为考试和工作焦虑”的落点，也守住了“休息不是任务指标”的底线。建议保持，不必把图内“是不是吃错饲料了”的调侃搬进正文——那句在图里成立，在正文里会显得像在评价玩家的处境。"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q_snack_desc_vs_reaction",
+      "about_keys": [
+        "SNACK_APPLE_DESC",
+        "SNACK_BERRY_MILK_DESC",
+        "SNACK_CLOUD_BUN_DESC",
+        "SNACK_CRUNCHY_PEAS_DESC",
+        "SNACK_PEACH_SODA_DESC",
+        "SNACK_SEAWEED_ROLL_DESC",
+        "SNACK_PUDDING_CUP_DESC",
+        "SNACK_STAR_COOKIE_DESC",
+        "SNACK_WARM_COCOA_DESC",
+        "SNACK_TINY_SANDWICH_DESC",
+        "REACTION_SNACK_APPLE",
+        "REACTION_SNACK_BERRY_MILK",
+        "REACTION_SNACK_CLOUD_BUN",
+        "REACTION_SNACK_CRUNCHY_PEAS",
+        "REACTION_SNACK_PEACH_SODA",
+        "REACTION_SNACK_SEAWEED_ROLL",
+        "REACTION_SNACK_PUDDING_CUP",
+        "REACTION_SNACK_STAR_COOKIE",
+        "REACTION_SNACK_WARM_COCOA",
+        "REACTION_SNACK_TINY_SANDWICH"
+      ],
+      "question": "10 种零食的 SNACK_*_DESC 与 REACTION_SNACK_* 目前是逐字相同的两套键（例如两者都是“酸甜得很诚实。”）。生成器里同一句被同时写进 description_key 和 reaction_key。请问这是刻意复用同一句台词，还是想要“货架说明”和“投喂反应”两种不同文本？",
+      "why_it_matters": "若是刻意复用，本轮不应改动，改了反而会让两处不一致；若是想分开，我可以把 10 条 DESC 改写成偏“商品说明/口感”的短句（例如“脆脆的，酸甜口。”），把 10 条 REACTION 保留现在的反应口吻。这需要改生成器让两个键取不同文案，属于本次“不回填”范围，故先不动。",
+      "blocking": false
+    },
+    {
+      "id": "q_outfit_terminology_en",
+      "about_keys": [
+        "UI_OUTFITS",
+        "UI_NO_ACCESSORY",
+        "UI_EQUIP",
+        "UI_EQUIPPED",
+        "UI_REMOVE_OUTFIT",
+        "ACH_OUTFITS_6_DESC",
+        "DEMO_COMPLETE_SILHOUETTES",
+        "PERFORMANCE_OUTFIT_ACTIONS",
+        "PERFORMANCE_WEAR_FIRST"
+      ],
+      "question": "这 8 件物品到底是“head/face 饰品”还是“整套装扮”？我可以选择的事实依据是：它们只是头部/脸部饰品（DEMO_COMPLETE_SILHOUETTES 写 8 件头脸饰品），但 UI 与数据键名一律用 outfit，中文成就也写“6 套装扮”。",
+      "why_it_matters": "本次我按“统一到装扮（outfit）”处理，于是改了 UI_OUTFITS 等 5 个 UI 键的中文与英文。如果产品定位其实是“头脸饰品”（accessory），那正确的统一方向应该反过来：把 ACH_OUTFITS_6_DESC 改成“拥有 6 件头脸饰品”，UI 保留“饰品/Accessories”，而我这次的 5 处 UI 改动应当撤销。两种方向只能选一个，请确认。",
+      "blocking": true
+    },
+    {
+      "id": "q_desktop_frequency_frequent_label",
+      "about_keys": [
+        "DESKTOP_FREQUENCY_FREQUENT",
+        "DESKTOP_FREQUENCY_NORMAL",
+        "DESKTOP_FREQUENCY_RARE",
+        "DESKTOP_FREQUENCY_OFF"
+      ],
+      "question": "同一组单选里，另外三项都带具体间隔（“适中 · 45 秒”“偶尔 · 2 分钟”“关闭”），而最高频那项写的是“自然切换”，没有间隔也没有频率词。请问最高频档的真实间隔是多少秒？",
+      "why_it_matters": "如果它确实有一个固定秒数，建议补成“频繁 · NN 秒”，四项就形成可比较的序列；如果它不是固定间隔而是由行为自然触发，那么“自然切换”是对的，但建议把另外三项也改成不依赖秒数的说法，避免玩家以为四项是同一套计时。我不知道这个档位的实际数值，按规则没有猜写，本轮未改。",
+      "blocking": false
+    },
+    {
+      "id": "q_diary_vs_handbook_terminology",
+      "about_keys": [
+        "ALBUM_DIARY",
+        "ALBUM_LIFE_PLANS",
+        "LIFE_PLAN_PROGRESS",
+        "LIFE_PLAN_COLLECTION",
+        "HELP_ALBUM",
+        "ALBUM_LIFE_PLANS"
+      ],
+      "question": "相册里同时存在“章节日记”（DIARY_CHAPTER_1..5，5 段）和“小计划/手账”（6 个小计划 × 3 段手账 = 18 段）。这两套都是文字记录，玩家容易混。是否要统一称呼，还是刻意保持两个名字？",
+      "why_it_matters": "本次我只在 HELP_ALBUM 里把不存在于相册的“手账”换成实际分区名“日记”，没有动 DIARY_* 与 LIFE_PLAN_* 两个体系本身。若要进一步区隔，可以考虑把 18 段叫“小计划”，把日记留给章节；但这会改动多个键的显示名，需要你确认再动。",
+      "blocking": false
+    },
+    {
+      "id": "q_expression_rename_rollout",
+      "about_keys": [
+        "EXPR_HUNGRY_COCOA_NAME",
+        "EXPR_HUNGRY_COCOA_HINT",
+        "EXPR_HUNGRY_COCOA_LINE",
+        "EVENT_COCOA_MOUSTACHE_TITLE"
+      ],
+      "question": "我把表情“可可胡子”改名为“奶胡子”，以解开“线索指向同名事件”的循环（原来的线索读作“可可胡子好像和「可可胡子」有关”）。事件标题 EVENT_COCOA_MOUSTACHE_TITLE“可可胡子”保持不变。请确认这个名字改动可以接受。",
+      "why_it_matters": "改的是表情显示名，关联事件仍是 event_cocoa_moustache，条件与解锁方式完全不变；表情册按 expressions.json 的 name_key 取显示名，无需改数据文件。若你更希望保留“可可胡子”这个表情名，另一个方向是改事件标题，但那会连带改动 EXPR_HAPPY_BIG_HINT 与 EXPR_HUNGRY_COCOA_HINT 两条由标题生成的线索，改动面更大。另外 ACH_ROBOT_KNIGHT_NAME 与表情 EXPR_WRONGED_ROBOT_NAME 重名（都叫“计划内停车”），我改的是成就名；EVENT_ORDINARY_DAY_TITLE 与 ACH_EVENTS_24_NAME 也重名（都叫“普通的一天”），这一对我建议保留，因为结局事件与“看完全部小剧场”的成就同名是有意的呼应，请确认。",
+      "blocking": false
+    },
+    {
+      "id": "q_save_recovery_title_scope",
+      "about_keys": [
+        "SAVE_RECOVERY_TITLE",
+        "SAVE_RECOVERY_MESSAGE",
+        "SAVE_RECOVERY_RETRY",
+        "EXIT_SAVE_FAILED_TITLE",
+        "EXIT_SAVE_FAILED_MESSAGE"
+      ],
+      "question": "存档读取失败还有另外两个键我本轮没有改：SAVE_RECOVERY_TITLE“先找回猪咪的日常”和 SAVE_RECOVERY_RETRY“重试读取存档”。是否希望把 SAVE_RECOVERY_TITLE 也改成更直白的失败陈述（例如“存档需要修复”），与 EXIT_SAVE_FAILED_TITLE 保持同一严肃度？",
+      "why_it_matters": "我给 EXIT_SAVE_FAILED_TITLE 去掉了问句，因为它是失败状态而非询问。SAVE_RECOVERY_TITLE 是回忆口吻（“先找回猪咪的日常”）配一段很严肃的正文（暂停写入、保护原文件、要求备份 {path}）。它不算错——温和的标题加严谨的正文是可接受的组合——但两处存档错误提示的严肃度不一致。我没有擅自改，因为这是语气取向问题，且改动会牵动首屏错误对话框给人的第一印象。",
+      "blocking": false
+    }
+  ]
+}

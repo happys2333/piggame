@@ -222,6 +222,7 @@ static func expected_coverage_tokens() -> Array[String]:
 		"snack": "res://game/data/catalog/snacks.json",
 		"expression": "res://game/data/expressions/expressions.json",
 		"event": "res://game/data/events/events.json",
+		"postcard": "res://game/data/catalog/postcards.json",
 	}
 	for kind: String in catalogs:
 		for item: Dictionary in JsonStore.read_array(str(catalogs[kind])):

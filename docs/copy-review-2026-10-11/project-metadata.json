@@ -1,0 +1,16 @@
+[
+  {
+    "review_id": "PROJECT_CONFIG_NAME",
+    "not_a_localization_key": true,
+    "source": "project.godot:8",
+    "current": "猪咪今天也没干嘛",
+    "proposed": null
+  },
+  {
+    "review_id": "PROJECT_CONFIG_DESCRIPTION",
+    "not_a_localization_key": true,
+    "source": "project.godot:9",
+    "current": "2D 放置养成、桌面陪伴与表情小剧场",
+    "proposed": null
+  }
+]

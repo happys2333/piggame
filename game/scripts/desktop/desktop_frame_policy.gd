@@ -93,22 +93,24 @@ static func event_bubble_rect(window_size: Vector2i) -> Rect2:
 	return Rect2(bubble_position, bubble_size)
 
 
-static func mouse_passthrough_polygon(pig_rect: Rect2, window_size: Vector2i, show_bubble: bool, pig_only: bool = false) -> PackedVector2Array:
+static func mouse_passthrough_polygon(pig_rect: Rect2, window_size: Vector2i, show_bubble: bool, pig_only: bool = false, item_rect: Rect2 = Rect2()) -> PackedVector2Array:
 	var window_bounds := Rect2(Vector2.ZERO, Vector2(window_size))
 	var clipped_pig: Rect2 = pig_rect.intersection(window_bounds)
 	if pig_only:
-		return _rect_polygon(clipped_pig) if clipped_pig.has_area() else PackedVector2Array()
+		return _join_hit_region(_rect_polygon(clipped_pig), clipped_pig.get_center(), item_rect.intersection(window_bounds), window_bounds) if clipped_pig.has_area() else PackedVector2Array()
 	var controls: Rect2 = Rect2(control_bar_rect(window_size)).intersection(window_bounds)
 	var bubble: Rect2 = event_bubble_rect(window_size).intersection(window_bounds)
 	if show_bubble and clipped_pig.has_area() and clipped_pig.intersects(bubble):
 		var pig_and_bubble: PackedVector2Array = _join_hit_region(_rect_polygon(clipped_pig), clipped_pig.get_center(), bubble, window_bounds)
-		return _join_hit_region(pig_and_bubble, bubble.get_center(), controls, window_bounds)
+		var combined: PackedVector2Array = _join_hit_region(pig_and_bubble, bubble.get_center(), controls, window_bounds)
+		return _join_hit_region(combined, clipped_pig.get_center(), item_rect.intersection(window_bounds), window_bounds)
 	var merged: PackedVector2Array = _rect_polygon(controls) if controls.has_area() else PackedVector2Array()
 	var control_center: Vector2 = controls.get_center()
 	if show_bubble:
 		merged = _join_hit_region(merged, control_center, bubble, window_bounds)
 		control_center = bubble.get_center()
-	return _join_hit_region(merged, control_center, clipped_pig, window_bounds)
+	merged = _join_hit_region(merged, control_center, clipped_pig, window_bounds)
+	return _join_hit_region(merged, clipped_pig.get_center(), item_rect.intersection(window_bounds), window_bounds)
 
 
 static func _join_hit_region(existing: PackedVector2Array, origin: Vector2, target: Rect2, window_bounds: Rect2) -> PackedVector2Array:

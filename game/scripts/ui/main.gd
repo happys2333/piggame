@@ -6,15 +6,25 @@ extends Control
 
 var _desktop_controller: DesktopWindowController
 var _screenshot_in_progress: bool = false
+var _room_interaction: RoomInteractionController
 
 
 func _ready() -> void:
 	Engine.max_fps = 60
 	_desktop_controller = DesktopWindowController.new()
 	add_child(_desktop_controller)
+	_room_interaction = RoomInteractionController.new()
+	_room_interaction.name = "RoomInteraction"
+	add_child(_room_interaction)
+	_room_interaction.configure(pig, room)
+	_desktop_controller.configure_items(_room_interaction)
+	_desktop_controller.returned_to_room.connect(_room_interaction.resume)
 	pig.pressed.connect(_on_pig_pressed)
 	pig.drag_finished.connect(_on_pig_drag_finished)
-	room.furniture_pressed.connect(ui.open_furniture_detail)
+	room.furniture_pressed.connect(func(furniture_id: String, slot_id: String) -> void:
+		if not GameSession.desktop_mode:
+			ui.open_furniture_detail(furniture_id, slot_id)
+	)
 	ui.desktop_requested.connect(_enter_desktop_mode)
 	ui.screenshot_requested.connect(_take_screenshot)
 	GameSession.behavior_changed.connect(_on_behavior_changed)
@@ -24,6 +34,7 @@ func _ready() -> void:
 	GameSession.mode_changed.connect(func(_desktop: bool) -> void: _refresh_pig())
 	GameSession.exit_checkpoint_failed.connect(_on_exit_checkpoint_failed)
 	_refresh_pig()
+	_room_interaction.present(GameSession.current_behavior_snapshot())
 	if GameSession.desktop_mode:
 		if GameSession.pig_state.familiarity_level >= 2:
 			call_deferred("_enter_desktop_mode")
@@ -56,7 +67,7 @@ func _on_behavior_changed(behavior: Dictionary) -> void:
 	if is_instance_valid(_desktop_controller) and _desktop_controller.active:
 		_desktop_controller.present_behavior(behavior)
 	else:
-		pig.set_behavior(behavior)
+		_room_interaction.present(behavior)
 
 
 func _on_pig_pressed(kind: String) -> void:
@@ -72,6 +83,7 @@ func _on_pig_pressed(kind: String) -> void:
 func _enter_desktop_mode() -> void:
 	if GameSession.pig_state.familiarity_level < 2:
 		return
+	pig.set_room_grounded(false)
 	_desktop_controller.enter(pig, room, ui)
 
 
@@ -83,6 +95,7 @@ func _on_pig_drag_finished(_position: Vector2, origin: Vector2) -> void:
 		return
 	pig.position = origin
 	GameSession.notify_pig_placed()
+	_room_interaction.present(GameSession.current_behavior_snapshot())
 
 
 func _take_screenshot() -> void:

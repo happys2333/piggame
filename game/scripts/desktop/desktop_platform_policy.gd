@@ -10,9 +10,10 @@ static func resolve(server: String, transparency_feature: bool, drag_feature: bo
 	return {
 		"positioning":positioning,
 		"native_drag":native_drag,
+		"window_drag":positioning or native_drag,
 		"transparency_available":transparency_available,
 		"transparency":transparency,
-		"pig_only":pig_only_requested and transparency and native_drag,
+		"pig_only":pig_only_requested and transparency and (positioning or native_drag),
 	}
 
 

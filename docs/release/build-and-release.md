@@ -1,6 +1,69 @@
 # Windows x64 构建与发行
 
-## 2026-10-08 嘴部按姿势显隐（当前）
+## 2026-10-11 UI 与嘴部过渡（当前）
+
+轻量 HUD、八件真实猪咪试戴货架、根据字号/可用宽度计算的网格、价格/拥有/佩戴分层、点数到账即时可用及滚动保留已完成。相册不再让页内容撑大外层窗口；五页各自滚动，拆信刷新保留事务与滚动位置。sly 在站立↔跪下/趴下的整个过渡隐藏独立嘴，完成安全站姿才恢复。原猪主体、黑眼珠和头脸饰品范围不变，桌宠仍只用右键菜单且不扫描其他应用。
+
+- 有效证据为 `build/validation/ui-refinement-20261011/accepted/`：UI 3390 项/150 PNG、嘴部 5091 项/35 PNG，三语、720p、16:10、超宽、80%/150% 和最小窗口均通过。早期失败保留在其他子目录，不与有效结果混用。
+- 最终导入/核心 7068、桌面拖动规则 85、退休迁移、明信片规则、Full/Demo 节奏与 Demo profile 75 均通过；Python 172、内容 ID/引用/本地化检查通过。日志分别为 `headless-accepted.log`、`python-accepted.log`、`content-accepted.log`。
+- Full/Demo ZIP 顺序导出、严格包审计与隔离加载通过，均约 25.47 MiB；Mac 预览约 86 MiB，本地 ad-hoc 签名、隔离原生启动、实际预览 PCK 同字节副本探针通过。源树 `92f2ea6bfedb2f6fa9aa5fa7907d88d95c9e5ccaea2aedb4703a8e1fbca87468`，身份见 `packages/package-proof.json`。
+- 本轮 Mac 预览是 `build/validation/ui-refinement-20261011/packages/mac-native.zip`，非正式发行版本。Windows EXE/原生实机矩阵未验收；最终素材门禁仍按预期失败，34 项音频覆盖缺失且音频保持静音。没有将旧气泡/侧栏的过期全量 UI smoke 宣称为通过。
+
+## 2026-10-10 仅头脸饰品
+
+按用户要求下架围巾、领结和两款披风，当前活动目录只保留八件帽子、发卡、发带、王冠和眼镜；没有裤子或裙子。商店、穿戴动作、自动展示、rig 附着及图集路由一并移除身体／颈部配饰，四个永久 ID 仅保留为旧档兼容元数据。合法旧档逐只退款、卸下已下架穿戴，已得成就及原累计收入不变；缺少累计收入字段时先恢复旧余额的原收入，再退款，避免刷明信片。27 个图像原文件、猪咪主体和保留饰品裁区全部不变。
+
+旧档／多住客／退款／双备份专项 85 项、核心 7,068、拖动 85、Full／Demo 节奏、明信片规则、Python 172、内容及 222 视觉目录通过；总商店价格 10,976，结局 36,225 秒和 Demo 1,800 秒仍在原目标内。证据 `build/validation/head-face-only-20261010/`，设计与失败边界见 `docs/design/head-face-accessories-2026-10-10.md`。以下十二件配饰修复章节与旧预览只作历史；Windows EXE 未更新，Windows 实机、旧全量 UI 失败及最终素材／音频发行门禁仍未完成。
+
+本轮收尾：13,824 次实际组合绘制／735,804 项、201 PNG，以及物品 30,372 项／81 拼页／729 次穿戴窗口采样通过，覆盖五档桌宠尺寸与所需布局。Full／Demo 串行导出、包审计、两包隔离加载、Demo profile 75、Mac 本地签名／隔离原生启动／实际 PCK 同字节隔离探针通过。新版 `build/validation/head-face-only-20261010/packages/mac-native.zip`，源树 SHA-256 `d20c815a9ad1477d8bcf8cdd65601e2b47c73f41cb81deacd5f5b749decf065a`；身份见 `packages/package-proof.json`。普通存档预览未用于自动 GUI 验证，Mac 未公证；旧失败和人工看图范围完整保留，Windows 及发行门禁状态不变。
+
+## 2026-10-10 配饰位置与状态联合校验（此前）
+
+围巾、帽子、眼镜及披风现在按各帧身体比例、头眼颈部支点和遮挡绘制，不把趴卧的围巾硬贴在前腿或脸上。仅一个配饰图集经内置 image_gen 去掉多余猪耳／皮肤和不透明镜片，其余二十六个视觉条目原哈希不变；猪咪主体、嘴眼、永久内容 ID 与养成／存档／严格焦点置顶不变。小剧场保留当前实际穿戴。
+
+证据 `build/validation/outfit-combinations-20261010/`：19,968 次实际组合绘制、149,760 项过渡几何、22,464 项行为／表情／穿戴 API 映射和 312 个小剧场采样通过，配饰 999,627 项、205 PNG；小屋／桌宠物品 31,602 项、81 页／1,053 次实际穿戴采样通过，全部视觉目录 2,130 项、37 PNG 和连续动作 480 帧／3,934 项通过。核心 7,080、拖动 85、两套节奏、Demo profile 75、Python 169、内容和 226 视觉目录通过。
+
+旧 UI 文案／来信／四角家具上下文脚本仍有失败或引用已删除侧栏／气泡，没有“修绿”或声称全量 UI smoke 通过；失败、人工看图范围和具体目录见 `docs/design/pig-outfit-combinations-2026-10-10.md`。新版资源验证 ZIP 与 Mac 本地预览在 `packages/`，不代表正式发行；Windows EXE 尚未更新，Windows 实机及最终素材／音频门禁仍未通过。正常退出旧版再打开新预览。
+
+打包收尾通过：Full／Demo 严格串行导出、包审计、两包隔离加载、Mac 本地签名和隔离原生启动；实际 Mac PCK 的同字节临时副本也通过完整资源／会话探针。新版 `build/validation/outfit-combinations-20261010/packages/mac-native.zip`，源树 SHA-256 `a999af03ebd797bbe86f7967175acd8a50c586e38d643753800cfa465c4431f2` 与本轮实际物品／嘴部／连续动作证据一致；身份与最新探针哈希见 `packages/preview.json`、`packages/package-proof.json`。普通存档预览未用于自动 GUI 验证，Mac 仅本地 ad-hoc 签名、未公证；首次外部探针编译失败保留，修复后重建成功不覆盖其失败记录。
+
+## 2026-10-10 关闭默认启动 Logo（当前）
+
+关闭 `application/boot_splash/show_image`，最低启动图停留时间设为 0；不替换成另一张开屏图。初始背景使用现有纸白色，保留产品图标与主场景，实际资源加载仍需时间。此配置作用于游戏，不改变 Godot 编辑器自己的启动画面，也不修改 Windows 调试控制台选项。
+
+集中验证通过隔离 Godot 导入／启动、核心 7080、拖动 85、Full／Demo 节奏、Demo profile 75、明信片规则、Python 164、内容和 226 视觉校验。Full／Demo ZIP 严格串行重建、包审计及加载通过，两包均报告 `splash=false`；Mac 本地签名与隔离原生启动通过，实际 Mac PCK 的同字节隔离副本也通过启动配置探针。新版预览与证据位于 `build/validation/boot-splash-20261010/`，包身份见 `packages/preview.json`。
+
+此次只改变启动配置，未更换美术、修改布局或重复全量 UI smoke；沿用此前桌宠菜单专项的布局范围，不把旧全量 UI smoke 的失败称为已修复。Windows EXE 尚未重建，Windows 原生启动／DPI／焦点验收仍未测；最终素材门禁继续按既有四项缺失失败，音频保持静音。先正常退出旧版，再使用新预览，避免两个普通存档写入进程。
+
+## 2026-10-10 桌宠无侧栏，统一右键菜单（当前）
+
+用户取消侧栏后，桌面不再创建控制条或来信气泡，也不预留侧栏空间；普通不透明小窗同样只有猪咪和原生标题栏。操作统一收进右键菜单，大小／停靠是子菜单，菜单字号至少 18 px；来信数量只静默更新菜单，Esc 返回小屋。保留焦点置顶与严格防打扰。设计、专项入口及旧测试边界见 `docs/design/desktop-context-menu-2026-10-10.md`；之前章节的带侧栏模式只作历史，不是当前目标。
+
+637 项桌面菜单专项与 51 张实际 PNG 串行验收通过；核心 7080、拖动 85、两套节奏、Demo profile 75、Python 162 及内容／视觉校验通过。最新 Full／Demo 资源包和 Mac 本地预览位于 `build/validation/desktop-context-20261010/packages/`，包审计／两包加载／本地签名／隔离启动通过；源树与最后 GUI 证据一致，身份见 `preview.json`。Windows 实机和最终素材／音频发行门禁仍未通过，旧 Windows EXE／候选身份不代表本轮修复。
+
+## 2026-10-09 桌宠拖动与焦点置顶修复（2026-10-10 收尾）
+
+原拖动仅允许无控制条独立猪模式，Windows／macOS 带控制条均被错误拦截。参考 VPet 的窗口位移机制后，现使用本窗口猪咪的鼠标／触控事件移动整个宿主窗口，不轮询全局鼠标、不扫描其他应用。macOS 已实际验证透明带控制条、独立猪及普通小窗位移且无养成误触，原生最小化撤销置顶；Windows 原生仍未测。用户选定严格焦点置顶，三语菜单已明确「获得焦点时置顶」。85 项专用回归通过，源码参考、证据和限制见 `docs/design/desktop-window-compatibility-2026-10-09.md`。本轮未更换美术、未重做 UI 全量 smoke，原 UI smoke 的已记录失败不能视作修复或全量验收通过。
+
+收尾通过核心 7080、鼠标／触控既有 GUI 回归 194、实际 Demo profile 75、Python 162、Full／Demo 节奏和内容／226 视觉门禁。`build/validation/desktop-drag-20261009/packages/` 包含新版 Full／Demo 资源验证 ZIP 和 Mac 本地签名预览，串行导出／包审计／两包加载／隔离 Mac 启动通过，身份见 `preview.json`；Windows EXE 和下方此前候选身份未随之更新。最终美术／音频发行门禁仍按既有四项原因失败。
+
+## 2026-10-08 站立与跪坐连续动作（当前）
+
+用户22:03截图反馈两种姿势抽动。逐帧测量原稿，站立循环最后到第一帧鼻部瞬移15.728个256单位像素，跪坐最大27.389；两套独立生成的整身图被硬切，形状及头部落位也不同。真实Godot回放复现鼻部取样大跳、仅4种画面；不是通过提高帧率或改3D解决。
+
+现在这两套常驻姿势采用固定关键姿势和以脚底为支点的连续小幅呼吸/点头；数据在 `pig_performances.json` 的 `motion`，构建器从原alpha测量支点，身体、眼、独立嘴和装扮共用一个变换，鼻部点击也使用相同变换。正常窗口最多15次/秒更新，桌面最多5次/秒；隐藏、减少动态、后台、安静/勿扰仍停止推进，不补演。同一身体只切换表情时不重置连续动作时钟。行走/跑步仍使用原4帧，不把全部玩法改成静态图片。没有增加3D、模型依赖或GPU离屏猪视口，19张PNG/21,590,296 bytes全部原字节不变；此次只修这两种常驻姿势，不宣称其他原稿动画全部重新制作。
+
+76帧真实绘制回放不再换整只猪，最大逐步鼻部位移分别0.463与0.970像素，76种不同画面，鼻部命中、支点固定及隐藏/后台/安静/勿扰/减少动态/移动帧保留检查通过。原稿384种姿势/表情/帧另用静态素材查看器验证，不能把原稿4帧检查当作连续动作体验验证。相关Python28项、内容/218视觉、隔离导入与两套候选串行导出/加载通过；未重复完整核心/节奏/UI/性能流程，旧证据不绑定当前运行时。证据 `build/validation/pig-motion-*.log`，实际前后视频 `pig-motion-baseline.mp4` 与 `pig-motion-fixed.mp4`。Windows兼容、真实CPU/内存预算、最终音频及权属仍待验收。
+
+## 2026-10-08 抱头四肢与独立嘴图层（此前基线）
+
+用户15:07截图中的抱头猪有四条落地腿加两只抱头手。内置image_gen仅生成该姿势的四帧修正版：原两条前腿抬起抱头，仅两条后腿落地，总共四肢；没有更换主体或重生成其他动作。新原稿 `pighub_head_hold.png` 原字节复制，来源和完整提示词见 `docs/design/pig-performance-art-prompts.json` 的 `body_03`。永久 `body_head_hold` 与 `scratch/alarm/puzzle` 只路由到新单行图；原第一张共享图的错误第四行不再路由，其他11种姿势与全部18张旧PNG原字节保持不变。
+
+身体素材不烘焙眼睛或嘴。嘴保留为独立五官裁区，默认豆豆眼 `face_dot` 不请求/绘制嘴；趴下、躺平、跪下、缩团、爬行、打工六种姿势对所有表情隐藏嘴，其余表情只在无遮挡姿势叠加鼻下小嘴。模拟、存档、低打扰和八图集LRU策略不变。当前19张运行PNG共21,590,296 bytes；新增独立修正稿651,291 bytes，相比旧26张/35,580,577 bytes净减少39.32%，不沿用上一阶段41.15%的当前体积说法。
+
+26项相关Python、内容/218视觉检查及隔离Godot导入通过；真实绘制384组合逐项核对纹理，216组合不画嘴、168组合独立画嘴，并查看两页48帧、八表情和抱头四帧。实际预览 `build/validation/art-review-head-hold-fixed/`，证据前缀 `build/validation/pighub-head-hold-*`。Full/Demo ZIP/EXE串行重建，两包校验及隔离启动通过；没有重跑核心/节奏/完整UI/性能流程。旧UI证据保持历史身份，不绑定新图。Windows人工验证、最终音频与权属门禁继续未完成。
+
+## 2026-10-08 嘴部按姿势显隐（此前基线）
 
 用户指出趴好时嘴仍落到手上。居中并不等于没有遮挡，现趴下、躺平、缩团护脸、低姿爬行和打工五种姿势用数据字段 `mouth_visible=false`，不请求/绘制嘴图层，只保留原身体鼻子及两眼；其余姿势保留原居中小嘴。规则由共享 `PigVisualRig` 执行，普通小屋、独立桌宠、小剧场和缩略图一致，手动选择表情也不会把隐藏嘴画回来。主体、眼睛、PNG原字节、鼻部命中、养成与存档不变。
 
@@ -18,7 +81,7 @@
 
 保留用户选择的桃粉豆形猪、U形耳、短圆腿、卷尾和粉鼻子，内置 image_gen 生成共享动作与五官；八套黑眼五官、12套实体四帧循环覆盖36个行为，48个收藏ID保留。旧白眼球表情不使用，`face_quake`永久ID只别名到黑眼惊讶。普通小屋、独立住客、桌宠、小剧场、照片与生活计划缩略图使用同一骨架，装扮与临时梗状态继续组合；不修改收益、需求、性格、离线、住客上限或存档schema。设计及原字节来源见 `docs/design/pighub-animation-migration-2026-10-08.md`。
 
-删除12张已替代运行PNG，来源与提示词保留为历史；当前18张/20,939,005 bytes，相比26张/35,580,577 bytes净减41.15%。总构建器不会再复制旧图回来。删去旧程序猪与重复五官/道具绘制，相同源/裁区的别名共享纹理包装，脸部矩形和装扮动作索引缓存，隐藏/减少动态不推进动画；八图集LRU、普通窗口降级、后台防打扰、安静/勿扰和频率设置保留。
+删除12张已替代运行PNG，来源与提示词保留为历史；迁移阶段18张/20,939,005 bytes，相比26张/35,580,577 bytes净减41.15%。总构建器不会再复制旧图回来。删去旧程序猪与重复五官/道具绘制，相同源/裁区的别名共享纹理包装，脸部矩形和装扮动作索引缓存，隐藏/减少动态不推进动画；八图集LRU、普通窗口降级、后台防打扰、安静/勿扰和频率设置保留。
 
 集中阶段通过核心 **7062**、Full/Demo节奏、实际Demo profile **75** 和Python全量 **132**；首次家具仍567秒、level10仍38165秒、Demo仍1800秒。收尾实际画面发现第一动作页等高裁区会切头尾并混入邻行；两张动作页现均使用透明间隙中的非等高行边界，同步重算每帧嘴眼/鼻部锚点，不重绘PNG。新增48帧四边透明回归后，相关Python **15**、完整真实UI **4157**、四帧专项 **772** 与218视觉/18原字节PNG门禁通过；没有重复整套核心/节奏流程。
 
@@ -342,15 +405,15 @@ python3 tools/validate_release_candidate.py
 
 ## 2026-10-08 本地静音开发候选构建记录
 
-`docs/release/candidate-manifest.json` 是正式版与 Demo EXE 身份的机器可读唯一来源。当前导出绑定的源码树 SHA-256 为 `55320d070e9728b8bd9788a606b0a4928d8166446b20bf791547bfe0adc996b8`。`tools/validate_release_candidate.py` 会复算源码树、真实文件的体积和 SHA-256，解析 PE 头确认 PE32+、Windows GUI、x86-64，执行 500 MiB 预算与静音开发阶段门禁，交叉检查 `ReleaseProfile.AUDIO_PLAYBACK_ENABLED` 仍为 typed `false`，确认本页及 Windows 矩阵没有保留旧身份，并拒绝导出后源码漂移或 Windows 矩阵删减策划案指定的兼容性、安装生命周期、语言、字幕时长与长时运行场景。PowerShell/pwsh 代码块中的每条 `& ...windows_runtime_probe.ps1` 命令必须携带唯一、字面的预期体积与 SHA-256，且匹配同一候选；启动命令还须与该 EXE 文件名匹配，正文中出现正确哈希不能掩盖命令参数过期。
+`docs/release/candidate-manifest.json` 是正式版与 Demo EXE 身份的机器可读唯一来源。当前导出绑定的源码树 SHA-256 为 `5a6d4e4ff1056624bac456711f629c69722113d05aa0f314385ad6397a9eaada`。`tools/validate_release_candidate.py` 会复算源码树、真实文件的体积和 SHA-256，解析 PE 头确认 PE32+、Windows GUI、x86-64，执行 500 MiB 预算与静音开发阶段门禁，交叉检查 `ReleaseProfile.AUDIO_PLAYBACK_ENABLED` 仍为 typed `false`，确认本页及 Windows 矩阵没有保留旧身份，并拒绝导出后源码漂移或 Windows 矩阵删减策划案指定的兼容性、安装生命周期、语言、字幕时长与长时运行场景。PowerShell/pwsh 代码块中的每条 `& ...windows_runtime_probe.ps1` 命令必须携带唯一、字面的预期体积与 SHA-256，且匹配同一候选；启动命令还须与该 EXE 文件名匹配，正文中出现正确哈希不能掩盖命令参数过期。
 
 - 输出：`build/windows/PiggyDidNothingToday.exe`
 - 格式：PE32+ GUI，x86-64。
-- 大小：`127,392,264` bytes（`121.5 MiB`），低于 500 MB 预算。
-- SHA-256：`07ec7e1866f146c2bcb055542ac7747b6032f1d69c21f941644af70b1734ff56`
+- 大小：`127,833,648` bytes（`121.9 MiB`），低于 500 MB 预算。
+- SHA-256：`edc214f9b06e64675248d9a199adb394e2f7450498ad47aa118af711397884c3`
 - 构建环境：macOS，Godot `4.6.3.stable.official.7d41c59c4`，官方 Windows x86_64 模板。
 
-同次串行生成的正式版和 Demo 验证 ZIP 各有 205 个文件、142 个游戏资源、35 个编译脚本和 52 个导入资源，均通过包清单校验与独立用户目录中的真实主场景静音加载，并分别读取到整数 Steam 应用类型 `0`/`1`；这仅证明本地配置覆盖，不是实际 Steam 初始化或 Windows 运行。正式版 ZIP 为 `19,594,560` bytes，SHA-256 `e66186eebd9d5e955c65749a01b7e4b65c4dd9f37cbeba5da8e7252eed3eac5e`；Demo ZIP 为 `19,594,576` bytes，SHA-256 `23d5b326bbcc798d378dc659e505a4635052abb95b66237a302e3830b7c73700`。
+同次串行生成的正式版和 Demo 验证 ZIP 各有 207 个文件、143 个游戏资源、35 个编译脚本和 53 个导入资源，均通过包清单校验与独立用户目录中的真实主场景静音加载，并分别读取到整数 Steam 应用类型 `0`/`1`；这仅证明本地配置覆盖，不是实际 Steam 初始化或 Windows 运行。正式版 ZIP 为 `20,018,835` bytes，SHA-256 `e2b11af51226dc3d74ddef11e38d77a431ea86f70f2b8032752cae40e4d75592`；Demo ZIP 为 `20,018,851` bytes，SHA-256 `ad504512adecfb00186bb49f2eb6029ce67e11334fae32a877d037c5dcb0dac7`。
 
 这是一份已替换视觉为用户委托 image_gen 生成美术、但最终音频和权属验收未完成且运行时强制静音的交叉导出开发候选，不是已通过专属资源、Windows 或 Steam 审核的发行构建。任何文件变化或重新导出都会使上述哈希失效。
 
@@ -374,8 +437,8 @@ python3 tools/validate_final_assets.py
 
 - 输出：`build/windows/PiggyDidNothingTodayDemo.exe`
 - 格式：PE32+ GUI，x86-64。
-- 大小：`127,392,296` bytes（`121.5 MiB`），低于 500 MB 预算。
-- SHA-256：`e01d137e815cfe017dc1526c6abf1668c64a7f3409654379b51618c372b4a10b`
+- 大小：`127,833,680` bytes（`121.9 MiB`），低于 500 MB 预算。
+- SHA-256：`177b8b0411914856a9dda783105a8297f9a6aa63dab69e5336118de8d0c40512`
 - 构建环境：macOS，Godot `4.6.3.stable.official.7d41c59c4`，官方 Windows x86_64 模板。
 
 Demo 与正式版使用相同 schema 和永久 ID，但物理目录分别为 `piggy_did_nothing_today_demo/` 与 `piggy_did_nothing_today/`。本地已验证仅在正式版目标为空时单向导入 Demo 主档及生活相册照片，已有或损坏的正式进度不会被覆盖，Demo 不会反向读取正式进度。两套 App ID、Auto-Cloud 根路径和真实客户端迁移仍须在 Steam 后台验证。
@@ -391,8 +454,8 @@ Set-ExecutionPolicy -Scope Process Bypass
 & .\tools\windows_runtime_probe.ps1 `
   -ExecutablePath .\build\windows\PiggyDidNothingToday.exe `
   -Scenario main-room -WarmupSeconds 30 -DurationSeconds 120 `
-  -ExpectedSizeBytes 127392264 `
-  -ExpectedSha256 07ec7e1866f146c2bcb055542ac7747b6032f1d69c21f941644af70b1734ff56
+  -ExpectedSizeBytes 127833648 `
+  -ExpectedSha256 edc214f9b06e64675248d9a199adb394e2f7450498ad47aa118af711397884c3
 ```
 
 桌面活动与桌面静止必须先手动把同一个候选切到对应状态，再附加采样。静止场景应让猪咪睡觉或暂停动画；活动场景应确认正在行走或执行活动动作：
@@ -402,13 +465,13 @@ $gameProcessId = (Get-Process PiggyDidNothingToday | Select-Object -First 1).Id
 & .\tools\windows_runtime_probe.ps1 `
   -ProcessId $gameProcessId -Scenario desktop-active `
   -WarmupSeconds 15 -DurationSeconds 120 `
-  -ExpectedSizeBytes 127392264 `
-  -ExpectedSha256 07ec7e1866f146c2bcb055542ac7747b6032f1d69c21f941644af70b1734ff56
+  -ExpectedSizeBytes 127833648 `
+  -ExpectedSha256 edc214f9b06e64675248d9a199adb394e2f7450498ad47aa118af711397884c3
 & .\tools\windows_runtime_probe.ps1 `
   -ProcessId $gameProcessId -Scenario desktop-idle `
   -WarmupSeconds 15 -DurationSeconds 120 -KeepRunning `
-  -ExpectedSizeBytes 127392264 `
-  -ExpectedSha256 07ec7e1866f146c2bcb055542ac7747b6032f1d69c21f941644af70b1734ff56
+  -ExpectedSizeBytes 127833648 `
+  -ExpectedSha256 edc214f9b06e64675248d9a199adb394e2f7450498ad47aa118af711397884c3
 ```
 
 探针输出到 `build/validation/windows/*.json`。把证据带回仓库后必须复算，不能只接受 JSON 中自报的结论：

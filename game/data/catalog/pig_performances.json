@@ -43,22 +43,33 @@
       "id": "body_base",
       "sheet": 0,
       "row": 0,
+      "motion": {
+        "mode": "pose",
+        "frame": 0,
+        "period_seconds": 4.8,
+        "breath_amount": 0.008,
+        "sway_radians": 0.004,
+        "exclude_animations": [
+          "walk",
+          "run"
+        ]
+      },
       "snouts": [
         [
           77.4844,
-          166.6145
+          184.1871
         ],
         [
           72.4847,
-          165.2575
+          182.687
         ],
         [
           67.4401,
-          165.3459
+          182.7847
         ],
         [
           61.8223,
-          165.1729
+          182.5935
         ]
       ]
     },
@@ -69,21 +80,29 @@
       "snouts": [
         [
           73.5466,
-          168.5132
+          145.4743
         ],
         [
           71.3102,
-          172.8997
+          149.2611
         ],
         [
           65.6045,
-          168.8175
+          145.737
         ],
         [
           61.1411,
-          170.3473
+          147.0576
         ]
-      ]
+      ],
+      "motion": {
+        "mode": "pose",
+        "frame": 0,
+        "period_seconds": 5.6,
+        "breath_amount": 0.008,
+        "sway_radians": 0.006,
+        "exclude_animations": []
+      }
     },
     {
       "id": "body_flat",
@@ -92,65 +111,89 @@
       "snouts": [
         [
           77.5035,
-          179.6967
+          136.8783
         ],
         [
           72.5303,
-          181.4527
+          138.2159
         ],
         [
           62.2191,
-          181.4205
+          138.1914
         ],
         [
           59.6778,
-          179.7134
+          136.8911
         ]
-      ]
+      ],
+      "motion": {
+        "mode": "pose",
+        "frame": 0,
+        "period_seconds": 5.6,
+        "breath_amount": 0.008,
+        "sway_radians": 0.006,
+        "exclude_animations": []
+      }
     },
     {
       "id": "body_head_hold",
-      "sheet": 0,
-      "row": 3,
+      "sheet": 2,
+      "row": 0,
       "snouts": [
         [
-          91.7003,
-          149.8753
+          81.6172,
+          153.2811
         ],
         [
-          90.0831,
-          157.9034
+          81.595,
+          153.3114
         ],
         [
-          84.3171,
-          154.7286
+          81.6137,
+          153.2834
         ],
         [
-          75.6597,
-          157.6105
+          81.2966,
+          153.3006
         ]
-      ]
+      ],
+      "motion": {
+        "mode": "pose",
+        "frame": 0,
+        "period_seconds": 4.4,
+        "breath_amount": 0.008,
+        "sway_radians": 0.012,
+        "exclude_animations": []
+      }
     },
     {
       "id": "body_kneel",
       "sheet": 0,
       "row": 4,
+      "motion": {
+        "mode": "pose",
+        "frame": 0,
+        "period_seconds": 4.0,
+        "breath_amount": 0.008,
+        "sway_radians": 0.016,
+        "exclude_animations": []
+      },
       "snouts": [
         [
           92.0644,
-          180.0208
+          183.5368
         ],
         [
           103.1594,
-          188.1047
+          191.7786
         ],
         [
           84.8867,
-          187.3356
+          190.9945
         ],
         [
           69.0901,
-          165.11
+          168.3348
         ]
       ]
     },
@@ -161,21 +204,29 @@
       "snouts": [
         [
           102.4041,
-          136.6789
+          159.1028
         ],
         [
           92.8697,
-          135.1626
+          157.3377
         ],
         [
           96.0354,
-          135.8767
+          158.1689
         ],
         [
           91.6434,
-          136.5408
+          158.942
         ]
-      ]
+      ],
+      "motion": {
+        "mode": "pose",
+        "frame": 0,
+        "period_seconds": 4.4,
+        "breath_amount": 0.008,
+        "sway_radians": 0.012,
+        "exclude_animations": []
+      }
     },
     {
       "id": "body_arms",
@@ -184,21 +235,29 @@
       "snouts": [
         [
           81.9994,
-          153.1658
+          112.1307
         ],
         [
           80.727,
-          152.9839
+          111.9976
         ],
         [
           80.8405,
-          153.1291
+          111.7557
         ],
         [
           80.0735,
-          153.0109
+          112.0173
         ]
-      ]
+      ],
+      "motion": {
+        "mode": "pose",
+        "frame": 0,
+        "period_seconds": 4.4,
+        "breath_amount": 0.008,
+        "sway_radians": 0.012,
+        "exclude_animations": []
+      }
     },
     {
       "id": "body_upside",
@@ -207,21 +266,29 @@
       "snouts": [
         [
           78.7735,
-          156.1498
+          100.6947
         ],
         [
           78.3318,
-          163.0802
+          105.1638
         ],
         [
           77.5873,
-          150.9939
+          97.0675
         ],
         [
           74.1638,
-          155.8257
+          100.4857
         ]
-      ]
+      ],
+      "motion": {
+        "mode": "pose",
+        "frame": 0,
+        "period_seconds": 4.4,
+        "breath_amount": 0.008,
+        "sway_radians": 0.012,
+        "exclude_animations": []
+      }
     },
     {
       "id": "body_peek",
@@ -230,21 +297,29 @@
       "snouts": [
         [
           84.4588,
-          195.3557
+          127.1942
         ],
         [
           89.6665,
-          155.7911
+          101.4341
         ],
         [
           74.6839,
-          174.014
+          112.947
         ],
         [
           83.955,
-          148.9447
+          96.9764
         ]
-      ]
+      ],
+      "motion": {
+        "mode": "pose",
+        "frame": 0,
+        "period_seconds": 4.4,
+        "breath_amount": 0.008,
+        "sway_radians": 0.012,
+        "exclude_animations": []
+      }
     },
     {
       "id": "body_crawl",
@@ -253,21 +328,29 @@
       "snouts": [
         [
           81.1698,
-          175.8902
+          100.2739
         ],
         [
           77.3707,
-          175.6687
+          100.1476
         ],
         [
           85.869,
-          175.3471
+          99.6538
         ],
         [
           73.7491,
-          183.565
+          104.6492
         ]
-      ]
+      ],
+      "motion": {
+        "mode": "pose",
+        "frame": 0,
+        "period_seconds": 4.4,
+        "breath_amount": 0.008,
+        "sway_radians": 0.012,
+        "exclude_animations": []
+      }
     },
     {
       "id": "body_worker",
@@ -276,22 +359,30 @@
       "snouts": [
         [
           89.2648,
-          164.4192
+          93.7343
         ],
         [
           88.7601,
-          164.3305
+          93.6838
         ],
         [
           89.2896,
-          164.4693
+          93.4717
         ],
         [
           87.6597,
-          164.5505
+          93.8092
         ]
       ],
-      "integrated_outfit": true
+      "integrated_outfit": true,
+      "motion": {
+        "mode": "pose",
+        "frame": 0,
+        "period_seconds": 4.4,
+        "breath_amount": 0.008,
+        "sway_radians": 0.012,
+        "exclude_animations": []
+      }
     },
     {
       "id": "body_ruler",
@@ -300,22 +391,30 @@
       "snouts": [
         [
           94.9629,
-          138.7023
+          89.4436
         ],
         [
           91.7913,
-          137.9986
+          88.9898
         ],
         [
           93.4991,
-          138.9169
+          89.3037
         ],
         [
           91.4176,
-          135.7689
+          87.5519
         ]
       ],
-      "integrated_outfit": true
+      "integrated_outfit": true,
+      "motion": {
+        "mode": "pose",
+        "frame": 0,
+        "period_seconds": 4.4,
+        "breath_amount": 0.008,
+        "sway_radians": 0.012,
+        "exclude_animations": []
+      }
     }
   ],
   "poses": [
@@ -486,14 +585,6 @@
       "duration_seconds": 6
     },
     {
-      "id": "action_cloud_scarf",
-      "outfit_id": "outfit_cloud_scarf",
-      "pose_id": "pose_prone",
-      "face_id": "face_squint",
-      "chance": 0.3,
-      "duration_seconds": 6
-    },
-    {
       "id": "action_sprout_pin",
       "outfit_id": "outfit_sprout_pin",
       "pose_id": "pose_arms",
@@ -507,14 +598,6 @@
       "pose_id": "pose_flat",
       "face_id": "face_sleepy",
       "chance": 0.65,
-      "duration_seconds": 6
-    },
-    {
-      "id": "action_rain_cape",
-      "outfit_id": "outfit_rain_cape",
-      "pose_id": "pose_corner",
-      "face_id": "face_glare",
-      "chance": 0.3,
       "duration_seconds": 6
     },
     {
@@ -534,14 +617,6 @@
       "duration_seconds": 6
     },
     {
-      "id": "action_bow_tie",
-      "outfit_id": "outfit_bow_tie",
-      "pose_id": "pose_kneel",
-      "face_id": "face_sly",
-      "chance": 0.3,
-      "duration_seconds": 6
-    },
-    {
       "id": "action_paper_crown",
       "outfit_id": "outfit_paper_crown",
       "pose_id": "pose_arms",
@@ -555,14 +630,6 @@
       "pose_id": "pose_arms",
       "face_id": "face_sly",
       "chance": 0.65,
-      "duration_seconds": 6
-    },
-    {
-      "id": "action_hero_cape",
-      "outfit_id": "outfit_hero_cape",
-      "pose_id": "pose_arms",
-      "face_id": "face_squint",
-      "chance": 0.3,
       "duration_seconds": 6
     }
   ],

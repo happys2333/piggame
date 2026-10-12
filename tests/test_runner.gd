@@ -1048,7 +1048,7 @@ func _test_content_catalog() -> void:
 	_expect_eq(errors, [], "catalog validates")
 	_expect_eq(catalog.furniture.size(), 32, "furniture budget")
 	_expect_eq(catalog.snacks.size(), 10, "snack budget")
-	_expect_eq(catalog.outfits.size(), 12, "outfit budget")
+	_expect_eq(catalog.outfits.size(), 8, "head and face accessory budget")
 	_expect_eq(catalog.expressions.size(), 48, "expression budget")
 	_expect_eq(catalog.events.size(), 24, "event budget")
 	_expect_eq(catalog.achievements.size(), 24, "achievement budget")
@@ -1063,7 +1063,7 @@ func _test_desktop_platform_policy() -> void:
 				var dragging: bool = drag_feature and server in ["Windows", "macOS", "X11", "Wayland"]
 				_expect_eq(result.positioning, positioning, "%s only positions windows where global positioning is supported" % server)
 				_expect_eq(result.transparency, positioning and transparency_feature, "%s requires implemented polygon passthrough as well as transparency" % server)
-				_expect_eq(result.pig_only, positioning and transparency_feature and dragging, "%s cannot hide controls without a safe native-drag/transparent path" % server)
+				_expect_eq(result.pig_only, positioning and transparency_feature and (positioning or dragging), "%s cannot hide controls without a safe window-drag/transparent path" % server)
 				_expect_eq(result.native_drag, dragging, "%s respects the native drag capability flag" % server)
 	for server: String in ["Windows", "macOS", "X11"]:
 		var normal: Dictionary = DesktopPlatformPolicy.resolve(server, true, true, false, true)
@@ -1113,7 +1113,7 @@ func _test_texture_cache_budget() -> void:
 
 
 func _test_final_asset_runtime_catalog() -> void:
-	_expect_eq(FinalAssetCatalog.expected_coverage_tokens().size(), 252, "runtime resolver derives the complete permanent final-asset coverage set")
+	_expect_eq(FinalAssetCatalog.expected_coverage_tokens().size(), 256, "runtime resolver derives active final-asset coverage including postcards but no retired wearables")
 	var base := "user://piggy_final_asset_catalog_tests"
 	_remove_tree(ProjectSettings.globalize_path(base))
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(base))
@@ -2579,8 +2579,10 @@ func _test_furniture_invitation() -> void:
 	session.save_service = SaveService.new(base)
 	var now: Array[int] = [1000]
 	session.clock = GameClock.new(func() -> int: return now[0])
+	var invitations: Array[String] = []
+	session.furniture_invited.connect(func(furniture_id: String) -> void: invitations.append(furniture_id))
 	var before_interest: float = session.pig_state.interest
-	_expect_true(session.invite_to_furniture("furn_bed_basic"), "placed behavior furniture accepts an invitation")
+	_expect_true(session.invite_to_furniture("furn_bed_basic") and invitations == ["furn_bed_basic"], "placed behavior furniture accepts an invitation")
 	var bed: Dictionary = session.catalog.get_item("furniture", "furn_bed_basic")
 	_expect_eq(str(session.simulation.current_behavior.get("id", "")), str(bed.get("behavior_id", "")), "furniture invitation starts its linked behavior")
 	_expect_eq(session.pig_state.interest, before_interest + 1.0, "furniture invitation grants the small interest response")
@@ -2593,7 +2595,7 @@ func _test_furniture_invitation() -> void:
 	session.simulation.advance(1.0, session.pig_state, session.catalog.behaviors, session.behavior_director, now[0], false, false)
 	var remaining_before_repeat: float = session.simulation.remaining_seconds
 	var interest_after_first_invitation: float = session.pig_state.interest
-	_expect_true(not session.invite_to_furniture("furn_bed_basic"), "an active furniture behavior cannot be restarted for repeat interaction gains")
+	_expect_true(not session.invite_to_furniture("furn_bed_basic") and invitations.size() == 1, "an active furniture behavior cannot be restarted for repeat interaction gains")
 	_expect_eq(session.simulation.remaining_seconds, remaining_before_repeat, "rejected active invitation preserves the current behavior timer")
 	_expect_eq(session.pig_state.interest, interest_after_first_invitation, "rejected active invitation grants no repeat interest")
 	session.simulation.advance(remaining_before_repeat, session.pig_state, session.catalog.behaviors, session.behavior_director, now[0], false, false)
@@ -4613,6 +4615,8 @@ func _test_player_command_save_failure_transactions() -> void:
 	session.save_service.temp_path = blocker_path + "/savegame.tmp.json"
 	var failures: Array[String] = []
 	var success_toasts: Array[String] = []
+	var uncommitted_invitations: Array[String] = []
+	session.furniture_invited.connect(func(furniture_id: String) -> void: uncommitted_invitations.append(furniture_id))
 	var behavior_changes: Array[Dictionary] = []
 	var mode_changes: Array[bool] = []
 	session.save_failed.connect(func(message: String) -> void: failures.append(message))
@@ -4682,7 +4686,7 @@ func _test_player_command_save_failure_transactions() -> void:
 	_expect_eq(disk_generation_after, disk_generation_before, "all failed player commands preserve the exact committed disk generation")
 	_expect_eq(failures.size(), 18, "each failed player command emits exactly one player-visible save failure")
 	_expect_eq(success_toasts, [], "failed player commands emit no feed or purchase success feedback")
-	_expect_eq(behavior_changes, [], "failed furniture invitation emits no uncommitted behavior change")
+	_expect_true(behavior_changes.is_empty() and uncommitted_invitations.is_empty(), "failed furniture invitation emits no uncommitted behavior or desktop item response")
 	_expect_eq(mode_changes, [], "failed desktop entry emits no uncommitted mode change")
 	_expect_true(not bool(session.get("_important_save_pending")), "failed player commands restore the important-save scheduler state")
 	session.save_service.temp_path = normal_temp_path

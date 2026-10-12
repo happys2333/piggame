@@ -42,7 +42,7 @@ func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	var shade := ColorRect.new()
-	shade.color = Color("#4e344477")
+	shade.color = Color("#222b2866")
 	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(shade)
 	var safe_margin := MarginContainer.new()
@@ -57,6 +57,7 @@ func _ready() -> void:
 	safe_margin.add_child(center)
 	var panel := PanelContainer.new()
 	panel.name = "EventPanel"
+	panel.theme_type_variation = "PaperPanel"
 	var viewport_size: Vector2 = get_viewport_rect().size
 	panel.custom_minimum_size = Vector2(
 		minf(PANEL_PREFERRED_SIZE.x, maxf(viewport_size.x - OVERLAY_MARGIN * 2.0, 720.0)),
@@ -67,6 +68,7 @@ func _ready() -> void:
 	content.alignment = BoxContainer.ALIGNMENT_CENTER
 	panel.add_child(content)
 	var title := Label.new()
+	title.theme_type_variation = "TitleLabel"
 	title.text = tr(str(_event.get("title_key", "")))
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size", 30)
@@ -94,6 +96,7 @@ func _ready() -> void:
 	var skip := Button.new()
 	skip.name = "EventSkipButton"
 	skip.text = tr("EVENT_SKIP")
+	UIAssets.decorate(skip, "book-open", "PrimaryButton")
 	skip.pressed.connect(_finish)
 	content.add_child(skip)
 

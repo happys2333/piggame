@@ -28,7 +28,7 @@ PROJECT_CONFIG = Path("project.godot")
 EXPORT_PRESETS = Path("export_presets.cfg")
 RELEASE_PROFILE = Path("game/scripts/core/release_profile.gd")
 PACKAGE_SCHEMA_VERSION = 1
-VISUAL_SUFFIXES = {".png", ".webp", ".svg", ".tres", ".res"}
+VISUAL_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".svg", ".tres", ".res"}
 AUDIO_SUFFIXES = {".ogg", ".wav"}
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 

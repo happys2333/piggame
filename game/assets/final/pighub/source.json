@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "source_page": "https://pighub.top/",
+  "retrieved_on": "2026-10-09",
+  "retrieval": "Browser pageAssets bundler from observed gallery image URLs",
+  "copied_unchanged": true,
+  "ai_generated": false,
+  "user_created_originals": false,
+  "project_owner_authorized": true,
+  "independent_rights_verified": false,
+  "release_approved": false,
+  "records": [
+    {
+      "id": "postcard_wake",
+      "original_title": "你醒啦",
+      "url": "https://pighub.top/images/%E4%BD%A0%E9%86%92%E5%95%A6.jpg",
+      "path": "res://game/assets/final/pighub/postcard_wake.webp",
+      "sha256": "f2e4e2c78972fa4b70f869722390144741c07be3f059785fbe864efd59c5ce07",
+      "dimensions": [
+        736,
+        732
+      ],
+      "format": "WEBP"
+    },
+    {
+      "id": "postcard_carrot",
+      "original_title": "萝卜猪",
+      "url": "https://pighub.top/images/%E8%90%9D%E5%8D%9C%E7%8C%AA.jpg",
+      "path": "res://game/assets/final/pighub/postcard_carrot.webp",
+      "sha256": "40f31fac7d709a5e7503dadd64438e6b5e13f81ea1bbae341cb14d4280229010",
+      "dimensions": [
+        719,
+        631
+      ],
+      "format": "WEBP"
+    },
+    {
+      "id": "postcard_flat",
+      "original_title": "扁猪",
+      "url": "https://pighub.top/images/%E6%89%81%E7%8C%AA.jpg",
+      "path": "res://game/assets/final/pighub/postcard_flat.webp",
+      "sha256": "370d774f9592c7900c196fc55aa005f5cdf7e6c5c9ee7ff4be97926a1e1f2574",
+      "dimensions": [
+        1092,
+        428
+      ],
+      "format": "WEBP"
+    },
+    {
+      "id": "postcard_huddle",
+      "original_title": "欢乐多猪",
+      "url": "https://pighub.top/images/%E6%AC%A2%E4%B9%90%E5%A4%9A%E7%8C%AA.jpg",
+      "path": "res://game/assets/final/pighub/postcard_huddle.webp",
+      "sha256": "f916914b39e5ed9d1e608275e6a5810195b70709d3bf576728c062ea4a9b2889",
+      "dimensions": [
+        370,
+        360
+      ],
+      "format": "WEBP"
+    },
+    {
+      "id": "postcard_park",
+      "original_title": "乱停猪",
+      "url": "https://pighub.top/images/%E4%B9%B1%E5%81%9C%E7%8C%AA.jpg",
+      "path": "res://game/assets/final/pighub/postcard_park.webp",
+      "sha256": "c6ea79a460b2f2ee1004e5f3d02ff3a2b1c6ac55efa249e72388c98a1f975b99",
+      "dimensions": [
+        640,
+        573
+      ],
+      "format": "WEBP"
+    },
+    {
+      "id": "postcard_fact",
+      "original_title": "你知道吗",
+      "url": "https://pighub.top/images/%E4%BD%A0%E7%9F%A5%E9%81%93%E5%90%97.jpg",
+      "path": "res://game/assets/final/pighub/postcard_fact.webp",
+      "sha256": "c61c93ea5608c54f008a04868f18af4fc9976b3668899a74833e5dcb09f153ad",
+      "dimensions": [
+        954,
+        1098
+      ],
+      "format": "WEBP"
+    },
+    {
+      "id": "postcard_bold",
+      "original_title": "笨笨的猪气势汹汹地登场！",
+      "url": "https://pighub.top/images/%E7%AC%A8%E7%AC%A8%E7%9A%84%E7%8C%AA%E6%B0%94%E5%8A%BF%E6%B1%B9%E6%B1%B9%E5%9C%B0%E7%99%BB%E5%9C%BA%EF%BC%81.jpg",
+      "path": "res://game/assets/final/pighub/postcard_bold.webp",
+      "sha256": "4b51e8b95e632551a6c43cb1034edf57b357006a4cf19d65dce10287af529091",
+      "dimensions": [
+        1800,
+        1800
+      ],
+      "format": "WEBP"
+    },
+    {
+      "id": "postcard_belly",
+      "original_title": "肥猪",
+      "url": "https://pighub.top/images/%E8%82%A5%E7%8C%AA.jpg",
+      "path": "res://game/assets/final/pighub/postcard_belly.jpg",
+      "sha256": "dbfb360ef3c5382f2f4bf53ae7c1609505656a775be6f6f62cdd29b6347085bb",
+      "dimensions": [
+        540,
+        540
+      ],
+      "format": "JPEG"
+    }
+  ],
+  "retrieval_format_note": "Observed gallery URLs end in .jpg, but seven responses contain WebP and one contains JPEG. Local extensions match decoded format; original response bytes are unchanged."
+}

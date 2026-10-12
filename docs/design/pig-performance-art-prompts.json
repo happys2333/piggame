@@ -41,6 +41,27 @@
       "reference": "docs/design/art/pighub-subject-lock-reference.png"
     },
     {
+      "id": "body_03",
+      "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-694dc51e-652a-41e4-86f5-123751647180.png",
+      "destination": "game/assets/final/generated/pighub_head_hold.png",
+      "row_edges": [
+        82,
+        626
+      ],
+      "prompt": "Use case: precise-object-edit / identity-preserve.\nAsset type: one corrected transparent four-keyframe Godot pig sprite strip, NOT a full atlas.\nInput image 1 is the existing animation atlas, EDIT TARGET: use ONLY its FOURTH ROW, the four head-holding pigs. Input image 2 is the locked subject identity, SUPPORTING REFERENCE only.\nPrimary correction: the fourth-row pigs accidentally have SIX limbs (four feet on the ground plus two extra hands). Correct each to EXACTLY FOUR LIMBS TOTAL: the TWO ORIGINAL FRONT LEGS are raised beside the head, and ONLY TWO REAR LEGS remain on the ground toward the right/rear half of the body. Remove the two downward front feet under the face entirely; the front underside under the snout is a smooth continuous belly, not another pair of feet. Two rounded forelegs visibly bend upward from the front shoulders to the temples. No extra arms, no extra hands, no detached hooves. The small pink far-side rear leg and peach near-side rear leg are the only grounded feet.\nPreserve EXACTLY the same funny simple peach bean pig identity: lumpy peach-pink body, hot-pink U-shaped ears, peach curly tail, short ROUND legs, little pink rear leg, hot-pink oval snout containing two solid BLACK nostrils. Same flat slightly wonky meme style, same proportions. No black outline, no black hooves, no 3D, no gloss, no white highlights. Do not redesign the pig.\nCRITICAL MODULAR FACE: EVERY body sprite has NO EYES, NO EYEBROWS, NO MOUTH, NO TEARS, NO CHEEK MARKS. Keep the front-left facial space blank peach. Draw ONLY the pink nose and its two black nostrils; all other face marks are independent game overlays. Absolutely NO black mouth curve below nose, NO smile anywhere.\nOutput ONLY these corrected four pigs, left to right in EXACTLY FOUR equally wide columns in ONE row on a wide 1536x512 transparent canvas. No other rows or poses. Each whole pig is fully visible within its own cell with generous transparent separation, equal scale, consistent floor baseline. Four distinct subtle loop keyframes: clutch temples, slight release, clutch again, return; actual foreleg/ear changes, no duplicate still images. Face/snouts remain clear, upright and front-left. True alpha transparency outside the pigs; no backdrop, colored haze, shadow, checkerboard, labels, grid or text. Do not put separate facial glyphs anywhere. Before finishing, count four limbs per pig: two raised front legs plus two grounded rear legs, nothing else.",
+      "tool": "built-in image_gen",
+      "transparent_background": true,
+      "created_date": "2026-10-08",
+      "reference": "docs/design/art/pighub-subject-lock-reference.png",
+      "edit_target": "game/assets/final/generated/pighub_motion_01.png",
+      "replaces": {
+        "recipe_id": "body_01",
+        "row": 3,
+        "clip_id": "body_head_hold"
+      },
+      "note": "Only this four-frame correction is routed to body_head_hold. The erroneous fourth row of body_01 remains in the unchanged shared PNG but is not routed or displayed. Cropping is runtime metadata only; generated PNG bytes and alpha are preserved. No eyes or mouths are baked into these bodies."
+    },
+    {
       "id": "faces",
       "source_file": "/Users/happys/.codex/generated_images/019f9d32-dc9c-70d1-8aac-d1ca9787ebea/exec-a7a150eb-ed33-4154-912a-db2c1d4fb16a.png",
       "destination": "game/assets/final/generated/pighub_face_glyphs.png",

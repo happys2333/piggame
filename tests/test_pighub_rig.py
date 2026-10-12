@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import sys
 import unittest
 from pathlib import Path
 
@@ -9,6 +10,9 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+
+from build_pighub_rig import components
 
 
 class PigHubRigTests(unittest.TestCase):
@@ -64,10 +68,60 @@ class PigHubRigTests(unittest.TestCase):
                     self.assertEqual(len(set(hashes)), 4, token)
 
     def test_resting_and_obstructed_poses_hide_the_mouth(self) -> None:
-        hidden = {"body_prone", "body_flat", "body_corner", "body_crawl", "body_worker"}
+        hidden = {"body_prone", "body_flat", "body_kneel", "body_corner", "body_crawl", "body_worker", "body_peek", "body_head_hold", "body_ruler"}
         for body_id, clip in self.rig["clips"].items():
             with self.subTest(body=body_id):
                 self.assertEqual(clip.get("mouth_visible", True), body_id not in hidden)
+
+    def test_neutral_face_has_no_mouth_and_expressive_mouths_are_separate(self) -> None:
+        for face_id, face in self.rig["faces"].items():
+            self.assertEqual(face["mouth_visible"], face_id != "face_dot")
+            self.assertIn("performance_face:" + face_id + "_mouth", {
+                token for entry in self.manifest["entries"] for token in entry["covers"]
+            })
+
+    def test_stationary_pose_profiles_keep_original_frames_and_real_floor_pivots(self) -> None:
+        for body_id in self.rig["clips"]:
+            clip = self.rig["clips"][body_id]
+            profile = clip["motion"]
+            self.assertEqual(profile["mode"], "pose")
+            self.assertEqual(profile["frame"], 0)
+            self.assertEqual(profile["pivot"][0], 128.0)
+            token = "performance_body:" + body_id
+            entry = next(item for item in self.manifest["entries"] if token in item["covers"])
+            self.assertEqual(len(entry["frames"][token]), 4)
+            left, top, width, height = entry["frames"][token][profile["frame"]]
+            with Image.open(ROOT / entry["path"].removeprefix("res://")) as image:
+                alpha = image.getchannel("A").crop((left, top, left + width, top + height))
+                silhouette = alpha.point(lambda value: 255 if value >= 64 else 0).getbbox()
+            self.assertAlmostEqual(profile["pivot"][1], silhouette[3] * 256 / width, places=3)
+            self.assertLessEqual(profile["breath_amount"], 0.02)
+            frame = clip["frames"][0]
+            self.assertLess(0, frame["head_top"])
+            self.assertLess(frame["head_top"], frame["snout"][1])
+            self.assertLess(frame["snout"][1] + 16, frame["ground"])
+            self.assertLessEqual(frame["ground"], frame["canvas"][1])
+            self.assertNotIn("mesh", frame)
+            for frame_index, measured in enumerate(clip["frames"]):
+                region = entry["frames"][token][frame_index]
+                self.assertAlmostEqual(measured["canvas"][1] / measured["canvas"][0], region[3] / region[2], places=5)
+        self.assertEqual(self.rig["clips"]["body_base"]["motion"]["exclude_animations"], ["walk", "run"])
+
+    def test_head_hold_uses_only_the_corrected_four_frame_strip(self) -> None:
+        token = "performance_body:body_head_hold"
+        owners = [entry for entry in self.manifest["entries"] if token in entry["covers"]]
+        self.assertEqual(len(owners), 1)
+        entry = owners[0]
+        self.assertEqual(entry["path"], "res://game/assets/final/generated/pighub_head_hold.png")
+        self.assertEqual(set(entry["covers"]), {token, "behavior:scratch", "behavior:alarm", "behavior:puzzle"})
+        for other in self.manifest["entries"]:
+            if other is not entry:
+                self.assertNotIn(token, other["covers"])
+        with Image.open(ROOT / entry["path"].removeprefix("res://")) as image:
+            for frame, (left, top, width, height) in enumerate(entry["frames"][token]):
+                cell = image.crop((left, top, left + width, top + height))
+                marks = components(cell, lambda pixel: pixel[3] >= 64 and max(pixel[:3]) < 80)
+                self.assertEqual(len(marks), 2, f"frame {frame}: only two nostrils, no baked eyes or mouth")
 
     def test_visible_mouth_stays_centered_below_the_snout(self) -> None:
         mouth_centers = {}
@@ -100,14 +154,35 @@ class PigHubRigTests(unittest.TestCase):
                 for face_id, glyph_center in mouth_centers.items():
                     with self.subTest(body=body_id, frame=frame_index, face=face_id):
                         rendered_center = [
-                            frame["landmarks"]["mouth"][axis] + glyph_center[axis] * frame["scale"]
+                            frame["landmarks"]["mouth"][axis] + glyph_center[axis] * frame["scale"] * self.rig["faces"][face_id]["mouth"].get("relative_scale", 1.0)
                             for axis in (0, 1)
                         ]
                         self.assertLessEqual(abs(rendered_center[0] - frame["snout"][0]), nose_width * 0.12)
                         self.assertGreater(rendered_center[1], frame["snout"][1] + nose_width * 0.25)
 
+    def test_mouth_fits_the_lower_face_without_reaching_paws_or_clothing(self) -> None:
+        for body_id, clip in self.rig["clips"].items():
+            if not clip.get("mouth_visible", True):
+                continue
+            for frame_index, frame in enumerate(clip["frames"]):
+                for face_id, face in self.rig["faces"].items():
+                    if not face["mouth_visible"]:
+                        continue
+                    with self.subTest(body=body_id, frame=frame_index, face=face_id):
+                        self.assertIn("mouth_area", frame)
+                        mouth = face["mouth"]
+                        scale = frame["scale"] * mouth.get("relative_scale", 1.0)
+                        position = [frame["landmarks"]["mouth"][axis] + mouth["offset"][axis] * scale for axis in (0, 1)]
+                        dimensions = [value * scale for value in mouth["size"]]
+                        area = frame["mouth_area"]
+                        for axis in (0, 1):
+                            self.assertGreaterEqual(position[axis], area[axis])
+                            self.assertLessEqual(position[axis] + dimensions[axis], area[axis] + area[axis + 2])
+                        self.assertLessEqual(dimensions[0], frame["scale"] * 60 * 0.36)
+                        self.assertLessEqual(dimensions[1], frame["scale"] * 60 * 0.24)
+
     def test_runtime_contains_only_manifest_pngs(self) -> None:
-        active = {entry["path"].removeprefix("res://") for entry in self.manifest["entries"]}
+        active = {entry["path"].removeprefix("res://") for entry in self.manifest["entries"] if entry.get("origin") != "pighub_original"}
         actual = {path.relative_to(ROOT).as_posix() for path in (ROOT / "game/assets/final/generated").glob("*.png")}
         self.assertEqual(actual, active)
         recipes = json.loads((ROOT / "docs/design/generated-art-prompts.json").read_text())["records"]

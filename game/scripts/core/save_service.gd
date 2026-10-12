@@ -19,6 +19,8 @@ var _event_photo_ids: Dictionary = {}
 var _life_plan_limits: Dictionary = {}
 var _life_plan_levels: Dictionary = {}
 var _life_plan_entry_requirements: Dictionary = {}
+var _postcard_thresholds: Dictionary = {}
+var _retired_outfit_refunds: Dictionary = {}
 
 
 func _init(custom_base_dir: String = "user://piggy_did_nothing_today") -> void:
@@ -34,7 +36,7 @@ func _init(custom_base_dir: String = "user://piggy_did_nothing_today") -> void:
 func configure_content_ids(catalog: ContentCatalog, room_slots: Dictionary = {}) -> void:
 	_known_ids.clear()
 	_furniture_placement_rules.clear()
-	for type: String in ["behaviors", "furniture", "snacks", "outfits", "expressions", "events", "achievements", "life_plans", "personalities"]:
+	for type: String in ["behaviors", "furniture", "snacks", "outfits", "expressions", "events", "achievements", "life_plans", "personalities", "postcards"]:
 		var ids: Dictionary = {}
 		for item: Dictionary in catalog.get_all(type):
 			var id: String = str(item.get("id", ""))
@@ -43,6 +45,11 @@ func configure_content_ids(catalog: ContentCatalog, room_slots: Dictionary = {})
 				if type == "furniture":
 					_furniture_placement_rules[id] = {"area":str(item.get("area", "")), "slot":str(item.get("slot", ""))}
 		_known_ids[type] = ids
+	_retired_outfit_refunds.clear()
+	for attire: Dictionary in catalog.retired_outfits:
+		var id: String = str(attire.id)
+		_retired_outfit_refunds[id] = int(attire.refund_points)
+		(_known_ids["outfits"] as Dictionary)[id] = true
 	_known_room_slots.clear()
 	for slot_value: Variant in room_slots:
 		var slot_id: String = str(slot_value)
@@ -64,6 +71,9 @@ func configure_content_ids(catalog: ContentCatalog, room_slots: Dictionary = {})
 			entry_ids[str(entry.id)] = true
 			_life_plan_entry_requirements[str(entry.id)] = {"plan":str(plan.id), "seconds":float(entry.seconds)}
 	_known_ids["life_plan_entries"] = entry_ids
+	_postcard_thresholds.clear()
+	for card: Dictionary in catalog.postcards:
+		_postcard_thresholds[str(card.id)] = int(card.points)
 
 
 func save_game(data: Dictionary) -> Error:
@@ -191,7 +201,31 @@ func migrate(source: Dictionary) -> Dictionary:
 				data["schema_version"] = version
 			_:
 				return {}
+	if not _retired_outfit_refunds.is_empty() and _is_valid_game_payload(data):
+		if data.has("companions"):
+			for snapshot: Dictionary in (data.companions as Dictionary).values():
+				_retire_body_outfits(snapshot.pig_state as Dictionary)
+			data["pig_state"] = ((data.companions as Dictionary)[str(data.active_companion_id)].pig_state as Dictionary).duplicate(true)
+		else:
+			_retire_body_outfits(data.pig_state as Dictionary)
 	return data
+
+
+func _retire_body_outfits(pig: Dictionary) -> void:
+	var retained: Array[String] = []
+	var refund: int = 0
+	for id: String in pig.get("owned_outfits", []) as Array:
+		if _retired_outfit_refunds.has(id):
+			refund += int(_retired_outfit_refunds[id])
+		else:
+			retained.append(id)
+	if refund > 0:
+		pig["owned_outfits"] = retained
+		if not pig.has("earned_points"):
+			pig["earned_points"] = maxi(int(pig.get("daily_points", PigState.STARTING_POINTS)) - PigState.STARTING_POINTS, 0)
+		pig["daily_points"] = int(pig.get("daily_points", PigState.STARTING_POINTS)) + refund
+	if _retired_outfit_refunds.has(str(pig.get("current_outfit", ""))):
+		pig["current_outfit"] = ""
 
 
 func _rotate_and_replace() -> Error:
@@ -367,7 +401,7 @@ func _is_valid_game_payload(data: Dictionary, validate_roster: bool = true) -> b
 	for key: String in ["satiety", "energy", "interest", "active_seconds"]:
 		if pig.has(key) and not _is_number(pig[key]):
 			return false
-	for key: String in ["familiarity_xp", "familiarity_level", "daily_points", "tutorial_step"]:
+	for key: String in ["familiarity_xp", "familiarity_level", "daily_points", "earned_points", "tutorial_step"]:
 		if pig.has(key) and not _is_integer_number(pig[key]):
 			return false
 	for key: String in ["satiety", "energy", "interest"]:
@@ -381,6 +415,8 @@ func _is_valid_game_payload(data: Dictionary, validate_roster: bool = true) -> b
 		return false
 	if pig.has("daily_points") and int(pig.daily_points) < 0:
 		return false
+	if pig.has("earned_points") and int(pig.earned_points) < 0:
+		return false
 	if pig.has("tutorial_step") and not _number_in_range(pig.tutorial_step, 0.0, 7.0):
 		return false
 	if pig.has("tendency") and str(pig.tendency) not in ["rest", "food", "active", "explore"]:
@@ -389,10 +425,10 @@ func _is_valid_game_payload(data: Dictionary, validate_roster: bool = true) -> b
 		return false
 	if pig.has("current_photo_frame") and str(pig.current_photo_frame) not in ["plain", "berry", "star"]:
 		return false
-	for key: String in ["owned_furniture", "owned_snacks", "owned_outfits", "unlocked_expressions", "discovered_events", "seen_events", "pending_events", "summarized_events", "unlocked_achievements", "life_plan_entries"]:
+	for key: String in ["owned_furniture", "owned_snacks", "owned_outfits", "unlocked_expressions", "discovered_events", "seen_events", "pending_events", "summarized_events", "unlocked_achievements", "life_plan_entries", "read_postcards"]:
 		if pig.has(key) and not _is_unique_string_array(pig[key]):
 			return false
-	for key: String in ["placed_furniture", "expression_unlock_dates", "life_photos", "interaction_counts", "life_plan_progress"]:
+	for key: String in ["placed_furniture", "expression_unlock_dates", "life_photos", "interaction_counts", "life_plan_progress", "received_postcards"]:
 		if pig.has(key) and not pig[key] is Dictionary:
 			return false
 	for key: String in ["ending_unlocked", "ending_seen", "demo_completion_seen", "tutorial_skipped"]:
@@ -418,6 +454,15 @@ func _is_valid_game_payload(data: Dictionary, validate_roster: bool = true) -> b
 		return false
 	if pig.has("interaction_counts") and not _is_non_negative_number_map(pig.interaction_counts, true):
 		return false
+	var received: Dictionary = pig.get("received_postcards", {}) as Dictionary
+	if not _is_non_negative_number_map(received, true):
+		return false
+	for postcard_id: String in received:
+		if not pig.has("earned_points") or (not _known_ids.is_empty() and (not _postcard_thresholds.has(postcard_id) or int(pig.earned_points) < int(_postcard_thresholds[postcard_id]))):
+			return false
+	for postcard_id: String in pig.get("read_postcards", []) as Array:
+		if not received.has(postcard_id):
+			return false
 	if not _is_valid_life_plan_state(pig):
 		return false
 	var pending: Array = pig.get("pending_events", []) as Array

@@ -6,10 +6,11 @@ import math
 from typing import Any
 
 
-COUNTS = {"faces":9, "clips":12, "poses":9, "states":6, "forms":2, "outfit_actions":12}
+COUNTS = {"faces":9, "clips":12, "poses":9, "states":6, "forms":2, "outfit_actions":8}
+BODY_SHEET_ROWS = {0:6, 1:6, 2:1}
 FIELDS = {
     "faces":{"id", "name_key"},
-    "clips":{"id", "sheet", "row", "snouts", "integrated_outfit"},
+    "clips":{"id", "sheet", "row", "snouts", "integrated_outfit", "motion"},
     "poses":{"id", "name_key", "clip_id", "duration_seconds"},
     "forms":{"id", "name_key", "clip_id", "duration_seconds"},
     "states":{"id", "name_key", "line_key", "pose_ids", "form_id", "face_ids", "duration_seconds"},
@@ -54,7 +55,7 @@ def validate_performances(config: Any, outfit_ids: set[str], errors: list[str]) 
         errors.append("pig performances require one shared base and permanent body clips")
     cells = set()
     for clip in config["clips"]:
-        if type(clip.get("sheet")) is not int or clip["sheet"] not in (0, 1) or type(clip.get("row")) is not int or clip["row"] not in range(6):
+        if type(clip.get("sheet")) is not int or clip["sheet"] not in BODY_SHEET_ROWS or type(clip.get("row")) is not int or clip["row"] not in range(BODY_SHEET_ROWS[clip["sheet"]]):
             errors.append(f"{clip['id']}: invalid atlas cell")
         else:
             cells.add((clip["sheet"], clip["row"]))
@@ -63,6 +64,17 @@ def validate_performances(config: Any, outfit_ids: set[str], errors: list[str]) 
             errors.append(f"{clip['id']}: four head anchors must stay in the 256-pixel canvas")
         if "integrated_outfit" in clip and type(clip["integrated_outfit"]) is not bool:
             errors.append(f"{clip['id']}: integrated outfit flag must be boolean")
+        if "motion" in clip:
+            motion = clip["motion"]
+            fields = {"mode", "frame", "period_seconds", "breath_amount", "sway_radians", "exclude_animations"}
+            if not isinstance(motion, dict) or set(motion) != fields:
+                errors.append(f"{clip['id']}: pose motion requires the exact cosmetic fields")
+                continue
+            excluded = motion["exclude_animations"]
+            if motion["mode"] != "pose" or type(motion["frame"]) is not int or motion["frame"] not in range(4) or not finite_number(motion["period_seconds"], 3, 12) or not finite_number(motion["breath_amount"], 0, 0.02) or not finite_number(motion["sway_radians"], 0, 0.03):
+                errors.append(f"{clip['id']}: pose motion must remain subtle, finite and use a real frame")
+            if not isinstance(excluded, list) or any(animation not in ("walk", "run") for animation in excluded) or len(excluded) != len(set(excluded)):
+                errors.append(f"{clip['id']}: invalid moving-animation exclusions")
     if len(cells) != 12:
         errors.append("pig clips must occupy twelve unique four-frame rows")
     for kind in ("poses", "forms"):

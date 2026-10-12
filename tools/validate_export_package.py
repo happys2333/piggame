@@ -14,6 +14,22 @@ from pathlib import Path, PurePosixPath
 
 
 REQUIRED_FILES = {
+    "game/assets/interface/source.json",
+    "game/assets/interface/fonts/pig-ui-body.ttf.import",
+    "game/assets/interface/fonts/pig-ui-title.ttf.import",
+    "game/scripts/ui/ui_assets.gdc",
+    "LICENSES/Interface/SOURCE.md",
+    "LICENSES/NotoSansSC/LICENSE.txt",
+    "LICENSES/LXGWWenKai/LICENSE.txt",
+    "LICENSES/Lucide/LICENSE.txt",
+    "game/data/catalog/postcards.json",
+    "game/scripts/simulation/postcard_rules.gdc",
+    "game/assets/final/pighub/source.json",
+    "LICENSES/PigHub/SOURCE.md",
+    "game/data/catalog/room_interactions.json",
+    "game/scripts/ui/room_interaction_controller.gdc",
+    "game/scripts/ui/pig_item_front.gdc",
+    "game/scripts/ui/pig_item_stage.gdc",
     "game/data/catalog/pig_performances.json",
     "game/data/catalog/pig_visual_rig.json",
     "game/scripts/ui/pig_visual_rig.gdc",
@@ -31,6 +47,10 @@ REQUIRED_FILES = {
     "game/scripts/core/release_profile.gdc",
     "game/scripts/ui/main.gdc",
 }
+REQUIRED_FILES.update(
+    f"game/assets/final/pighub/postcard_{name}.{'jpg' if name == 'belly' else 'webp'}.import"
+    for name in ("wake", "carrot", "flat", "huddle", "park", "fact", "bold", "belly")
+)
 FORBIDDEN_PREFIXES = (
     "build/",
     "assest/",

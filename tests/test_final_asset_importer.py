@@ -279,8 +279,8 @@ class FinalAssetImporterTests(unittest.TestCase):
                 )
             self.assertEqual(snapshot(root), before)
 
-    def test_production_contract_has_252_tokens(self) -> None:
-        self.assertEqual(len(IMPORTER.validate_final_assets.expected_coverage()), 252)
+    def test_production_contract_has_256_tokens(self) -> None:
+        self.assertEqual(len(IMPORTER.validate_final_assets.expected_coverage()), 256)
 
 
 if __name__ == "__main__":

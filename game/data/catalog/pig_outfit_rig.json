@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "shapes": {
+    "beret": {"anchor":"head", "offset":[0.35,0.50], "width":2.05, "pivot":[0.5,0.78], "rotation":-0.03},
+    "glasses": {"anchor":"eyes", "offset":[0,0], "eye_spacing":0.46, "pivot":[0.5,0.5], "rotation":0},
+    "sprout": {"anchor":"head", "offset":[1.0,0.10], "width":0.56, "pivot":[0.45,0.95], "rotation":0},
+    "sleep_cap": {"anchor":"head", "offset":[0.35,0.60], "width":2.05, "pivot":[0.47,0.72], "rotation":-0.03},
+    "painter_hat": {"anchor":"head", "offset":[0.35,0.50], "width":2.0, "pivot":[0.5,0.78], "rotation":-0.03},
+    "headband": {"anchor":"head", "offset":[0.35,0.70], "width":2.05, "pivot":[0.5,0.65], "rotation":0},
+    "crown": {"anchor":"head", "offset":[0.35,0.50], "width":1.75, "pivot":[0.5,0.80], "rotation":-0.03},
+    "star_glasses": {"anchor":"eyes", "offset":[0,0], "eye_spacing":0.50, "pivot":[0.5,0.50], "rotation":0}
+  },
+  "poses": {
+    "body_base": {"hidden_anchors":[]},
+    "body_prone": {"hidden_anchors":[]},
+    "body_flat": {"hidden_anchors":[]},
+    "body_kneel": {"hidden_anchors":[]},
+    "body_corner": {"hidden_anchors":[]},
+    "body_arms": {"hidden_anchors":[]},
+    "body_upside": {"hidden_anchors":[]},
+    "body_peek": {"hidden_anchors":[]},
+    "body_crawl": {"hidden_anchors":[]},
+    "body_head_hold": {"hidden_anchors":[]},
+    "body_worker": {"hidden_anchors":["head","eyes"]},
+    "body_ruler": {"hidden_anchors":["head","eyes"]}
+  }
+}

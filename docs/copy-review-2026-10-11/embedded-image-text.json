@@ -1,0 +1,82 @@
+[
+  {
+    "id": "postcard_wake",
+    "original_gallery_title": "你醒啦",
+    "observed_image_text": "你醒啦，你刚刚一直在说\n什么要考试、要找工作什么的，\n是不是吃错饲料了，\n我们只是小猪猪呀",
+    "transcription_note": "主文字人工看图转录；换行是图像排版，不是本地化变量。",
+    "file": "reference-images/postcard_wake.webp",
+    "sha256": "f2e4e2c78972fa4b70f869722390144741c07be3f059785fbe864efd59c5ce07",
+    "editable_via_localization_csv": false,
+    "proposed_caption": null
+  },
+  {
+    "id": "postcard_carrot",
+    "original_gallery_title": "萝卜猪",
+    "observed_image_text": "萝卜猪",
+    "transcription_note": "图内标题。",
+    "file": "reference-images/postcard_carrot.webp",
+    "sha256": "40f31fac7d709a5e7503dadd64438e6b5e13f81ea1bbae341cb14d4280229010",
+    "editable_via_localization_csv": false,
+    "proposed_caption": null
+  },
+  {
+    "id": "postcard_flat",
+    "original_gallery_title": "扁猪",
+    "observed_image_text": "",
+    "transcription_note": "未发现可辨文字，只有猪形象。",
+    "file": "reference-images/postcard_flat.webp",
+    "sha256": "370d774f9592c7900c196fc55aa005f5cdf7e6c5c9ee7ff4be97926a1e1f2574",
+    "editable_via_localization_csv": false,
+    "proposed_caption": null
+  },
+  {
+    "id": "postcard_huddle",
+    "original_gallery_title": "欢乐多猪",
+    "observed_image_text": "欢乐多猪",
+    "transcription_note": "图内标题。",
+    "file": "reference-images/postcard_huddle.webp",
+    "sha256": "f916914b39e5ed9d1e608275e6a5810195b70709d3bf576728c062ea4a9b2889",
+    "editable_via_localization_csv": false,
+    "proposed_caption": null
+  },
+  {
+    "id": "postcard_park",
+    "original_gallery_title": "乱停猪",
+    "observed_image_text": "乱停猪\n罚单\nZ / z",
+    "transcription_note": "罚单内部英文与表格细字不能可靠辨读，未猜写；原图随包附上供复核。",
+    "file": "reference-images/postcard_park.webp",
+    "sha256": "c6ea79a460b2f2ee1004e5f3d02ff3a2b1c6ac55efa249e72388c98a1f975b99",
+    "editable_via_localization_csv": false,
+    "proposed_caption": null
+  },
+  {
+    "id": "postcard_fact",
+    "original_gallery_title": "你知道吗",
+    "observed_image_text": "你知道吗（多次重复）……我饿了",
+    "transcription_note": "记录重复句的结构而非猜测次数；右下浅色水印不能可靠辨读，不删改水印。",
+    "file": "reference-images/postcard_fact.webp",
+    "sha256": "c61c93ea5608c54f008a04868f18af4fc9976b3668899a74833e5dcb09f153ad",
+    "editable_via_localization_csv": false,
+    "proposed_caption": null
+  },
+  {
+    "id": "postcard_bold",
+    "original_gallery_title": "笨笨的猪气势汹汹地登场！",
+    "observed_image_text": "笨笨的我气势汹汹地登场",
+    "transcription_note": "人工看图转录。来源登记标题用“猪”，实际图中文字用“我”，两者分开保留。",
+    "file": "reference-images/postcard_bold.webp",
+    "sha256": "4b51e8b95e632551a6c43cb1034edf57b357006a4cf19d65dce10287af529091",
+    "editable_via_localization_csv": false,
+    "proposed_caption": null
+  },
+  {
+    "id": "postcard_belly",
+    "original_gallery_title": "肥猪",
+    "observed_image_text": "肥猪",
+    "transcription_note": "图内标题。",
+    "file": "reference-images/postcard_belly.jpg",
+    "sha256": "dbfb360ef3c5382f2f4bf53ae7c1609505656a775be6f6f62cdd29b6347085bb",
+    "editable_via_localization_csv": false,
+    "proposed_caption": null
+  }
+]

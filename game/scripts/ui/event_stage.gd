@@ -14,11 +14,20 @@ var event_props: Array[String] = []
 var step_progress: float = 0.0
 var _phase: float = 0.0
 var _frame_time: float = 0.0
+var _pig: PigVisual
 
 
 func _ready() -> void:
 	custom_minimum_size = Vector2(640, 245)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_pig = PigVisual.new()
+	_pig.size = Vector2(280, 230)
+	add_child(_pig)
+	_pig.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_pig.dragging_enabled = false
+	_pig.set_process(false)
+	_pig.set_outfit(GameSession.catalog.get_item("outfits", GameSession.pig_state.current_outfit))
+	_pig.set_behavior({"animation":animation_id})
 	set_process(true)
 
 
@@ -32,6 +41,8 @@ func set_step(event: Dictionary, step: Dictionary, progress: float = 0.0) -> voi
 	for value: Variant in event.get("props", []):
 		event_props.append(str(value))
 	animation_id = str(step.get("animation", "sit"))
+	if _pig != null:
+		_pig.set_behavior({"animation":animation_id})
 	step_progress = clampf(progress, 0.0, 1.0)
 	queue_redraw()
 
@@ -44,11 +55,13 @@ func set_step_progress(value: float) -> void:
 func _process(delta: float) -> void:
 	if not is_visible_in_tree() or GameSession.reduce_motion:
 		return
-	_frame_time += delta
-	var step: float = VisualFramePolicy.FRAME_STEP * PigVisualRig.stride_for(animation_id)
+	if _pig != null:
+		_pig.call("_process", delta)
+	_phase += minf(delta, 0.1)
+	_frame_time += minf(delta, 0.1)
+	var step: float = VisualFramePolicy.POSE_FRAME_STEP
 	if _frame_time < step:
 		return
-	_phase += floorf(_frame_time / step) * VisualFramePolicy.FRAME_STEP
 	_frame_time = fmod(_frame_time, step)
 	queue_redraw()
 
@@ -57,7 +70,7 @@ func _draw() -> void:
 	begin_visual_draw()
 	var event_texture: Texture2D = visual_texture("event:%s" % event_id) if not event_id.is_empty() else null
 	if event_texture != null:
-		draw_texture_rect(event_texture, Rect2(Vector2.ZERO, size), false)
+		draw_cover_texture(event_texture, Rect2(Vector2.ZERO, size))
 	else:
 		var background: Color = {
 			"food": Color("#fff0dc"), "sleep": Color("#e9e5f6"), "sport": Color("#e2f1ed"),
@@ -68,9 +81,9 @@ func _draw() -> void:
 		_draw_anchor_environment()
 		_draw_event_props(false)
 		_draw_prop()
-	var frame_index: int = 0 if GameSession.reduce_motion else floori(_phase / VisualFramePolicy.FRAME_STEP) % 4
 	var pig_center: Vector2 = _pig_center()
-	PigVisualRig.draw_pig(self, Rect2(pig_center - Vector2(140, 115), Vector2(280, 230)), PigVisualRig.body_for(animation_id), PigVisualRig.face_for(animation_id), frame_index)
+	if _pig != null:
+		_pig.position = pig_center - Vector2(140, 115)
 	if event_texture == null:
 		_draw_event_props(true)
 

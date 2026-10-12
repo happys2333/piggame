@@ -13,17 +13,18 @@ from PIL import Image
 
 from validate_final_assets import expected_coverage
 from build_pig_performances import performance_asset_entries
-from build_pighub_rig import FACE_IDS
+from build_pighub_rig import FACE_IDS, bounds, components
+from pighub_postcard_assets import postcard_asset_entries
 
 
 ROOT = Path(__file__).resolve().parents[1]
 RECIPES = ROOT / "docs/design/generated-art-prompts.json"
-OUTFIT_PLACEMENTS = [
-    [28, 50, 142, 57], [40, 72, 124, 82], [48, 154, 137, 63],
-    [28, 62, 139, 59], [24, 41, 158, 83], [115, 117, 139, 101],
-    [27, 51, 148, 63], [26, 79, 139, 37], [68, 161, 74, 40],
-    [26, 33, 146, 77], [40, 98, 112, 42], [124, 121, 129, 96],
-]
+OUTFIT_CELLS = {
+    "outfit_berry_beret": 0, "outfit_round_glasses": 1,
+    "outfit_sprout_pin": 3, "outfit_sleepy_cap": 4,
+    "outfit_painter_hat": 6, "outfit_sports_band": 7,
+    "outfit_paper_crown": 9, "outfit_star_glasses": 10,
+}
 
 
 def catalog_tokens(relative: str, kind: str, field: str = "id") -> list[str]:
@@ -39,6 +40,26 @@ def cell_region(width: int, height: int, columns: int, rows: int, index: int, in
     right = round(width * (column + 1) / columns) - inset
     bottom = round(height * (row + 1) / rows) - inset
     return [left, top, right - left, bottom - top]
+
+
+def isolated_sprite_region(image: Image.Image, region: list[int]) -> list[int]:
+    left, top, width, height = region
+    cell = image.crop((left, top, left + width, top + height))
+    groups = sorted(components(cell, lambda pixel: pixel[3] >= 32), key=len, reverse=True)
+    if not groups:
+        raise ValueError("empty generated sprite cell")
+    primary = bounds(groups[0])
+    margin = min(width, height) * 0.025
+    retained = []
+    for group in groups:
+        box = bounds(group)
+        nearby = box[0] < primary[0] + primary[2] + margin and box[0] + box[2] > primary[0] - margin and box[1] < primary[1] + primary[3] + margin and box[1] + box[3] > primary[1] - margin
+        if len(group) >= len(groups[0]) * 0.03 or nearby:
+            retained.extend(group)
+    trim = bounds(retained)
+    start_x, start_y = max(0, trim[0] - 1), max(0, trim[1] - 1)
+    end_x, end_y = min(width, trim[0] + trim[2] + 1), min(height, trim[1] + trim[3] + 1)
+    return [left + start_x, top + start_y, end_x - start_x, end_y - start_y]
 
 
 def build_manifest(copy_images: bool = False) -> dict:
@@ -70,7 +91,7 @@ def build_manifest(copy_images: bool = False) -> dict:
         if identifier.startswith("furniture_"):
             group = int(identifier.rsplit("_", 1)[1]) - 1
             tokens = furniture_tokens[group * 16 : (group + 1) * 16]
-            entry["regions"] = {token: cell_region(width, height, 4, 4, index) for index, token in enumerate(tokens)}
+            entry["regions"] = {token: isolated_sprite_region(image, cell_region(width, height, 4, 4, index)) for index, token in enumerate(tokens)}
         elif identifier == "pighub_expressions":
             rig = json.loads((ROOT / "game/data/catalog/pig_visual_rig.json").read_text())
             tokens = expression_tokens
@@ -92,21 +113,13 @@ def build_manifest(copy_images: bool = False) -> dict:
             entry["regions"] = {token: cell_region(width, height, 2, 3, index, 3) for index, token in enumerate(tokens)}
         elif identifier == "snacks":
             tokens = catalog_tokens("catalog/snacks.json", "snack")
-            entry["regions"] = {token: cell_region(width, height, 4, 4, index) for index, token in enumerate(tokens)}
+            entry["regions"] = {token: isolated_sprite_region(image, cell_region(width, height, 4, 4, index)) for index, token in enumerate(tokens)}
         elif identifier == "outfits":
             tokens = outfit_tokens
-            entry["regions"] = {}
-            entry["placements"] = dict(zip(tokens, OUTFIT_PLACEMENTS, strict=True))
-            for index, token in enumerate(tokens):
-                left, top, cell_width, cell_height = cell_region(width, height, 4, 4, index)
-                alpha = image.getchannel("A").crop((left, top, left + cell_width, top + cell_height))
-                bounds = alpha.point(lambda value: 255 if value >= 32 else 0).getbbox()
-                if bounds is None:
-                    raise ValueError(f"empty outfit artwork: {token}")
-                entry["regions"][token] = [left + bounds[0], top + bounds[1], bounds[2] - bounds[0], bounds[3] - bounds[1]]
+            entry["regions"] = {token: isolated_sprite_region(image, cell_region(width, height, 4, 4, OUTFIT_CELLS[token.split(":", 1)[1]])) for token in tokens}
         elif identifier == "photo_frames":
             tokens = ["ui:photo_frame_" + frame for frame in ["plain", "berry", "star"]]
-            entry["regions"] = {token: cell_region(width, height, 1, 3, index) for index, token in enumerate(tokens)}
+            entry["regions"] = {token: isolated_sprite_region(image, cell_region(width, height, 1, 3, index)) for index, token in enumerate(tokens)}
         elif identifier == "app_icon":
             tokens = ["ui:app_icon"]
         else:
@@ -117,6 +130,7 @@ def build_manifest(copy_images: bool = False) -> dict:
         image.close()
     covered = [token for entry in entries for token in entry["covers"]]
     entries.extend(performance_asset_entries(copy_images))
+    entries.extend(postcard_asset_entries())
     covered = [token for entry in entries for token in entry["covers"]]
     expected = {token for token in expected_coverage() if not token.startswith("audio:")}
     if set(covered) != expected or len(covered) != len(expected):
@@ -133,7 +147,7 @@ def build_manifest(copy_images: bool = False) -> dict:
         "provided_by_user": False,
         "visual_ready": True,
         "generation_authorized": True,
-        "note": "Commissioned image_gen visuals, including modular faces/poses/forms. Audio, release ownership and external acceptance remain pending; generated images are not user-supplied originals.",
+        "note": "Commissioned image_gen visuals plus separately attributed original PigHub postcard WebP/JPEGs authorized by the project owner. Audio, independent rights verification and final release approval remain pending; neither generated nor downloaded images are user-created originals.",
         "entries": entries,
     }
 

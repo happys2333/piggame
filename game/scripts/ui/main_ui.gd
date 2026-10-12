@@ -9,8 +9,8 @@ const PHOTO_FRAME_COLORS := {
 	"berry": [Color("#fff0f3"), Color("#c65d7b")],
 	"star": [Color("#fff7d8"), Color("#d9a93f")],
 }
-const DEFAULT_PANEL_SIZE := Vector2(880, 570)
-const OVERLAY_MARGIN: float = 16.0
+const DEFAULT_PANEL_SIZE := Vector2(1040, 640)
+const OVERLAY_MARGIN: float = 24.0
 const DEMO_LOCKED_EXPRESSION_PREVIEW_COUNT: int = 8
 
 var _status_label: Label
@@ -42,6 +42,15 @@ var _life_plan_summary: Label
 var _displayed_companion_id: String = "pig_1"
 var _focus_timer_label: Label
 var _performance_navigation: VBoxContainer
+var _postcard_progress: Label
+var _postcard_requirements: Dictionary = {}
+var _album_navigation: Array[Button] = []
+var _catalog_area: String = ""
+var _panel_reopen: Callable
+var _panel_preferred_size: Vector2 = DEFAULT_PANEL_SIZE
+var _panel_reflow_pending: bool = false
+var _hud_tools: Array[Button] = []
+var _catalog_controls: Array[Dictionary] = []
 
 
 func _ready() -> void:
@@ -49,7 +58,11 @@ func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	theme = ThemeFactory.create(GameSession.ui_scale)
 	_build_ui()
+	get_viewport().size_changed.connect(_queue_panel_reflow)
+	get_viewport().size_changed.connect(_refresh_hud_layout)
 	GameSession.state_changed.connect(_refresh)
+	GameSession.postcard_mail_changed.connect(_refresh_postcard_mail)
+	GameSession.companions_changed.connect(_refresh_postcard_mail)
 	GameSession.life_plan_changed.connect(_refresh_life_plan_album)
 	_displayed_companion_id = GameSession.active_companion_id
 	GameSession.companions_changed.connect(_on_companions_changed)
@@ -153,13 +166,19 @@ func _build_ui() -> void:
 
 func _build_top_bar() -> Control:
 	var row := HBoxContainer.new()
+	row.name = "TopBar"
 	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var identity := PanelContainer.new()
-	identity.custom_minimum_size = Vector2(260, 86)
+	identity.theme_type_variation = "HudPanel"
+	identity.name = "PigIdentity"
+	identity.custom_minimum_size = Vector2(280, 0)
+	identity.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	var identity_text := VBoxContainer.new()
+	identity_text.add_theme_constant_override("separation", 5)
 	identity.add_child(identity_text)
 	_name_label = Label.new()
-	_name_label.add_theme_font_size_override("font_size", 23)
+	_name_label.theme_type_variation = "TitleLabel"
+	_name_label.add_theme_font_size_override("font_size", roundi(20 * GameSession.ui_scale))
 	_name_label.clip_text = true
 	_name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	identity_text.add_child(_name_label)
@@ -172,7 +191,10 @@ func _build_top_bar() -> Control:
 	status_row.add_child(_status_icon)
 	_status_label = Label.new()
 	_status_label.name = "CurrentStatusText"
-	_status_label.add_theme_color_override("font_color", ThemeFactory.ROSE_DARK)
+	_status_label.theme_type_variation = "MetaLabel"
+	_status_label.clip_text = true
+	_status_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	_status_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_status_label.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	status_row.add_child(_status_label)
 	row.add_child(identity)
@@ -181,12 +203,29 @@ func _build_top_bar() -> Control:
 	spacer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	row.add_child(spacer)
 	var actions := HBoxContainer.new()
+	actions.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	var points_panel := PanelContainer.new()
+	points_panel.theme_type_variation = "HudPanel"
+	var points_row := HBoxContainer.new()
+	points_row.add_theme_constant_override("separation", 8)
+	points_panel.add_child(points_row)
+	var coin := TextureRect.new()
+	coin.texture = UIAssets.icon("coins")
+	coin.modulate = ThemeFactory.SAGE
+	coin.custom_minimum_size = Vector2(22, 22)
+	coin.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	coin.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	coin.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	points_row.add_child(coin)
 	_points_label = Label.new()
-	_points_label.add_theme_font_size_override("font_size", 20)
-	points_panel.add_child(_points_label)
+	_points_label.add_theme_font_size_override("font_size", roundi(15 * GameSession.ui_scale))
+	_points_label.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	points_row.add_child(_points_label)
 	actions.add_child(points_panel)
 	_album_button = _button("UI_ALBUM", _open_album)
+	_album_button.name = "AlbumButton"
+	_album_button.set_meta("label_key", "UI_ALBUM")
+	UIAssets.decorate(_album_button, "book-open", "QuietButton")
 	_album_unread_dot = Panel.new()
 	_album_unread_dot.name = "AlbumUnreadDot"
 	_album_unread_dot.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -198,45 +237,60 @@ func _build_top_bar() -> Control:
 	_album_unread_dot.offset_right = -dot_inset
 	_album_unread_dot.offset_bottom = dot_inset + dot_size
 	var unread_style := StyleBoxFlat.new()
-	unread_style.bg_color = Color("#d95f86cc")
+	unread_style.bg_color = ThemeFactory.ROSE
 	unread_style.border_color = ThemeFactory.CREAM
 	unread_style.set_border_width_all(1)
 	unread_style.set_corner_radius_all(roundi(dot_size * 0.5))
 	_album_unread_dot.add_theme_stylebox_override("panel", unread_style)
 	_album_button.add_child(_album_unread_dot)
 	actions.add_child(_album_button)
-	actions.add_child(_button("UI_SCREENSHOT", func() -> void: screenshot_requested.emit()))
+	var photo := _button("UI_SCREENSHOT", func() -> void: screenshot_requested.emit())
+	photo.name = "PhotoButton"
+	photo.set_meta("label_key", "UI_SCREENSHOT")
+	UIAssets.decorate(photo, "camera", "QuietButton")
+	actions.add_child(photo)
 	var settings := _button("UI_SETTINGS", _open_settings)
 	settings.name = "SettingsButton"
+	settings.set_meta("label_key", "UI_SETTINGS")
+	UIAssets.decorate(settings, "settings-2", "QuietButton")
 	actions.add_child(settings)
+	_hud_tools = [_album_button, photo, settings]
 	row.add_child(actions)
 	return row
 
 
 func _build_bottom_bar() -> Control:
 	var panel := PanelContainer.new()
+	panel.theme_type_variation = "DockPanel"
 	panel.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	var row := HBoxContainer.new()
 	row.alignment = BoxContainer.ALIGNMENT_CENTER
 	panel.add_child(row)
 	_furniture_button = _button("UI_FURNITURE", func() -> void: _open_catalog("furniture", "UI_FURNITURE"))
+	UIAssets.decorate(_furniture_button, "armchair", "QuietButton")
 	row.add_child(_furniture_button)
 	_snacks_button = _button("UI_SNACKS", func() -> void: _open_catalog("snacks", "UI_SNACKS"))
+	UIAssets.decorate(_snacks_button, "cookie", "QuietButton")
 	row.add_child(_snacks_button)
-	row.add_child(_button("UI_OUTFITS", func() -> void: _open_catalog("outfits", "UI_OUTFITS")))
+	var outfits := _button("UI_OUTFITS", func() -> void: _open_catalog("outfits", "UI_OUTFITS"))
+	UIAssets.decorate(outfits, "smile", "QuietButton")
+	row.add_child(outfits)
 	_tendency_button = _button("UI_TENDENCY", _open_tendency)
+	UIAssets.decorate(_tendency_button, "sparkles", "QuietButton")
 	row.add_child(_tendency_button)
 	_desktop_button = _button("UI_DESKTOP", func() -> void: desktop_requested.emit())
+	UIAssets.decorate(_desktop_button, "monitor", "PrimaryButton")
 	_desktop_button.disabled = GameSession.pig_state.familiarity_level < 2
 	_desktop_button.tooltip_text = tr("UI_DESKTOP_LOCKED") if _desktop_button.disabled else tr("UI_DESKTOP_HINT")
 	_tendency_button.disabled = GameSession.pig_state.familiarity_level < 5
-	_tendency_button.tooltip_text = tr("UI_TENDENCY_LOCKED") if _tendency_button.disabled else tr("TENDENCY_INTRO")
+	_tendency_button.tooltip_text = tr("UI_TENDENCY_LOCKED") if _tendency_button.disabled else ""
 	row.add_child(_desktop_button)
 	return panel
 
 
 func _build_toast() -> void:
 	_toast_panel = PanelContainer.new()
+	_toast_panel.theme_type_variation = "HudPanel"
 	_toast_panel.set_anchors_preset(Control.PRESET_CENTER_TOP)
 	_toast_panel.position = Vector2(-220, 110)
 	_toast_panel.size = Vector2(440, 64)
@@ -252,7 +306,7 @@ func _build_toast() -> void:
 
 func _build_overlay() -> void:
 	_overlay = ColorRect.new()
-	_overlay.color = Color("#4b354266")
+	_overlay.color = Color("#222b2859")
 	_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
 	_overlay.visible = false
@@ -268,16 +322,20 @@ func _build_overlay() -> void:
 	center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	safe_margin.add_child(center)
 	_panel = PanelContainer.new()
+	_panel.name = "PaperWindow"
+	_panel.theme_type_variation = "PaperPanel"
 	_set_panel_preferred_size(DEFAULT_PANEL_SIZE)
 	center.add_child(_panel)
 	var outer := VBoxContainer.new()
 	_panel.add_child(outer)
 	var header := HBoxContainer.new()
 	_panel_title = Label.new()
-	_panel_title.add_theme_font_size_override("font_size", 28)
+	_panel_title.theme_type_variation = "TitleLabel"
+	_panel_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_panel_title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(_panel_title)
 	var close := _button("UI_CLOSE", _close_panel)
+	UIAssets.decorate(close, "x", "QuietButton")
 	header.add_child(close)
 	outer.add_child(header)
 	var divider := HSeparator.new()
@@ -288,6 +346,7 @@ func _build_overlay() -> void:
 	outer.add_child(_panel_scroll)
 	_panel_content = VBoxContainer.new()
 	_panel_content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_panel_content.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_panel_scroll.add_child(_panel_content)
 
 
@@ -298,21 +357,39 @@ func _refresh() -> void:
 	_name_label.tooltip_text = GameSession.pig_display_name()
 	var status_key: String = GameSession.pig_state.status_key()
 	_status_label.text = tr(status_key)
+	_status_label.tooltip_text = _status_label.text
 	_status_icon.set_status(status_key)
-	_points_label.text = tr("UI_POINTS").format({"points": GameSession.pig_state.daily_points})
+	_points_label.text = str(GameSession.pig_state.daily_points)
+	_points_label.tooltip_text = tr("UI_POINTS").format({"points": GameSession.pig_state.daily_points})
 	var unread: int = GameSession.pig_state.pending_events.size() + GameSession.pig_state.summarized_events.size()
-	_album_button.text = tr("UI_ALBUM")
+	unread += GameSession.unread_postcard_count()
+	_refresh_hud_layout()
+	_refresh_catalog_availability()
 	_album_unread_dot.visible = unread > 0
+	_refresh_postcard_progress()
 	_desktop_button.disabled = GameSession.pig_state.familiarity_level < 2
 	_desktop_button.tooltip_text = tr("UI_DESKTOP_LOCKED") if _desktop_button.disabled else tr("UI_DESKTOP_HINT")
 	_tendency_button.disabled = GameSession.pig_state.familiarity_level < 5
-	_tendency_button.tooltip_text = tr("UI_TENDENCY_LOCKED") if _tendency_button.disabled else tr("TENDENCY_INTRO")
+	_tendency_button.tooltip_text = tr("UI_TENDENCY_LOCKED") if _tendency_button.disabled else ""
 	_tutorial_panel.visible = not GameSession.pig_state.tutorial_skipped and GameSession.pig_state.tutorial_step < 7
 	if _tutorial_panel.visible:
 		var keys: Array[String] = ["TUTORIAL_NAME", "TUTORIAL_PET", "TUTORIAL_FEED", "TUTORIAL_FURNITURE", "TUTORIAL_ALBUM", "TUTORIAL_DESKTOP", "TUTORIAL_TENDENCY"]
 		_tutorial_label.text = tr(keys[clampi(GameSession.pig_state.tutorial_step, 0, keys.size() - 1)])
 	_refresh_tutorial_highlights()
 	_refresh_life_plan_album()
+
+
+func _refresh_hud_layout() -> void:
+	var compact: bool = get_viewport_rect().size.x < 1440.0 or GameSession.ui_scale > 1.15
+	for button: Button in _hud_tools:
+		if not is_instance_valid(button):
+			continue
+		var title: String = tr(str(button.get_meta("label_key")))
+		button.text = "" if compact else title
+		button.tooltip_text = title
+		button.accessibility_name = title
+		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER if compact else HORIZONTAL_ALIGNMENT_LEFT
+		button.custom_minimum_size = Vector2(44, 44) * GameSession.ui_scale
 
 
 func _notification(what: int) -> void:
@@ -369,72 +446,170 @@ func _show_toast(text_key: String, values: Dictionary) -> void:
 	_toast_tween.tween_property(_toast_panel, "modulate:a", 0.0, 0.25)
 
 
-func _open_catalog(type: String, title_key: String) -> void:
+func _open_catalog(type: String, title_key: String, preserve_scroll: bool = false) -> void:
+	var previous_scroll: int = _panel_scroll.scroll_vertical if preserve_scroll else 0
+	var focus: Control = get_viewport().gui_get_focus_owner()
+	var focus_name: String = str(focus.name) if preserve_scroll and focus != null else ""
 	_show_panel(tr(title_key))
-	var intro := Label.new()
-	intro.text = tr("CATALOG_%s_INTRO" % type.to_upper())
-	intro.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_panel_content.add_child(intro)
+	_panel_reopen = _open_catalog.bind(type, title_key)
 	if type == "furniture":
 		_add_palette_selector()
+		_add_catalog_categories()
 	elif type == "outfits":
 		_add_outfit_reset()
 	var grid := GridContainer.new()
-	grid.columns = 2
+	grid.name = "CatalogGrid"
+	grid.columns = _content_columns(260.0, 3)
 	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_panel_content.add_child(grid)
 	var items: Array = GameSession.catalog.get_all(type)
 	for value: Variant in items:
 		var item: Dictionary = value as Dictionary
+		if type == "furniture" and not _catalog_area.is_empty() and str(item.get("area", "")) != _catalog_area:
+			continue
 		grid.add_child(_catalog_card(type, item))
+	if preserve_scroll:
+		_panel_scroll.set_deferred("scroll_vertical", previous_scroll)
+		var replacement := _panel_content.find_child(focus_name, true, false) as Button if not focus_name.is_empty() else null
+		if replacement != null and not replacement.disabled:
+			replacement.call_deferred("grab_focus")
+
+
+func _content_columns(minimum_width: float, maximum: int, reserved_width: float = 0.0) -> int:
+	var margins: Vector2 = _panel.get_theme_stylebox("panel").get_minimum_size()
+	var available: float = _panel.custom_minimum_size.x - margins.x - reserved_width - 16.0
+	var separation: float = theme.get_constant("h_separation", "GridContainer")
+	return clampi(floori((available + separation) / (minimum_width * GameSession.ui_scale + separation)), 1, maximum)
+
+
+func _add_catalog_categories() -> void:
+	var categories := HBoxContainer.new()
+	categories.add_theme_constant_override("separation", 6)
+	for area: String in ["", "sleep", "snack", "activity", "window"]:
+		var key: String = "UI_ALL_ITEMS" if area.is_empty() else "AREA_%s" % area.to_upper()
+		var button := _button(key, func() -> void:
+			_catalog_area = area
+			_open_catalog("furniture", "UI_FURNITURE")
+		)
+		button.name = "CatalogArea_%s" % ("all" if area.is_empty() else area)
+		button.theme_type_variation = "SelectedButton" if area == _catalog_area else "QuietButton"
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		button.clip_text = true
+		button.tooltip_text = button.text
+		categories.add_child(button)
+	_panel_content.add_child(categories)
 
 
 func _catalog_card(type: String, item: Dictionary) -> Control:
 	var card := PanelContainer.new()
-	card.custom_minimum_size = Vector2(385, 165)
+	card.name = "CatalogCard_%s" % str(item.id)
+	card.theme_type_variation = "CatalogCard"
+	card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var equipped: bool = type == "outfits" and GameSession.pig_state.current_outfit == str(item.id)
+	if equipped:
+		card.theme_type_variation = "EquippedCard"
 	var content := VBoxContainer.new()
 	card.add_child(content)
+	var compact: bool = GameSession.ui_scale > 1.15
+	var presentation: BoxContainer = HBoxContainer.new() if compact else VBoxContainer.new()
+	presentation.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	content.add_child(presentation)
 	var token_kind: String = str({"furniture":"furniture", "snacks":"snack", "outfits":"outfit"}.get(type, ""))
 	var final_texture: Texture2D = GameSession.final_assets.texture_for("%s:%s" % [token_kind, str(item.get("id", ""))]) if not token_kind.is_empty() else null
-	if final_texture != null:
-		var preview := TextureRect.new()
-		preview.texture = final_texture
-		preview.custom_minimum_size = Vector2(108, 76)
-		preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		content.add_child(preview)
+	if type == "outfits" or final_texture != null:
+		var stage := PanelContainer.new()
+		stage.theme_type_variation = "InsetPanel"
+		if compact:
+			stage.custom_minimum_size.x = 140
+			stage.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+		presentation.add_child(stage)
+		if type == "outfits":
+			var preview := PigAccessoryPreview.new()
+			preview.name = "AccessoryPreview_%s" % str(item.id)
+			preview.outfit = item
+			preview.custom_minimum_size = Vector2(0, 144)
+			stage.add_child(preview)
+		else:
+			var preview := TextureRect.new()
+			preview.texture = final_texture
+			preview.custom_minimum_size = Vector2(0, 120)
+			preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			stage.add_child(preview)
+	var copy: BoxContainer = presentation
+	if compact:
+		copy = VBoxContainer.new()
+		copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		presentation.add_child(copy)
 	var name := Label.new()
 	name.text = tr(str(item.get("name_key", "")))
-	name.add_theme_font_size_override("font_size", 20)
-	content.add_child(name)
+	name.theme_type_variation = "SectionLabel"
+	name.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	copy.add_child(name)
 	var description := Label.new()
 	description.text = tr(str(item.get("description_key", "")))
+	description.theme_type_variation = "MetaLabel"
+	description.tooltip_text = description.text
 	description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	description.max_lines_visible = 2
+	description.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	description.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	content.add_child(description)
-	var level: int = int(item.get("min_level", 1))
-	var price: int = int(item.get("price", 0))
-	var locked: bool = GameSession.pig_state.familiarity_level < level
+	copy.add_child(description)
+	var state := Label.new()
+	state.name = "CatalogState_%s" % str(item.id)
+	state.theme_type_variation = "MetaLabel"
+	state.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	content.add_child(state)
 	var action := Button.new()
-	if locked:
-		action.text = tr("UI_UNLOCK_LEVEL").format({"level": level})
-		action.disabled = true
-	elif type == "furniture":
-		var owned: bool = str(item.id) in GameSession.pig_state.owned_furniture
-		action.text = tr("UI_PLACE") if owned else tr("UI_BUY").format({"price":price})
+	action.name = "CatalogAction_%s" % str(item.id)
+	if type == "furniture":
 		action.pressed.connect(_furniture_action.bind(item))
 	elif type == "snacks":
-		action.text = tr("UI_FEED").format({"price":price})
 		action.pressed.connect(_snack_action.bind(item))
 	elif type == "outfits":
-		var owned: bool = str(item.id) in GameSession.pig_state.owned_outfits
-		var equipped: bool = GameSession.pig_state.current_outfit == str(item.id)
-		action.text = tr("UI_EQUIPPED") if equipped else (tr("UI_EQUIP") if owned else tr("UI_BUY").format({"price":price}))
-		action.disabled = equipped
 		action.pressed.connect(_outfit_action.bind(item))
 	content.add_child(action)
+	var entry: Dictionary = {"type":type, "item":item, "action":action, "state":state, "card":card}
+	_catalog_controls.append(entry)
+	_update_catalog_entry(entry)
+	if type == "furniture" and str(item.id) in GameSession.pig_state.placed_furniture.values():
+		var details := Button.new()
+		UIAssets.decorate(details, "play", "SelectedButton")
+		details.name = "FurnitureDetails_%s" % str(item.id)
+		details.text = tr("FURNITURE_ITEM_DETAILS")
+		var slot_id: String = str(GameSession.pig_state.placed_furniture.find_key(str(item.id)))
+		details.pressed.connect(open_furniture_detail.bind(str(item.id), slot_id))
+		content.add_child(details)
 	return card
+
+
+func _refresh_catalog_availability() -> void:
+	for entry: Dictionary in _catalog_controls:
+		if is_instance_valid(entry.action):
+			_update_catalog_entry(entry)
+
+
+func _update_catalog_entry(entry: Dictionary) -> void:
+	var item: Dictionary = entry.item
+	var type: String = str(entry.type)
+	var action: Button = entry.action
+	var state: Label = entry.state
+	var card: PanelContainer = entry.card
+	var level: int = int(item.get("min_level", 1))
+	var locked: bool = GameSession.pig_state.familiarity_level < level
+	var owned: bool = (type == "furniture" and str(item.id) in GameSession.pig_state.owned_furniture) or (type == "outfits" and str(item.id) in GameSession.pig_state.owned_outfits)
+	var equipped: bool = type == "outfits" and GameSession.pig_state.current_outfit == str(item.id)
+	var affordable: bool = owned or GameSession.pig_state.daily_points >= int(item.get("price", 0))
+	state.text = tr("UI_UNLOCK_LEVEL").format({"level":level}) if locked else (tr("UI_EQUIPPED") if equipped else (tr("UI_OWNED") if owned else tr("UI_ITEM_PRICE").format({"price":int(item.get("price", 0))})))
+	state.add_theme_color_override("font_color", ThemeFactory.SAGE if owned else ThemeFactory.MUTED)
+	card.theme_type_variation = "EquippedCard" if equipped else "CatalogCard"
+	action.text = tr("UI_FEED_ACTION") if type == "snacks" else tr("UI_EQUIPPED" if equipped else ("UI_PLACE" if type == "furniture" and owned else ("UI_EQUIP" if owned else "UI_BUY_ACTION")))
+	action.disabled = locked or equipped or not affordable
+	action.tooltip_text = state.text if locked else (tr("TOAST_NOT_ENOUGH_POINTS") if not affordable else "")
+	action.theme_type_variation = "SelectedButton" if equipped else ("QuietButton" if type == "furniture" and owned else "PrimaryButton")
+	var icon_id: String = "lock-keyhole" if locked else ("check" if equipped else ("cookie" if type == "snacks" else ("armchair" if type == "furniture" and owned else ("smile" if owned else "coins"))))
+	UIAssets.decorate(action, icon_id)
 
 
 func _furniture_action(item: Dictionary) -> void:
@@ -461,6 +636,8 @@ func _add_palette_selector() -> void:
 		var button := Button.new()
 		button.text = tr("ROOM_PALETTE_%s" % palette_id.to_upper())
 		button.disabled = palette_id == GameSession.pig_state.current_room_palette or not palette_id in unlocked
+		if palette_id == GameSession.pig_state.current_room_palette:
+			UIAssets.decorate(button, "check", "SelectedButton")
 		if not palette_id in unlocked:
 			button.tooltip_text = tr("ROOM_PALETTE_MINT_LOCKED" if palette_id == "mint" else "ROOM_PALETTE_NIGHT_LOCKED")
 		button.pressed.connect(func() -> void:
@@ -552,7 +729,7 @@ func _snack_action(item: Dictionary) -> void:
 	var can_afford: bool = GameSession.pig_state.daily_points >= int(item.get("price", 0))
 	if not GameSession.feed(str(item.id)) and not can_afford:
 		_show_toast("TOAST_NOT_ENOUGH_POINTS", {})
-	_open_catalog("snacks", "UI_SNACKS")
+	_open_catalog("snacks", "UI_SNACKS", true)
 
 
 func _outfit_action(item: Dictionary) -> void:
@@ -562,24 +739,33 @@ func _outfit_action(item: Dictionary) -> void:
 		if not GameSession.purchase("outfits", id):
 			if not can_afford:
 				_show_toast("TOAST_NOT_ENOUGH_POINTS", {})
-			_open_catalog("outfits", "UI_OUTFITS")
+			_open_catalog("outfits", "UI_OUTFITS", true)
 			return
 	if not GameSession.equip_outfit(id):
-		_open_catalog("outfits", "UI_OUTFITS")
+		_open_catalog("outfits", "UI_OUTFITS", true)
 		return
-	_open_catalog("outfits", "UI_OUTFITS")
+	_open_catalog("outfits", "UI_OUTFITS", true)
 
 
 func _add_outfit_reset() -> void:
+	var rack := HBoxContainer.new()
+	rack.name = "AccessoryRack"
+	var current := Label.new()
+	current.text = tr("UI_EQUIPPED") if not GameSession.pig_state.current_outfit.is_empty() else tr("UI_NO_ACCESSORY")
+	current.theme_type_variation = "MetaLabel"
+	current.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	current.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	rack.add_child(current)
 	var remove := Button.new()
+	UIAssets.decorate(remove, "x", "QuietButton")
 	remove.name = "RemoveOutfitButton"
 	remove.text = tr("UI_REMOVE_OUTFIT")
 	remove.disabled = GameSession.pig_state.current_outfit.is_empty()
 	remove.pressed.connect(func() -> void:
 		if GameSession.equip_outfit(""):
-			_open_catalog("outfits", "UI_OUTFITS")
+			_open_catalog("outfits", "UI_OUTFITS", true)
 	)
-	_panel_content.add_child(remove)
+	rack.add_child(remove)
 	var action: Dictionary = GameSession.catalog.performances.outfit_action(GameSession.pig_state.current_outfit)
 	if not action.is_empty():
 		var perform: Button = _button("PERFORMANCE_OUTFIT_ACTION", func() -> void:
@@ -587,7 +773,9 @@ func _add_outfit_reset() -> void:
 				_close_panel()
 		)
 		perform.name = "OutfitPerformanceButton"
-		_panel_content.add_child(perform)
+		UIAssets.decorate(perform, "play", "SelectedButton")
+		rack.add_child(perform)
+	_panel_content.add_child(rack)
 	_panel_content.add_child(HSeparator.new())
 
 
@@ -596,10 +784,6 @@ func _open_tendency() -> void:
 		_show_toast("UI_TENDENCY_LOCKED", {})
 		return
 	_show_panel(tr("UI_TENDENCY"))
-	var intro := Label.new()
-	intro.text = tr("TENDENCY_INTRO")
-	intro.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_panel_content.add_child(intro)
 	var options := {
 		"rest": ["TENDENCY_REST_NAME", "TENDENCY_REST_DESC"],
 		"food": ["TENDENCY_FOOD_NAME", "TENDENCY_FOOD_DESC"],
@@ -636,21 +820,213 @@ func _select_tendency(id: String) -> void:
 
 func _open_album() -> void:
 	_show_panel(tr("UI_ALBUM"))
+	_panel_reopen = _reopen_album
 	GameSession.complete_tutorial_step(4)
 	_refresh()
 	var tabs := TabContainer.new()
 	tabs.name = "AlbumTabs"
-	tabs.custom_minimum_size.y = minf(480.0, maxf(320.0, get_viewport_rect().size.y - 140.0))
+	tabs.tabs_visible = false
+	var compact: bool = GameSession.ui_scale > 1.15 or _panel.custom_minimum_size.x < 1000
+	_panel_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	tabs.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	_panel_content.add_child(tabs)
-	tabs.add_child(_expression_album())
-	tabs.add_child(_event_album())
-	tabs.add_child(_chapter_diary())
-	tabs.add_child(_life_plan_album())
+	tabs.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var shell: BoxContainer = VBoxContainer.new() if compact else HBoxContainer.new()
+	shell.name = "AlbumShell"
+	shell.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	shell.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_panel_content.add_child(shell)
+	var navigation: BoxContainer = HBoxContainer.new() if compact else VBoxContainer.new()
+	navigation.name = "AlbumNavigation"
+	if not compact:
+		navigation.custom_minimum_size.x = 162
+	shell.add_child(navigation)
+	shell.add_child(tabs)
+	for page: Control in [_expression_album(), _event_album(), _chapter_diary(), _life_plan_album(), _postcard_album()]:
+		var wrapper := Control.new()
+		wrapper.name = page.name
+		wrapper.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		tabs.add_child(wrapper)
+		wrapper.add_child(page)
+		page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_album_navigation.clear()
+	var icons: Array[String] = ["smile", "camera", "book-open", "notebook-pen", "mail"]
+	for index: int in tabs.get_tab_count():
+		var button := Button.new()
+		button.name = "AlbumNav%d" % index
+		button.text = "" if compact else tabs.get_tab_title(index)
+		button.tooltip_text = tabs.get_tab_title(index)
+		button.accessibility_name = tabs.get_tab_title(index)
+		button.toggle_mode = true
+		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		button.custom_minimum_size.y = 44 * GameSession.ui_scale
+		UIAssets.decorate(button, icons[index], "NavButton")
+		if compact:
+			button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		button.pressed.connect(func() -> void: tabs.current_tab = index)
+		navigation.add_child(button)
+		_album_navigation.append(button)
+	tabs.tab_changed.connect(_sync_album_navigation.bind(tabs))
+	_sync_album_navigation(0, tabs)
+
+
+func _sync_album_navigation(index: int, tabs: TabContainer) -> void:
+	for position: int in _album_navigation.size():
+		if is_instance_valid(_album_navigation[position]):
+			_album_navigation[position].set_pressed_no_signal(position == index)
+	_panel_title.text = tabs.get_tab_title(index)
+	for node: Node in _album_navigation:
+		var navigation_button := node as Button
+		navigation_button.focus_neighbor_top = _album_navigation[posmod(_album_navigation.find(navigation_button) - 1, _album_navigation.size())].get_path()
+		navigation_button.focus_neighbor_bottom = _album_navigation[posmod(_album_navigation.find(navigation_button) + 1, _album_navigation.size())].get_path()
+		navigation_button.focus_neighbor_left = navigation_button.focus_neighbor_top
+		navigation_button.focus_neighbor_right = navigation_button.focus_neighbor_bottom
+
+
+func _reopen_album() -> void:
+	var tabs := find_child("AlbumTabs", true, false) as TabContainer
+	var selected: int = tabs.current_tab if tabs != null else 0
+	_open_album()
+	(find_child("AlbumTabs", true, false) as TabContainer).current_tab = selected
 
 
 func open_album() -> void:
 	_open_album()
+
+
+func open_postcards() -> void:
+	_open_album()
+	var tabs := find_child("AlbumTabs", true, false) as TabContainer
+	if tabs != null:
+		tabs.current_tab = tabs.get_tab_count() - 1
+
+
+func _postcard_album() -> Control:
+	_postcard_requirements.clear()
+	var scroll := ScrollContainer.new()
+	scroll.name = tr("POSTCARD_INBOX")
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	var column := VBoxContainer.new()
+	column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(column)
+	var progress := Label.new()
+	progress.theme_type_variation = "MetaLabel"
+	_postcard_progress = progress
+	progress.text = tr("POSTCARD_PROGRESS").format({"points":GameSession.pig_state.earned_points, "count":GameSession.pig_state.received_postcards.size(), "total":GameSession.catalog.postcards.size()})
+	progress.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	column.add_child(progress)
+	var grid := GridContainer.new()
+	grid.columns = _content_columns(330.0, 2, 174.0 if GameSession.ui_scale <= 1.15 and _panel.custom_minimum_size.x >= 1000 else 0.0)
+	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	column.add_child(grid)
+	for definition: Dictionary in GameSession.catalog.postcards:
+		var snapshot: Dictionary = GameSession.postcard_snapshot(str(definition.id))
+		var panel := PanelContainer.new()
+		panel.name = "PostcardCard_%s" % str(definition.id)
+		panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		grid.add_child(panel)
+		var content := VBoxContainer.new()
+		panel.add_child(content)
+		var title := Label.new()
+		title.theme_type_variation = "SectionLabel"
+		title.text = tr(str(definition.name_key)) if bool(snapshot.received) else tr("POSTCARD_LOCKED")
+		title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		content.add_child(title)
+		if bool(snapshot.received):
+			content.add_child(_postcard_art(str(definition.id), 190.0))
+			var status := Label.new()
+			status.theme_type_variation = "MetaLabel"
+			status.text = tr("POSTCARD_UNREAD" if bool(snapshot.unread) else "POSTCARD_READ")
+			content.add_child(status)
+			var open := Button.new()
+			open.name = "PostcardOpen_%s" % str(definition.id)
+			open.text = tr("POSTCARD_OPEN")
+			UIAssets.decorate(open, "mail", "PrimaryButton" if bool(snapshot.unread) else "QuietButton")
+			open.pressed.connect(_open_postcard.bind(str(definition.id)))
+			content.add_child(open)
+		else:
+			var requirement := Label.new()
+			requirement.theme_type_variation = "MetaLabel"
+			_postcard_requirements[str(definition.id)] = requirement
+			requirement.text = tr("POSTCARD_REQUIREMENT").format({"current":snapshot.progress, "points":definition.points})
+			requirement.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			content.add_child(requirement)
+	return scroll
+
+
+func _refresh_postcard_progress() -> void:
+	if not is_instance_valid(_postcard_progress):
+		return
+	_postcard_progress.text = tr("POSTCARD_PROGRESS").format({"points":GameSession.pig_state.earned_points, "count":GameSession.pig_state.received_postcards.size(), "total":GameSession.catalog.postcards.size()})
+	for postcard_id: String in _postcard_requirements:
+		var requirement: Label = _postcard_requirements[postcard_id] as Label
+		if is_instance_valid(requirement):
+			var snapshot: Dictionary = GameSession.postcard_snapshot(postcard_id)
+			requirement.text = tr("POSTCARD_REQUIREMENT").format({"current":snapshot.progress, "points":snapshot.points})
+
+
+func _refresh_postcard_mail() -> void:
+	_refresh()
+	var tabs := find_child("AlbumTabs", true, false) as TabContainer
+	if tabs == null or not is_visible_in_tree() or not _overlay.visible:
+		return
+	var selected: int = tabs.current_tab
+	var wrapper := tabs.get_child(tabs.get_tab_count() - 1) as Control
+	var old_page := wrapper.get_child(0) as ScrollContainer
+	var scroll_position: int = old_page.scroll_vertical
+	wrapper.remove_child(old_page)
+	old_page.queue_free()
+	var page := _postcard_album() as ScrollContainer
+	wrapper.add_child(page)
+	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	page.set_deferred("scroll_vertical", scroll_position)
+	tabs.current_tab = selected
+
+
+func _postcard_art(postcard_id: String, height: float) -> TextureRect:
+	var artwork := TextureRect.new()
+	artwork.name = "PostcardArt_%s" % postcard_id
+	artwork.texture = GameSession.final_assets.texture_for("postcard:" + postcard_id)
+	artwork.custom_minimum_size.y = height
+	artwork.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	artwork.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	artwork.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	artwork.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return artwork
+
+
+func _open_postcard(postcard_id: String) -> void:
+	if not GameSession.open_postcard(postcard_id):
+		return
+	var snapshot: Dictionary = GameSession.postcard_snapshot(postcard_id)
+	_show_panel(tr(str(snapshot.name_key)))
+	_panel_reopen = _open_postcard.bind(postcard_id)
+	var spread: BoxContainer = VBoxContainer.new() if GameSession.ui_scale > 1.15 else HBoxContainer.new()
+	spread.add_theme_constant_override("separation", 32)
+	_panel_content.add_child(spread)
+	var art := _postcard_art(postcard_id, minf(350.0, get_viewport_rect().size.y * 0.40))
+	art.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	art.size_flags_stretch_ratio = 0.9
+	spread.add_child(art)
+	var writing := VBoxContainer.new()
+	writing.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	spread.add_child(writing)
+	var letter := Label.new()
+	letter.name = "PostcardLetter"
+	letter.text = tr("POSTCARD_LETTER_LAYOUT").format({"to":tr("POSTCARD_TO"), "body":tr(str(snapshot.body_key)).format({"name":GameSession.pig_display_name()}), "from":tr("POSTCARD_FROM").format({"name":GameSession.pig_display_name(), "date":GameClock.local_date_string(int(snapshot.received_unix))})})
+	letter.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	letter.add_theme_constant_override("line_spacing", 6)
+	writing.add_child(letter)
+	var source := Label.new()
+	source.text = tr("POSTCARD_SOURCE")
+	source.theme_type_variation = "MetaLabel"
+	source.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	writing.add_child(source)
+	var back := _button("POSTCARD_BACK", open_postcards)
+	UIAssets.decorate(back, "arrow-left", "QuietButton")
+	back.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	_panel_content.add_child(back)
 
 
 func play_next_pending_memory() -> void:
@@ -671,16 +1047,18 @@ func _expression_album() -> Control:
 	page.name = tr("ALBUM_EXPRESSIONS")
 	page.add_child(_photo_frame_selector())
 	var scroll := ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	var grid := GridContainer.new()
-	grid.columns = 2
+	grid.columns = _content_columns(360.0, 2, 174.0 if GameSession.ui_scale <= 1.15 and _panel.custom_minimum_size.x >= 1000 else 0.0)
 	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(grid)
 	for expression_index: int in GameSession.catalog.expressions.size():
 		var expression: Dictionary = GameSession.catalog.expressions[expression_index]
 		var unlocked: bool = str(expression.id) in GameSession.pig_state.unlocked_expressions
 		var card := PanelContainer.new()
-		card.custom_minimum_size = Vector2(390, 178)
+		card.custom_minimum_size = Vector2(0, 178)
+		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		var row := HBoxContainer.new()
 		card.add_child(row)
 		var portrait := ExpressionPortrait.new()
@@ -694,6 +1072,7 @@ func _expression_album() -> Control:
 		if unlocked:
 			var favorite: bool = GameSession.pig_state.favorite_desktop_expression == str(expression.id)
 			var name := Label.new()
+			name.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			name.text = tr(str(expression.name_key))
 			name.add_theme_font_size_override("font_size", 19)
 			copy.add_child(name)
@@ -705,12 +1084,15 @@ func _expression_album() -> Control:
 			var date_value: String = GameClock.local_date_string(first_seen) if first_seen > 0 else tr("ALBUM_DATE_UNKNOWN")
 			var date := Label.new()
 			date.text = tr("ALBUM_EXPRESSION_DATE").format({"date": date_value})
+			date.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			copy.add_child(date)
 			var related := Label.new()
 			related.text = tr("ALBUM_ASSOCIATED_EVENT").format({"event": tr(str(event.get("title_key", "")))})
+			related.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 			copy.add_child(related)
 			var favorite_button := Button.new()
-			favorite_button.text = ("★ " if favorite else "☆ ") + tr("ALBUM_DESKTOP_FAVORITE")
+			favorite_button.text = tr("ALBUM_DESKTOP_FAVORITE")
+			UIAssets.decorate(favorite_button, "heart", "SelectedButton" if favorite else "QuietButton")
 			favorite_button.disabled = favorite
 			favorite_button.pressed.connect(_select_expression_favorite.bind(str(expression.id)))
 			copy.add_child(favorite_button)
@@ -735,6 +1117,7 @@ func _photo_frame_selector() -> Control:
 	panel.add_child(row)
 	var title := Label.new()
 	title.text = tr("PHOTO_FRAME_TITLE")
+	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(title)
 	var unlocked: Array[String] = GameSession.unlocked_photo_frames()
@@ -760,6 +1143,7 @@ func _select_expression_favorite(expression_id: String) -> void:
 func _event_album() -> Control:
 	var scroll := ScrollContainer.new()
 	scroll.name = tr("ALBUM_MEMORIES")
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	var list := VBoxContainer.new()
 	list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(list)
@@ -781,11 +1165,13 @@ func _event_album() -> Control:
 		copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		var title := Label.new()
 		title.text = tr(str(event.title_key)) if discovered else tr("ALBUM_UNKNOWN_MEMORY")
+		title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		copy.add_child(title)
-		var summary := Label.new()
-		summary.text = tr(str(event.summary_key)) if watched else tr("ALBUM_MEMORY_HINT")
-		summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		copy.add_child(summary)
+		if watched:
+			var summary := Label.new()
+			summary.text = tr(str(event.summary_key))
+			summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			copy.add_child(summary)
 		if watched and not photo_path.is_empty():
 			var date := Label.new()
 			date.text = tr("ALBUM_PHOTO_DATE").format({"date": GameClock.local_date_string(int(photo_record.get("captured_unix", 0)))})
@@ -817,8 +1203,12 @@ func _event_album() -> Control:
 
 
 func _chapter_diary() -> Control:
+	var scroll := ScrollContainer.new()
+	scroll.name = tr("ALBUM_DIARY")
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	var page := VBoxContainer.new()
-	page.name = tr("ALBUM_DIARY")
+	page.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(page)
 	var chapters: Array[Array] = [
 		[1, "DIARY_CHAPTER_1"], [2, "DIARY_CHAPTER_2"], [4, "DIARY_CHAPTER_3"],
 		[6, "DIARY_CHAPTER_4"], [10, "DIARY_CHAPTER_5"],
@@ -837,7 +1227,7 @@ func _chapter_diary() -> Control:
 		ending_button.text = tr("ENDING_REPLAY")
 		ending_button.pressed.connect(_show_ending)
 		page.add_child(ending_button)
-	return page
+	return scroll
 
 
 func _life_plan_album() -> Control:
@@ -847,7 +1237,6 @@ func _life_plan_album() -> Control:
 	var content := VBoxContainer.new()
 	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	page.add_child(content)
-	content.add_child(_life_plan_label(tr("LIFE_PLAN_INTRO")))
 	_life_plan_summary = _life_plan_label("")
 	_life_plan_summary.name = "LifePlanSummary"
 	content.add_child(_life_plan_summary)
@@ -1048,10 +1437,16 @@ func _framed_photo(image: Image, minimum_size: Vector2) -> Control:
 	panel.add_child(photo)
 	var final_frame: Texture2D = GameSession.final_assets.texture_for("ui:photo_frame_%s" % frame_id)
 	if final_frame != null:
-		var frame_overlay := TextureRect.new()
+		var frame_overlay := NinePatchRect.new()
 		frame_overlay.texture = final_frame
-		frame_overlay.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		frame_overlay.stretch_mode = TextureRect.STRETCH_SCALE
+		frame_overlay.draw_center = false
+		var corner: int = mini(48 if frame_id == "plain" else 76, floori(minf(minimum_size.x, minimum_size.y) * 0.30))
+		frame_overlay.patch_margin_left = corner
+		frame_overlay.patch_margin_top = corner
+		frame_overlay.patch_margin_right = corner
+		frame_overlay.patch_margin_bottom = corner
+		frame_overlay.axis_stretch_horizontal = NinePatchRect.AXIS_STRETCH_MODE_TILE_FIT
+		frame_overlay.axis_stretch_vertical = NinePatchRect.AXIS_STRETCH_MODE_TILE_FIT
 		frame_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		panel.add_child(frame_overlay)
 	return panel
@@ -1135,23 +1530,32 @@ func _show_demo_complete_for_profile(for_profile: String) -> void:
 
 func _open_companions() -> void:
 	_show_panel(tr("RESIDENTS_TITLE"))
-	_panel_content.add_child(_life_plan_label(tr("RESIDENTS_INTRO")))
+	_panel_reopen = _open_companions
 	var summaries: Array[Dictionary] = GameSession.companion_summaries()
+	var residents := GridContainer.new()
+	residents.columns = 1 if GameSession.ui_scale > 1.15 else mini(2, summaries.size())
+	residents.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_panel_content.add_child(residents)
 	for resident: Dictionary in summaries:
 		var card := PanelContainer.new()
 		card.name = "ResidentCard_%s" % str(resident.id)
-		_panel_content.add_child(card)
+		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		residents.add_child(card)
 		var content := VBoxContainer.new()
 		card.add_child(content)
 		var display_name: String = str(resident.name) if not str(resident.name).is_empty() else tr("NAME_DEFAULT")
-		content.add_child(_life_plan_label(tr("RESIDENTS_CARD").format({"number":CompanionRules.IDS.find(str(resident.id)) + 1, "name":display_name, "level":resident.level, "notes":resident.notes})))
+		var identity := _life_plan_label(tr("RESIDENTS_CARD").format({"number":CompanionRules.IDS.find(str(resident.id)) + 1, "name":display_name, "level":resident.level, "notes":resident.notes}))
+		identity.theme_type_variation = "SectionLabel"
+		content.add_child(identity)
 		var personality: Dictionary = GameSession.catalog.get_item("personalities", str(resident.personality_id))
 		var personality_label := _life_plan_label(tr("PERSONALITY_CARD").format({"personality":tr(str(personality.get("name_key", "PERSONALITY_UNASSIGNED")))}))
 		personality_label.name = "ResidentPersonality_%s" % str(resident.id)
+		personality_label.theme_type_variation = "MetaLabel"
 		content.add_child(personality_label)
 		var choose: Button = _button("RESIDENTS_CURRENT" if bool(resident.active) else "RESIDENTS_SWITCH", func() -> void: GameSession.switch_companion(str(resident.id)))
 		choose.name = "ResidentSwitch_%s" % str(resident.id)
 		choose.disabled = bool(resident.active)
+		UIAssets.decorate(choose, "check" if bool(resident.active) else "users", "SelectedButton" if bool(resident.active) else "QuietButton")
 		content.add_child(choose)
 	if GameSession.pig_state.personality_id.is_empty():
 		_panel_content.add_child(_life_plan_label(tr("PERSONALITY_LEGACY_INTRO")))
@@ -1162,14 +1566,16 @@ func _open_companions() -> void:
 		)
 		initial_submit.name = "ResidentInitialPersonalitySubmit"
 		_panel_content.add_child(initial_submit)
-	_panel_content.add_child(_life_plan_label(tr("RESIDENTS_RENAME").format({"name":GameSession.pig_display_name()})))
+	var forms := _settings_grid()
+	var rename_section := _ui_section(forms, "RESIDENTS_RENAME_CONFIRM", "notebook-pen")
+	rename_section.add_child(_life_plan_label(tr("RESIDENTS_RENAME").format({"name":GameSession.pig_display_name()})))
 	var rename_input := LineEdit.new()
 	rename_input.name = "ResidentRenameInput"
 	rename_input.max_length = 16
 	rename_input.text = GameSession.pig_state.name
 	rename_input.placeholder_text = tr("NAME_PROMPT_PLACEHOLDER")
 	rename_input.accessibility_name = tr("RESIDENTS_RENAME_INPUT")
-	_panel_content.add_child(rename_input)
+	rename_section.add_child(rename_input)
 	var rename: Button = _button("RESIDENTS_RENAME_CONFIRM", func() -> void:
 		if GameSession.set_pig_name(rename_input.text):
 			_open_companions()
@@ -1181,16 +1587,18 @@ func _open_companions() -> void:
 		if not rename.disabled:
 			rename.pressed.emit()
 	)
-	_panel_content.add_child(rename)
-	_panel_content.add_child(_life_plan_label(tr("RESIDENTS_CAPACITY").format({"count":summaries.size(), "maximum":CompanionRules.IDS.size()})))
+	UIAssets.decorate(rename, "check", "PrimaryButton")
+	rename_section.add_child(rename)
+	var add_section := _ui_section(forms, "RESIDENTS_ADD", "users")
+	add_section.add_child(_life_plan_label(tr("RESIDENTS_CAPACITY").format({"count":summaries.size(), "maximum":CompanionRules.IDS.size()})))
 	var add_input := LineEdit.new()
 	add_input.name = "ResidentAddInput"
 	add_input.max_length = 16
 	add_input.placeholder_text = tr("RESIDENTS_ADD_INPUT")
 	add_input.accessibility_name = tr("RESIDENTS_ADD_INPUT")
 	add_input.editable = summaries.size() < CompanionRules.IDS.size()
-	_panel_content.add_child(add_input)
-	var add_personality: OptionButton = _add_personality_selector("ResidentAddPersonality")
+	add_section.add_child(add_input)
+	var add_personality: OptionButton = _add_personality_selector("ResidentAddPersonality", add_section)
 	add_personality.disabled = summaries.size() >= CompanionRules.IDS.size()
 	var add_button: Button = _button("RESIDENTS_ADD", func() -> void: GameSession.add_companion(add_input.text, str(add_personality.get_item_metadata(add_personality.selected))))
 	add_button.name = "ResidentAddSubmit"
@@ -1200,7 +1608,8 @@ func _open_companions() -> void:
 		if not add_button.disabled:
 			add_button.pressed.emit()
 	)
-	_panel_content.add_child(add_button)
+	UIAssets.decorate(add_button, "users", "PrimaryButton")
+	add_section.add_child(add_button)
 
 
 func _on_companions_changed() -> void:
@@ -1221,7 +1630,6 @@ func open_pig_performances(kind: String = "faces") -> void:
 	var outer: Node = _panel_scroll.get_parent()
 	outer.add_child(_performance_navigation)
 	outer.move_child(_performance_navigation, _panel_scroll.get_index())
-	_panel_content.add_child(_life_plan_label(tr("PERFORMANCE_INTRO")))
 	var sections: Array[String] = ["faces", "poses", "outfit_actions", "states", "forms"]
 	var selector := OptionButton.new()
 	selector.name = "PerformanceCategory"
@@ -1255,124 +1663,143 @@ func open_pig_performances(kind: String = "faces") -> void:
 				_close_panel()
 		)
 		_panel_content.add_child(action)
-	_panel_content.add_child(_life_plan_label(tr("PERFORMANCE_TEMPORARY")))
 	_panel_scroll.scroll_vertical = 0
+
+
+func _settings_grid() -> GridContainer:
+	var grid := GridContainer.new()
+	grid.name = "SettingsSections"
+	grid.columns = 1 if GameSession.ui_scale > 1.15 or _panel.custom_minimum_size.x < 900 else 2
+	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	grid.add_theme_constant_override("h_separation", 38)
+	grid.add_theme_constant_override("v_separation", 24)
+	_panel_content.add_child(grid)
+	return grid
+
+
+func _ui_section(parent: Node, key: String, icon_id: String) -> VBoxContainer:
+	var column := VBoxContainer.new()
+	column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	parent.add_child(column)
+	var heading := HBoxContainer.new()
+	column.add_child(heading)
+	var icon := TextureRect.new()
+	icon.texture = UIAssets.icon(icon_id)
+	icon.modulate = ThemeFactory.SAGE
+	icon.custom_minimum_size = Vector2.ONE * 24 * GameSession.ui_scale
+	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	heading.add_child(icon)
+	var title := Label.new()
+	title.text = tr(key)
+	title.theme_type_variation = "SectionLabel"
+	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	heading.add_child(title)
+	column.add_child(HSeparator.new())
+	return column
+
+
+func _setting_toggle(parent: Node, key: String, value: bool, callback: Callable, enabled: bool = true) -> CheckBox:
+	var toggle := CheckBox.new()
+	toggle.name = key
+	toggle.text = tr(key)
+	toggle.tooltip_text = toggle.text
+	toggle.accessibility_name = toggle.text
+	toggle.clip_text = true
+	toggle.button_pressed = value
+	toggle.disabled = not enabled
+	toggle.toggled.connect(callback)
+	parent.add_child(toggle)
+	return toggle
 
 
 func _open_settings() -> void:
 	_show_panel(tr("UI_SETTINGS"))
-	var performances: Button = _button("PERFORMANCE_TITLE", open_pig_performances)
-	performances.name = "PigPerformanceLibraryButton"
-	_panel_content.add_child(performances)
-	var companion: Button = _button("DESKTOP_COMPANION_SETTINGS", open_desktop_companion_settings)
-	companion.name = "DesktopCompanionSettingsButton"
-	_panel_content.add_child(companion)
-	var residents: Button = _button("RESIDENTS_TITLE", _open_companions)
-	residents.name = "ResidentsSettingsButton"
-	_panel_content.add_child(residents)
-	_panel_content.add_child(_slider_row("SETTINGS_UI_SCALE", 0.8, 1.5, GameSession.ui_scale, _set_ui_scale))
-	var audio_enabled: bool = AudioService.is_playback_enabled()
-	if not audio_enabled:
-		var silent_notice := Label.new()
-		silent_notice.text = tr("SETTINGS_AUDIO_SILENT")
-		silent_notice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		silent_notice.add_theme_color_override("font_color", Color("#8d5f72"))
-		_panel_content.add_child(silent_notice)
-	_panel_content.add_child(_slider_row("SETTINGS_MUSIC", 0.0, 1.0, AudioService.music_volume, func(value: float) -> void: AudioService.music_volume = value; AudioService.apply(), audio_enabled))
-	_panel_content.add_child(_slider_row("SETTINGS_AMBIENT", 0.0, 1.0, AudioService.ambient_volume, func(value: float) -> void: AudioService.ambient_volume = value; AudioService.apply(), audio_enabled))
-	_panel_content.add_child(_slider_row("SETTINGS_INTERACTION", 0.0, 1.0, AudioService.interaction_volume, func(value: float) -> void: AudioService.interaction_volume = value; AudioService.apply(), audio_enabled))
-	_panel_content.add_child(_slider_row("SETTINGS_BUBBLE_TIME", 0.75, 2.0, GameSession.bubble_duration_scale, GameSession.set_bubble_duration_scale))
-	var reduce := CheckBox.new()
-	reduce.text = tr("SETTINGS_REDUCE_MOTION")
-	reduce.button_pressed = GameSession.reduce_motion
-	reduce.toggled.connect(GameSession.set_reduce_motion)
-	_panel_content.add_child(reduce)
-	var camera_shake := CheckBox.new()
-	camera_shake.text = tr("SETTINGS_CAMERA_SHAKE")
-	camera_shake.button_pressed = GameSession.camera_shake_enabled
-	camera_shake.toggled.connect(GameSession.set_camera_shake_enabled)
-	_panel_content.add_child(camera_shake)
-	var reduce_roaming := CheckBox.new()
-	reduce_roaming.text = tr("SETTINGS_REDUCE_DESKTOP_ROAMING")
-	reduce_roaming.button_pressed = GameSession.reduce_desktop_roaming
-	reduce_roaming.toggled.connect(GameSession.set_reduce_desktop_roaming)
-	_panel_content.add_child(reduce_roaming)
-	var reduce_desktop_actions := CheckBox.new()
-	reduce_desktop_actions.text = tr("SETTINGS_REDUCE_DESKTOP_ACTION_FREQUENCY")
-	reduce_desktop_actions.button_pressed = GameSession.reduce_desktop_action_frequency
-	reduce_desktop_actions.toggled.connect(GameSession.set_reduce_desktop_action_frequency)
-	_panel_content.add_child(reduce_desktop_actions)
-	var desktop_music := CheckBox.new()
-	desktop_music.text = tr("SETTINGS_DESKTOP_MUSIC")
-	desktop_music.button_pressed = AudioService.desktop_music_enabled
-	desktop_music.disabled = not audio_enabled
-	desktop_music.toggled.connect(func(value: bool) -> void: AudioService.desktop_music_enabled = value; AudioService.apply(); GameSession.save_machine_settings())
-	_panel_content.add_child(desktop_music)
-	var fullscreen := CheckBox.new()
-	fullscreen.text = tr("SETTINGS_FULLSCREEN")
-	fullscreen.button_pressed = GameSession.main_window_fullscreen
-	fullscreen.toggled.connect(GameSession.set_main_window_fullscreen)
-	_panel_content.add_child(fullscreen)
-	var language_row := HBoxContainer.new()
-	var language_label := Label.new()
-	language_label.text = tr("SETTINGS_LANGUAGE")
-	language_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	language_row.add_child(language_label)
+	_panel_reopen = _open_settings
+	var shortcuts := GridContainer.new()
+	shortcuts.columns = 3
+	shortcuts.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_panel_content.add_child(shortcuts)
+	for entry: Array in [
+		["PERFORMANCE_TITLE", "PigPerformanceLibraryButton", "smile", open_pig_performances],
+		["DESKTOP_COMPANION_SETTINGS", "DesktopCompanionSettingsButton", "coffee", open_desktop_companion_settings],
+		["RESIDENTS_TITLE", "ResidentsSettingsButton", "users", _open_companions],
+	]:
+		var button := _button(str(entry[0]), entry[3] as Callable)
+		button.name = str(entry[1])
+		button.clip_text = true
+		button.tooltip_text = button.text
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		button.add_theme_font_size_override("font_size", roundi(14 * GameSession.ui_scale))
+		UIAssets.decorate(button, str(entry[2]), "SelectedButton")
+		shortcuts.add_child(button)
+	var grid := _settings_grid()
+	var display := _ui_section(grid, "SETTINGS_DISPLAY_GROUP", "sliders-horizontal")
+	display.add_child(_slider_row("SETTINGS_UI_SCALE", 0.8, 1.5, GameSession.ui_scale, _set_ui_scale))
+	display.add_child(_slider_row("SETTINGS_BUBBLE_TIME", 0.75, 2.0, GameSession.bubble_duration_scale, GameSession.set_bubble_duration_scale))
+	_setting_toggle(display, "SETTINGS_FULLSCREEN", GameSession.main_window_fullscreen, GameSession.set_main_window_fullscreen)
 	var languages := OptionButton.new()
 	languages.name = "LanguageSelector"
-	var language_options: Array[Array] = [
-		["LANGUAGE_ZH_CN", "zh_CN"],
-		["LANGUAGE_ZH_TW", "zh_TW"],
-		["LANGUAGE_EN", "en"],
-	]
-	for pair: Array in language_options:
+	languages.accessibility_name = tr("SETTINGS_LANGUAGE")
+	for pair: Array in [["LANGUAGE_ZH_CN", "zh_CN"], ["LANGUAGE_ZH_TW", "zh_TW"], ["LANGUAGE_EN", "en"]]:
 		languages.add_item(tr(str(pair[0])))
 		languages.set_item_metadata(languages.item_count - 1, pair[1])
 		if pair[1] == GameSession.locale:
 			languages.select(languages.item_count - 1)
 	languages.item_selected.connect(_select_language.bind(languages))
-	language_row.add_child(languages)
-	_panel_content.add_child(language_row)
-	var skip := Button.new()
-	skip.text = tr("SETTINGS_SKIP_TUTORIAL")
-	skip.disabled = GameSession.pig_state.tutorial_skipped
-	skip.pressed.connect(func() -> void:
+	display.add_child(_life_plan_label(tr("SETTINGS_LANGUAGE")))
+	display.add_child(languages)
+	var motion := _ui_section(grid, "SETTINGS_MOTION_GROUP", "monitor")
+	_setting_toggle(motion, "SETTINGS_REDUCE_MOTION", GameSession.reduce_motion, GameSession.set_reduce_motion)
+	_setting_toggle(motion, "SETTINGS_CAMERA_SHAKE", GameSession.camera_shake_enabled, GameSession.set_camera_shake_enabled)
+	_setting_toggle(motion, "SETTINGS_REDUCE_DESKTOP_ROAMING", GameSession.reduce_desktop_roaming, GameSession.set_reduce_desktop_roaming)
+	_setting_toggle(motion, "SETTINGS_REDUCE_DESKTOP_ACTION_FREQUENCY", GameSession.reduce_desktop_action_frequency, GameSession.set_reduce_desktop_action_frequency)
+	var audio := _ui_section(grid, "SETTINGS_AUDIO_GROUP", "volume-2")
+	var audio_enabled: bool = AudioService.is_playback_enabled()
+	if not audio_enabled:
+		var silent_notice := _life_plan_label(tr("SETTINGS_AUDIO_SILENT"))
+		silent_notice.theme_type_variation = "MetaLabel"
+		audio.add_child(silent_notice)
+	audio.add_child(_slider_row("SETTINGS_MUSIC", 0.0, 1.0, AudioService.music_volume, func(value: float) -> void: AudioService.music_volume = value; AudioService.apply(), audio_enabled))
+	audio.add_child(_slider_row("SETTINGS_AMBIENT", 0.0, 1.0, AudioService.ambient_volume, func(value: float) -> void: AudioService.ambient_volume = value; AudioService.apply(), audio_enabled))
+	audio.add_child(_slider_row("SETTINGS_INTERACTION", 0.0, 1.0, AudioService.interaction_volume, func(value: float) -> void: AudioService.interaction_volume = value; AudioService.apply(), audio_enabled))
+	_setting_toggle(audio, "SETTINGS_DESKTOP_MUSIC", AudioService.desktop_music_enabled, func(value: bool) -> void: AudioService.desktop_music_enabled = value; AudioService.apply(); GameSession.save_machine_settings(), audio_enabled)
+	var more := _ui_section(grid, "SETTINGS_MORE_GROUP", "book-open")
+	var skip := _button("SETTINGS_SKIP_TUTORIAL", func() -> void:
 		if GameSession.skip_tutorial():
 			_close_panel()
 	)
-	_panel_content.add_child(skip)
-	var help := Button.new()
+	skip.disabled = GameSession.pig_state.tutorial_skipped
+	UIAssets.decorate(skip, "check", "QuietButton")
+	more.add_child(skip)
+	var help := _button("SETTINGS_HELP", _open_help)
 	help.name = "SettingsHelpButton"
-	help.text = tr("SETTINGS_HELP")
-	help.pressed.connect(_open_help)
-	_panel_content.add_child(help)
-	var legal := Button.new()
-	legal.text = tr("SETTINGS_LEGAL")
-	legal.pressed.connect(_open_legal)
-	_panel_content.add_child(legal)
+	UIAssets.decorate(help, "book-open", "QuietButton")
+	more.add_child(help)
+	var legal := _button("SETTINGS_LEGAL", _open_legal)
+	UIAssets.decorate(legal, "lock-keyhole", "QuietButton")
+	more.add_child(legal)
 
 
 func open_desktop_companion_settings() -> void:
 	_show_panel(tr("DESKTOP_COMPANION_SETTINGS"))
-	_panel_content.add_child(_life_plan_label(tr("DESKTOP_BACKGROUND_SHIELD")))
-	var quiet := CheckBox.new()
-	quiet.name = "DesktopQuietToggle"
-	quiet.text = tr("DESKTOP_QUIET")
-	quiet.button_pressed = GameSession.desktop_companion.quiet
-	quiet.toggled.connect(func(value: bool) -> void:
+	_panel_reopen = open_desktop_companion_settings
+	var grid := _settings_grid()
+	var policy := _ui_section(grid, "SETTINGS_MOTION_GROUP", "moon")
+	var quiet := _setting_toggle(policy, "DESKTOP_QUIET", GameSession.desktop_companion.quiet, func(value: bool) -> void:
 		GameSession.set_desktop_companion_settings(value, GameSession.desktop_companion.do_not_disturb, GameSession.desktop_companion.frequency)
 	)
-	_panel_content.add_child(quiet)
-	var no_disturb := CheckBox.new()
-	no_disturb.name = "DesktopDoNotDisturbToggle"
-	no_disturb.text = tr("DESKTOP_DO_NOT_DISTURB")
-	no_disturb.button_pressed = GameSession.desktop_companion.do_not_disturb
-	no_disturb.toggled.connect(func(value: bool) -> void:
+	quiet.name = "DesktopQuietToggle"
+	var no_disturb := _setting_toggle(policy, "DESKTOP_DO_NOT_DISTURB", GameSession.desktop_companion.do_not_disturb, func(value: bool) -> void:
 		GameSession.set_desktop_companion_settings(GameSession.desktop_companion.quiet, value, GameSession.desktop_companion.frequency)
 	)
-	_panel_content.add_child(no_disturb)
+	no_disturb.name = "DesktopDoNotDisturbToggle"
 	var frequencies := OptionButton.new()
 	frequencies.name = "DesktopBehaviorFrequency"
+	frequencies.accessibility_name = tr("DESKTOP_BEHAVIOR_FREQUENCY")
 	for id: String in DesktopCompanionPolicy.FREQUENCIES:
 		frequencies.add_item(tr("DESKTOP_FREQUENCY_%s" % id.to_upper()))
 		frequencies.set_item_metadata(frequencies.item_count - 1, id)
@@ -1381,23 +1808,26 @@ func open_desktop_companion_settings() -> void:
 	frequencies.item_selected.connect(func(index: int) -> void:
 		GameSession.set_desktop_companion_settings(GameSession.desktop_companion.quiet, GameSession.desktop_companion.do_not_disturb, str(frequencies.get_item_metadata(index)))
 	)
-	_panel_content.add_child(_life_plan_label(tr("DESKTOP_BEHAVIOR_FREQUENCY")))
-	_panel_content.add_child(frequencies)
-	_panel_content.add_child(_life_plan_label(tr("FOCUS_TIMER_INTRO")))
+	policy.add_child(_life_plan_label(tr("DESKTOP_BEHAVIOR_FREQUENCY")))
+	policy.add_child(frequencies)
+	var focus := _ui_section(grid, "FOCUS_TIMER_GROUP", "coffee")
 	_focus_timer_label = Label.new()
 	_focus_timer_label.name = "FocusCompanionTimerStatus"
+	_focus_timer_label.theme_type_variation = "TitleLabel"
 	_focus_timer_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_panel_content.add_child(_focus_timer_label)
+	focus.add_child(_focus_timer_label)
 	for pair: Array in [
-		["FOCUS_TIMER_START", "FocusTimerStart", GameSession.start_focus_timer],
-		["FOCUS_TIMER_PAUSE", "FocusTimerPause", GameSession.toggle_focus_timer_pause],
-		["FOCUS_TIMER_REST", "FocusTimerRest", GameSession.start_focus_rest],
-		["FOCUS_TIMER_STOP", "FocusTimerStop", GameSession.stop_focus_timer],
+		["FOCUS_TIMER_START", "FocusTimerStart", "play", GameSession.start_focus_timer],
+		["FOCUS_TIMER_PAUSE", "FocusTimerPause", "pause", GameSession.toggle_focus_timer_pause],
+		["FOCUS_TIMER_REST", "FocusTimerRest", "coffee", GameSession.start_focus_rest],
+		["FOCUS_TIMER_STOP", "FocusTimerStop", "square", GameSession.stop_focus_timer],
 	]:
-		var button: Button = _button(str(pair[0]), pair[2] as Callable)
+		var button := _button(str(pair[0]), pair[3] as Callable)
 		button.name = str(pair[1])
-		_panel_content.add_child(button)
-	_panel_content.add_child(_life_plan_label(tr("DESKTOP_PRIVACY_BOUNDARY")))
+		button.clip_text = true
+		button.tooltip_text = button.text
+		UIAssets.decorate(button, str(pair[2]), "PrimaryButton" if str(pair[1]) == "FocusTimerStart" else "QuietButton")
+		focus.add_child(button)
 	_refresh_focus_timer()
 
 
@@ -1412,14 +1842,14 @@ func _refresh_focus_timer() -> void:
 		"paused":tr("FOCUS_PAUSED") if bool(snapshot.paused) else "",
 	})
 	var running: bool = str(snapshot.phase) in ["work", "rest"]
-	var pause_button := _panel_content.get_node_or_null("FocusTimerPause") as Button
+	var pause_button := _panel_content.find_child("FocusTimerPause", true, false) as Button
 	if pause_button != null:
 		pause_button.disabled = not running
 		pause_button.text = tr("FOCUS_TIMER_RESUME" if bool(snapshot.paused) else "FOCUS_TIMER_PAUSE")
-	var rest_button := _panel_content.get_node_or_null("FocusTimerRest") as Button
+	var rest_button := _panel_content.find_child("FocusTimerRest", true, false) as Button
 	if rest_button != null:
 		rest_button.disabled = str(snapshot.phase) != "rest_ready"
-	var stop_button := _panel_content.get_node_or_null("FocusTimerStop") as Button
+	var stop_button := _panel_content.find_child("FocusTimerStop", true, false) as Button
 	if stop_button != null:
 		stop_button.disabled = str(snapshot.phase) == "idle"
 
@@ -1444,13 +1874,13 @@ func _on_companion_policy_changed() -> void:
 			_toast_tween.kill()
 		_toast_panel.modulate.a = 0.0
 	if is_instance_valid(_panel_content):
-		var quiet := _panel_content.get_node_or_null("DesktopQuietToggle") as CheckBox
+		var quiet := _panel_content.find_child("DesktopQuietToggle", true, false) as CheckBox
 		if quiet != null:
 			quiet.set_pressed_no_signal(GameSession.desktop_companion.quiet)
-		var no_disturb := _panel_content.get_node_or_null("DesktopDoNotDisturbToggle") as CheckBox
+		var no_disturb := _panel_content.find_child("DesktopDoNotDisturbToggle", true, false) as CheckBox
 		if no_disturb != null:
 			no_disturb.set_pressed_no_signal(GameSession.desktop_companion.do_not_disturb)
-		var frequencies := _panel_content.get_node_or_null("DesktopBehaviorFrequency") as OptionButton
+		var frequencies := _panel_content.find_child("DesktopBehaviorFrequency", true, false) as OptionButton
 		if frequencies != null:
 			frequencies.select(DesktopCompanionPolicy.FREQUENCIES.find(GameSession.desktop_companion.frequency))
 	_refresh_focus_timer()
@@ -1481,7 +1911,7 @@ func _restart_tutorial_from_help() -> void:
 
 func _open_legal() -> void:
 	_show_panel(tr("SETTINGS_LEGAL"))
-	for key: String in ["LEGAL_PRIVACY", "LEGAL_THIRD_PARTY", "LEGAL_NO_BRANDS"]:
+	for key: String in ["LEGAL_PRIVACY", "DESKTOP_PRIVACY_BOUNDARY", "LEGAL_THIRD_PARTY", "LEGAL_NO_BRANDS"]:
 		var label := Label.new()
 		label.text = tr(key)
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -1489,10 +1919,11 @@ func _open_legal() -> void:
 
 
 func _slider_row(label_key: String, minimum: float, maximum: float, value: float, callback: Callable, enabled: bool = true) -> Control:
-	var row := HBoxContainer.new()
+	var row := VBoxContainer.new()
+	row.add_theme_constant_override("separation", 6)
 	var label := Label.new()
 	label.text = tr(label_key)
-	label.custom_minimum_size.x = 260
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	row.add_child(label)
 	var slider := HSlider.new()
 	slider.min_value = minimum
@@ -1501,8 +1932,16 @@ func _slider_row(label_key: String, minimum: float, maximum: float, value: float
 	slider.value = value
 	slider.editable = enabled
 	slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	slider.custom_minimum_size.y = 28
+	slider.accessibility_name = label.text
 	slider.value_changed.connect(callback)
 	slider.drag_ended.connect(func(_changed: bool) -> void: GameSession.save_machine_settings())
+	if label_key == "SETTINGS_UI_SCALE":
+		slider.drag_ended.connect(func(_changed: bool) -> void: _queue_panel_reflow())
+		slider.gui_input.connect(func(event: InputEvent) -> void:
+			if event is InputEventKey and not event.pressed:
+				_queue_panel_reflow()
+		)
 	row.add_child(slider)
 	return row
 
@@ -1517,8 +1956,8 @@ func _select_language(index: int, options: OptionButton) -> void:
 		call_deferred("_rebuild_ui")
 
 
-func _add_personality_selector(control_name: String) -> OptionButton:
-	_panel_content.add_child(_life_plan_label(tr("PERSONALITY_SETUP_INTRO")))
+func _add_personality_selector(control_name: String, parent: Node = null) -> OptionButton:
+	var target: Node = _panel_content if parent == null else parent
 	var options := OptionButton.new()
 	options.name = control_name
 	options.accessibility_name = tr("PERSONALITY_SELECTOR")
@@ -1528,13 +1967,15 @@ func _add_personality_selector(control_name: String) -> OptionButton:
 	for profile: Dictionary in profiles:
 		options.add_item(tr(str(profile.name_key)))
 		options.set_item_metadata(options.item_count - 1, str(profile.id))
-	_panel_content.add_child(options)
-	var description := _life_plan_label(tr("PERSONALITY_RANDOM_DESCRIPTION"))
+	target.add_child(options)
+	var description := _life_plan_label("")
+	description.visible = false
 	description.name = control_name + "Description"
 	options.item_selected.connect(func(index: int) -> void:
-		description.text = tr("PERSONALITY_RANDOM_DESCRIPTION") if index == 0 else tr(str(profiles[index - 1].description_key))
+		description.visible = index > 0
+		description.text = "" if index == 0 else tr(str(profiles[index - 1].description_key))
 	)
-	_panel_content.add_child(description)
+	target.add_child(description)
 	return options
 
 
@@ -1544,17 +1985,19 @@ func _show_name_prompt() -> void:
 	var prompt := Label.new()
 	prompt.text = tr("NAME_PROMPT_TEXT")
 	prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	prompt.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_panel_content.add_child(prompt)
 	var input := LineEdit.new()
 	input.name = "NameInput"
 	input.placeholder_text = tr("NAME_PROMPT_PLACEHOLDER")
 	input.max_length = 16
-	input.custom_minimum_size = Vector2(420, 54)
+	input.custom_minimum_size.y = 54
 	_panel_content.add_child(input)
 	var personality: OptionButton = _add_personality_selector("NamePersonalityChoice") if GameSession.pig_state.personality_id.is_empty() else null
 	var confirm := Button.new()
 	confirm.name = "NameConfirmButton"
 	confirm.text = tr("UI_CONFIRM")
+	UIAssets.decorate(confirm, "check", "PrimaryButton")
 	confirm.pressed.connect(func() -> void:
 		GameSession.note_explicit_companion_interaction()
 		var saved: bool = GameSession.initialize_current_companion(input.text, str(personality.get_item_metadata(personality.selected))) if personality != null else GameSession.set_pig_name(input.text)
@@ -1706,6 +2149,11 @@ func _show_pending_offline_summary() -> void:
 
 
 func _show_panel(title: String, closable: bool = true) -> void:
+	_panel_reopen = Callable()
+	_catalog_controls.clear()
+	_album_navigation.clear()
+	_postcard_progress = null
+	_postcard_requirements.clear()
 	_clear_performance_navigation()
 	_focus_timer_label = null
 	_life_plan_widgets.clear()
@@ -1714,6 +2162,8 @@ func _show_panel(title: String, closable: bool = true) -> void:
 	_close_photo_lightbox()
 	_clear_container(_panel_content)
 	_set_panel_preferred_size(DEFAULT_PANEL_SIZE)
+	_panel_scroll.scroll_vertical = 0
+	_panel_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
 	_panel_title.text = title
 	var header := _panel_title.get_parent() as HBoxContainer
 	if header != null and header.get_child_count() > 1:
@@ -1725,7 +2175,31 @@ func _show_panel(title: String, closable: bool = true) -> void:
 
 
 func _set_panel_preferred_size(preferred_size: Vector2) -> void:
+	_panel_preferred_size = preferred_size
 	_panel.custom_minimum_size = _fit_overlay_size(preferred_size)
+
+
+func _queue_panel_reflow() -> void:
+	if not is_instance_valid(_panel) or not _overlay.visible or _panel_reflow_pending:
+		return
+	_panel_reflow_pending = true
+	call_deferred("_reflow_panel")
+
+
+func _reflow_panel() -> void:
+	_panel_reflow_pending = false
+	if not is_instance_valid(_panel) or not _overlay.visible:
+		return
+	var scroll_position: int = _panel_scroll.scroll_vertical
+	var focus: Control = get_viewport().gui_get_focus_owner()
+	var focus_name: String = str(focus.name) if focus != null else ""
+	_set_panel_preferred_size(_panel_preferred_size)
+	if _panel_reopen.is_valid():
+		_panel_reopen.call()
+		_panel_scroll.set_deferred("scroll_vertical", scroll_position)
+		var replacement := _panel_content.find_child(focus_name, true, false) as Control if not focus_name.is_empty() else null
+		if replacement != null and replacement.is_visible_in_tree():
+			replacement.call_deferred("grab_focus")
 
 
 func _fit_overlay_size(preferred_size: Vector2, total_inset: float = OVERLAY_MARGIN * 2.0) -> Vector2:
@@ -1737,13 +2211,17 @@ func _fit_overlay_size(preferred_size: Vector2, total_inset: float = OVERLAY_MAR
 
 
 func _focus_first_panel_control() -> void:
+	var album := find_child("AlbumTabs", true, false) as TabContainer
+	if album != null and not _album_navigation.is_empty():
+		_album_navigation[album.current_tab].grab_focus()
+		return
 	if is_instance_valid(_performance_navigation):
 		(_performance_navigation.get_child(0) as Control).grab_focus()
 		return
 	var controls: Array[Node] = _panel_content.find_children("*", "Control", true, false)
 	for node: Node in controls:
 		var control := node as Control
-		if control != null and control.visible and control.focus_mode != Control.FOCUS_NONE:
+		if control != null and control.is_visible_in_tree() and control.focus_mode != Control.FOCUS_NONE:
 			control.grab_focus()
 			return
 
@@ -1752,6 +2230,7 @@ func _close_panel() -> void:
 	if GameSession.save_recovery_required:
 		return
 	_overlay.visible = false
+	_catalog_controls.clear()
 	_clear_performance_navigation()
 	_life_plan_widgets.clear()
 	_life_plan_summary = null
@@ -1762,6 +2241,7 @@ func _close_panel() -> void:
 
 
 func _rebuild_ui() -> void:
+	_catalog_controls.clear()
 	_clear_performance_navigation()
 	_focus_timer_label = null
 	_life_plan_widgets.clear()

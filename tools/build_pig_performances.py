@@ -72,7 +72,7 @@ def main() -> None:
     manifest["entries"] = [entry for entry in manifest["entries"] if not any(token.startswith("performance_") for token in entry["covers"])] + entries
     manifest["note"] = "Commissioned image_gen visuals, including modular blank-face bodies and facial glyphs; audio, original-asset ownership and final release acceptance remain pending."
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
-    print("Copied 3 unchanged PNGs; 12 shared four-frame bodies, 36 behavior aliases, 8 black-eye faces plus legacy alias")
+    print(f"Copied {len(entries)} unchanged PNGs; 12 shared four-frame bodies, 36 behavior aliases, 8 black-eye faces plus legacy alias")
 
 
 if __name__ == "__main__":

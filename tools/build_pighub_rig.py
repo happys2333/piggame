@@ -10,7 +10,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 FACE_IDS = ["face_dot", "face_squint", "face_deadpan", "face_tears", "face_sly", "face_glare", "face_sleepy", "face_shock"]
-MOUTH_HIDDEN_BODIES = {"body_prone", "body_flat", "body_corner", "body_crawl", "body_worker"}
+MOUTH_HIDDEN_BODIES = {"body_prone", "body_flat", "body_kneel", "body_corner", "body_crawl", "body_worker", "body_peek", "body_head_hold", "body_ruler"}
 BODY_GROUPS = {
     "body_prone": ["lie", "bed_nap", "window_nap"],
     "body_flat": ["sleep", "pillow_flop", "blanket_roll"],
@@ -89,6 +89,8 @@ def glyph_regions(image: Image.Image, index: int) -> tuple[dict, dict]:
         scale = 125 / cell.width
         regions[part] = [left + region[0], top + region[1], region[2], region[3]]
         geometry[part] = {"offset": [round((region[axis] - root[axis]) * scale, 4) for axis in (0, 1)], "size": [round(value * scale, 4) for value in region[2:]]}
+        if part == "mouth":
+            geometry[part]["relative_scale"] = 0.65
     return regions, geometry
 
 
@@ -100,7 +102,7 @@ def build_rig() -> dict:
     for recipe in recipes:
         with Image.open(recipe["source_file"]) as image:
             if recipe["id"] == "faces":
-                rig["faces"] = {face_id: glyph_regions(image, index)[1] for index, face_id in enumerate(FACE_IDS)}
+                rig["faces"] = {face_id: {**glyph_regions(image, index)[1], "mouth_visible": face_id != "face_dot"} for index, face_id in enumerate(FACE_IDS)}
                 continue
             sheet = int(recipe["id"].rsplit("_", 1)[1]) - 1
             for clip in config["clips"]:
@@ -115,22 +117,36 @@ def build_rig() -> dict:
                     if len(pair) != 2:
                         raise ValueError(f"need exactly two visible nostrils: {clip['id']}/{frame}")
                     first, second = center(pair[0]), center(pair[1])
-                    snout = [(first[0] + second[0]) * 128 / width, (first[1] + second[1]) * 128 / height]
+                    snout = [(first[0] + second[0]) * 128 / width, (first[1] + second[1]) * 128 / width]
                     pink_components = components(cell, lambda pixel: pixel[3] >= 64 and pixel[0] > 170 and pixel[1] < 135 and pixel[2] > 95)
                     nostril_center = ((first[0] + second[0]) * 0.5, (first[1] + second[1]) * 0.5)
                     nose_components = [component for component in pink_components if bounds(component)[0] <= nostril_center[0] <= bounds(component)[0] + bounds(component)[2] and bounds(component)[1] <= nostril_center[1] <= bounds(component)[1] + bounds(component)[3]]
                     if not nose_components:
                         raise ValueError(f"missing pink nose around the nostrils: {clip['id']}/{frame}")
                     nose = bounds(max(nose_components, key=len))
-                    nose_width, nose_top, nose_bottom = nose[2] * 256 / width, nose[1] * 256 / height, (nose[1] + nose[3]) * 256 / height
+                    nose_width, nose_top, nose_bottom = nose[2] * 256 / width, nose[1] * 256 / width, (nose[1] + nose[3]) * 256 / width
                     scale = nose_width / 60
-                    landmarks = {"left": [snout[0] - nose_width * 0.28, nose_top - nose_width * 0.32], "right": [snout[0] + nose_width * 0.63, nose_top - nose_width * 0.21], "mouth": [snout[0] + 1, nose_bottom + nose_width * 0.12]}
+                    landmarks = {"left": [snout[0] - nose_width * 0.28, nose_top - nose_width * 0.32], "right": [snout[0] + nose_width * 0.63, nose_top - nose_width * 0.21], "mouth": [snout[0], nose_bottom + nose_width * 0.14]}
                     landmarks = {part: [round(value, 4) for value in point] for part, point in landmarks.items()}
                     pink_marks = [component for component in pink_components if center(component)[1] < (first[1] + second[1]) * 0.5 - 20 and center(component)[0] < width * 0.6]
-                    head_top = min((bounds(component)[1] for component in pink_marks), default=(first[1] + second[1]) * 0.5 - 90) * 256 / height
-                    frames.append({"snout": [round(value, 4) for value in snout], "head_top": round(head_top, 4), "scale": round(scale, 4), "landmarks": landmarks})
+                    head_top = min((bounds(component)[1] for component in pink_marks), default=(first[1] + second[1]) * 0.5 - 90) * 256 / width
+                    silhouette = cell.getchannel("A").point(lambda value: 255 if value >= 64 else 0).getbbox()
+                    if silhouette is None:
+                        raise ValueError(f"missing body silhouette: {clip['id']}/{frame}")
+                    mouth_area = [snout[0] - nose_width * 0.24, nose_bottom + nose_width * 0.02, nose_width * 0.48, nose_width * 0.23]
+                    frames.append({"canvas": [256.0, round(height * 256 / width, 4)], "snout": [round(value, 4) for value in snout], "head_top": round(head_top, 4), "ground": round(silhouette[3] * 256 / width, 4), "scale": round(scale, 4), "landmarks": landmarks, "mouth_area": [round(value, 4) for value in mouth_area]})
                 clip["snouts"] = [frame["snout"] for frame in frames]
                 rig["clips"][clip["id"]] = {"frames": frames, "integrated_outfit": clip.get("integrated_outfit", False), "mouth_visible": clip["id"] not in MOUTH_HIDDEN_BODIES}
+                if "motion" not in clip:
+                    clip["motion"] = {"mode": "pose", "frame": 0, "period_seconds": 5.6 if clip["id"] in {"body_prone", "body_flat"} else 4.4, "breath_amount": 0.008, "sway_radians": 0.006 if clip["id"] in {"body_prone", "body_flat"} else 0.012, "exclude_animations": []}
+                if "motion" in clip:
+                    motion = clip["motion"]
+                    left, top, width, height = body_region(image, recipe, clip["row"], motion["frame"])
+                    alpha = image.getchannel("A").crop((left, top, left + width, top + height))
+                    silhouette = alpha.point(lambda value: 255 if value >= 64 else 0).getbbox()
+                    if silhouette is None:
+                        raise ValueError(f"missing motion pivot: {clip['id']}")
+                    rig["clips"][clip["id"]]["motion"] = {**motion, "pivot": [128.0, round(silhouette[3] * 256 / width, 4)]}
     behaviors = json.loads((ROOT / "game/data/catalog/behaviors.json").read_text())
     for behavior in behaviors:
         animation = behavior["animation"]

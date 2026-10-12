@@ -29,7 +29,7 @@ func _draw() -> void:
 	begin_visual_draw()
 	var final_texture: Texture2D = visual_texture("expression:%s" % expression_id) if unlocked and not expression_id.is_empty() else null
 	if final_texture != null:
-		draw_texture_rect(final_texture, Rect2(Vector2.ZERO, size), false)
+		draw_texture_rect(final_texture, PigVisualRig._fit_texture(final_texture, Rect2(Vector2.ZERO, size)), false)
 		return
 	var drawing_scale: float = minf(size.x / 112.0, size.y / 104.0)
 	draw_set_transform(size * 0.5, 0.0, Vector2.ONE * drawing_scale)

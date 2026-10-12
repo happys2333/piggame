@@ -8,13 +8,11 @@ const PALETTES := {
 	"mint": [Color("#b9d9ca"), Color("#f2f0df"), Color("#a8c7bd")],
 	"night": [Color("#677093"), Color("#ddd9e8"), Color("#565e7d")],
 }
-const AREAS: Array[String] = ["sleep", "snack", "activity", "window"]
 const FURNITURE_INK := Color("#654f58")
 const FURNITURE_LIGHT := Color("#fff7ef")
 
-var _furniture_hitboxes: Dictionary = {}
+var item_stage: PigItemStage
 var _visual_state: Array = []
-
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -47,7 +45,7 @@ func _draw() -> void:
 	var palette: Array = PALETTES.get(GameSession.pig_state.current_room_palette, PALETTES.rose)
 	var room_texture: Texture2D = visual_texture("room:%s" % GameSession.pig_state.current_room_palette)
 	if room_texture != null:
-		draw_texture_rect(room_texture, Rect2(Vector2.ZERO, size), false)
+		draw_cover_texture(room_texture, Rect2(Vector2.ZERO, size))
 	else:
 		draw_rect(Rect2(Vector2.ZERO, size), palette[1], true)
 		draw_rect(Rect2(0, 0, size.x, size.y * 0.72), palette[0], true)
@@ -60,8 +58,6 @@ func _draw() -> void:
 		draw_line(window_rect.position + Vector2(window_rect.size.x*0.5,0), window_rect.position + Vector2(window_rect.size.x*0.5,window_rect.size.y), Color("#fffaf3"), 7.0)
 		draw_line(window_rect.position + Vector2(0,window_rect.size.y*0.55), window_rect.position + Vector2(window_rect.size.x,window_rect.position.y + window_rect.size.y*0.55), Color("#fffaf3"), 7.0)
 	_draw_atmosphere()
-	_draw_areas()
-	_draw_furniture()
 
 
 func atmosphere_effects() -> Array[String]:
@@ -80,7 +76,7 @@ func _draw_atmosphere() -> void:
 	for effect: String in atmosphere_effects():
 		var final_texture: Texture2D = visual_texture("room_effect:%s" % effect)
 		if final_texture != null:
-			draw_texture_rect(final_texture, Rect2(Vector2.ZERO, size), false)
+			draw_cover_texture(final_texture, Rect2(Vector2.ZERO, size))
 			continue
 		match effect:
 			"sleep_glow":
@@ -116,34 +112,23 @@ func _draw_atmosphere() -> void:
 				)
 
 
-func _draw_areas() -> void:
-	var floor_top: float = size.y * 0.72
-	var width: float = size.x / 4.0
-	for index: int in AREAS.size():
-		var unlocked: bool = GameSession.is_room_area_unlocked(AREAS[index])
-		var rect := Rect2(index * width + 12, floor_top + 12, width - 24, size.y - floor_top - 24)
-		draw_rect(rect, Color("#fffaf344") if unlocked else Color("#5f4e5533"), true)
-		draw_rect(rect, Color("#7d5f6840"), false, 2.0)
-		var label_key: String = ["AREA_SLEEP", "AREA_SNACK", "AREA_ACTIVITY", "AREA_WINDOW"][index]
-		draw_string(ThemeDB.fallback_font, rect.position + Vector2(12, 28), tr(label_key), HORIZONTAL_ALIGNMENT_LEFT, rect.size.x - 24, 16, Color("#684f58") if unlocked else Color("#8f8085"))
+func furniture_layout(slot_id: String) -> Dictionary:
+	var layout: Dictionary = interaction_layout(str(GameSession.pig_state.placed_furniture.get(slot_id, "")))
+	return layout if not layout.is_empty() and str(layout.slot_id) == slot_id else {}
 
 
-func _draw_furniture() -> void:
-	_furniture_hitboxes.clear()
-	var floor_top: float = size.y * 0.72
-	var area_width: float = size.x / 4.0
-	var slot_offsets: Array[Vector2] = [Vector2(70,72), Vector2(145,90), Vector2(220,68), Vector2(270,96)]
-	for slot_id: String in GameSession.pig_state.placed_furniture:
-		var furniture_id: String = str(GameSession.pig_state.placed_furniture[slot_id])
-		var item: Dictionary = GameSession.catalog.get_item("furniture", furniture_id)
-		if item.is_empty():
-			continue
-		var area_index: int = AREAS.find(str(item.area))
-		var slot_number: int = clampi(int(slot_id.get_slice("_", 1)) - 1, 0, 3)
-		var center := Vector2(area_index * area_width, floor_top) + slot_offsets[slot_number]
-		var color := Color.from_string(str(item.get("color", "#d8a0a0")), Color("#d8a0a0"))
-		_furniture_hitboxes[slot_id] = {"rect": Rect2(center - Vector2(48, 50), Vector2(96, 100)), "furniture_id": furniture_id}
-		_draw_furniture_item(furniture_id, center, color)
+func interaction_layout(furniture_id: String) -> Dictionary:
+	return item_stage.interaction_layout(furniture_id) if is_instance_valid(item_stage) else {}
+
+
+func furniture_hitboxes() -> Dictionary:
+	if not is_instance_valid(item_stage):
+		return {}
+	var layout: Dictionary = item_stage.interaction_layout()
+	if layout.is_empty():
+		return {}
+	var transform: Transform2D = get_global_transform().affine_inverse() * item_stage.get_global_transform()
+	return {str(layout.slot_id):{"rect":transform * (layout.rect as Rect2), "furniture_id":str(layout.furniture_id)}}
 
 
 func _draw_furniture_item(furniture_id: String, center: Vector2, color: Color) -> void:
@@ -324,29 +309,8 @@ static func _fit_texture_rect(texture: Texture2D, bounds: Rect2) -> Rect2:
 	return Rect2(bounds.position + (bounds.size - fitted_size) * 0.5, fitted_size)
 
 
-func _gui_input(event: InputEvent) -> void:
-	var pointer_position: Vector2
-	if event is InputEventMouseButton:
-		if event.device == InputEvent.DEVICE_ID_EMULATION or event.button_index != MOUSE_BUTTON_LEFT or not event.pressed:
-			return
-		pointer_position = event.position
-	elif event is InputEventScreenTouch:
-		if not event.pressed or event.canceled:
-			return
-		pointer_position = event.position
-	else:
-		return
-	for slot_id: String in _furniture_hitboxes:
-		var hitbox: Dictionary = _furniture_hitboxes[slot_id] as Dictionary
-		if (hitbox.rect as Rect2).has_point(pointer_position):
-			furniture_pressed.emit(str(hitbox.furniture_id), slot_id)
-			accept_event()
-			return
-
-
 func furniture_at_position(room_position: Vector2) -> String:
-	for slot_id: String in _furniture_hitboxes:
-		var hitbox: Dictionary = _furniture_hitboxes[slot_id] as Dictionary
-		if (hitbox.rect as Rect2).grow(26.0).has_point(room_position):
-			return str(hitbox.furniture_id)
-	return ""
+	if not is_instance_valid(item_stage):
+		return ""
+	var point: Vector2 = item_stage.get_global_transform().affine_inverse() * (get_global_transform() * room_position)
+	return item_stage.furniture_at_position(point, 26.0)

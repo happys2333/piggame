@@ -28,12 +28,12 @@ FATAL_GODOT_OUTPUT_MARKERS = (
     "Failed to load script",
     "Cannot load source code",
 )
-CORE_RULES_PASS_MARKER = "PASS: 7062 assertions"
+CORE_RULES_PASS_MARKER = "PASS: 7068 assertions"
 FULL_PROGRESSION_PASS_MARKER = (
     "PASS-CONTRACT: progression first_furniture=567s levels=2:1223,3:1369,4:1550,5:1708 "
     "event_assisted_level10=32520s level10=38165s ending=36225s first_memory=75s "
-    "events=24 shop=12016 points=8h:4265,12h:6356,20h:10510,30h:15795,48h:25234,72h:37976 "
-    "cadence=35100s sessions=39 items=39/39 max_empty=0"
+    "events=24 shop=10976 points=8h:4265,12h:6356,20h:10510,30h:15795,48h:25234,72h:37976 "
+    "cadence=32400s sessions=36 items=36/36 max_empty=0"
 )
 DEMO_PROGRESSION_PASS_MARKER = (
     "PASS-CONTRACT: demo completion=1800s level=5 points=54 events=4 furniture=2"
@@ -51,9 +51,24 @@ CHECKS = (
         CORE_RULES_PASS_MARKER,
     ),
     (
+        "desktop drag rules",
+        ("res://tests/desktop_drag_rules.tscn",),
+        "DESKTOP_DRAG_RULES: assertions=85 failures=0",
+    ),
+    (
         "full progression",
         ("--script", "res://tests/progression_audit.gd"),
         FULL_PROGRESSION_PASS_MARKER,
+    ),
+    (
+        "postcard rules",
+        ("--script", "res://tests/postcard_rules_audit.gd"),
+        "PASS: postcard rules",
+    ),
+    (
+        "outfit retirement",
+        ("--script", "res://tests/outfit_retirement_audit.gd"),
+        "PASS: head and face wardrobe retirement",
     ),
     (
         "demo progression",
