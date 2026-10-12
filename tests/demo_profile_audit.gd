@@ -23,7 +23,7 @@ func _run() -> void:
 	_expect_eq(ReleaseProfile.save_base_dir(), "user://%s" % ReleaseProfile.DEMO_SAVE_ROOT, "Demo save base uses the isolated relative root")
 	_expect_eq(ReleaseProfile.desktop_docks(), ["bottom", "left"], "Demo exposes only the promised desktop docks")
 	_expect_true(not "right" in ReleaseProfile.desktop_docks(), "Demo never exposes the full-only right dock")
-	_expect_true(not ReleaseProfile.AUDIO_PLAYBACK_ENABLED, "development Demo audits remain silent")
+	_expect_true(ReleaseProfile.AUDIO_PLAYBACK_ENABLED, "Demo supports approved player feedback but headless output stays silent")
 	var steam_app_type: Variant = ProjectSettings.get_setting_with_override("steam/initialization/app_data/app_type") if ProjectSettings.has_setting("steam/initialization/app_data/app_type") else -1
 	var steam_auto_init: Variant = ProjectSettings.get_setting("steam/initialization/processes/initialize_on_startup", true)
 	var steam_embedded_callbacks: Variant = ProjectSettings.get_setting("steam/initialization/processes/embed_callbacks", true)

@@ -308,6 +308,8 @@ def prepare_import(
     if unrouted:
         raise ImportFailure(f"audio coverage has no runtime route: {unrouted}")
     updated_audio["development_placeholder"] = False
+    updated_audio["generated"] = False
+    updated_audio["release_approved"] = True
 
     app_icon_paths = [
         entry.resource_path
@@ -321,9 +323,15 @@ def prepare_import(
     project_text = (root / PROJECT_CONFIG).read_text(encoding="utf-8")
     export_text = (root / EXPORT_PRESETS).read_text(encoding="utf-8")
     release_text = (root / RELEASE_PROFILE).read_text(encoding="utf-8")
-    if "const AUDIO_PLAYBACK_ENABLED: bool = false" not in release_text:
+    disabled = "const AUDIO_PLAYBACK_ENABLED: bool = false" in release_text
+    feedback_only = (
+        "const AUDIO_PLAYBACK_ENABLED: bool = true" in release_text
+        and audio_manifest.get("playback_policy") == "player_feedback_only"
+        and audio_manifest.get("music") == []
+    )
+    if not disabled and not feedback_only:
         raise ImportFailure(
-            "audio playback must remain disabled during the current import phase"
+            "audio playback must remain disabled or use the approved player-feedback-only policy"
         )
     updated_project = replace_setting(project_text, "config/icon", app_icon_path, 1)
     updated_exports = replace_setting(

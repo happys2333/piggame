@@ -202,7 +202,7 @@ func interact_with_pig(kind: String) -> Dictionary:
 	if not _commit_pig_state_transaction(
 		mutation,
 		true,
-		"pet",
+		"pet_question" if interaction_kind == "poke" else ("pet_shy" if pig_state.personality_id in ["personality_shy", "personality_tsundere"] else "pet_content"),
 		str(reaction.toast_key),
 		{"name": pig_display_name()}
 	):
@@ -232,7 +232,7 @@ func feed(snack_id: String) -> bool:
 	return _commit_pig_state_transaction(
 		mutation,
 		true,
-		"feed",
+		"sip" if snack_id == "snack_berry_milk" else "bite",
 		str(snack.get("reaction_key", "TOAST_FEED")),
 		{"name": pig_display_name()}
 	)
@@ -329,6 +329,7 @@ func invite_to_furniture(furniture_id: String) -> bool:
 	_progression_commit_in_progress = false
 	simulation.announce_current_behavior()
 	furniture_invited.emit(furniture_id)
+	_play_sfx("blanket" if str(behavior.get("animation", "")) in ["sleep", "bed_nap", "blanket_roll", "pillow_flop"] else "soft_bump")
 	toast_requested.emit("TOAST_FURNITURE_INVITED", {"item": tr(str(furniture.get("name_key", "")))})
 	state_changed.emit()
 	return true
@@ -408,7 +409,7 @@ func equip_outfit(outfit_id: String) -> bool:
 		return false
 	var mutation := func() -> void:
 		pig_state.current_outfit = outfit_id
-	var success: bool = _commit_pig_state_transaction(mutation, true)
+	var success: bool = _commit_pig_state_transaction(mutation, true, "accessory")
 	if success:
 		pig_performance.stop()
 	return success
@@ -427,6 +428,7 @@ func perform_pig(id: String) -> bool:
 		return false
 	if entry.has("line_key"):
 		toast_requested.emit(str(entry.line_key), {"name":pig_state.name if not pig_state.name.is_empty() else tr("NAME_DEFAULT")})
+	_play_sfx("ui_switch")
 	return true
 
 
@@ -472,7 +474,6 @@ func _commit_pig_state_transaction(
 	if not sfx_id.is_empty():
 		_play_sfx(sfx_id)
 	if pig_state.familiarity_level > level_before:
-		_play_sfx("level_up")
 		toast_requested.emit("TOAST_LEVEL_UP", {"level": pig_state.familiarity_level})
 	if evaluate_achievements:
 		_sync_committed_achievements(evaluated_achievements)
@@ -629,9 +630,7 @@ func _commit_watched_event(
 	_progression_commit_in_progress = false
 	if not photo_path.is_empty():
 		_announce_event_photo(str(event.get("id", "")))
-	_play_sfx("event")
 	if pig_state.familiarity_level > level_before:
-		_play_sfx("level_up")
 		toast_requested.emit("TOAST_LEVEL_UP", {"level": pig_state.familiarity_level})
 	_sync_committed_event_achievements(result.get("achievements", []), evaluated_achievements)
 	if not ending_before and pig_state.ending_unlocked:
@@ -671,7 +670,6 @@ func _record_event_photo(event_id: String, event: Dictionary, path: String, anno
 
 
 func _announce_event_photo(event_id: String) -> void:
-	_play_sfx("camera")
 	event_photo_recorded.emit(event_id)
 
 
@@ -945,7 +943,7 @@ func open_postcard(postcard_id: String) -> bool:
 		return true
 	var mutation := func() -> void:
 		pig_state.read_postcards.append(postcard_id)
-	if not _commit_pig_state_transaction(mutation, false):
+	if not _commit_pig_state_transaction(mutation, false, "postcard"):
 		return false
 	postcard_mail_changed.emit()
 	return true
@@ -995,9 +993,6 @@ func set_desktop_mode(enabled: bool) -> bool:
 	if enabled and not progression_saved:
 		return false
 	desktop_mode = enabled
-	var audio: Node = get_node_or_null("/root/AudioService") if is_inside_tree() else null
-	if audio != null:
-		audio.call("set_desktop_mode", enabled)
 	var steam: Node = get_node_or_null("/root/SteamService") if is_inside_tree() else null
 	if steam != null:
 		steam.call("set_rich_presence", "RICH_DESKTOP" if enabled else "RICH_ROOM")
@@ -1038,6 +1033,7 @@ func set_locale(value: String) -> bool:
 
 func notify_pig_placed() -> void:
 	note_explicit_companion_interaction()
+	_play_sfx("soft_bump")
 	toast_requested.emit("TOAST_PIG_PLACED", {"name": pig_display_name()})
 
 
@@ -1079,6 +1075,8 @@ func save_manual_screenshot(image: Image) -> Dictionary:
 		suffix += 1
 	var error: Error = image.save_png(path)
 	var global_path: String = ProjectSettings.globalize_path(path)
+	if error == OK:
+		_play_sfx("camera")
 	toast_requested.emit("TOAST_SCREENSHOT_SAVED" if error == OK else "TOAST_SCREENSHOT_FAILED", {"path": global_path})
 	return {"error": error, "path": path if error == OK else ""}
 
@@ -1539,7 +1537,26 @@ func _apply_audio_settings(data: Dictionary) -> void:
 	var audio: Node = get_node_or_null("/root/AudioService") if is_inside_tree() else null
 	if audio != null:
 		audio.call("configure", data)
-		audio.call("set_desktop_mode", desktop_mode)
+
+
+func set_sound_volume(value: float) -> void:
+	if not is_finite(value):
+		return
+	_apply_audio_settings({"interaction_volume": clampf(value, 0.0, 1.0)})
+	save_machine_settings({}, false)
+
+
+func set_sound_muted(enabled: bool) -> void:
+	_apply_audio_settings({"muted": enabled})
+	save_machine_settings({}, false)
+
+
+func play_ui_feedback() -> void:
+	_play_sfx("ui_click")
+
+
+func preview_sound() -> void:
+	_play_sfx("pet_content")
 
 
 func _connect_modules() -> void:
@@ -1630,7 +1647,6 @@ static func offline_event_sample_times(settlement: Dictionary, current_unix: int
 func _on_behavior_completed(behavior: Dictionary, points: int) -> void:
 	var plan: Dictionary = catalog.get_item("life_plans", pig_state.active_life_plan)
 	_advance_life_plan(LifePlanRules.behavior_inspiration(plan, behavior), true, false)
-	_play_sfx("points")
 	toast_requested.emit("TOAST_BEHAVIOR_POINTS", {"behavior": tr(str(behavior.get("name_key", ""))), "points": points, "companion_proactive":true})
 	_evaluate_achievements()
 	state_changed.emit()
@@ -1664,7 +1680,6 @@ func _on_pig_state_changed() -> void:
 func _on_familiarity_level_changed(level: int) -> void:
 	if _progression_commit_in_progress:
 		return
-	_play_sfx("level_up")
 	toast_requested.emit("TOAST_LEVEL_UP", {"level": level, "companion_proactive":true})
 	_evaluate_achievements()
 	_schedule_important_save()
@@ -1808,4 +1823,4 @@ func _notification(what: int) -> void:
 func _play_sfx(id: String) -> void:
 	var audio: Node = get_node_or_null("/root/AudioService") if is_inside_tree() else null
 	if audio != null:
-		audio.call("play_sfx", id)
+		audio.call("play_sfx", id, "player")

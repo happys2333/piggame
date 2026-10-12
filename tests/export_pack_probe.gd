@@ -22,9 +22,18 @@ func _run() -> void:
 		_fail("pack probe observed the wrong profile")
 		return
 	var profile: Script = load("res://game/scripts/core/release_profile.gdc") as Script
-	if profile == null or profile.get_script_constant_map().get("AUDIO_PLAYBACK_ENABLED", true) != false:
-		_fail("pack probe refused non-silent playback")
+	if profile == null or profile.get_script_constant_map().get("AUDIO_PLAYBACK_ENABLED", false) != true:
+		_fail("pack probe requires approved feedback playback")
 		return
+	var audio_manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://game/assets/audio/audio_manifest.json")) as Dictionary
+	if audio_manifest.get("playback_policy") != "player_feedback_only" or audio_manifest.get("music") != [] or (audio_manifest.get("sfx", []) as Array).size() != 13:
+		_fail("pack probe refused background audio or incomplete feedback inventory")
+		return
+	for entry: Dictionary in audio_manifest.sfx as Array:
+		var stream: AudioStream = load(str(entry.path)) as AudioStream
+		if stream == null or stream.get_length() <= 0.0:
+			_fail("pack probe could not decode feedback " + str(entry.id))
+			return
 	var session: Node = root.get_node_or_null("GameSession")
 	if session == null or not bool(session.get("loaded_successfully")):
 		_fail("pack probe could not load the session")
@@ -143,7 +152,7 @@ func _run() -> void:
 	if int(session.call("unread_postcard_count")) != 2:
 		_fail("pack probe lost persistent postcard read state")
 		return
-	print("PASS: exported pack startup app_type=%d visuals=222 frames=4 residents=2 cache<=8 silent=true protection=true timer=25/5 personalities=5 performances=9/9/6/2 postcards=8 splash=false outfits=head/face:8 retired=4" % expected_profile)
+	print("PASS: exported pack startup app_type=%d visuals=222 frames=4 residents=2 cache<=8 feedback_only=true protection=true timer=25/5 personalities=5 performances=9/9/6/2 postcards=8 splash=false outfits=head/face:8 retired=4" % expected_profile)
 	quit(0)
 
 

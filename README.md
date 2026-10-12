@@ -34,7 +34,7 @@ python3 tools/build_localization.py
 
 `build_localization.py` 需要 `opencc-python-reimplemented`。生成后必须重新运行 Godot 导入，禁止手工编辑 `.godot/` 或 `*.import`。
 
-用户已明确授权使用内置 `image_gen` 替换视觉美术。当前 `game/assets/final/generated/` 的18张原字节PNG覆盖218个视觉槽位：12组共享四帧身体供36行为复用，8套黑眼五官（旧第九ID只作兼容别名），48个永久收藏表情及房间/事件、家具、装扮、零食、氛围、相框、状态和应用图标。动态猪保留用户选定的PigHub风格主体；逐帧嘴眼/鼻子锚点和普通猪、小剧场、照片、缩略图共用骨架。删除12张旧图后PNG净体积减少41.15%；详情见 `docs/design/pighub-animation-migration-2026-10-08.md`，完整来源/提示词见 `docs/design/generated-art-prompts.json`、`docs/design/pig-performance-art-prompts.json` 及主体锁定记录。原图不程序重绘，裁区和落位通过清单配置。`visual_ready` 不代表最终发行或用户原作交付。音频仍仅静音开发占位，`ReleaseProfile.AUDIO_PLAYBACK_ENABLED=false`；最终音频、权属及外部验收仍待完成。无效骨架路由回退到同主体静态图，不再恢复旧猪。
+用户已明确授权使用内置 `image_gen` 替换视觉美术。当前 `game/assets/final/generated/` 的18张原字节PNG覆盖218个视觉槽位：12组共享四帧身体供36行为复用，8套黑眼五官（旧第九ID只作兼容别名），48个永久收藏表情及房间/事件、家具、装扮、零食、氛围、相框、状态和应用图标。动态猪保留用户选定的PigHub风格主体；逐帧嘴眼/鼻子锚点和普通猪、小剧场、照片、缩略图共用骨架。删除12张旧图后PNG净体积减少41.15%；详情见 `docs/design/pighub-animation-migration-2026-10-08.md`，完整来源/提示词见 `docs/design/generated-art-prompts.json`、`docs/design/pig-performance-art-prompts.json` 及主体锁定记录。原图不程序重绘，裁区和落位通过清单配置。`visual_ready` 不代表最终发行或用户原作交付。2026-10-12 用户批准接入 ComfyUI Cloud 短互动音效并取消 BGM。当前只在主动操作时反馈，失焦、安静、勿扰、隐藏、静音均停声，不为挂机收益或寄信发声；设置提供音效音量/关闭/试听，桌面右键可关闭音效。13 个生成 WAV 的来源见 `game/assets/audio/source.json`、`LICENSES/Audio/SOURCE.md`；生成音效仍未获最终发行验收，Windows 输出与权属核验待完成。无效骨架路由回退到同主体静态图，不再恢复旧猪。
 
 ## 验证
 
@@ -101,6 +101,6 @@ Demo 只开放睡眠角、6 件家具、8 个表情和 4 段小剧场；桌面�
 - `docs/design/requirements.md`：策划案到实现证据的追踪表。
 - `LICENSES`：第三方素材许可证与修改记录。
 
-旧版 `assest/`、`script/` 和三个旧场景已在确认无运行时引用后移出工作区，原字节可恢复归档及哈希清单见本机 `build/validation/legacy-cleanup.json`。预设继续禁止这些路径混入发行。Noto 上游母版和测试图标保留用于来源核验/回归，但不再导出游戏包；生成 PNG、静音音频占位及程序绘制回退均保留。
+旧版 `assest/`、`script/` 和三个旧场景已在确认无运行时引用后移出工作区，原字节可恢复归档及哈希清单见本机 `build/validation/legacy-cleanup.json`。预设继续禁止这些路径混入发行。Noto 上游母版和测试图标保留用于来源核验/回归，但不再导出游戏包；生成 PNG、主动互动音效及程序绘制回退均保留，旧合成音频目录排除运行和发行。
 
 桌宠兼容策略与资源预算见 `docs/design/compatibility-and-performance.md`。Windows 10/11 是发行目标，macOS 为开发验证环境，Linux 尚未承诺发行；Wayland 无全局窗口定位及多边形穿透时固定使用带系统标题栏与控制条的普通小窗，不假装支持无边框桌宠。纹理解析器最多持有 8 张源图集，隐藏小屋/HUD 延迟刷新，最小化桌宠降为 4 FPS，养成计时与奖励不暂停。

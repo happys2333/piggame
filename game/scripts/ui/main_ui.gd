@@ -244,7 +244,7 @@ func _build_top_bar() -> Control:
 	_album_unread_dot.add_theme_stylebox_override("panel", unread_style)
 	_album_button.add_child(_album_unread_dot)
 	actions.add_child(_album_button)
-	var photo := _button("UI_SCREENSHOT", func() -> void: screenshot_requested.emit())
+	var photo := _button("UI_SCREENSHOT", func() -> void: screenshot_requested.emit(), false)
 	photo.name = "PhotoButton"
 	photo.set_meta("label_key", "UI_SCREENSHOT")
 	UIAssets.decorate(photo, "camera", "QuietButton")
@@ -1759,14 +1759,14 @@ func _open_settings() -> void:
 	_setting_toggle(motion, "SETTINGS_REDUCE_DESKTOP_ACTION_FREQUENCY", GameSession.reduce_desktop_action_frequency, GameSession.set_reduce_desktop_action_frequency)
 	var audio := _ui_section(grid, "SETTINGS_AUDIO_GROUP", "volume-2")
 	var audio_enabled: bool = AudioService.is_playback_enabled()
-	if not audio_enabled:
-		var silent_notice := _life_plan_label(tr("SETTINGS_AUDIO_SILENT"))
-		silent_notice.theme_type_variation = "MetaLabel"
-		audio.add_child(silent_notice)
-	audio.add_child(_slider_row("SETTINGS_MUSIC", 0.0, 1.0, AudioService.music_volume, func(value: float) -> void: AudioService.music_volume = value; AudioService.apply(), audio_enabled))
-	audio.add_child(_slider_row("SETTINGS_AMBIENT", 0.0, 1.0, AudioService.ambient_volume, func(value: float) -> void: AudioService.ambient_volume = value; AudioService.apply(), audio_enabled))
-	audio.add_child(_slider_row("SETTINGS_INTERACTION", 0.0, 1.0, AudioService.interaction_volume, func(value: float) -> void: AudioService.interaction_volume = value; AudioService.apply(), audio_enabled))
-	_setting_toggle(audio, "SETTINGS_DESKTOP_MUSIC", AudioService.desktop_music_enabled, func(value: bool) -> void: AudioService.desktop_music_enabled = value; AudioService.apply(); GameSession.save_machine_settings(), audio_enabled)
+	audio.add_child(_slider_row("SETTINGS_INTERACTION", 0.0, 1.0, AudioService.interaction_volume, GameSession.set_sound_volume, audio_enabled))
+	var mute := _setting_toggle(audio, "SETTINGS_SOUND_MUTE", AudioService.muted, GameSession.set_sound_muted, audio_enabled)
+	mute.name = "SoundMuteToggle"
+	var preview := _button("SETTINGS_SOUND_PREVIEW", GameSession.preview_sound)
+	preview.name = "SoundPreviewButton"
+	preview.disabled = not audio_enabled
+	UIAssets.decorate(preview, "volume-2", "QuietButton")
+	audio.add_child(preview)
 	var more := _ui_section(grid, "SETTINGS_MORE_GROUP", "book-open")
 	var skip := _button("SETTINGS_SKIP_TUTORIAL", func() -> void:
 		if GameSession.skip_tutorial():
@@ -2272,11 +2272,12 @@ static func _clear_container(container: Node) -> void:
 		child.queue_free()
 
 
-func _button(text_key: String, callback: Callable) -> Button:
+func _button(text_key: String, callback: Callable, feedback: bool = true) -> Button:
 	var result := Button.new()
 	result.text = tr(text_key)
 	result.focus_mode = Control.FOCUS_ALL
-	result.pressed.connect(func() -> void: AudioService.play_sfx("ui_click"))
 	result.pressed.connect(GameSession.note_explicit_companion_interaction)
 	result.pressed.connect(callback)
+	if feedback:
+		result.pressed.connect(func() -> void: GameSession.call_deferred("play_ui_feedback"))
 	return result

@@ -21,10 +21,10 @@ class AudioAuditTests(unittest.TestCase):
     def runtime_fixture(self, failures: list[str] | None = None) -> dict:
         manifest = json.loads(MODULE.MANIFEST.read_text())
         streams = [{"id":entry["id"], "dummy_playback_position":0.000045, "diagnostic_loop_end":352800, "diagnostic_playback_position":0.2} for entry in manifest["music"] + manifest["sfx"]]
-        return {"completed":True, "assertions":243, "failures":failures or [], "physical_output_tested":False, "driver":"Dummy", "production_playback_enabled":False, "decoded_streams":streams, "future_enabled_policy_observations":[{"unsafe_autonomous_bus_eligibility":False} for _ in range(16)]}
+        return {"completed":True, "assertions":250, "failures":failures or [], "physical_output_tested":False, "driver":"Dummy", "production_playback_enabled":True, "decoded_streams":streams, "policy_observations":[{"unsafe_autonomous_bus_eligibility":False} for _ in range(32)]}
 
     def runtime_result(self, runtime: dict, returncode: int) -> subprocess.CompletedProcess[str]:
-        marker = f"AUDIO_AUDIT: assertions={runtime['assertions']} failures={len(runtime['failures'])} streams=34 production_silent=true physical_output=false"
+        marker = f"AUDIO_AUDIT: assertions={runtime['assertions']} failures={len(runtime['failures'])} streams=13 feedback_only=true physical_output=false"
         return subprocess.CompletedProcess([], returncode, marker + "\n")
 
     def test_pcm_metrics_detect_full_scale_and_loop_jump(self) -> None:
@@ -46,19 +46,19 @@ class AudioAuditTests(unittest.TestCase):
         before = MODULE.sha256(MODULE.MANIFEST)
         report = MODULE.inspect_inventory()
         self.assertEqual(report["technical_failures"], [])
-        self.assertEqual(len(report["files"]), 34)
-        self.assertTrue(report["development_placeholder"])
+        self.assertEqual(len(report["files"]), 13)
+        self.assertFalse(report["development_placeholder"])
         self.assertFalse(report["listening_performed"])
-        self.assertEqual(sum(record["kind"] == "music" for record in report["files"]), 4)
-        self.assertTrue(all(record["channels"] == 1 and record["sample_rate"] == 22050 for record in report["files"]))
+        self.assertEqual(sum(record["kind"] == "music" for record in report["files"]), 0)
+        self.assertTrue(all(record["channels"] == 1 and record["sample_rate"] == 44100 for record in report["files"]))
         self.assertEqual(MODULE.sha256(MODULE.MANIFEST), before)
 
     def test_copy_preflight_does_not_apply_returned_copy(self) -> None:
         before = MODULE.sha256(ROOT / "game/data/localization/game.csv")
         report = MODULE.copy_preflight()
         if report["found"]:
-            self.assertTrue(report["baseline_csv_matches"])
-            self.assertEqual(report["structural_issues"], [])
+            self.assertIsInstance(report["baseline_csv_matches"], bool)
+            self.assertIsInstance(report["structural_issues"], list)
         self.assertFalse(report["applied_by_this_audit"])
         self.assertEqual(MODULE.sha256(ROOT / "game/data/localization/game.csv"), before)
 

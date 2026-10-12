@@ -340,6 +340,8 @@ func _populate_popup(popup: PopupMenu) -> void:
 	popup.add_separator()
 	popup.add_check_item(tr("DESKTOP_QUIET"), 30)
 	popup.add_check_item(tr("DESKTOP_DO_NOT_DISTURB"), 31)
+	popup.add_check_item(tr("SETTINGS_SOUND_MUTE"), 38)
+	popup.set_item_checked(popup.get_item_index(38), AudioService.muted)
 	popup.add_item(tr("FOCUS_TIMER_START"), 32)
 	popup.add_item(tr("FOCUS_TIMER_STOP"), 33)
 	popup.add_item(tr("DESKTOP_COMPANION_SETTINGS"), 34)
@@ -495,6 +497,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func _menu_action(id: int, popup: PopupMenu) -> void:
 	GameSession.note_explicit_companion_interaction()
 	match id:
+		38:
+			GameSession.set_sound_muted(not AudioService.muted)
+			popup.set_item_checked(popup.get_item_index(38), AudioService.muted)
 		1:
 			GameSession.set_focus_mode(not GameSession.focus_mode)
 			popup.set_item_checked(popup.get_item_index(1), GameSession.focus_mode)

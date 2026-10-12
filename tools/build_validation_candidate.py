@@ -87,12 +87,14 @@ def main() -> None:
                      "--main-pack", str(local_pack), "--script", str(ROOT / "tests/export_pack_probe.gd")],
                     environment,
                 )
-                marker = f"PASS: exported pack startup app_type={environment['PIGGAME_EXPECTED_APP_TYPE']} visuals=218 frames=4 residents=2 cache<=8 silent=true protection=true timer=25/5 personalities=5 performances=9/9/6/2"
+                marker = f"PASS: exported pack startup app_type={environment['PIGGAME_EXPECTED_APP_TYPE']} visuals=222 frames=4 residents=2 cache<=8 feedback_only=true protection=true timer=25/5 personalities=5 performances=9/9/6/2 postcards=8 splash=false outfits=head/face:8 retired=4"
                 if output.splitlines().count(marker) != 1:
                     raise RuntimeError("pack startup did not produce the complete success marker")
             if candidate.source_tree_sha256(ROOT) != source_hash:
                 raise RuntimeError("source inputs changed during exports")
             manifest["generated_date"] = date.today().isoformat()
+            manifest["release_stage"] = "player-feedback-development-candidate"
+            manifest["audio_playback_enabled"] = True
             manifest["source_tree_sha256"] = source_hash
             for item in manifest["artifacts"]:
                 item.update(identity(ROOT / item["path"]))

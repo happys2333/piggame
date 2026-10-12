@@ -26,10 +26,7 @@ const DEMO_DESKTOP_DOCKS: Array[String] = ["bottom", "left"]
 const FULL_DESKTOP_DOCKS: Array[String] = ["bottom", "left", "right"]
 const FULL_SAVE_ROOT: String = "piggy_did_nothing_today"
 const DEMO_SAVE_ROOT: String = "piggy_did_nothing_today_demo"
-# The user has frozen background music and sound-effect work until dedicated
-# assets are supplied. Keep every development build silent even if placeholder
-# files remain in the manifest for routing and final-asset validation.
-const AUDIO_PLAYBACK_ENABLED: bool = false
+const AUDIO_PLAYBACK_ENABLED: bool = true
 
 
 static func is_demo() -> bool:

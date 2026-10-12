@@ -254,15 +254,26 @@ def validate_candidate_set(
         errors.append("candidate manifest schema_version must be 1")
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(manifest.get("generated_date", ""))):
         errors.append("candidate manifest generated_date must use YYYY-MM-DD")
-    if manifest.get("release_stage") != "silent-development-candidate":
-        errors.append("release_stage must remain silent-development-candidate")
+    stage = manifest.get("release_stage")
+    if stage not in {"silent-development-candidate", "player-feedback-development-candidate"}:
+        errors.append("release_stage must remain a development candidate, never final-release")
     engine_version = str(manifest.get("engine_version", ""))
     if not engine_version.startswith("4.6.") or ".stable." not in engine_version:
         errors.append("engine_version must identify a Godot 4.6 stable build")
     if manifest.get("export_host") != "macOS":
         errors.append("export_host must record the current macOS cross-export environment")
-    if manifest.get("audio_playback_enabled") is not False:
-        errors.append("audio_playback_enabled must remain false")
+    enabled = stage == "player-feedback-development-candidate"
+    if manifest.get("audio_playback_enabled") is not enabled:
+        errors.append("audio_playback_enabled must remain " + str(enabled).lower() + " for the declared stage")
+    if enabled:
+        audio_path = root / "game/assets/audio/audio_manifest.json"
+        try:
+            audio = json.loads(audio_path.read_text(encoding="utf-8"))
+        except (OSError, ValueError) as error:
+            errors.append(f"cannot read feedback-only audio manifest: {error}")
+        else:
+            if audio.get("playback_policy") != "player_feedback_only" or audio.get("music") != [] or audio.get("release_approved") is not False:
+                errors.append("feedback development candidate requires no BGM and unapproved final audio")
     declared_source_hash = manifest.get("source_tree_sha256")
     if not isinstance(declared_source_hash, str) or not re.fullmatch(
         r"[0-9a-f]{64}", declared_source_hash
@@ -286,11 +297,11 @@ def validate_candidate_set(
         errors.append(f"cannot read ReleaseProfile audio gate {release_profile_path}: {error}")
     else:
         if not re.search(
-            r"^const\s+AUDIO_PLAYBACK_ENABLED:\s*bool\s*=\s*false\s*$",
+            rf"^const\s+AUDIO_PLAYBACK_ENABLED:\s*bool\s*=\s*{str(enabled).lower()}\s*$",
             release_profile_source,
             re.MULTILINE,
         ):
-            errors.append("ReleaseProfile.AUDIO_PLAYBACK_ENABLED must remain typed false")
+            errors.append("ReleaseProfile.AUDIO_PLAYBACK_ENABLED must remain typed " + str(enabled).lower())
 
     artifacts = manifest.get("artifacts")
     if not isinstance(artifacts, list):

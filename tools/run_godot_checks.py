@@ -28,7 +28,7 @@ FATAL_GODOT_OUTPUT_MARKERS = (
     "Failed to load script",
     "Cannot load source code",
 )
-CORE_RULES_PASS_MARKER = "PASS: 7068 assertions"
+CORE_RULES_PASS_MARKER = "PASS: 7053 assertions"
 FULL_PROGRESSION_PASS_MARKER = (
     "PASS-CONTRACT: progression first_furniture=567s levels=2:1223,3:1369,4:1550,5:1708 "
     "event_assisted_level10=32520s level10=38165s ending=36225s first_memory=75s "

@@ -5,3 +5,6 @@
 !/build/.gdignore
 __pycache__/
 *.py[cod]
+audio_candidates/
+docs/copy-review-2026-10-11/**/*.import
+docs/copy-review-2026-10-11/**/*.translation

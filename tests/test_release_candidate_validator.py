@@ -183,6 +183,31 @@ class ReleaseCandidateValidatorTests(unittest.TestCase):
             self.assertTrue(any("audio_playback_enabled must remain false" in error for error in errors))
             self.assertTrue(any("AUDIO_PLAYBACK_ENABLED must remain typed false" in error for error in errors))
 
+    def test_feedback_candidate_requires_matching_stage_and_no_music(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            manifest_path = write_fixture(root)
+            manifest = load_manifest(manifest_path)
+            manifest["release_stage"] = "player-feedback-development-candidate"
+            manifest["audio_playback_enabled"] = True
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            (root / "game/scripts/core/release_profile.gd").write_text("const AUDIO_PLAYBACK_ENABLED: bool = true\n")
+            audio_path = root / "game/assets/audio/audio_manifest.json"
+            audio_path.parent.mkdir(parents=True, exist_ok=True)
+            audio = {"playback_policy":"player_feedback_only", "music":[], "release_approved":False}
+            audio_path.write_text(json.dumps(audio))
+            previous_hash = manifest["source_tree_sha256"]
+            manifest["source_tree_sha256"] = VALIDATOR.source_tree_sha256(root)
+            manifest_path.write_text(json.dumps(manifest))
+            for document in ("build-and-release.md", "windows-test-matrix.md"):
+                path = manifest_path.parent / document
+                path.write_text(path.read_text().replace(previous_hash, manifest["source_tree_sha256"]))
+            self.assertEqual(VALIDATOR.validate_candidate_set(root, manifest_path), [])
+            audio["music"] = [{"id":"not_allowed"}]
+            audio_path.write_text(json.dumps(audio))
+            errors = VALIDATOR.validate_candidate_set(root, manifest_path)
+            self.assertTrue(any("no BGM" in error for error in errors))
+
     def test_rejects_release_document_identity_drift(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

@@ -152,17 +152,17 @@ ENDING_CONTINUE,Continue in Free Companion Mode,继续自由陪伴,繼續自由�
 ENDING_CREDITS,"Piggy Did Nothing Today
 Design, code, and writing: the project team
 Current visuals: image_gen, commissioned by the user
-Audio: silent development placeholders
+Interaction sounds: ComfyUI Cloud Run, commissioned by the user
 Archived upstream pig graphic master: Google Noto Emoji (Apache 2.0, pinned historical commit)
 Thank you to everyone willing to live an ordinary day slowly.","《猪咪今天也没干嘛》
 设计、程序与文字：本项目团队
 当前视觉：image_gen（用户委托生成）
-音频：开发占位，全程静音
+互动音效：ComfyUI Cloud Run（用户委托生成）
 归档上游猪图形母版：Google Noto Emoji（Apache 2.0，固定历史提交）
 感谢每一个愿意把普通日子慢慢过完的人。","《豬咪今天也沒幹嘛》
 設計、程式與文字：本專案團隊
 當前視覺：image_gen（使用者委託生成）
-音訊：開發佔位，全程靜音
+互動音效：ComfyUI Cloud Run（使用者委託生成）
 歸檔上游豬圖形母版：Google Noto Emoji（Apache 2.0，固定歷史提交）
 感謝每一個願意把普通日子慢慢過完的人。"
 ENDING_FREE_COMPANION,Ordinary days carry on.,普通日子，还在继续。,普通日子，還在繼續。
@@ -547,7 +547,7 @@ HELP_SAVING,Progress saves automatically with two backups. Window settings stay 
 LANGUAGE_EN,English,英语,英語
 LANGUAGE_ZH_CN,Simplified Chinese,简体中文,簡體中文
 LANGUAGE_ZH_TW,Traditional Chinese,繁体中文,繁體中文
-LEGAL_NO_BRANDS,"New actions, rooms, props, packaging, music, and sound effects are project originals. Unknown-source legacy assets and real snack brands are not included.",游戏内新增动作、房间、道具、包装、音乐和音效均为项目原创；不包含来源不明的旧素材或现实零食品牌。,遊戲內新增動作、房間、道具、包裝、音樂和音效均為專案原創；不包含來源不明的舊素材或現實零食品牌。
+LEGAL_NO_BRANDS,"Runtime artwork and interaction sounds have recorded provenance. The game includes no background music, unknown-source legacy assets, or real snack brands.",运行美术和互动音效均记录来源；游戏不提供背景音乐，也不包含来源不明的旧素材或现实零食品牌。,執行美術和互動音效均記錄來源；遊戲不提供背景音樂，也不包含來源不明的舊素材或現實零食品牌。
 LEGAL_PRIVACY,"Privacy: the game has no account, private server, ad SDK, or default telemetry and collects no personal data. Progress saves, in-game photos, manual screenshots, and up to five rolling runtime logs stay local by default; logs are never uploaded automatically. When Steam Cloud is enabled, it syncs only the main progression save, two safety backups, and game-generated life-album photos; manual screenshots, exported copies, machine/window settings, and logs stay local. Full game and Demo use isolated cloud paths.",隐私：游戏没有账号、自建服务器、广告 SDK 或默认遥测，不采集个人数据。养成存档、游戏内照片、手动截图和最多 5 份滚动运行日志默认只写入本机；日志不会自动上传。启用 Steam Cloud 时，仅同步养成主档、两份安全备份和游戏自动生成的生活相册照片；手动截图、导出副本、机器/窗口设置和日志仍只留在本机。正式版和 Demo 使用互相隔离的云路径。,隱私：遊戲沒有賬號、自建伺服器、廣告 SDK 或預設遙測，不採集個人資料。養成存檔、遊戲內照片、手動截圖和最多 5 份滾動執行日誌預設只寫入本機；日誌不會自動上傳。啟用 Steam Cloud 時，僅同步養成主檔、兩份安全備份和遊戲自動生成的生活相簿照片；手動截圖、匯出副本、機器/視窗設定和日誌仍只留在本機。正式版和 Demo 使用互相隔離的雲路徑。
 LEGAL_THIRD_PARTY,"Third party: the pig graphic master is archived from Google Noto Emoji commit f2a4f72bffe0212c72949a22698be235269bfab5 under Apache License 2.0. Eight unchanged postcard images come from PigHub with project-owner authorization; this does not establish every author's rights or final release approval. License, source hashes, and notices ship with the game.",第三方：猪图形母版归档自 Google Noto Emoji 历史提交 f2a4f72bffe0212c72949a22698be235269bfab5，依据 Apache License 2.0 使用。八张明信片原图来自 PigHub，按项目所有者授权原样使用；不代表网站已证明全部作者权属或最终发行获批。完整许可证、来源哈希和说明随游戏提供。,第三方：豬圖形母版歸檔自 Google Noto Emoji 歷史提交 f2a4f72bffe0212c72949a22698be235269bfab5，依據 Apache License 2.0 使用。八張明信片原圖來自 PigHub，按專案所有者授權原樣使用；不代表網站已證明全部作者權屬或最終發行獲批。完整許可證、來源雜湊和說明隨遊戲提供。
 LIFE_PLAN_ACTIVE,Your Pig Is Taking Its Time,猪咪正在慢慢做,豬咪正在慢慢做
@@ -770,25 +770,23 @@ SAVE_RECOVERY_MESSAGE,"The save and both backups could not be read. They may be 
 {path}"
 SAVE_RECOVERY_RETRY,Retry Loading Save,重试读取存档,重試讀取存檔
 SAVE_RECOVERY_TITLE,Recover Your Pig's Days First,先找回猪咪的日常,先找回豬咪的日常
-SETTINGS_AMBIENT,Ambient Volume,环境音量,環境音量
 SETTINGS_AUDIO_GROUP,Sound,声音,聲音
-SETTINGS_AUDIO_SILENT,Audio Not Yet Available,音频暂未开放,音訊暫未開放
 SETTINGS_BUBBLE_TIME,Subtitle / Bubble Duration,字幕/气泡停留时间,字幕/氣泡停留時間
 SETTINGS_CAMERA_SHAKE,Camera Shake,镜头晃动,鏡頭晃動
-SETTINGS_DESKTOP_MUSIC,Desktop Music,桌面音乐,桌面音樂
 SETTINGS_DISPLAY_GROUP,Display & text,画面与文字,畫面與文字
 SETTINGS_FULLSCREEN,Fullscreen,全屏,全屏
 SETTINGS_HELP,Help & Replay Tutorial,帮助与重看教程,幫助與重看教程
-SETTINGS_INTERACTION,Interaction Volume,互动音量,互動音量
+SETTINGS_INTERACTION,Sound Effects Volume,音效音量,音效音量
 SETTINGS_LANGUAGE,Language,语言,語言
 SETTINGS_LEGAL,Privacy & Third-Party Notices,隐私与第三方声明,隱私與第三方宣告
 SETTINGS_MORE_GROUP,More,其他,其他
 SETTINGS_MOTION_GROUP,Motion & desktop,动作与桌面,動作與桌面
-SETTINGS_MUSIC,Music Volume,音乐音量,音樂音量
 SETTINGS_REDUCE_DESKTOP_ACTION_FREQUENCY,Reduce Desktop Action Frequency,降低桌面动作频率,降低桌面動作頻率
 SETTINGS_REDUCE_DESKTOP_ROAMING,Reduce Desktop Roaming Range,减少桌面游走范围,減少桌面遊走範圍
 SETTINGS_REDUCE_MOTION,Reduce Motion,减少动态效果,減少動態效果
 SETTINGS_SKIP_TUTORIAL,Skip Current Tutorial,跳过当前新手引导,跳過當前新手引導
+SETTINGS_SOUND_MUTE,Mute Sound Effects,关闭音效,關閉音效
+SETTINGS_SOUND_PREVIEW,Preview Petting Sound,试听摸摸音效,試聽摸摸音效
 SETTINGS_UI_SCALE,UI Scale,界面缩放,介面縮放
 SNACK_APPLE_DESC,Honestly sweet and tart.,酸甜得很诚实。,酸甜得很誠實。
 SNACK_APPLE_NAME,Crisp Apple Slices,脆脆苹果片,脆脆蘋果片

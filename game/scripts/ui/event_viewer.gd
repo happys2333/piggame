@@ -134,9 +134,6 @@ func _apply_step(index: int) -> void:
 	_last_visual_progress = -1.0
 	_stage.position = Vector2.ZERO
 	_stage.set_step(_event, step)
-	var audio: Node = get_node_or_null("/root/AudioService")
-	if audio != null:
-		audio.call("play_event_step", str(step.get("animation", "")))
 
 
 func _update_camera_shake(step: Dictionary, progress: float) -> void:

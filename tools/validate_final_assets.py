@@ -150,6 +150,8 @@ def main() -> int:
     audio = load(ROOT / "game" / "assets" / "audio" / "audio_manifest.json")
     if audio.get("development_placeholder"):
         errors.append("audio manifest still identifies its resources as development placeholders")
+    if audio.get("generated") and audio.get("release_approved") is not True:
+        errors.append("generated feedback integration is not final audio release approval")
     for kind in ("music", "sfx"):
         for item in audio.get(kind, []):
             token = f"audio:{item['id']}"

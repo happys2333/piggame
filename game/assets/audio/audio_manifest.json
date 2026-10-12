@@ -1,143 +1,91 @@
 {
-  "development_placeholder": true,
-  "music": [
-    {
-      "id": "room_morning",
-      "path": "res://game/assets/audio/music/room_morning.wav"
-    },
-    {
-      "id": "room_afternoon",
-      "path": "res://game/assets/audio/music/room_afternoon.wav"
-    },
-    {
-      "id": "room_evening",
-      "path": "res://game/assets/audio/music/room_evening.wav"
-    },
-    {
-      "id": "room_rain",
-      "path": "res://game/assets/audio/music/room_rain.wav"
-    }
+  "schema_version": 2,
+  "development_placeholder": false,
+  "generated": true,
+  "release_approved": false,
+  "playback_policy": "player_feedback_only",
+  "music": [],
+  "retired_ids": [
+    "room_morning",
+    "room_afternoon",
+    "room_evening",
+    "room_rain",
+    "pet_2",
+    "pet_3",
+    "hum_1",
+    "hum_2",
+    "hum_3",
+    "step_1",
+    "step_2",
+    "step_3",
+    "snore_1",
+    "snore_2",
+    "bag_rustle",
+    "fridge_open",
+    "fridge_close",
+    "treadmill",
+    "yoga_roll",
+    "paint",
+    "water",
+    "radio_click",
+    "wind_chime",
+    "robot",
+    "points",
+    "level_up",
+    "event"
   ],
   "sfx": [
     {
       "id": "ui_click",
-      "path": "res://game/assets/audio/sfx/ui_click.wav"
+      "path": "res://game/assets/audio/feedback/ui_click.wav"
     },
     {
-      "id": "pet_1",
-      "path": "res://game/assets/audio/sfx/pet_1.wav"
+      "id": "ui_switch",
+      "path": "res://game/assets/audio/feedback/ui_switch.wav"
     },
     {
-      "id": "pet_2",
-      "path": "res://game/assets/audio/sfx/pet_2.wav"
+      "id": "accessory",
+      "path": "res://game/assets/audio/feedback/accessory.wav"
     },
     {
-      "id": "pet_3",
-      "path": "res://game/assets/audio/sfx/pet_3.wav"
+      "id": "pet_content",
+      "path": "res://game/assets/audio/feedback/pet_content.wav"
     },
     {
-      "id": "hum_1",
-      "path": "res://game/assets/audio/sfx/hum_1.wav"
+      "id": "pet_shy",
+      "path": "res://game/assets/audio/feedback/pet_shy.wav"
     },
     {
-      "id": "hum_2",
-      "path": "res://game/assets/audio/sfx/hum_2.wav"
-    },
-    {
-      "id": "hum_3",
-      "path": "res://game/assets/audio/sfx/hum_3.wav"
-    },
-    {
-      "id": "step_1",
-      "path": "res://game/assets/audio/sfx/step_1.wav"
-    },
-    {
-      "id": "step_2",
-      "path": "res://game/assets/audio/sfx/step_2.wav"
-    },
-    {
-      "id": "step_3",
-      "path": "res://game/assets/audio/sfx/step_3.wav"
-    },
-    {
-      "id": "snore_1",
-      "path": "res://game/assets/audio/sfx/snore_1.wav"
-    },
-    {
-      "id": "snore_2",
-      "path": "res://game/assets/audio/sfx/snore_2.wav"
-    },
-    {
-      "id": "bag_rustle",
-      "path": "res://game/assets/audio/sfx/bag_rustle.wav"
+      "id": "pet_question",
+      "path": "res://game/assets/audio/feedback/pet_question.wav"
     },
     {
       "id": "bite",
-      "path": "res://game/assets/audio/sfx/bite.wav"
+      "path": "res://game/assets/audio/feedback/bite.wav"
     },
     {
       "id": "sip",
-      "path": "res://game/assets/audio/sfx/sip.wav"
+      "path": "res://game/assets/audio/feedback/sip.wav"
     },
     {
-      "id": "fridge_open",
-      "path": "res://game/assets/audio/sfx/fridge_open.wav"
+      "id": "blanket",
+      "path": "res://game/assets/audio/feedback/blanket.wav"
     },
     {
-      "id": "fridge_close",
-      "path": "res://game/assets/audio/sfx/fridge_close.wav"
-    },
-    {
-      "id": "treadmill",
-      "path": "res://game/assets/audio/sfx/treadmill.wav"
-    },
-    {
-      "id": "yoga_roll",
-      "path": "res://game/assets/audio/sfx/yoga_roll.wav"
-    },
-    {
-      "id": "paint",
-      "path": "res://game/assets/audio/sfx/paint.wav"
-    },
-    {
-      "id": "water",
-      "path": "res://game/assets/audio/sfx/water.wav"
-    },
-    {
-      "id": "radio_click",
-      "path": "res://game/assets/audio/sfx/radio_click.wav"
-    },
-    {
-      "id": "wind_chime",
-      "path": "res://game/assets/audio/sfx/wind_chime.wav"
-    },
-    {
-      "id": "camera",
-      "path": "res://game/assets/audio/sfx/camera.wav"
-    },
-    {
-      "id": "robot",
-      "path": "res://game/assets/audio/sfx/robot.wav"
-    },
-    {
-      "id": "soft_bump",
-      "path": "res://game/assets/audio/sfx/soft_bump.wav"
+      "id": "postcard",
+      "path": "res://game/assets/audio/feedback/postcard.wav"
     },
     {
       "id": "unlock",
-      "path": "res://game/assets/audio/sfx/unlock.wav"
+      "path": "res://game/assets/audio/feedback/unlock.wav"
     },
     {
-      "id": "points",
-      "path": "res://game/assets/audio/sfx/points.wav"
+      "id": "camera",
+      "path": "res://game/assets/audio/feedback/camera.wav"
     },
     {
-      "id": "level_up",
-      "path": "res://game/assets/audio/sfx/level_up.wav"
-    },
-    {
-      "id": "event",
-      "path": "res://game/assets/audio/sfx/event.wav"
+      "id": "soft_bump",
+      "path": "res://game/assets/audio/feedback/soft_bump.wav"
     }
   ]
 }

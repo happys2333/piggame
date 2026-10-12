@@ -2,246 +2,189 @@ extends Node
 
 signal settings_changed
 
-const BUS_NAMES: Array[String] = ["Music", "Ambient", "Interaction"]
+const BUS_NAMES: Array[String] = ["Interaction"]
 const MANIFEST_PATH: String = "res://game/assets/audio/audio_manifest.json"
-const SFX_ALIASES := {
-	"pet": "pet_1",
-	"feed": "bite",
-	"purchase": "unlock",
-}
+const VOICE_LIMIT: int = 3
+const FEEDBACK_GAP_MS: int = 140
+const SAME_SOUND_GAP_MS: int = 500
+const SFX_ALIASES := {"pet": "pet_content", "pet_1": "pet_content", "feed": "bite", "purchase": "unlock"}
 
-const EVENT_SFX := {
-	"walk": "step_1", "run": "treadmill", "sleep": "snore_1", "bed_nap": "snore_2",
-	"window_nap": "snore_1", "fridge": "fridge_open", "table_snack": "bite", "cookie_guard": "bag_rustle",
-	"drink": "sip", "tea": "sip", "yoga": "yoga_roll", "blanket_roll": "yoga_roll", "paint": "paint",
-	"water_plant": "water", "radio": "radio_click", "wind_chime": "wind_chime", "robot_ride": "robot",
-	"weather": "water", "ball": "soft_bump", "alarm": "soft_bump",
-	"mirror_pose": "hum_1", "stare": "hum_2",
-}
-
-var music_volume: float = 0.7
-var ambient_volume: float = 0.75
-var interaction_volume: float = 0.8
-var desktop_music_enabled: bool = false
-var desktop_mode: bool = false
+var interaction_volume: float = 0.65
+var muted: bool = false
 var development_placeholder: bool = true
-var _music_ids: Array[String] = []
+var _manifest_valid: bool = false
 var _audio_paths: Dictionary = {}
-var _music_index: int = 0
-var _music_player: AudioStreamPlayer
+var _streams: Dictionary = {}
 var _sfx_players: Array[AudioStreamPlayer] = []
-var _sfx_cursor: int = 0
-var _ambient_players: Array[AudioStreamPlayer] = []
-var _ambient_cursor: int = 0
+var _last_feedback_ms: int = -SAME_SOUND_GAP_MS
+var _last_sound_ms: Dictionary = {}
+var _focused: bool = false
+var _quiet: bool = false
+var _do_not_disturb: bool = false
+var _visible: bool = false
 
 
 func _ready() -> void:
-	var manifest_errors: Array[String] = load_manifest()
-	for error: String in manifest_errors:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	for error: String in load_manifest():
 		push_error("Audio manifest: %s" % error)
 	for bus_name: String in BUS_NAMES:
 		if AudioServer.get_bus_index(bus_name) < 0:
 			AudioServer.add_bus()
 			AudioServer.set_bus_name(AudioServer.bus_count - 1, bus_name)
-	apply()
-	if not is_playback_enabled():
+	var session: Node = get_node_or_null("/root/GameSession")
+	if session != null:
+		session.desktop_companion_changed.connect(_sync_protection)
+	get_window().visibility_changed.connect(_sync_protection)
+	_sync_protection()
+	if not is_playback_enabled() or not _output_available():
 		return
-	_music_player = AudioStreamPlayer.new()
-	_music_player.bus = "Music"
-	_music_player.finished.connect(_next_music)
-	add_child(_music_player)
-	for index: int in 8:
+	for index: int in VOICE_LIMIT:
 		var player := AudioStreamPlayer.new()
 		player.bus = "Interaction"
 		_sfx_players.append(player)
 		add_child(player)
-	for index: int in 2:
-		var ambient_player := AudioStreamPlayer.new()
-		ambient_player.bus = "Ambient"
-		_ambient_players.append(ambient_player)
-		add_child(ambient_player)
-	if DisplayServer.get_name() != "headless":
-		call_deferred("play_music", 0)
 
 
 func load_manifest(path: String = MANIFEST_PATH) -> Array[String]:
 	var errors: Array[String] = []
 	var data: Dictionary = JsonStore.read_object(path)
-	_music_ids.clear()
+	stop_all()
 	_audio_paths.clear()
+	_streams.clear()
+	_manifest_valid = false
 	if data.is_empty():
 		errors.append("could not read %s" % path)
 		return errors
 	development_placeholder = bool(data.get("development_placeholder", true))
-	_load_manifest_entries(data.get("music", []), "music", _music_ids, errors)
-	var sfx_ids: Array[String] = []
-	_load_manifest_entries(data.get("sfx", []), "sfx", sfx_ids, errors)
-	if _music_ids.size() != 4:
-		errors.append("expected 4 music entries, found %d" % _music_ids.size())
-	if sfx_ids.size() != 30:
-		errors.append("expected 30 sound-effect entries, found %d" % sfx_ids.size())
+	if data.get("playback_policy", "") != "player_feedback_only" or data.get("music", []) != []:
+		errors.append("only player feedback is supported; music must be empty")
+	var entries: Variant = data.get("sfx", [])
+	if not entries is Array or (entries as Array).is_empty():
+		errors.append("sfx must be a nonempty array")
+		return errors
+	for raw: Variant in entries as Array:
+		if not raw is Dictionary:
+			errors.append("sfx entry must be an object")
+			continue
+		var entry: Dictionary = raw as Dictionary
+		var id: String = str(entry.get("id", ""))
+		var resource_path: String = str(entry.get("path", ""))
+		if id.is_empty() or _audio_paths.has(id):
+			errors.append("empty or duplicate audio id %s" % id)
+			continue
+		if not resource_path.begins_with("res://") or not ResourceLoader.exists(resource_path):
+			errors.append("%s references missing resource %s" % [id, resource_path])
+			continue
+		_audio_paths[id] = resource_path
 	for alias: String in SFX_ALIASES:
 		if not _audio_paths.has(str(SFX_ALIASES[alias])):
-			errors.append("alias %s references missing audio id %s" % [alias, SFX_ALIASES[alias]])
-	for animation_id: String in EVENT_SFX:
-		if not _audio_paths.has(str(EVENT_SFX[animation_id])):
-			errors.append("event sound %s references missing audio id %s" % [animation_id, EVENT_SFX[animation_id]])
+			errors.append("missing alias target %s" % alias)
+	_manifest_valid = errors.is_empty()
 	return errors
 
 
 func audio_path(id: String) -> String:
-	var resolved_id: String = str(SFX_ALIASES.get(id, id))
-	return str(_audio_paths.get(resolved_id, ""))
-
-
-func music_ids() -> Array[String]:
-	return _music_ids.duplicate()
+	return str(_audio_paths.get(str(SFX_ALIASES.get(id, id)), ""))
 
 
 func is_playback_enabled() -> bool:
 	return ReleaseProfile.AUDIO_PLAYBACK_ENABLED
 
 
-func _load_manifest_entries(value: Variant, kind: String, ordered_ids: Array[String], errors: Array[String]) -> void:
-	if not value is Array:
-		errors.append("%s entries must be an array" % kind)
-		return
-	for raw: Variant in value as Array:
-		if not raw is Dictionary:
-			errors.append("%s entry must be an object" % kind)
-			continue
-		var entry: Dictionary = raw as Dictionary
-		var id: String = str(entry.get("id", ""))
-		var resource_path: String = str(entry.get("path", ""))
-		if id.is_empty() or _audio_paths.has(id):
-			errors.append("%s entry has an empty or duplicate id %s" % [kind, id])
-			continue
-		if not resource_path.begins_with("res://") or not ResourceLoader.exists(resource_path):
-			errors.append("%s references missing resource %s" % [id, resource_path])
-			continue
-		_audio_paths[id] = resource_path
-		ordered_ids.append(id)
-
-
 func configure(data: Dictionary) -> void:
-	music_volume = _bounded_float(data.get("music_volume", music_volume), music_volume, 0.0, 1.0)
-	ambient_volume = _bounded_float(data.get("ambient_volume", ambient_volume), ambient_volume, 0.0, 1.0)
-	interaction_volume = _bounded_float(data.get("interaction_volume", interaction_volume), interaction_volume, 0.0, 1.0)
-	desktop_music_enabled = _safe_bool(data.get("desktop_music_enabled", desktop_music_enabled), desktop_music_enabled)
+	var value: Variant = data.get("interaction_volume", interaction_volume)
+	if typeof(value) in [TYPE_INT, TYPE_FLOAT] and is_finite(float(value)):
+		interaction_volume = clampf(float(value), 0.0, 1.0)
+	var mute_value: Variant = data.get("muted", muted)
+	if mute_value is bool:
+		muted = mute_value
 	apply()
-
-
-func set_desktop_mode(enabled: bool) -> void:
-	desktop_mode = enabled
-	apply()
-
-
-func apply() -> void:
-	var playback_enabled: bool = is_playback_enabled()
-	_set_bus("Music", (0.0 if desktop_mode and not desktop_music_enabled else music_volume) if playback_enabled else 0.0)
-	_set_bus("Ambient", ambient_volume if playback_enabled else 0.0)
-	_set_bus("Interaction", interaction_volume if playback_enabled else 0.0)
-	settings_changed.emit()
 
 
 func to_dict() -> Dictionary:
-	return {
-		"music_volume": music_volume,
-		"ambient_volume": ambient_volume,
-		"interaction_volume": interaction_volume,
-		"desktop_music_enabled": desktop_music_enabled,
-	}
+	return {"interaction_volume": interaction_volume, "muted": muted}
 
 
-func play_music(index: int = -1) -> void:
-	if not is_playback_enabled() or _music_ids.is_empty() or not is_instance_valid(_music_player):
+func set_protection(focused: bool, quiet: bool, do_not_disturb: bool, visible: bool) -> void:
+	_focused = focused
+	_quiet = quiet
+	_do_not_disturb = do_not_disturb
+	_visible = visible
+	apply()
+
+
+func _sync_protection() -> void:
+	var session: Node = get_node_or_null("/root/GameSession")
+	if session == null:
+		set_protection(false, true, true, false)
 		return
-	if index >= 0:
-		_music_index = index % _music_ids.size()
-	var stream: AudioStream = load(audio_path(_music_ids[_music_index]))
-	if stream == null:
-		return
-	if stream is AudioStreamWAV:
-		(stream as AudioStreamWAV).loop_mode = AudioStreamWAV.LOOP_FORWARD
-	elif stream is AudioStreamOggVorbis:
-		(stream as AudioStreamOggVorbis).loop = true
-	_music_player.stream = stream
-	_music_player.play()
+	var policy: DesktopCompanionPolicy = session.desktop_companion
+	set_protection(policy.application_focused, policy.quiet, policy.do_not_disturb, get_window().visible)
 
 
-func play_sfx(id: String) -> void:
-	if not is_playback_enabled() or DisplayServer.get_name() == "headless":
-		return
-	var path: String = audio_path(id)
-	if path.is_empty() or _sfx_players.is_empty():
-		return
-	var player: AudioStreamPlayer = _sfx_players[_sfx_cursor]
-	_sfx_cursor = (_sfx_cursor + 1) % _sfx_players.size()
-	player.stream = load(path)
-	player.play()
+func feedback_allowed(origin: String = "autonomous") -> bool:
+	return origin == "player" and _manifest_valid and is_playback_enabled() and _focused and _visible and not _quiet and not _do_not_disturb and not muted and interaction_volume > 0.0001
 
 
-func play_event_step(animation_id: String) -> void:
-	if not is_playback_enabled() or DisplayServer.get_name() == "headless":
-		return
-	var sound_id: String = str(EVENT_SFX.get(animation_id, ""))
-	if sound_id.is_empty():
-		return
-	var path: String = audio_path(sound_id)
-	if path.is_empty():
-		return
-	var ambient: bool = animation_id in ["weather", "wind_chime", "water_plant", "window_nap"]
-	var player: AudioStreamPlayer
-	if ambient and not _ambient_players.is_empty():
-		player = _ambient_players[_ambient_cursor]
-		_ambient_cursor = (_ambient_cursor + 1) % _ambient_players.size()
-	else:
-		player = _sfx_players[_sfx_cursor]
-		_sfx_cursor = (_sfx_cursor + 1) % _sfx_players.size()
-	player.stream = load(path)
-	player.play()
+func _output_available() -> bool:
+	return DisplayServer.get_name() != "headless"
 
 
-func _next_music() -> void:
-	if _music_ids.is_empty():
-		return
-	_music_index = (_music_index + 1) % _music_ids.size()
-	play_music(_music_index)
+func _window_minimized() -> bool:
+	return get_window().mode == Window.MODE_MINIMIZED
 
 
-func _exit_tree() -> void:
-	stop_all()
+func apply() -> void:
+	var enabled: bool = feedback_allowed("player") and _output_available()
+	var bus_index: int = AudioServer.get_bus_index("Interaction")
+	if bus_index >= 0:
+		AudioServer.set_bus_mute(bus_index, not enabled)
+		AudioServer.set_bus_volume_db(bus_index, linear_to_db(interaction_volume) if enabled else -80.0)
+	if not enabled:
+		stop_all()
+	settings_changed.emit()
+
+
+func play_sfx(id: String, origin: String = "autonomous") -> bool:
+	if not feedback_allowed(origin) or not _output_available() or _window_minimized():
+		return false
+	var resolved_id: String = str(SFX_ALIASES.get(id, id))
+	var path: String = audio_path(resolved_id)
+	var now: int = Time.get_ticks_msec()
+	if path.is_empty() or now - _last_feedback_ms < FEEDBACK_GAP_MS or now - int(_last_sound_ms.get(resolved_id, -SAME_SOUND_GAP_MS)) < SAME_SOUND_GAP_MS:
+		return false
+	var available: AudioStreamPlayer
+	for player: AudioStreamPlayer in _sfx_players:
+		if not player.playing:
+			available = player
+			break
+	if available == null:
+		return false
+	if not _streams.has(resolved_id):
+		var stream: AudioStream = load(path) as AudioStream
+		if stream == null:
+			return false
+		_streams[resolved_id] = stream
+	available.stream = _streams[resolved_id] as AudioStream
+	available.play()
+	_last_feedback_ms = now
+	_last_sound_ms[resolved_id] = now
+	return true
 
 
 func stop_all() -> void:
-	if is_instance_valid(_music_player):
-		_music_player.stop()
-		_music_player.stream = null
 	for player: AudioStreamPlayer in _sfx_players:
 		if is_instance_valid(player):
 			player.stop()
 			player.stream = null
-	for player: AudioStreamPlayer in _ambient_players:
-		if is_instance_valid(player):
-			player.stop()
-			player.stream = null
 
 
-static func _bounded_float(value: Variant, fallback: float, minimum: float, maximum: float) -> float:
-	if typeof(value) not in [TYPE_INT, TYPE_FLOAT]:
-		return fallback
-	return clampf(float(value), minimum, maximum)
+func _notification(what: int) -> void:
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_WM_WINDOW_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED]:
+		_focused = false
+		apply()
 
 
-static func _safe_bool(value: Variant, fallback: bool) -> bool:
-	return bool(value) if value is bool else fallback
-
-
-static func _linear_to_db_safe(value: float) -> float:
-	return linear_to_db(value) if value > 0.0001 else -80.0
-
-
-func _set_bus(bus_name: String, value: float) -> void:
-	var index: int = AudioServer.get_bus_index(bus_name)
-	if index >= 0:
-		AudioServer.set_bus_volume_db(index, _linear_to_db_safe(value))
+func _exit_tree() -> void:
+	stop_all()

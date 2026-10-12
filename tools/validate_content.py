@@ -983,7 +983,9 @@ def main() -> int:
             errors.append("audio manifest must explicitly declare development_placeholder")
             development_placeholder = True
         seen_audio_ids: set[str] = set()
-        for kind, expected_count in (("music", 4), ("sfx", 30)):
+        if audio_manifest.get("playback_policy") != "player_feedback_only":
+            errors.append("audio playback_policy must be player_feedback_only")
+        for kind, expected_count in (("music", 0), ("sfx", 13)):
             entries = audio_manifest.get(kind, [])
             if not isinstance(entries, list):
                 errors.append(f"audio manifest {kind} must be an array")
@@ -1003,12 +1005,12 @@ def main() -> int:
                 if not disk_path.exists():
                     errors.append(f"audio {audio_id}: missing file {resource_path}")
                     continue
-                if development_placeholder:
+                if development_placeholder or audio_manifest.get("generated"):
                     try:
                         with wave.open(str(disk_path), "rb") as source:
                             if source.getnchannels() != 1 or source.getsampwidth() != 2:
                                 errors.append(f"placeholder audio {audio_id}: expected mono 16-bit WAV")
-                            if source.getframerate() != 22050 or source.getnframes() <= 0:
+                            if source.getframerate() != (44100 if audio_manifest.get("generated") else 22050) or source.getnframes() <= 0:
                                 errors.append(f"placeholder audio {audio_id}: invalid sample rate or empty data")
                     except (wave.Error, EOFError) as exc:
                         errors.append(f"placeholder audio {audio_id}: unreadable WAV ({exc})")

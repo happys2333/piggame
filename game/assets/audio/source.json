@@ -1,0 +1,631 @@
+{
+  "schema_version": 1,
+  "integration_date": "2026-10-12",
+  "authorization": "User approved integration of generated sound effects and explicitly declined background music.",
+  "generator": "ComfyUI Cloud Run",
+  "release_approved": false,
+  "provided_by_user": false,
+  "rights_status": "User reports commercial entitlement through Cloud; retain provider and model provenance. Independent final release rights review remains required.",
+  "excluded_candidates": [
+    "day_room",
+    "night_room",
+    "tickle",
+    "wash",
+    "step",
+    "rain_window",
+    "wind_chime"
+  ],
+  "files": [
+    {
+      "id": "ui_click",
+      "kind": "sfx",
+      "model": "Stable Audio 3 Medium, cloud native workflow",
+      "seed": 2026101210,
+      "prompt": "One short muted wooden button tap for a cozy game's interface. A tiny round dry tok sound with a soft attack and very short decay, not a keyboard or mouse recording. Isolated single event, silence before and after. No melody, music, beat, voices, harsh click or background noise.",
+      "source_filename": "ui_click_00001.flac",
+      "provenance": {
+        "embedded_workflow_sha256": "f2e56a30692eec574bd14f0aae3d9039ad500caa7f4b9eec22d3e9efd34fc560",
+        "prompt_seed_and_output_prefix_verified": true,
+        "model_weights_sha256": "not exposed by Cloud"
+      },
+      "master_path": "masters/ui_click.flac",
+      "master_sha256": "2bf9f2f699647a0fa9c207a514c38193660d0955f3a362b8412968638bf0dc00",
+      "prepared_path": "prepared/ui_click.wav",
+      "prepared_sha256": "825a8042212e81df5613e89ec369417b112732b0b2d5f66a8decd2d1fbc8d18a",
+      "prepared_bytes": 30948,
+      "preview_path": "prepared/ui_click.wav",
+      "processing": {
+        "source_metrics_mono": {
+          "seconds": 2.972154195011338,
+          "sample_rate": 44100,
+          "channels": 1,
+          "sample_peak_dbfs": -3.940542952210631,
+          "rms_dbfs": -37.309998513533614,
+          "samples_at_or_above_full_scale": 0,
+          "first_last_sample_jump": 0.039144641767052235
+        },
+        "selection_start_seconds": 0,
+        "selection_seconds": 0.35,
+        "gain_db": -14.059457047789369,
+        "selection_method": "strongest energy window; semantic listening review required",
+        "loop_prepared": false
+      },
+      "metrics": {
+        "seconds": 0.35,
+        "sample_rate": 44100,
+        "channels": 1,
+        "sample_peak_dbfs": -21.010270116759706,
+        "rms_dbfs": -47.513309642085005,
+        "samples_at_or_above_full_scale": 0,
+        "first_last_sample_jump": 0
+      },
+      "subjective_review_passed": false,
+      "runtime_path": "res://game/assets/audio/feedback/ui_click.wav",
+      "integration_approved": true
+    },
+    {
+      "id": "ui_switch",
+      "kind": "sfx",
+      "model": "Stable Audio 3 Medium, cloud native workflow",
+      "seed": 2026101211,
+      "prompt": "One small soft paper-like swish and a gentle rounded wooden tick for switching a cozy game's album tab. Very short, light and unobtrusive. Isolated single event with silence around it. No music, melody, speech, loud whoosh or background ambience.",
+      "source_filename": "ui_switch_00001.flac",
+      "provenance": {
+        "embedded_workflow_sha256": "f2e56a30692eec574bd14f0aae3d9039ad500caa7f4b9eec22d3e9efd34fc560",
+        "prompt_seed_and_output_prefix_verified": true,
+        "model_weights_sha256": "not exposed by Cloud"
+      },
+      "master_path": "masters/ui_switch.flac",
+      "master_sha256": "516dd3f12290df99b08ae067cea08f9fc9438ef09854fd689c29dd511bc9f568",
+      "prepared_path": "prepared/ui_switch.wav",
+      "prepared_sha256": "549995ecae3ee629104c2a7ff47cd9ac9453910b196a0b49dee914de4f70c9d6",
+      "prepared_bytes": 10662,
+      "preview_path": "prepared/ui_switch.wav",
+      "processing": {
+        "source_metrics_mono": {
+          "seconds": 2.972154195011338,
+          "sample_rate": 44100,
+          "channels": 1,
+          "sample_peak_dbfs": 1.7333461642914951,
+          "rms_dbfs": -28.304520120919324,
+          "samples_at_or_above_full_scale": 35,
+          "first_last_sample_jump": 0.0000215791860682657
+        },
+        "selection_start_seconds": 0.47,
+        "selection_seconds": 0.12,
+        "gain_db": -19.733346164291497,
+        "selection_method": "strongest energy window; semantic listening review required",
+        "loop_prepared": false
+      },
+      "metrics": {
+        "seconds": 0.12,
+        "sample_rate": 44100,
+        "channels": 1,
+        "sample_peak_dbfs": -21.010270116759706,
+        "rms_dbfs": -37.23308397447451,
+        "samples_at_or_above_full_scale": 0,
+        "first_last_sample_jump": 0
+      },
+      "subjective_review_passed": false,
+      "runtime_path": "res://game/assets/audio/feedback/ui_switch.wav",
+      "integration_approved": true
+    },
+    {
+      "id": "accessory",
+      "kind": "sfx",
+      "model": "Stable Audio 3 Medium, cloud native workflow",
+      "seed": 2026101212,
+      "prompt": "One short gentle fabric rustle followed by a tiny soft felt pop, as a little hat is placed on a cartoon pig. Intimate dry game Foley, soft transients, cute and restrained. Silence before and after. No music, human speech, zipper, metallic click or background ambience.",
+      "source_filename": "accessory_00001.flac",
+      "provenance": {
+        "embedded_workflow_sha256": "f2e56a30692eec574bd14f0aae3d9039ad500caa7f4b9eec22d3e9efd34fc560",
+        "prompt_seed_and_output_prefix_verified": true,
+        "model_weights_sha256": "not exposed by Cloud"
+      },
+      "master_path": "masters/accessory.flac",
+      "master_sha256": "55200d0892c1a5cbe0d6e9fc1b2526b43dd212dd3fd067225f52bcb9b846577c",
+      "prepared_path": "prepared/accessory.wav",
+      "prepared_sha256": "c847e64c0b4d6d14d59d7887cd6e2dead56ee5248b1b8c067743eb805861c448",
+      "prepared_bytes": 70638,
+      "preview_path": "prepared/accessory.wav",
+      "processing": {
+        "source_metrics_mono": {
+          "seconds": 3.9938321995464854,
+          "sample_rate": 44100,
+          "channels": 1,
+          "sample_peak_dbfs": -2.6124038041498814,
+          "rms_dbfs": -37.78448496326502,
+          "samples_at_or_above_full_scale": 0,
+          "first_last_sample_jump": 0.0004315837286412716
+        },
+        "selection_start_seconds": 1.34,
+        "selection_seconds": 0.8,
+        "gain_db": -15.387596195850119,
+        "selection_method": "strongest energy window; semantic listening review required",
+        "loop_prepared": false
+      },
+      "metrics": {
+        "seconds": 0.8,
+        "sample_rate": 44100,
+        "channels": 1,
+        "sample_peak_dbfs": -22.618346389309387,
+        "rms_dbfs": -51.809517695062965,
+        "samples_at_or_above_full_scale": 0,
+        "first_last_sample_jump": 0
+      },
+      "subjective_review_passed": false,
+      "runtime_path": "res://game/assets/audio/feedback/accessory.wav",
+      "integration_approved": true
+    },
+    {
+      "id": "pet_content",
+      "kind": "sfx",
+      "model": "Stable Audio 3 Medium, cloud native workflow",
+      "seed": 2026101213,
+      "prompt": "A single quiet, rounded nasal grunt of a tiny cartoon pig being gently petted. Affectionate low hmm-oink, no human speech, no sharp squeal. Dry close-up game Foley, one short vocalization with a clean natural decay and silence around it. No music, beat, other animals or background ambience. Soft and funny rather than a loud realistic farm pig.",
+      "source_filename": "pet_content_00001.flac",
+      "provenance": {
+        "embedded_workflow_sha256": "f2e56a30692eec574bd14f0aae3d9039ad500caa7f4b9eec22d3e9efd34fc560",
+        "prompt_seed_and_output_prefix_verified": true,
+        "model_weights_sha256": "not exposed by Cloud"
+      },
+      "master_path": "masters/pet_content.flac",
+      "master_sha256": "e6c7107377a03a1c18adb001f50b2fcbcb0d0acd2cae8305f0d182b0fc8b8597",
+      "prepared_path": "prepared/pet_content.wav",
+      "prepared_sha256": "44fba10a20de0cbf10c1ace875b5b5912d9f784446b06a92c228961edfb02809",
+      "prepared_bytes": 105918,
+      "preview_path": "prepared/pet_content.wav",
+      "processing": {
+        "source_metrics_mono": {
+          "seconds": 3.9938321995464854,
+          "sample_rate": 44100,
+          "channels": 1,
+          "sample_peak_dbfs": -9.591474344143826,
+          "rms_dbfs": -21.45442583805181,
+          "samples_at_or_above_full_scale": 0,
+          "first_last_sample_jump": 0.0005826380074722692
+        },
+        "selection_start_seconds": 0.09,
+        "selection_seconds": 1.2,
+        "gain_db": -8.408525655856174,
+        "selection_method": "strongest energy window; semantic listening review required",
+        "loop_prepared": false
+      },
+      "metrics": {
+        "seconds": 1.2,
+        "sample_rate": 44100,
+        "channels": 1,
+        "sample_peak_dbfs": -21.010270116759706,
+        "rms_dbfs": -29.134650971336285,
+        "samples_at_or_above_full_scale": 0,
+        "first_last_sample_jump": 0.00006103515625
+      },
+      "subjective_review_passed": false,
+      "runtime_path": "res://game/assets/audio/feedback/pet_content.wav",
+      "integration_approved": true
+    },
+    {
+      "id": "pet_shy",
+      "kind": "sfx",
+      "model": "Stable Audio 3 Medium, cloud native workflow",
+      "seed": 2026101214,
+      "prompt": "A tiny cartoon pig makes one shy soft nasal squeak and a little breathy grunt, bashful after a head pat. Quiet, rounded and warm, not shrill. Single short dry close-up vocalization, silence around it. No intelligible human speech, laughter track, music, beat, other animals or background noise.",
+      "source_filename": "pet_shy_00001.flac",
+      "provenance": {
+        "embedded_workflow_sha256": "f2e56a30692eec574bd14f0aae3d9039ad500caa7f4b9eec22d3e9efd34fc560",
+        "prompt_seed_and_output_prefix_verified": true,
+        "model_weights_sha256": "not exposed by Cloud"
+      },
+      "master_path": "masters/pet_shy.flac",
+      "master_sha256": "bb7067064cbf017c6a1bcbf78ad633ac84563a5db309522de2ad4a3a33f4f393",
+      "prepared_path": "prepared/pet_shy.wav",
+      "prepared_sha256": "c89c1daf1045de32020ff5c59a0e7ef7855f02cc21c1253ad53785003ecad9a4",
+      "prepared_bytes": 105918,
+      "preview_path": "prepared/pet_shy.wav",
+      "processing": {
+        "source_metrics_mono": {
+          "seconds": 3.9938321995464854,
+          "sample_rate": 44100,
+          "channels": 1,
+          "sample_peak_dbfs": -6.958031814618128,
+          "rms_dbfs": -32.225056072741054,
+          "samples_at_or_above_full_scale": 0,
+          "first_last_sample_jump": 0.0003668461722554639
+        },
+        "selection_start_seconds": 0.11,
+        "selection_seconds": 1.2,
+        "gain_db": -11.041968185381872,
+        "selection_method": "strongest energy window; semantic listening review required",
+        "loop_prepared": false
+      },
+      "metrics": {
+        "seconds": 1.2,
+        "sample_rate": 44100,
+        "channels": 1,
+        "sample_peak_dbfs": -21.010270116759706,
+        "rms_dbfs": -42.40275879961615,
+        "samples_at_or_above_full_scale": 0,
+        "first_last_sample_jump": 0
+      },
+      "subjective_review_passed": false,
+      "runtime_path": "res://game/assets/audio/feedback/pet_shy.wav",
+      "integration_approved": true
+    },
+    {
+      "id": "pet_question",
+      "kind": "sfx",
+      "model": "Stable Audio 3 Medium, cloud native workflow",
+      "seed": 2026101215,
+      "prompt": "One curious short soft nasal oink from a tiny cartoon pig, with a gently rising questioning tone. Comically puzzled, low volume and rounded, not a distressed squeal. Isolated dry close-up one-shot and silence around it. No human words, music, beat, other animals or background ambience.",
+      "source_filename": "pet_question_00001.flac",
+      "provenance": {
+        "embedded_workflow_sha256": "f2e56a30692eec574bd14f0aae3d9039ad500caa7f4b9eec22d3e9efd34fc560",
+        "prompt_seed_and_output_prefix_verified": true,
+        "model_weights_sha256": "not exposed by Cloud"
+      },
+      "master_path": "masters/pet_question.flac",
+      "master_sha256": "1286672bce3429659901053a40ef6121c6d8ebadb928678c6c810afbf32e29e8",
+      "prepared_path": "prepared/pet_question.wav",
+      "prepared_sha256": "263e554342f69dcd0e1a53b270f6ac73590db6d09245488ac613c01f0e20dd02",
+      "prepared_bytes": 88278,
+      "preview_path": "prepared/pet_question.wav",
+      "processing": {
+        "source_metrics_mono": {
+          "seconds": 3.9938321995464854,
+          "sample_rate": 44100,
+          "channels": 1,
+          "sample_peak_dbfs": -4.730713816690406,
+          "rms_dbfs": -25.24099955344649,
+          "samples_at_or_above_full_scale": 0,
+          "first_last_sample_jump": 0.000258950249190093
+        },
+        "selection_start_seconds": 1.4,
+        "selection_seconds": 1,
+        "gain_db": -13.269286183309594,
+        "selection_method": "strongest energy window; semantic listening review required",
+        "loop_prepared": false
+      },
+      "metrics": {
+        "seconds": 1,
+        "sample_rate": 44100,
+        "channels": 1,
+        "sample_peak_dbfs": -21.010270116759706,
+        "rms_dbfs": -36.151629157785855,
+        "samples_at_or_above_full_scale": 0,
+        "first_last_sample_jump": 0
+      },
+      "subjective_review_passed": false,
+      "runtime_path": "res://game/assets/audio/feedback/pet_question.wav",
+      "integration_approved": true
+    },
+    {
+      "id": "bite",
+      "kind": "sfx",
+      "model": "Stable Audio 3 Medium, cloud native workflow",
+      "seed": 2026101217,
+      "prompt": "One small soft biscuit bite and a brief gentle chew for feeding a cute cartoon pig. A warm delicate crunch, restrained dry close-up Foley. Isolated single event with silence around it. No wet exaggerated mouth sounds, speech, animal squeals, music, beat or background noise.",
+      "source_filename": "bite_00001.flac",
+      "provenance": {
+        "embedded_workflow_sha256": "f2e56a30692eec574bd14f0aae3d9039ad500caa7f4b9eec22d3e9efd34fc560",
+        "prompt_seed_and_output_prefix_verified": true,
+        "model_weights_sha256": "not exposed by Cloud"
+      },
+      "master_path": "masters/bite.flac",
+      "master_sha256": "08afc57d6e480d0ff70ffd4ecf6bc5c0347f6903e9c72fe615f36db3558c9e87",
+      "prepared_path": "prepared/bite.wav",
+      "prepared_sha256": "8e956b11ce2956d6dd1d52741285c5d26a0da50578a681057db59422443ce6bd",
+      "prepared_bytes": 105918,
+      "preview_path": "prepared/bite.wav",
+      "processing": {
+        "source_metrics_mono": {
+          "seconds": 3.9938321995464854,
+          "sample_rate": 44100,
+          "channels": 1,
+          "sample_peak_dbfs": -6.04555511430234,
+          "rms_dbfs": -38.61071119976017,
+          "samples_at_or_above_full_scale": 0,
+          "first_last_sample_jump": 0.0007984298863448203
+        },
+        "selection_start_seconds": 0.15,
+        "selection_seconds": 1.2,
+        "gain_db": -11.95444488569766,
+        "selection_method": "strongest energy window; semantic listening review required",
+        "loop_prepared": false
+      },
+      "metrics": {
+        "seconds": 1.2,
+        "sample_rate": 44100,
+        "channels": 1,
+        "sample_peak_dbfs": -21.010270116759706,
+        "rms_dbfs": -48.62947744185518,
+        "samples_at_or_above_full_scale": 0,
+        "first_last_sample_jump": 0
+      },
+      "subjective_review_passed": false,
+      "runtime_path": "res://game/assets/audio/feedback/bite.wav",
+      "integration_approved": true
+    },
+    {
+      "id": "sip",
+      "kind": "sfx",
+      "model": "Stable Audio 3 Medium, cloud native workflow",
+      "seed": 2026101218,
+      "prompt": "One tiny quiet sip of water from a small cup, soft liquid movement and a light cup touch. Natural dry close-up Foley for a cozy pet game. Single short event with silence around it. No long sucking sound, human speech, music, beat or background ambience.",
+      "source_filename": "sip_00001.flac",
+      "provenance": {
+        "embedded_workflow_sha256": "f2e56a30692eec574bd14f0aae3d9039ad500caa7f4b9eec22d3e9efd34fc560",
+        "prompt_seed_and_output_prefix_verified": true,
+        "model_weights_sha256": "not exposed by Cloud"
+      },
+      "master_path": "masters/sip.flac",
+      "master_sha256": "197cf22b31186489e96dbe1882e9e707bb6f9727a6aa4acf2f246f2c012c4768",
+      "prepared_path": "prepared/sip.wav",
+      "prepared_sha256": "0ecc35e2e83ccc05ec47661f001f8a4e6bc0923d280147d64d6bd62fbfef64d6",
+      "prepared_bytes": 88278,
+      "preview_path": "prepared/sip.wav",
+      "processing": {
+        "source_metrics_mono": {
+          "seconds": 3.9938321995464854,
+          "sample_rate": 44100,
+          "channels": 1,
+          "sample_peak_dbfs": -7.424685213499079,
+          "rms_dbfs": -40.21235028089347,
+          "samples_at_or_above_full_scale": 0,
+          "first_last_sample_jump": 0.0008847466087900102
+        },
+        "selection_start_seconds": 1.02,
+        "selection_seconds": 1,
+        "gain_db": -10.575314786500922,
+        "selection_method": "strongest energy window; semantic listening review required",
+        "loop_prepared": false
+      },
+      "metrics": {
+        "seconds": 1,
+        "sample_rate": 44100,
+        "channels": 1,
+        "sample_peak_dbfs": -21.010270116759706,
+        "rms_dbfs": -50.35743570397811,
+        "samples_at_or_above_full_scale": 0,
+        "first_last_sample_jump": 0
+      },
+      "subjective_review_passed": false,
+      "runtime_path": "res://game/assets/audio/feedback/sip.wav",
+      "integration_approved": true
+    },
+    {
+      "id": "blanket",
+      "kind": "sfx",
+      "model": "Stable Audio 3 Medium, cloud native workflow",
+      "seed": 2026101220,
+      "prompt": "One soft cotton blanket unfolds and settles over a tiny sleeping pet. Delicate dry fabric rustle, warm and quiet, a short natural tail. One action with silence before and after. No zipper, plastic crinkle, music, speech, animal sounds or background ambience.",
+      "source_filename": "blanket_00001.flac",
+      "provenance": {
+        "embedded_workflow_sha256": "f2e56a30692eec574bd14f0aae3d9039ad500caa7f4b9eec22d3e9efd34fc560",
+        "prompt_seed_and_output_prefix_verified": true,
+        "model_weights_sha256": "not exposed by Cloud"
+      },
+      "master_path": "masters/blanket.flac",
+      "master_sha256": "71b77e6a61b9913a311b42a2d824b8eb0ab0b2b9321d0010a3b50cdee8aa8062",
+      "prepared_path": "prepared/blanket.wav",
+      "prepared_sha256": "8daff30b2792729b910b1435f1ce19620cb0fd7514b2b06de41a16067e65964c",
+      "prepared_bytes": 122676,
+      "preview_path": "prepared/blanket.wav",
+      "processing": {
+        "source_metrics_mono": {
+          "seconds": 3.9938321995464854,
+          "sample_rate": 44100,
+          "channels": 1,
+          "sample_peak_dbfs": -4.710057239401959,
+          "rms_dbfs": -36.43351446136103,
+          "samples_at_or_above_full_scale": 0,
+          "first_last_sample_jump": 0.000302108601317741
+        },
+        "selection_start_seconds": 0.44,
+        "selection_seconds": 1.39,
+        "gain_db": -13.289942760598041,
+        "selection_method": "strongest energy window; semantic listening review required",
+        "loop_prepared": false
+      },
+      "metrics": {
+        "seconds": 1.39,
+        "sample_rate": 44100,
+        "channels": 1,
+        "sample_peak_dbfs": -21.010270116759706,
+        "rms_dbfs": -48.18057487276227,
+        "samples_at_or_above_full_scale": 0,
+        "first_last_sample_jump": 0
+      },
+      "subjective_review_passed": false,
+      "runtime_path": "res://game/assets/audio/feedback/blanket.wav",
+      "integration_approved": true
+    },
+    {
+      "id": "postcard",
+      "kind": "sfx",
+      "model": "Stable Audio 3 Medium, cloud native workflow",
+      "seed": 2026101221,
+      "prompt": "One gentle paper envelope opening and a thick postcard softly sliding out. Intimate restrained paper Foley with a short warm dry decay, for a cozy game's album. Single event with silence around it. No ripping, music, melody, speech or background noise.",
+      "source_filename": "postcard_00001.flac",
+      "provenance": {
+        "embedded_workflow_sha256": "f2e56a30692eec574bd14f0aae3d9039ad500caa7f4b9eec22d3e9efd34fc560",
+        "prompt_seed_and_output_prefix_verified": true,
+        "model_weights_sha256": "not exposed by Cloud"
+      },
+      "master_path": "masters/postcard.flac",
+      "master_sha256": "877bac97bf5e6eff5d2bc6809b4f765aff943067aed4cde2970ad1109ce9e573",
+      "prepared_path": "prepared/postcard.wav",
+      "prepared_sha256": "2c11d460608a34187567f4fa6054002ee9de811b42124ba844c591cc54a5cbee",
+      "prepared_bytes": 132378,
+      "preview_path": "prepared/postcard.wav",
+      "processing": {
+        "source_metrics_mono": {
+          "seconds": 3.9938321995464854,
+          "sample_rate": 44100,
+          "channels": 1,
+          "sample_peak_dbfs": -8.190716945522615,
+          "rms_dbfs": -36.50899738690101,
+          "samples_at_or_above_full_scale": 0,
+          "first_last_sample_jump": 0.0004963212704751641
+        },
+        "selection_start_seconds": 0.35,
+        "selection_seconds": 1.5,
+        "gain_db": -9.809283054477385,
+        "selection_method": "strongest energy window; semantic listening review required",
+        "loop_prepared": false
+      },
+      "metrics": {
+        "seconds": 1.5,
+        "sample_rate": 44100,
+        "channels": 1,
+        "sample_peak_dbfs": -21.010270116759706,
+        "rms_dbfs": -45.69718589430209,
+        "samples_at_or_above_full_scale": 0,
+        "first_last_sample_jump": 0
+      },
+      "subjective_review_passed": false,
+      "runtime_path": "res://game/assets/audio/feedback/postcard.wav",
+      "integration_approved": true
+    },
+    {
+      "id": "unlock",
+      "kind": "sfx",
+      "model": "Stable Audio 3 Medium, cloud native workflow",
+      "seed": 2026101222,
+      "prompt": "One tiny warm two-note wooden mallet reward chime, soft low-to-middle register, a friendly rising interval with a short natural decay. Modest and reassuring, not a victory fanfare. Isolated game one-shot with silence around it. No full song, percussion beat, speech, harsh bell, sparkling high frequencies or background ambience.",
+      "source_filename": "unlock_00001.flac",
+      "provenance": {
+        "embedded_workflow_sha256": "f2e56a30692eec574bd14f0aae3d9039ad500caa7f4b9eec22d3e9efd34fc560",
+        "prompt_seed_and_output_prefix_verified": true,
+        "model_weights_sha256": "not exposed by Cloud"
+      },
+      "master_path": "masters/unlock.flac",
+      "master_sha256": "ecd99d5705ffd0a2f1dd78dbe67a7353975805d5e215669029fd5339c20fa785",
+      "prepared_path": "prepared/unlock.wav",
+      "prepared_sha256": "f266b62a5362da68c57ef6086021fad443f99dc089305b41819eacaa1350ea8f",
+      "prepared_bytes": 96216,
+      "preview_path": "prepared/unlock.wav",
+      "processing": {
+        "source_metrics_mono": {
+          "seconds": 3.9938321995464854,
+          "sample_rate": 44100,
+          "channels": 1,
+          "sample_peak_dbfs": -0.9374319013385041,
+          "rms_dbfs": -23.952016693681685,
+          "samples_at_or_above_full_scale": 0,
+          "first_last_sample_jump": 0.0009494842270214576
+        },
+        "selection_start_seconds": 0.03,
+        "selection_seconds": 1.09,
+        "gain_db": -17.062568098661497,
+        "selection_method": "strongest energy window; semantic listening review required",
+        "loop_prepared": false
+      },
+      "metrics": {
+        "seconds": 1.09,
+        "sample_rate": 44100,
+        "channels": 1,
+        "sample_peak_dbfs": -21.010270116759706,
+        "rms_dbfs": -38.43322797851017,
+        "samples_at_or_above_full_scale": 0,
+        "first_last_sample_jump": 0
+      },
+      "subjective_review_passed": false,
+      "runtime_path": "res://game/assets/audio/feedback/unlock.wav",
+      "integration_approved": true
+    },
+    {
+      "id": "camera",
+      "kind": "sfx",
+      "model": "Stable Audio 3 Medium, cloud native workflow",
+      "seed": 2026101223,
+      "prompt": "One very soft small camera shutter made of two muted mechanical ticks, rounded and quiet. Short dry close-up game Foley, silence before and after. No loud DSLR slap, flash beep, music, voice, beat or background noise.",
+      "source_filename": "camera_00001.flac",
+      "provenance": {
+        "embedded_workflow_sha256": "f2e56a30692eec574bd14f0aae3d9039ad500caa7f4b9eec22d3e9efd34fc560",
+        "prompt_seed_and_output_prefix_verified": true,
+        "model_weights_sha256": "not exposed by Cloud"
+      },
+      "master_path": "masters/camera.flac",
+      "master_sha256": "d7cecea6af620b9ae5a27d058344b56288712824fe18dc0103c40acd7185a080",
+      "prepared_path": "prepared/camera.wav",
+      "prepared_sha256": "ac9f03e963a62555a3dbee8e61ff13c9d224437a7ba9aa96dbcd7b8e144af4db",
+      "prepared_bytes": 52998,
+      "preview_path": "prepared/camera.wav",
+      "processing": {
+        "source_metrics_mono": {
+          "seconds": 2.972154195011338,
+          "sample_rate": 44100,
+          "channels": 1,
+          "sample_peak_dbfs": -1.9571427666744996,
+          "rms_dbfs": -36.183172715782284,
+          "samples_at_or_above_full_scale": 0,
+          "first_last_sample_jump": 0.00032368778192903847
+        },
+        "selection_start_seconds": 0.61,
+        "selection_seconds": 0.6,
+        "gain_db": -16.0428572333255,
+        "selection_method": "strongest energy window; semantic listening review required",
+        "loop_prepared": false
+      },
+      "metrics": {
+        "seconds": 0.6,
+        "sample_rate": 44100,
+        "channels": 1,
+        "sample_peak_dbfs": -21.010270116759706,
+        "rms_dbfs": -49.05011574398926,
+        "samples_at_or_above_full_scale": 0,
+        "first_last_sample_jump": 0
+      },
+      "subjective_review_passed": false,
+      "runtime_path": "res://game/assets/audio/feedback/camera.wav",
+      "integration_approved": true
+    },
+    {
+      "id": "soft_bump",
+      "kind": "sfx",
+      "model": "Stable Audio 3 Medium, cloud native workflow",
+      "seed": 2026101224,
+      "prompt": "One small soft rubber ball lightly bumps a padded wooden floor, a round muffled plop with a short decay. Cute and quiet isolated cartoon game Foley with silence around it. No boing melody, music, speech, repeated bouncing or background ambience.",
+      "source_filename": "soft_bump_00001.flac",
+      "provenance": {
+        "embedded_workflow_sha256": "f2e56a30692eec574bd14f0aae3d9039ad500caa7f4b9eec22d3e9efd34fc560",
+        "prompt_seed_and_output_prefix_verified": true,
+        "model_weights_sha256": "not exposed by Cloud"
+      },
+      "master_path": "masters/soft_bump.flac",
+      "master_sha256": "7fd92f4dca76bad3d069b9e6242734ba7b5899ae9bb95669b1e13d9d833285b4",
+      "prepared_path": "prepared/soft_bump.wav",
+      "prepared_sha256": "5e19f64d7b4510e6fa5319d171e9f118b2dd5811e8736b5a6601b57a131aa291",
+      "prepared_bytes": 52998,
+      "preview_path": "prepared/soft_bump.wav",
+      "processing": {
+        "source_metrics_mono": {
+          "seconds": 2.972154195011338,
+          "sample_rate": 44100,
+          "channels": 1,
+          "sample_peak_dbfs": -3.661827479127134,
+          "rms_dbfs": -34.79619515353314,
+          "samples_at_or_above_full_scale": 0,
+          "first_last_sample_jump": 0.0730239674448967
+        },
+        "selection_start_seconds": 0,
+        "selection_seconds": 0.6,
+        "gain_db": -14.338172520872867,
+        "selection_method": "strongest energy window; semantic listening review required",
+        "loop_prepared": false
+      },
+      "metrics": {
+        "seconds": 0.6,
+        "sample_rate": 44100,
+        "channels": 1,
+        "sample_peak_dbfs": -21.010270116759706,
+        "rms_dbfs": -45.46130610989255,
+        "samples_at_or_above_full_scale": 0,
+        "first_last_sample_jump": 0
+      },
+      "subjective_review_passed": false,
+      "runtime_path": "res://game/assets/audio/feedback/soft_bump.wav",
+      "integration_approved": true
+    }
+  ]
+}

@@ -100,8 +100,8 @@ func _run() -> void:
 	print("UI phase: background companion protection")
 	await _test_desktop_companion_protection(main, session, ui)
 	print("UI phase: saves and offline summaries")
-	print("UI phase: silent audio settings")
-	await _test_silent_audio_settings(session, ui)
+	print("UI phase: feedback audio settings")
+	await _test_feedback_audio_settings(session, ui)
 	print("UI phase: caption duration")
 	await _test_event_caption_duration(session, ui)
 	print("UI phase: save recovery")
@@ -2537,43 +2537,43 @@ func _test_help_replay_and_tendency(session: Node, ui: Control) -> void:
 	ui.call("_refresh")
 
 
-func _test_silent_audio_settings(session: Node, ui: Control) -> void:
+func _test_feedback_audio_settings(session: Node, ui: Control) -> void:
 	_press_visible_button_with_text(ui, tr("UI_SETTINGS"))
 	await get_tree().process_frame
-	var has_notice: bool = false
+	var has_obsolete_audio: bool = false
 	var has_reduce_motion: bool = false
 	var has_reduce_roaming: bool = false
 	var reduce_desktop_actions_checkbox: CheckBox
 	var camera_shake_checkbox: CheckBox
 	for node: Node in ui.find_children("*", "Label", true, false):
 		var label := node as Label
-		has_notice = has_notice or (label != null and label.text == tr("SETTINGS_AUDIO_SILENT"))
-	var disabled_audio_sliders: int = 0
+		has_obsolete_audio = has_obsolete_audio or (label != null and label.text in ["SETTINGS_AUDIO_SILENT", "SETTINGS_MUSIC", "SETTINGS_AMBIENT"])
+	var sound_volume_controls: int = 0
 	var bubble_slider: HSlider
 	for node: Node in ui.find_children("*", "HSlider", true, false):
 		var slider := node as HSlider
-		if slider != null and not slider.editable:
-			disabled_audio_sliders += 1
+		if slider != null and slider.accessibility_name == tr("SETTINGS_INTERACTION") and slider.editable:
+			sound_volume_controls += 1
 		if slider != null:
 			var row := slider.get_parent() as BoxContainer
 			var label := row.get_child(0) as Label if row != null and row.get_child_count() > 0 else null
 			if label != null and label.text == tr("SETTINGS_BUBBLE_TIME"):
 				bubble_slider = slider
-	var desktop_music_disabled: bool = false
+	var mute_editable: bool = false
 	for node: Node in ui.find_children("*", "CheckBox", true, false):
 		var checkbox := node as CheckBox
 		if checkbox != null:
-			if checkbox.text == tr("SETTINGS_DESKTOP_MUSIC"):
-				desktop_music_disabled = checkbox.disabled
+			if checkbox.text == tr("SETTINGS_SOUND_MUTE"):
+				mute_editable = not checkbox.disabled
 			has_reduce_motion = has_reduce_motion or checkbox.text == tr("SETTINGS_REDUCE_MOTION")
 			has_reduce_roaming = has_reduce_roaming or checkbox.text == tr("SETTINGS_REDUCE_DESKTOP_ROAMING")
 			if checkbox.text == tr("SETTINGS_REDUCE_DESKTOP_ACTION_FREQUENCY"):
 				reduce_desktop_actions_checkbox = checkbox
 			if checkbox.text == tr("SETTINGS_CAMERA_SHAKE"):
 				camera_shake_checkbox = checkbox
-	_expect_true(has_notice, "settings explain that the current development build is intentionally silent")
-	_expect_true(disabled_audio_sliders == 3, "music, ambient and interaction sliders are disabled in the silent build")
-	_expect_true(desktop_music_disabled, "desktop music toggle is disabled in the silent build")
+	_expect_true(not has_obsolete_audio, "obsolete music and placeholder labels are absent")
+	_expect_true(sound_volume_controls == 1, "settings expose one editable sound-effect volume slider")
+	_expect_true(mute_editable, "settings expose an editable sound-effect mute toggle")
 	_expect_true(has_reduce_motion, "settings expose the general reduced-motion preference")
 	_expect_true(camera_shake_checkbox != null and camera_shake_checkbox.button_pressed == session.camera_shake_enabled, "settings expose an independent camera-shake preference")
 	_expect_true(has_reduce_roaming, "settings expose an independent reduced desktop roaming preference")

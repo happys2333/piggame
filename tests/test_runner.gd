@@ -1113,7 +1113,7 @@ func _test_texture_cache_budget() -> void:
 
 
 func _test_final_asset_runtime_catalog() -> void:
-	_expect_eq(FinalAssetCatalog.expected_coverage_tokens().size(), 256, "runtime resolver derives active final-asset coverage including postcards but no retired wearables")
+	_expect_eq(FinalAssetCatalog.expected_coverage_tokens().size(), 235, "runtime resolver derives coverage including postcards and feedback but no BGM or retired wearables")
 	var base := "user://piggy_final_asset_catalog_tests"
 	_remove_tree(ProjectSettings.globalize_path(base))
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(base))
@@ -1390,47 +1390,33 @@ func _test_profile_save_migration() -> void:
 
 func _test_audio_manifest_routes() -> void:
 	var service: Node = AudioServiceScript.new()
-	_expect_eq(service.load_manifest(), [], "audio runtime manifest validates")
-	_expect_true(not service.is_playback_enabled(), "development runtime is explicitly silent until dedicated audio is supplied")
-	_expect_eq(service.music_ids().size(), 4, "audio runtime loads four ordered music entries")
+	_expect_eq(service.load_manifest(), [], "audio feedback manifest validates")
+	_expect_true(service.is_playback_enabled(), "approved player feedback is enabled")
 	var manifest: Dictionary = JsonStore.read_object(AudioServiceScript.MANIFEST_PATH)
-	for kind: String in ["music", "sfx"]:
-		for entry: Dictionary in manifest.get(kind, []) as Array:
-			var id: String = str(entry.get("id", ""))
-			_expect_eq(service.audio_path(id), str(entry.get("path", "")), "audio manifest route is live: %s" % id)
-	_expect_eq(service.audio_path("pet"), service.audio_path("pet_1"), "semantic pet sound resolves through the manifest")
-	_expect_eq(service.audio_path("feed"), service.audio_path("bite"), "semantic feed sound resolves through the manifest")
-	for animation_id: String in AudioServiceScript.EVENT_SFX:
-		_expect_true(not service.audio_path(str(AudioServiceScript.EVENT_SFX[animation_id])).is_empty(), "event sound resolves through the manifest: %s" % animation_id)
+	_expect_eq(manifest.music, [], "no background music is shipped")
+	_expect_eq(manifest.sfx.size(), 13, "thirteen selected feedback effects are shipped")
+	for entry: Dictionary in manifest.sfx as Array:
+		_expect_eq(service.audio_path(str(entry.id)), str(entry.path), "audio manifest route is live: %s" % entry.id)
+	for alias: String in AudioServiceScript.SFX_ALIASES:
+		_expect_eq(service.audio_path(alias), service.audio_path(str(AudioServiceScript.SFX_ALIASES[alias])), "semantic feedback alias " + alias)
 	var runtime_audio: Node = root.get_node_or_null("AudioService")
-	_expect_true(runtime_audio != null and runtime_audio.get_child_count() == 0, "silent development runtime creates no playback nodes")
-	for bus_name: String in AudioServiceScript.BUS_NAMES:
-		var bus_index: int = AudioServer.get_bus_index(bus_name)
-		_expect_true(bus_index >= 0 and AudioServer.get_bus_volume_db(bus_index) <= -79.9, "silent development runtime mutes the %s bus" % bus_name)
-	service.music_volume = 0.35
-	service.ambient_volume = 0.45
-	service.interaction_volume = 0.55
-	service.desktop_music_enabled = true
-	service.configure({
-		"music_volume": [],
-		"ambient_volume": "loud",
-		"interaction_volume": {},
-		"desktop_music_enabled": 1,
-	})
-	_expect_true(is_equal_approx(service.music_volume, 0.35), "malformed music volume preserves the last safe value")
-	_expect_true(is_equal_approx(service.ambient_volume, 0.45), "malformed ambient volume preserves the last safe value")
-	_expect_true(is_equal_approx(service.interaction_volume, 0.55), "malformed interaction volume preserves the last safe value")
-	_expect_eq(service.desktop_music_enabled, true, "malformed desktop music flag preserves the last safe value")
-	service.configure({
-		"music_volume": -2,
-		"ambient_volume": 3.0,
-		"interaction_volume": 0.25,
-		"desktop_music_enabled": false,
-	})
-	_expect_eq(service.music_volume, 0.0, "numeric music volume clamps to the lower bound")
-	_expect_eq(service.ambient_volume, 1.0, "numeric ambient volume clamps to the upper bound")
-	_expect_eq(service.interaction_volume, 0.25, "valid interaction volume is restored exactly")
-	_expect_eq(service.desktop_music_enabled, false, "valid desktop music flag restores exactly")
+	_expect_true(runtime_audio != null and runtime_audio.get_child_count() == 0, "headless runtime never creates output nodes")
+	service.configure({"interaction_volume":0.55, "muted":true})
+	service.configure({"interaction_volume":{}, "muted":1})
+	_expect_eq(service.to_dict(), {"interaction_volume":0.55, "muted":true}, "malformed settings retain safe values")
+	service.configure({"interaction_volume":INF})
+	_expect_eq(service.interaction_volume, 0.55, "nonfinite volume is rejected")
+	service.configure({"music_volume":1.0, "desktop_music_enabled":true, "interaction_volume":3.0, "muted":false})
+	_expect_eq(service.to_dict(), {"interaction_volume":1.0, "muted":false}, "legacy BGM settings are discarded")
+	for focused: bool in [false, true]:
+		for quiet: bool in [false, true]:
+			for disturb: bool in [false, true]:
+				for visible: bool in [false, true]:
+					service.set_protection(focused, quiet, disturb, visible)
+					_expect_eq(service.feedback_allowed("player"), focused and not quiet and not disturb and visible, "feedback respects interruption policy")
+					_expect_true(not service.feedback_allowed(), "unspecified or autonomous origin is always silent")
+	service.configure({"interaction_volume":-2})
+	_expect_eq(service.interaction_volume, 0.0, "volume clamps at zero")
 	service.free()
 
 

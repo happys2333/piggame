@@ -14,6 +14,9 @@ from pathlib import Path, PurePosixPath
 
 
 REQUIRED_FILES = {
+    "LICENSES/Audio/SOURCE.md",
+    "game/assets/audio/audio_manifest.json",
+    "game/assets/audio/source.json",
     "game/assets/interface/source.json",
     "game/assets/interface/fonts/pig-ui-body.ttf.import",
     "game/assets/interface/fonts/pig-ui-title.ttf.import",
@@ -52,6 +55,9 @@ REQUIRED_FILES.update(
     for name in ("wake", "carrot", "flat", "huddle", "park", "fact", "bold", "belly")
 )
 FORBIDDEN_PREFIXES = (
+    "audio_candidates/",
+    "game/assets/audio/music/",
+    "game/assets/audio/sfx/",
     "build/",
     "assest/",
     "script/",
