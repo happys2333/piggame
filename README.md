@@ -71,6 +71,12 @@ python3 tools/run_ui_smoke.py --generated-art-regressions
 
 运行器只在临时工程内执行无头导入以生成 Godot 类缓存，再以 Dummy 音频驱动启动真实渲染烟测；导入与运行阶段都会检查合并输出，即使 Godot 进程返回 0，只要出现脚本解析、加载或其他致命错误仍会判定失败。每次同步前都会完整清空既有 UI 证据，即使本轮没有生成截图也不会保留旧文件；随后只有 PNG 截图会写入被 Git、Godot 资源扫描和发行预设排除的 `build/validation/ui/`，临时 Godot 导入侧车不会保留，隔离用户目录随后精确清理。
 
+## GitHub Actions 三平台测试包
+
+`.github/workflows/build-desktop.yml` 在推送 `main` 或手动运行时，生成 Windows x64、macOS Intel/Apple Silicon 通用、Linux x64 的正式版和 Demo。进入 GitHub **Actions → Desktop development builds → 对应运行 → Artifacts**，下载 `piggame-windows-*`、`piggame-macos-*` 或 `piggame-linux-*`，每份包含两个包及 SHA-256 清单。
+
+这些是开发测试包，不是已签名、公证或最终资源验收通过的正式发行。macOS 只有临时 ad-hoc 签名，无需 Apple/Steam 密钥；Windows、macOS、Linux 均需真实桌面输入、音频、透明窗口和多屏验证。官方模板只下载一次，校验固定 SHA-512 后按平台拆分；各平台 Full/Demo 串行导出，失败日志仍上传。详见 `docs/release/ci-builds.md`。
+
 ## Windows x64 构建
 
 安装 Godot 4.6.3 官方 Windows x86_64 导出模板后运行：

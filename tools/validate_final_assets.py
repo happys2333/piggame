@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import hashlib
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -166,8 +167,9 @@ def main() -> int:
         if f'config/icon="{app_icon_path}"' not in project_config:
             errors.append("ui:app_icon final path is not active in project.godot")
         expected_export_reference = f'application/icon="{app_icon_path}"'
-        if export_presets.count(expected_export_reference) != 2:
-            errors.append("ui:app_icon final path must be active in both Windows export presets")
+        export_icons = re.findall(r"^application/icon=.+$", export_presets, re.MULTILINE)
+        if len(export_icons) < 2 or any(line != expected_export_reference for line in export_icons):
+            errors.append("ui:app_icon final path must be active in every icon-bearing desktop preset")
     if errors:
         print("Final asset validation failed (expected until dedicated assets are supplied):")
         for error in errors:

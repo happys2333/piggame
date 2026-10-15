@@ -282,6 +282,14 @@ class FinalAssetImporterTests(unittest.TestCase):
     def test_production_contract_has_235_tokens_without_music(self) -> None:
         self.assertEqual(len(IMPORTER.validate_final_assets.expected_coverage()), 235)
 
+    def test_import_updates_windows_and_macos_icons(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, plan_path, _ = make_fixture(Path(directory))
+            path = root / "export_presets.cfg"
+            path.write_text(path.read_text() + '[preset.2.options]\napplication/icon="res://game/assets/ui/app_icon.svg"\n[preset.3.options]\napplication/icon="res://game/assets/ui/app_icon.svg"\n')
+            prepared = IMPORTER.prepare_import(plan_path, root=root, expected_tokens=EXPECTED)
+            self.assertEqual(prepared.export_presets_bytes.count(b'application/icon="res://game/assets/final/visual/final.png"'), 4)
+
 
 if __name__ == "__main__":
     unittest.main()

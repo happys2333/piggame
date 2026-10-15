@@ -1,0 +1,127 @@
+name: Desktop development builds
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'docs/copy-review-*/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: desktop-build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONUTF8: '1'
+
+jobs:
+  prepare:
+    name: Validate and prepare official templates
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.12'
+      - name: Install validation dependencies
+        run: python -m pip install Pillow==11.3.0 PyYAML==6.0.3
+      - name: Check build tooling and content
+        run: |
+          python -m unittest discover -s tests -p 'test_*validator.py'
+          python -m unittest discover -s tests -p 'test_ci_desktop.py'
+          python -m unittest discover -s tests -p 'test_final_asset_importer.py'
+          python -m unittest discover -s tests -p 'test_godot_check_runner.py'
+          python -m unittest discover -s tests -p 'test_startup_config.py'
+          python tools/validate_content.py
+      - name: Download pinned engine and split verified export templates
+        shell: bash
+        run: python tools/setup_ci_godot.py --platform linux --directory "$RUNNER_TEMP/godot" --prepare-templates build/ci/templates
+      - name: Run isolated headless game checks
+        shell: bash
+        run: python tools/build_ci_desktop.py --godot "$GODOT_BIN" --checks-only --output build/ci/validation
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: ci-templates-windows
+          path: build/ci/templates/windows/
+          if-no-files-found: error
+          retention-days: 1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: ci-templates-macos
+          path: build/ci/templates/macos/
+          if-no-files-found: error
+          retention-days: 1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: ci-templates-linux
+          path: build/ci/templates/linux/
+          if-no-files-found: error
+          retention-days: 1
+      - name: Upload validation logs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: validation-logs
+          path: build/ci/validation/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  build:
+    name: Build ${{ matrix.platform }} Full and Demo
+    needs: prepare
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows
+            runner: windows-2022
+          - platform: macos
+            runner: macos-15
+          - platform: linux
+            runner: ubuntu-24.04
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.12'
+      - name: Download verified platform templates
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: ci-templates-${{ matrix.platform }}
+          path: ${{ runner.temp }}/godot-templates
+      - name: Install pinned native Godot
+        shell: bash
+        env:
+          TARGET_PLATFORM: ${{ matrix.platform }}
+        run: python tools/setup_ci_godot.py --platform "$TARGET_PLATFORM" --directory "$RUNNER_TEMP/godot" --templates "$RUNNER_TEMP/godot-templates"
+      - name: Build and audit Full and Demo sequentially
+        shell: bash
+        env:
+          TARGET_PLATFORM: ${{ matrix.platform }}
+        run: python tools/build_ci_desktop.py --godot "$GODOT_BIN" --platform "$TARGET_PLATFORM" --output "build/ci/$TARGET_PLATFORM"
+      - name: Upload playable development builds
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: piggame-${{ matrix.platform }}-${{ github.sha }}
+          path: build/ci/${{ matrix.platform }}/artifacts/
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
+      - name: Upload build logs even on failure
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: build-logs-${{ matrix.platform }}
+          path: build/ci/${{ matrix.platform }}/logs/
+          if-no-files-found: ignore
+          retention-days: 7

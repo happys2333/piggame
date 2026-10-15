@@ -334,8 +334,11 @@ def prepare_import(
             "audio playback must remain disabled or use the approved player-feedback-only policy"
         )
     updated_project = replace_setting(project_text, "config/icon", app_icon_path, 1)
+    export_icon_count = len(re.findall(r"^application/icon=", export_text, re.MULTILINE))
+    if export_icon_count < 2:
+        raise ImportFailure("desktop exports must include at least the two Windows icons")
     updated_exports = replace_setting(
-        export_text, "application/icon", app_icon_path, 2
+        export_text, "application/icon", app_icon_path, export_icon_count
     )
 
     final_manifest = {

@@ -4868,7 +4868,7 @@ func _test_release_configuration() -> void:
 	_expect_true('name="Windows x64 Demo"' in preset and 'custom_features="demo"' in preset, "Windows demo export preset enables the demo profile")
 	_expect_true('PiggyDidNothingTodayDemo.exe' in preset, "Windows demo has a distinct export artifact")
 	var product_icon: String = str(ProjectSettings.get_setting("application/config/icon", ""))
-	_expect_true(not product_icon.is_empty() and preset.count('application/icon="%s"' % product_icon) == 2, "both Windows exports use the currently active product icon")
+	_expect_true(not product_icon.is_empty() and preset.count('application/icon="%s"' % product_icon) == 4, "Windows and macOS Full/Demo exports use the currently active product icon")
 	_expect_true("assest/**" in preset and "start.tscn" in preset, "legacy assets and scenes are excluded from release")
 	_expect_true("build/**" in preset, "validation captures and previous builds are excluded from release")
 	var internal_release_docs_excluded: bool = true
